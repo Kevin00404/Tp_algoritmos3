@@ -7,7 +7,7 @@ public class Habilidad{
     String nombre;
     Double multiplicador_mismo_tipo;
     Element elemento;
-    Integer poder_de_ataque;
+    Double poder_de_ataque;
     Integer cantidad_de_usos;
     Double mismoTipo;
     public Double getMultiplicadorMismotipo(Element elemento){
