@@ -8,5 +8,7 @@ public class Main {
         Pokemon pokemon_de_fuego = new Pokemon("Charmander", new Fuego(), "Nacio en un volcan(?");
         Pokemon pokemon_de_agua = new Pokemon("Squirtle", new Agua(), "Nacio en un Lago(?");
 
+
+        //pokemon_de_fuego.atacar(pokemon_de_agua, );
     }
 }

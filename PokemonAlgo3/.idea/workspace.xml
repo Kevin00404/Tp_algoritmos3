@@ -5,39 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Agua.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Bicho.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Dragon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Electrico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fantasma.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fuego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Hielo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Lucha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Normal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Planta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Psiquico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Roca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Tierra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Veneno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Volador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,19 +41,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "nazarenotaibo",
-    "last_opened_file_path": "F:/Users/Nazareno/Documents/Projects/Tp_algoritmos3/PokemonAlgo3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;adandemarco&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/Projects/Tp_algoritmos3/PokemonAlgo3&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Elemento" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
