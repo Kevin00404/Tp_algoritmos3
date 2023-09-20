@@ -44,7 +44,7 @@ public class Pokemon {
         return ataque;
     }
 
-    public boolean estaVivo(){
+    public boolean estaVivo(){ //
         if (vida > 0){
             return true;
         }
@@ -55,8 +55,8 @@ public class Pokemon {
         this.estado.atacar(pokemon, habilidad /* esto sería una clave de un diccionario*/, this.elemento);
     }
 
-    public void recibirDanio(Integer poderDeAtaque /*de la habilidad*/, Double mismoTipo, Element element /*elemento de la habilidad*/, Integer ataquePokemonAtaca) {
-        Double tipo = this.elemento.danio_final(element, danio_base /*este daño sale de la propia habilidad*/);
+    public void recibirDanio(Double poderDeAtaque /*de la habilidad*/, Double mismoTipo, Element element /*elemento de la habilidad*/, Integer ataquePokemonAtaca) {
+        Double tipo = this.elemento.danio_final(element, poderDeAtaque /*este daño sale de la propia habilidad*/);
         /*this.defensa;*/
         Double damage = (((2 * this.nivel*critico*poderDeAtaque*(ataquePokemonAtaca/this.defensa))/5 + 2)/50)*mismoTipo*tipo*random;
         /* random y crítico son 1 por ahora */
