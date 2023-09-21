@@ -24,8 +24,6 @@ public class Pokemon {
     Integer critico = 1;
     Integer random = 1;
 
-
-
     public Pokemon(String nombre, Element tipo, String historia) {
         this.nombre = nombre;
         this.elemento = tipo;
@@ -35,7 +33,7 @@ public class Pokemon {
         velocidad = 20;
         nivel = 1;
         vida = 100.0;
-        estado = new EstadoNormal();
+        estado = new Estado();
 
         //primera_habilidad = new HabilidadAtaque("Ataque Normal", 10, new Normal(), 5, elemento.bonus_mismo_tipo(new Normal()));
         //segunda_habilidad = new HabilidadAtaque("Ataque De Fuego", 10, new Fuego(), 5, elemento.bonus_mismo_tipo(new Normal()));
@@ -52,6 +50,7 @@ public class Pokemon {
     }
 
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Integer ataque /*ataque del pokemon que ataca (creo que hay que cambiarla, no está bien la sintaxis*/){
+        this.estado.verificarEstado();
         this.estado.atacar(pokemon, habilidad /* esto sería una clave de un diccionario*/, this.elemento);
     }
 
