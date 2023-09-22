@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
