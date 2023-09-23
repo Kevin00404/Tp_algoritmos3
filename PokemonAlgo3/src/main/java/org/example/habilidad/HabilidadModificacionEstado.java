@@ -2,6 +2,7 @@ package org.example.habilidad;
 
 public class HabilidadModificacionEstado extends Habilidad{
 
+<<<<<<< HEAD
     private void cambiarEstado(Pokemon pokemon,Estado estado) {
         if pokemon.estado ==/*estadoNormal*/{
             pokemon.estado=estado
@@ -22,4 +23,6 @@ public class HabilidadModificacionEstado extends Habilidad{
 
 
 
+=======
+>>>>>>> b9bad8d9362f907a82a5de84a0673a3be41e01c8
 }

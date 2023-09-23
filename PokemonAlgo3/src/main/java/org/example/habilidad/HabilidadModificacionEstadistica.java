@@ -4,6 +4,7 @@ package org.example.habilidad;
 //estadisticas del adversario o de s´ı mismo.
 public class HabilidadModificacionEstadistica extends Habilidad{
 
+<<<<<<< HEAD
     //duda:dejar como constantes o que sean atributos? Así si se cambian los valores se dan al crear el objeto.
     final Integer AUMENTO  5;
     final Integer DISMINUYE 5;
@@ -41,4 +42,6 @@ public class HabilidadModificacionEstadistica extends Habilidad{
             pokenon.ataque=MIN_VALOR
         }
     }
+=======
+>>>>>>> b9bad8d9362f907a82a5de84a0673a3be41e01c8
 }
