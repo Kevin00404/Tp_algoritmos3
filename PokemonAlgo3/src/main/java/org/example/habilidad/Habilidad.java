@@ -3,23 +3,22 @@ package org.example.habilidad;
 import org.example.Elemento.Element;
 import org.example.pokemon.Pokemon;
 
-public class Habilidad{
+public asbtract class Habilidad {
     String nombre;
-    Double multiplicador_mismo_tipo;
-    Element elemento;
-    Double poder_de_ataque;
-    Integer cantidad_de_usos;
-    Double mismoTipo;
-    public Double getMultiplicadorMismotipo(Element elemento){
-        if (this.elemento.get_tipo() == elemento.get_tipo()){
-            return 1.5; // mismoTipo
-        }
-        else{
-            return 1.0;
-        }
+    Int cantidadDisponible;
+    String tipoDeHabilidad;
+   // String poder;   //Este atributo esta en el enunciado de TP pero sólo se usa en habilidad Ataque. Se declara el atributo en esa habilidad.
+
+    protected Habilidad(String nombre, Int cantidadDisponible, String tipoDeHabilidad) {
+        this.nombre = nombre;
+        this.cantidadDisponible = cantidadDisponible;
+        this.tipoDeHabilidad = tipoDeHabilidad;
     }
-    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Element element /*elemento del pokemon que está atacando*/){
-        mismoTipo = this.getMultiplicadorMismotipo(element);
-        pokemon.recibirDanio(poder_de_ataque, mismoTipo, elemento, pokemon.getAtaque());
-    }
+
+
+//    Double multiplicador_mismo_tipo;
+//    Element elemento;
+//    Double poder_de_ataque;
+//    Integer cantidad_de_usos;
+//    Double mismoTipo;
 }
