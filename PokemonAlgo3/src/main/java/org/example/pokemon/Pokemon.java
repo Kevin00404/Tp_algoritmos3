@@ -50,17 +50,6 @@ public class Pokemon {
         this.nivel = NIVEL_INICIO;
         this.vida = VIDAMAXIMA;
         this.estado = new EstadoNormal();
-=======
-        ataque = 10;
-        defensa = 3;
-        velocidad = 20;
-        nivel = 1;
-        vida = 100.0;
-        estado = new Estado();
-
-        //primera_habilidad = new HabilidadAtaque("Ataque Normal", 10, new Normal(), 5, elemento.bonus_mismo_tipo(new Normal()));
-        //segunda_habilidad = new HabilidadAtaque("Ataque De Fuego", 10, new Fuego(), 5, elemento.bonus_mismo_tipo(new Normal()));
->>>>>>> b9bad8d9362f907a82a5de84a0673a3be41e01c8
     }
 
     public Pokemon(String nombre, String historia, Element elemento, Habilidad primeraHabilidad, Habilidad segundaHabilidad, Habilidad terceraHabilidad, Habilidad cuartaHabilidad) {
