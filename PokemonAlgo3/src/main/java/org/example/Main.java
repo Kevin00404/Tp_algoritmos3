@@ -12,6 +12,7 @@ public class Main {
 
         Pokemon pokemon_de_tierra=new Pokemon("Tierron", new Tierra(),"Nacio de una planta(?");
         Pokemon pokjemon_electrico=new Pokemon("Pikachu", new Electrico(),"Nacio de los rayos(?");
+        Stringg as="ol";
 
 
         //pokemon_de_fuego.atacar(pokemon_de_agua, );

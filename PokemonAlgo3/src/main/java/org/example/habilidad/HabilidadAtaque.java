@@ -11,6 +11,7 @@ public class HabilidadAtaque extends Habilidad{
 
     final  double MATCH_TIPO_ATAQUE_Y_POKEMON=1.5;
     final double NO_MATCH_TIPO_ATAQUE_Y_POKEMON=1;
+    
     public HabilidadAtaque(String nombre, Int cantidadDisponible, String tipoDeHabilidad,Double multiplicador_mismo_tipo, Element elemento, Integer poder_de_ataque, Double mismoTipo) {
         super(nombre,cantidadDisponible,tipoDeHabilidad)//se repite en las otras dos habilidades.
         this.multiplicador_mismo_tipo = multiplicador_mismo_tipo;
