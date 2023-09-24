@@ -6,13 +6,6 @@ import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 
-<<<<<<< HEAD
-final int NIVEL_INICIO=1;
-final double VIDAMAXIMA=100.0;
-
-=======
-import static org.example.estado.Estado.estadoPokemon.NORMAL;
->>>>>>> b9bad8d9362f907a82a5de84a0673a3be41e01c8
 
 public class Pokemon {
     String nombre;
