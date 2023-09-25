@@ -12,7 +12,7 @@ public class HabilidadModificacionEstado extends Habilidad{
 
 
     public HabilidadModificacionEstado(Integer cantidadDisponible, String tipoDeHabilidad) {
-        super(nombre, cantidadDisponible, tipoDeHabilidad);
+        super("nombre", cantidadDisponible, tipoDeHabilidad);
     }
 
     private void cambiarEstado(Pokemon pokemon, Estado estado) {
