@@ -1,4 +1,4 @@
-package org.example.Elemento;
+/*package org.example.Elemento;
 
 public class Psiquico implements Element{
     String nombre_tipo = "Psiquico";
@@ -61,3 +61,4 @@ public class Psiquico implements Element{
         return danio_base;
     }
 }
+*/

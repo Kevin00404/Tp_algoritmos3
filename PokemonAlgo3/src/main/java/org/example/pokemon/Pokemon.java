@@ -80,7 +80,9 @@ public class Pokemon {
     }
 
     public void recibirDanio(Double poderDeAtaque /*de la habilidad*/, Double mismoTipo, Element element /*elemento de la habilidad*/, Integer ataquePokemonAtaca) {
-        Double tipo = this.elemento.danio_final(element, poderDeAtaque /*este daño sale de la propia habilidad*/);
+        Double tipo;
+        Element elementos = new Fuego();
+        tipo = this.elemento.danio_final(elementos, poderDeAtaque /*este daño sale de la propia habilidad*/);
         /*this.defensa;*/
         Double damage = (((2 * this.nivel*critico*poderDeAtaque*(ataquePokemonAtaca/this.defensa))/5 + 2)/50)*mismoTipo*tipo*random;
         /* random y crítico son 1 por ahora */

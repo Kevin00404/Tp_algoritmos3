@@ -11,7 +11,6 @@ public class Habilidad{
     Integer cantidad_de_usos;
     Double mismoTipo;
 
-
     public Habilidad(String nombre, Double poder, Element elemento, Integer usos, Double multiplicador_mismo_tipo){
         this.nombre = nombre;
         this.elemento = elemento;
@@ -19,7 +18,6 @@ public class Habilidad{
         this.cantidad_de_usos = usos;
         this.multiplicador_mismo_tipo = multiplicador_mismo_tipo;
     }
-
     public Double getMultiplicadorMismotipo(Element elemento){
         if (this.elemento.get_tipo() == elemento.get_tipo()){
             return 1.5; // mismoTipo

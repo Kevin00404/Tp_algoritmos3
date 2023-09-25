@@ -1,4 +1,4 @@
-package org.example.Elemento;
+/*package org.example.Elemento;
 
 public class Tierra implements Element {
     String nombre_tipo = "Tierra";
@@ -61,3 +61,4 @@ public class Tierra implements Element {
         return danio_base;
     }
 }
+*/
