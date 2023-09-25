@@ -1,78 +1,72 @@
 package org.example.Elemento;
 
 public class Bicho extends Element{
-    String nombre_tipo = "Bicho";
     public Bicho(){
-
+        nombre_tipo = "Bicho";
     }
-    public String get_tipo()
+    @Override
+    public Double mixElement(Element element)
     {
-        return nombre_tipo;
+        return element.multiplicador_danio_tipo(this);
     }
-    public Double bonus_mismo_tipo(Element elemento) {
-        if (this.nombre_tipo == elemento.get_tipo()){
-            return 1.5;
-        }
+    @Override
+    public Double multiplicador_danio_tipo(Fuego fuego){
+        return 2*1.0;
+    }
+    @Override
+    public Double multiplicador_danio_tipo(Agua agua){
         return 1.0;
     }
     @Override
-    public Double danio_final(Fuego fuego, Double danio_base){
-        return 2*danio_base;
+    public Double multiplicador_danio_tipo(Bicho bicho){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Agua agua, Double danio_base){
-        return danio_base;
-    }/*
-    @Override
-    public Double danio_final(Bicho bicho, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Dragon dragon){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Dragon dragon, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Electrico electrico){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Electrico electrico, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Fantasma fuego) {
+        return 1.0;
     }
     @Override
-    public Double danio_final(Fantasma fuego, Double danio_base) {
-        return danio_base;
+    public Double multiplicador_danio_tipo(Hielo hielo){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Hielo hielo, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Lucha lucha){
+        return 0.5*1.0;
     }
     @Override
-    public Double danio_final(Lucha lucha, Double danio_base){
-        return 0.5*danio_base;
+    public Double multiplicador_danio_tipo(Normal normal){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Normal normal, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Planta planta){
+        return 0.5*1.0;
     }
     @Override
-    public Double danio_final(Planta planta, Double danio_base){
-        return 0.5*danio_base;
+    public Double multiplicador_danio_tipo(Psiquico psiquico){
+        return 1.0;
     }
     @Override
-    public Double danio_final(Psiquico psiquico, Double danio_base){
-        return danio_base;
+    public Double multiplicador_danio_tipo(Roca roca){
+        return 2*1.0;
     }
     @Override
-    public Double danio_final(Roca roca, Double danio_base){
-        return 2*danio_base;
+    public Double multiplicador_danio_tipo(Tierra tierra){
+        return 0.5*1.0;
     }
     @Override
-    public Double danio_final(Tierra tierra, Double danio_base){
-        return 0.5*danio_base;
+    public Double multiplicador_danio_tipo(Veneno veneno){
+        return 2*1.0;
     }
     @Override
-    public Double danio_final(Veneno veneno, Double danio_base){
-        return 2*danio_base;
+    public Double multiplicador_danio_tipo(Volador volador){
+        return 2*1.0;
     }
-    @Override
-    public Double danio_final(Volador volador, Double danio_base){
-        return 2*danio_base;
-    }*/
 }
