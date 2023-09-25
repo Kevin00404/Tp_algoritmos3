@@ -1,4 +1,4 @@
-package org.example.Elemento;
+/*package org.example.Elemento;
 
 public class Normal implements Element {
     String nombre_tipo = "Normal";
@@ -61,3 +61,4 @@ public class Normal implements Element {
         return danio_base;
     }
 }
+*/

@@ -1,4 +1,4 @@
-package org.example.Elemento;
+/*package org.example.Elemento;
 
 public class Hielo implements Element {
     String nombre_tipo = "Hielo";
@@ -61,3 +61,4 @@ public class Hielo implements Element {
         return danio_base;
     }
 }
+*/

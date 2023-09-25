@@ -1,6 +1,7 @@
+/*
 package org.example.Elemento;
 
-public class Lucha implements Element {
+/*public class Lucha implements Element {
     String nombre_tipo = "Lucha";
     public Lucha(){
 
@@ -21,6 +22,8 @@ public class Lucha implements Element {
     public Double danio_final(Agua agua, Double danio_base){
         return danio_base;
     }
+
+
     public Double danio_final(Bicho bicho, Double danio_base){
         return 0.5*danio_base;
     }
@@ -61,3 +64,4 @@ public class Lucha implements Element {
         return 2*danio_base;
     }
 }
+*/
