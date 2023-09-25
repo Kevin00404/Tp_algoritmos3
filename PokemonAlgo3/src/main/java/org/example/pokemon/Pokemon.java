@@ -18,39 +18,62 @@ public class Pokemon {
     String historia;
     Estado estado;
     Element elemento;
-    Habilidad primera_habilidad;
-    Habilidad segunda_habilidad;
-    Habilidad tercera_habilidad;
-    Habilidad cuarta_habilidad;
+    Habilidad primeraHabilidad;
+    Habilidad segundaHabilidad;
+    Habilidad terceraHabilidad;
+    Habilidad cuartaHabilidad;
 
-    Integer critico = 1; // hay que cambiarlo
-    Integer random = 1; // hay que cambiarlo
+    //Integer critico = 1; // hay que cambiarlo...que es esto?
+    //Integer random = 1; // hay que cambiarlo..que es esto?
+
+    final int NIVEL_INICIO=1;
+    final double VIDAMAXIMA=100.0;
+
 
     public Pokemon(String nombre, Element tipo, String historia) {
         this.nombre = nombre;
         this.elemento = tipo;
         this.historia = historia;
-        ataque = 10;
-        defensa = 3;
-        velocidad = 20;
-        nivel = 1;
-        vida = 100.0;
-        estado = new Estado();
-
-        //primera_habilidad = new HabilidadAtaque("Ataque Normal", 10, new Normal(), 5, elemento.bonus_mismo_tipo(new Normal()));
-        //segunda_habilidad = new HabilidadAtaque("Ataque De Fuego", 10, new Fuego(), 5, elemento.bonus_mismo_tipo(new Normal()));
+        nivel = NIVEL_INICIO;
+        vida = VIDAMAXIMA;
+        estado = new EstadoNormal();
     }
+
+    public Pokemon(String nombre, String historia, Element elemento, Habilidad primeraHabilidad, Habilidad segundaHabilidad, Habilidad terceraHabilidad, Habilidad cuartaHabilidad) {
+        this.nombre = nombre;
+        this.historia = historia;
+        this.elemento = elemento;
+        this.primeraHabilidad = primeraHabilidad;
+        this.segundaHabilidad = segundaHabilidad;
+        this.terceraHabilidad = terceraHabilidad;
+        this.cuartaHabilidad = cuartaHabilidad;
+        this.nivel = NIVEL_INICIO;
+        this.vida = VIDAMAXIMA;
+        this.estado = new EstadoNormal();
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public Integer getAtaque() {
         return ataque;
     }
 
-    public boolean estaVivo(){ //
-        if (vida > 0){
-            return true;
-        }
-        else return false;
+    public boolean estaVivo(){
+        return vida > 0;
     }
 
+    //notaKevin:la habilidad atacar es única por pokemon. Creo no hay que pasarla por parámetro.
+    //e Integer que seria el ataque se puede reemplazar por this.ataque.
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Integer ataque /*ataque del pokemon que ataca (creo que hay que cambiarla, no está bien la sintaxis*/){
         switch (this.estado.verificarEstado()){
             case NORMAL:
