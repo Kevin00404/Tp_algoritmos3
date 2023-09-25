@@ -1,55 +1,50 @@
 package org.example.pokemon;
 
 
+import org.example.Ataque;
 import org.example.Elemento.*;
 import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 import static org.example.estado.Estado.estadoPokemon.NORMAL;
 
 public class Pokemon {
     String nombre;
     Double vida;
-    Integer nivel;
+    Double nivel;
     Integer velocidad;
-    Integer defensa;
-    Integer ataque;
+    Double defensa;
+    Double ataque;
     String historia;
     Estado estado;
     Element elemento;
-    Habilidad primeraHabilidad;
-    Habilidad segundaHabilidad;
-    Habilidad terceraHabilidad;
-    Habilidad cuartaHabilidad;
+    Dictionary<Integer, Habilidad> habilidades;
 
     //Integer critico = 1; // hay que cambiarlo...que es esto?
     //Integer random = 1; // hay que cambiarlo..que es esto?
 
-    final int NIVEL_INICIO=1;
-    final double VIDAMAXIMA=100.0;
+    final Double NIVEL_INICIO = 1.0;
+    final Double VIDAMAXIMA=100.0;
 
 
-    public Pokemon(String nombre, Element tipo, String historia) {
+    public Pokemon(String nombre, Element elemento, String historia, Habilidad primeraHabilidad, Habilidad segundaHabilidad, Habilidad terceraHabilidad, Habilidad cuartaHabilidad) {
         this.nombre = nombre;
-        this.elemento = tipo;
+        this.elemento = elemento;
         this.historia = historia;
+        this.ataque = 10.0;
+        this.defensa = 10.0;
         nivel = NIVEL_INICIO;
         vida = VIDAMAXIMA;
-        estado = new EstadoNormal();
-    }
-
-    public Pokemon(String nombre, String historia, Element elemento, Habilidad primeraHabilidad, Habilidad segundaHabilidad, Habilidad terceraHabilidad, Habilidad cuartaHabilidad) {
-        this.nombre = nombre;
-        this.historia = historia;
-        this.elemento = elemento;
-        this.primeraHabilidad = primeraHabilidad;
-        this.segundaHabilidad = segundaHabilidad;
-        this.terceraHabilidad = terceraHabilidad;
-        this.cuartaHabilidad = cuartaHabilidad;
-        this.nivel = NIVEL_INICIO;
-        this.vida = VIDAMAXIMA;
-        this.estado = new EstadoNormal();
+        estado = new Estado();
+        this.habilidades = new Hashtable<Integer, Habilidad>();
+        this.habilidades.put(1, primeraHabilidad);
+        this.habilidades.put(2, segundaHabilidad);
+        this.habilidades.put(3, terceraHabilidad);
+        this.habilidades.put(4, cuartaHabilidad);
     }
 
     public Estado getEstado() {
@@ -64,7 +59,7 @@ public class Pokemon {
         return nombre;
     }
 
-    public Integer getAtaque() {
+    public Double getAtaque() {
         return ataque;
     }
 
@@ -74,16 +69,21 @@ public class Pokemon {
 
     //notaKevin:la habilidad atacar es única por pokemon. Creo no hay que pasarla por parámetro.
     //e Integer que seria el ataque se puede reemplazar por this.ataque.
-    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Integer ataque /*ataque del pokemon que ataca (creo que hay que cambiarla, no está bien la sintaxis*/){
+    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
+        Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
+        Ataque ataque_a_realizar = new Ataque();
+        ataque_a_realizar.setAtaque(this.ataque);
+        ataque_a_realizar.setNivel(this.nivel);
+        System.out.println("Mi habilidad de pokemon es: " + this.elemento.get_tipo());
         switch (this.estado.verificarEstado()){
             case NORMAL:
-                this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
+                this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /*La habilidad que se usa*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
                 break;
             case PARALIZADO:
                 if (Math.random() < 0.5) {
                     System.out.println("El Pokémon está PARALIZADO y no pudo realizar la habilidad.");
                 } else {
-                    this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
+                    this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
                     System.out.println("El Pokémon ya NO está PARALIZADO lanza la habilidad.");
                     this.estado.cambiarEstadoParalizado();
                 }
@@ -92,23 +92,21 @@ public class Pokemon {
                 this.estado.puedeDespertarse(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
                 this.estado.verificarEstado();
                 if(this.estado.verificarEstado() == NORMAL){
-                    this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
+                    this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
                 }
                 break;
             case ENVENENADO:
-                this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
+                this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
                 this.vida -= (this.vida*5)/100; /*si está envenenado ataca pero también pierde 5% de vida*/
                 break;
         }
     }
 
-    public void recibirDanio(Double poderDeAtaque /*de la habilidad*/, Double mismoTipo, Element element /*elemento de la habilidad*/, Integer ataquePokemonAtaca) {
-        Double tipo;
-        Element elementos = new Fuego();
-        tipo = this.elemento.danio_final(elementos, poderDeAtaque /*este daño sale de la propia habilidad*/);
-        /*this.defensa;*/
-        Double damage = (((2 * this.nivel*critico*poderDeAtaque*(ataquePokemonAtaca/this.defensa))/5 + 2)/50)*mismoTipo*tipo*random;
-        /* random y crítico son 1 por ahora */
+    public void recibirDanio(Ataque ataque_a_realizar, Element element) {
+        ataque_a_realizar.setTipo(element.mixElement(this.elemento));
+        ataque_a_realizar.setDefensa(this.defensa);
+        Double damage = ataque_a_realizar.calcular_danio();
+        System.out.println("Danio que le afecta: " + damage);
         this.vida -= damage;
     }
 }

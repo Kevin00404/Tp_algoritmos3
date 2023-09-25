@@ -1,5 +1,6 @@
 package org.example.habilidad;
 
+import org.example.Ataque;
 import org.example.Elemento.Element;
 import org.example.estado.Estado;
 import org.example.pokemon.Pokemon;
@@ -27,7 +28,8 @@ public class Habilidad {
         return tipoDeHabilidad;
     }
 
-    public void atacar(Pokemon pokemon, Element element) {
+    public void atacar(Pokemon pokemon, Element element, Ataque ataque) {
+
         System.out.println("solo es un ejemplo");
     }
 }

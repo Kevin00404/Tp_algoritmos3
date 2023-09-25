@@ -1,5 +1,6 @@
 package org.example.estado;
 
+import org.example.Ataque;
 import org.example.Elemento.Element;
 import org.example.habilidad.Habilidad;
 import org.example.pokemon.Pokemon;
@@ -22,8 +23,8 @@ public class Estado {
         this.turnosDormido = 0;
         this.contadorTurnosPerdidos = 0;
     }
-    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/){
-        habilidad.atacar(pokemon, element);
+    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar){
+        habilidad.atacar(pokemon, element, ataque_a_realizar);
     }
     public estadoPokemon verificarEstado(){
         return this.estadoActual;
