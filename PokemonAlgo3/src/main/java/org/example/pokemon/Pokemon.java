@@ -94,6 +94,22 @@ public class Pokemon {
         return vida > 0;
     }
 
+    public Habilidad getPrimeraHabilidad() {
+        return habilidades.get(1);
+    }
+
+    public Habilidad getSegundaHabilidad() {
+        return habilidades.get(2);
+    }
+
+    public Habilidad getTerceraHabilidad() {
+        return habilidades.get(3);
+    }
+
+    public Habilidad getCuartaHabilidad() {
+        return habilidades.get(4);
+    }
+
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         Ataque ataque_a_realizar = new Ataque();

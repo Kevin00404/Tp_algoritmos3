@@ -5,6 +5,7 @@ import org.example.Elemento.Element;
 import org.example.EstadoPokemon;
 import org.example.habilidad.Habilidad;
 import org.example.pokemon.Pokemon;
+import org.example.habilidad.HabilidadAtaque;
 
 import java.util.Random;
 

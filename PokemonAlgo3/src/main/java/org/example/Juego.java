@@ -1,10 +1,12 @@
 package org.example;
-
+import java.util.Scanner;
 import org.example.Elemento.*;
 import org.example.estado.EstadoParalizado;
+import org.example.habilidad.Habilidad;
 import org.example.habilidad.HabilidadAtaque;
 import org.example.habilidad.HabilidadModificacionEstadistica;
 import org.example.pokemon.Pokemon;
+import org.example.Main;
 
 public class Juego {
     Entrenador entrenador1;
@@ -12,14 +14,71 @@ public class Juego {
     public  EstadoPokemon estadoMiPokemon;
 
     public  TipoHabilidadEstadistica estadisticaPokemon;
-
+    private Scanner scanner;
     public Juego(){
-        entrenador1 = new Entrenador(new Pokebola());
-        entrenador2 = new Entrenador(new Pokebola());
+        scanner = new Scanner(System.in);
         this.inicializar();
+        this.batalla();
     }
 
+    public void batalla() {
+        System.out.println("¡Comienza la batalla de Pokémon!");
+        while (entrenador1.estaVivo() && entrenador2.estaVivo()) {
+            // Turno de entrenador1
+            turnoJugador(entrenador1, entrenador2);
 
+            // Verificar si entrenador2 sigue vivo
+            if (!entrenador2.estaVivo()) {
+                System.out.println(entrenador2 + " ha perdido.");
+                break;
+            }
+
+            // Turno de entrenador2
+            turnoJugador(entrenador2, entrenador1);
+
+            // Verificar si entrenador1 sigue vivo
+            if (!entrenador1.estaVivo()) {
+                System.out.println(entrenador1 + " ha perdido.");
+                break;
+            }
+        }
+
+        System.out.println("¡Fin del juego!");
+    }
+
+    public void turnoJugador(Entrenador jugador, Entrenador oponente) {
+        System.out.println(jugador + ", es tu turno.");
+        System.out.println("Elige una opción:");
+        System.out.println("1. Atacar");
+        System.out.println("2. Usar Item");
+        System.out.println("3. Rendirse");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+                mostrarHabilidades(jugador.getPokemon()); /* ACÁ SE DEBERÍA BUSCAR EN JUGADOR.POKEBOLA.GETACTIVO() O ALGO ASÍ*/
+                int habilidadElegida = scanner.nextInt();
+                Habilidad habilidad = jugador.getPokemon()/* ACÁ TAMBIÉN */.habilidades.get(habilidadElegida);
+                jugador.atacar(oponente.getPokemon()/* ACÁ TAMBIÉN */, habilidad /* ACÁ VAN LOS PARÁMETROS DEL MÉTODO DE LA CLASE ESTADO */);
+                break;
+            case 2:
+                System.out.println(jugador  + " ha usado un item.");
+                break;
+            case 3:
+                System.out.println(jugador  + " se ha rendido. " + oponente + " gana la batalla.");
+                break;
+            default:
+                System.out.println("Opción no válida. Se considera un turno sin acción.");
+        }
+    }
+    private void mostrarHabilidades(Pokemon pokemon) {
+        System.out.println("Elige una habilidad:");
+        System.out.println("1. " + pokemon.getPrimeraHabilidad());
+        System.out.println("2. " + pokemon.getSegundaHabilidad());
+        System.out.println("3. " + pokemon.getTerceraHabilidad());
+        System.out.println("4. " + pokemon.getCuartaHabilidad());
+    }
 
     private void inicializar(){
 
@@ -129,10 +188,10 @@ public class Juego {
         /* FALTA AGREGAR LAS HABILIDADES DE MODIFICACIÓN DE ESTADO */
 
         /* ESTADO
-        * DORMIDO
-        * PARALIZADO
-        * ENVENENADO
-        */
+         * DORMIDO
+         * PARALIZADO
+         * ENVENENADO
+         */
 
         /* MODIFICACIÓN DE ESTADO */
         /*
@@ -172,13 +231,23 @@ public class Juego {
         Pokemon cacnea = new Pokemon ("Cacnea", new Volador(),"Nacio en el bosque", picoteo, tornado, impulso, ojoCompuesto);
 
 
+
+        Pokebola pokebola2 = new Pokebola();
+        Entrenador entrenador2 = new Entrenador(pokebola2);
+        entrenador2.pokebola.agregarPokemon(hariyama);
+        entrenador2.pokebola.agregarPokemon(swampert);
+        entrenador2.pokebola.agregarPokemon(claydol);
+        entrenador2.pokebola.agregarPokemon(exploud);
+        entrenador2.pokebola.agregarPokemon(ludicolo);
+        entrenador2.pokebola.agregarPokemon(cacnea);
+
     }
-    private Pokemon inicializarAtaques(){
+    /*private Pokemon inicializarAtaques(){
 
 
 
         Pokemon pokemon = new Pokemon("Charmander", new Fuego(), "Nacio en un volcan(?", habilidadFuegoFuerte, habilidadFuegoDebil, habilidadAguaFuerte, habilidadAguaDebil);
         return pokemon;
-    }
+    }*/
 
 }
