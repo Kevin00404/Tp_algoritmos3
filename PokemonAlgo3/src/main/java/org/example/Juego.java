@@ -9,24 +9,9 @@ import org.example.pokemon.Pokemon;
 public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
-    public  estadoPokemon estadoMiPokemon;
-    public enum estadoPokemon {
-        NORMAL,
-        PARALIZADO,
-        ENVENENADO,
-        DORMIDO
-    }
-    public  tipoHabilidadEstadistica estadisticaPokemon;
+    public  EstadoPokemon estadoMiPokemon;
 
-    public enum tipoHabilidadEstadistica{
-        VELOCIDAD_PROPIO,
-        VELOCIDAD_ENEMIGO,
-        DEFENSA_PROPIO,
-        DEFENSA_ENEMIGO,
-        ATAQUE_PROPIO,
-        ATAQUE_ENEMIGO,
-        VIDA_PROPIO,
-    }
+    public  TipoHabilidadEstadistica estadisticaPokemon;
 
     public Juego(){
         entrenador1 = new Entrenador(new Pokebola());

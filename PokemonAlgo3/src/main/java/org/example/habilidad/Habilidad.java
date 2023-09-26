@@ -27,9 +27,4 @@ public class Habilidad {
     public String getTipoDeHabilidad() {
         return tipoDeHabilidad;
     }
-
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque) {
-
-        System.out.println("solo es un ejemplo");
-    }
 }

@@ -2,35 +2,39 @@ package org.example.estado;
 
 import org.example.Ataque;
 import org.example.Elemento.Element;
+import org.example.EstadoPokemon;
 import org.example.habilidad.Habilidad;
 import org.example.pokemon.Pokemon;
 
 import java.util.Random;
 
 public class Estado {
-    private estadoPokemon estadoActual;
+    public EstadoPokemon estadoActual;
     public Integer contadorTurnosPerdidos;
     private Integer turnosDormido;
 
-    public enum estadoPokemon {
-        NORMAL,
-        PARALIZADO,
-        ENVENENADO,
-        DORMIDO
-    }
     public Estado(){
-        this.estadoActual = estadoPokemon.NORMAL;
+        this.estadoActual = EstadoPokemon.NORMAL;
         this.turnosDormido = 0;
         this.contadorTurnosPerdidos = 0;
     }
+
+    public EstadoPokemon getEstadoActual() {
+        return estadoActual;
+    }
+
+    public void setEstadoActual(EstadoPokemon estadoActual) {
+        this.estadoActual = estadoActual;
+    }
+
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar){
         habilidad.atacar(pokemon, element, ataque_a_realizar);
     }
-    public estadoPokemon verificarEstado(){
+    public EstadoPokemon verificarEstado(){
         return this.estadoActual;
     }
     public void cambiarEstadoParalizado(){
-        this.estadoActual = estadoPokemon.NORMAL;
+        this.estadoActual = EstadoPokemon.NORMAL;
     }
     public void puedeDespertarse(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/){
         contadorTurnosPerdidos ++;
@@ -38,14 +42,14 @@ public class Estado {
         Random random = new Random();
         if (random.nextDouble() < probabilidadDespertar) {
             //System.out.println(nombre + " se ha despertado.");
-            this.estadoActual = estadoPokemon.NORMAL;
+            this.estadoActual = EstadoPokemon.NORMAL;
             this.turnosDormido = 0;
             //this.atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/);
         }
         else{
             this.turnosDormido ++;
             if(this.turnosDormido == 4){
-                this.estadoActual = estadoPokemon.NORMAL;
+                this.estadoActual = EstadoPokemon.NORMAL;
                 //this.atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/);
             }
             //System.out.println(nombre + " está dormido, no puede atacar.");
