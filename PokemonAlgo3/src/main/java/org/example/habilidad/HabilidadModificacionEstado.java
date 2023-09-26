@@ -10,7 +10,7 @@ public class HabilidadModificacionEstado extends Habilidad{
     private EstadoPokemon asignarEstado;
 
     public HabilidadModificacionEstado(Integer cantidadDisponible, EstadoPokemon asignarEstado) {
-        super("modifica estado a "+asignarEstado, cantidadDisponible,"Estado");
+        super("modifica estado a " + asignarEstado, cantidadDisponible,"Estado");
         this.asignarEstado = asignarEstado;
     }
 

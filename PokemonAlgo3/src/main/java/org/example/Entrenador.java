@@ -23,4 +23,5 @@ public class Entrenador {
     public Pokebola getPokebola() {
         return pokebola;
     }
+
 }
