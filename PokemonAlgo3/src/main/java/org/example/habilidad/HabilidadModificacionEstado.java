@@ -1,5 +1,6 @@
 package org.example.habilidad;
 
+import org.example.Juego;
 import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.pokemon.Pokemon;
@@ -8,11 +9,8 @@ public class HabilidadModificacionEstado extends Habilidad{
 
     private TipoHabilidadEstado tipoEstado;
 
-
-
-
-    public HabilidadModificacionEstado(Integer cantidadDisponible, String tipoDeHabilidad) {
-        super("nombre", cantidadDisponible, tipoDeHabilidad);
+    public HabilidadModificacionEstado(Integer cantidadDisponible, Juego.estadoPokemon estadoPokemon){
+        super(cantidadDisponible);
     }
 
     private void cambiarEstado(Pokemon pokemon, Estado estado) {
