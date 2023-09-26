@@ -2,36 +2,63 @@ package org.example;
 
 import org.example.pokemon.Pokemon;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Pokebola {
-//    List<Pokemon> pokebola;
-//
-//    public Pokebola(List<Pokemon> pokebola) {
-//        this.pokebola = pokebola;
-//    }
-//
-    Dictionary<String, Pokemon> pokemones;
+    Map<String, Pokemon> dicc;
+
+
+    final int POKEMONES_POR_POKEBOLA = 6;
 
     public Pokebola() {
-        pokemones = new Hashtable<String, Pokemon>();
+        dicc = new HashMap<>();
     }
 
-//    final int POKEMONES_POR_POKEBOLA=6;
-//
-    public void agregarPokemon(Pokemon pokemon){
-        pokemones.put(pokemon.getNombre(), pokemon);
+    //Agrega pokemon a pokebola. Si ya tiene la cantidad maxima de pokemones admitidos imprime error.
+    public void agregarPokemon(Pokemon pokemon) {
+        if (dicc.size() >= POKEMONES_POR_POKEBOLA) {
+            System.out.println("Error:Pokebola ya contiene " + POKEMONES_POR_POKEBOLA + " pokemones.");
+            return;
+        }
+        dicc.put(pokemon.getNombre(), pokemon);
     }
 
-//    public void quitarPokemon(Pokemon pokemon){
-//        if pokebola.//contiene a pokemon//
-//
-//    }
-//
-//    public void cantidad(){
-//        System.out.println(POKEMONES_POR_POKEBOLA);
-//    }
-//
+    public void quitarPokemon(Pokemon pokemon) {
+        if (!dicc.containsKey(pokemon.getNombre())) {
+            System.out.println("El pokemon " + pokemon.getNombre() + " no esta en pokebola.");
+            return;
+        }
+        dicc.remove(pokemon.getNombre());
+    }
 
+    public Pokemon cambiarPokemon() {
+        String nombrePokemonElegido = "";
+        while (!dicc.containsKey(nombrePokemonElegido)) {
+            Scanner nombreVariableScaneado = new Scanner(System.in);
+
+            // Solicitar al usuario que ingrese un nombre de las opciones.
+            System.out.print("Pokemones disponibles: ");
+
+            for (String nombrePokemon : dicc.keySet()) {
+                System.out.println(nombrePokemon);
+            }
+
+            nombrePokemonElegido = nombreVariableScaneado.next();
+
+            if (!dicc.containsKey(nombrePokemonElegido)) {
+                {
+                    System.out.println("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
+                }
+            }
+        }
+        return dicc.get(nombrePokemonElegido);
+    }
+
+
+
+    public void cantidadPokemones(){
+        System.out.println(dicc.size());
+    }
 }
