@@ -3,14 +3,13 @@ package org.example;
 import org.example.pokemon.Pokemon;
 
 public class Entrenador {
-//    Pokebola pokebola pokebola;
+    Pokebola pokebola;
 //    Pokemon pokemonActual;
 //
 //
-//    public Entrenador(List<Pokemon> pokebola, Pokemon pokemonActual) {
-//        this.pokebola = pokebola;
-//        this.pokemonActual = pokemonActual;
-//    }
+    public Entrenador(Pokebola pokebola) {
+        this.pokebola = pokebola;
+    }
 //
 //    public Entrenador(List<Pokemon> pokebola) {
 //        this.pokebola = pokebola;

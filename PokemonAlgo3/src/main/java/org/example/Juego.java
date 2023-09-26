@@ -1,4 +1,199 @@
 package org.example;
 
+import org.example.Elemento.*;
+import org.example.estado.EstadoParalizado;
+import org.example.habilidad.HabilidadAtaque;
+import org.example.habilidad.HabilidadModificacionEstadistica;
+import org.example.pokemon.Pokemon;
+
 public class Juego {
+    Entrenador entrenador1;
+    Entrenador entrenador2;
+    public  estadoPokemon estadoMiPokemon;
+    public enum estadoPokemon {
+        NORMAL,
+        PARALIZADO,
+        ENVENENADO,
+        DORMIDO
+    }
+    public  tipoHabilidadEstadistica estadisticaPokemon;
+
+    public enum tipoHabilidadEstadistica{
+        VELOCIDAD_PROPIO,
+        VELOCIDAD_ENEMIGO,
+        DEFENSA_PROPIO,
+        DEFENSA_ENEMIGO,
+        ATAQUE_PROPIO,
+        ATAQUE_ENEMIGO,
+        VIDA_PROPIO,
+    }
+
+    public Juego(){
+        entrenador1 = new Entrenador(new Pokebola());
+        entrenador2 = new Entrenador(new Pokebola());
+        this.inicializar();
+    }
+
+
+
+    private void inicializar(){
+
+        /* ATAQUE (DAÑO)*/
+
+        /*FUEGO*/
+        HabilidadAtaque ascuas = new HabilidadAtaque(25, new Fuego(), 40.0);
+        HabilidadAtaque lanzallamas = new HabilidadAtaque(25, new Fuego(), 90.0);
+
+        /* AGUA */
+        HabilidadAtaque hidroCanion = new HabilidadAtaque(25, new Agua(), 150.0);
+        HabilidadAtaque rayoBurbuja = new HabilidadAtaque(25, new Agua(), 65.0);
+
+        /* BICHO */
+        HabilidadAtaque corteFuria = new HabilidadAtaque(25, new Bicho(), 40.0);
+        HabilidadAtaque picadura = new HabilidadAtaque(25, new Bicho(), 60.0);
+
+        /* DRAGÓN */
+        HabilidadAtaque cargaDragon = new HabilidadAtaque(25, new Dragon(), 100.0);
+        HabilidadAtaque pulsoDragon = new HabilidadAtaque(25, new Dragon(), 80.0);
+
+        /* ELÉCTRICO */
+        HabilidadAtaque impactrueno = new HabilidadAtaque(25, new Electrico(), 40.0);
+        HabilidadAtaque electrocanion = new HabilidadAtaque(25, new Electrico(), 120.0);
+
+        /* FANTASMA */
+        HabilidadAtaque bolaSombra = new HabilidadAtaque(25, new Fantasma(), 80.0);
+        HabilidadAtaque poltergeist = new HabilidadAtaque(25, new Fantasma(), 110.0);
+
+        /* HIELO */
+        HabilidadAtaque rayoHielo = new HabilidadAtaque(25, new Hielo(), 90.0);
+        HabilidadAtaque ventisca = new HabilidadAtaque(25, new Hielo(), 110.0);
+
+        /* LUCHA */
+        HabilidadAtaque demolicion = new HabilidadAtaque(25, new Lucha(), 75.0);
+        HabilidadAtaque doblePatada = new HabilidadAtaque(25, new Lucha(), 60.0);
+
+        /* NORMAL */
+        HabilidadAtaque placaje = new HabilidadAtaque(25, new Normal(), 40.0);
+        HabilidadAtaque corte = new HabilidadAtaque(25, new Normal(), 50.0);
+
+        /* PLANTA */
+        HabilidadAtaque latigoCepa = new HabilidadAtaque(25, new Planta(), 45.0);
+        HabilidadAtaque clorofilaser = new HabilidadAtaque(25, new Planta(), 120.0);
+
+        /* PSÍQUICO */
+        HabilidadAtaque comeSuenios = new HabilidadAtaque(25, new Psiquico(), 100.0);
+        HabilidadAtaque psicoRayo = new HabilidadAtaque(25, new Psiquico(), 65.0);
+
+        /* ROCA */
+        HabilidadAtaque avalancha = new HabilidadAtaque(25, new Roca(), 75.0);
+        HabilidadAtaque lanzaRocas = new HabilidadAtaque(25, new Roca(), 50.0);
+
+        /* TIERRA */
+        HabilidadAtaque disparoLodo = new HabilidadAtaque(25, new Tierra(), 55.0);
+        HabilidadAtaque terremoto = new HabilidadAtaque(25, new Tierra(), 100.0);
+
+        /* VENENO */
+        HabilidadAtaque acido = new HabilidadAtaque(25, new Veneno(), 40.0);
+        HabilidadAtaque residuos = new HabilidadAtaque(25, new Veneno(), 65.0);
+
+        /* VOLADOR */
+        HabilidadAtaque picoteo = new HabilidadAtaque(25, new Volador(), 60.0);
+        HabilidadAtaque tornado = new HabilidadAtaque(25, new Volador(), 40.0);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /* MODIFICACIÓN DE ESTADÍSTICAS (DEFENSA) */
+
+        HabilidadModificacionEstadistica domador = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* NORMAL */
+        HabilidadModificacionEstadistica descarga = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica ignicion = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* FUEGO */
+        HabilidadModificacionEstadistica mantoFrondoso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* PLANTA */
+        HabilidadModificacionEstadistica escamaEspecial = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* DRAGON */
+        HabilidadModificacionEstadistica rociador = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* AGUA */
+        HabilidadModificacionEstadistica defensaLodo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* TIERRA */
+
+        HabilidadModificacionEstadistica domado = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* NORMAL */
+        HabilidadModificacionEstadistica voltaje = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica mareoIgneo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* FUEGO */
+        HabilidadModificacionEstadistica enredadera = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* PLANTA */
+        HabilidadModificacionEstadistica mareoEscamoso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* DRAGON */
+        HabilidadModificacionEstadistica chapotear = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* AGUA */
+        HabilidadModificacionEstadistica lanzaLodo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* TIERRA */
+
+        /* MODIFICACIÓN DE ESTADÍSTICAS (ATAQUE) */
+        HabilidadModificacionEstadistica ojoCompuesto = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* NORMAL */
+        HabilidadModificacionEstadistica torrente = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* AGUA */
+        HabilidadModificacionEstadistica paraRayos = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* ELÉCTRICO */
+
+        HabilidadModificacionEstadistica intimidacion = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_ENEMIGO); /* NORMAL */
+        HabilidadModificacionEstadistica sumergido = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_ENEMIGO); /* AGUA */
+        HabilidadModificacionEstadistica enterrado = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_ENEMIGO); /* TIERRA */
+
+        /* MODIFICACIÓN DE ESTADÍSTICAS (VELOCIDAD) */
+        HabilidadModificacionEstadistica impulso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* NORMAL */
+        HabilidadModificacionEstadistica nadoRapido = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* AGUA */
+        HabilidadModificacionEstadistica clorofila = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* PLANTA */
+
+        HabilidadModificacionEstadistica coabrdia = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* NORMAL */
+        HabilidadModificacionEstadistica colaSurf = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* AGUA */
+        HabilidadModificacionEstadistica impetuArena = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* TIERRA */
+
+        /* FALTA AGREGAR LAS HABILIDADES DE MODIFICACIÓN DE ESTADO */
+        /* FALTA AGREGAR LAS HABILIDADES DE MODIFICACIÓN DE ESTADO */
+        /* FALTA AGREGAR LAS HABILIDADES DE MODIFICACIÓN DE ESTADO */
+        /* FALTA AGREGAR LAS HABILIDADES DE MODIFICACIÓN DE ESTADO */
+
+        /* ESTADO
+        * DORMIDO
+        * PARALIZADO
+        * ENVENENADO
+        */
+
+        /* MODIFICACIÓN DE ESTADO */
+        /*
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, DORMIDO);
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, PARALIZADO);
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, ENVENENADO);
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, DORMIDO);
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, PARALIZADO);
+        HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 0.0, ENVENENADO);
+        */
+
+        /* SETEO POKEMONES PARA ENTRENADOR 1 */
+        Pokemon charmander = new Pokemon("Charmander", new Fuego(), "Nacio en un volcan(?", ascuas, lanzallamas, placaje, ignicion);
+        Pokemon squirtle = new Pokemon("Squirtle", new Agua(), "Nacio en un Lago(?", hidroCanion, rayoBurbuja, torrente, nadoRapido);
+        Pokemon pikachu = new Pokemon ("Pikachu", new Electrico(),"Hijo de los rayos", impactrueno, electrocanion, descarga, voltaje);
+        Pokemon bulbasaur = new Pokemon("Bulbasaur", new Planta(), "Nacio en un bosque(?", latigoCepa, clorofilaser, clorofila, enredadera);
+        Pokemon flygon = new Pokemon("Squirtle", new Dragon(), "Nacio en el cielo(?", cargaDragon, pulsoDragon, escamaEspecial, mareoEscamoso);
+        Pokemon swellow = new Pokemon ("Swellow", new Volador(),"Pollito de fuego", picoteo, tornado, impulso, ojoCompuesto);
+
+
+        Pokebola pokebola1 = new Pokebola();
+        Entrenador entrenador1 = new Entrenador(pokebola1);
+        entrenador1.pokebola.agregarPokemon(charmander);
+        entrenador1.pokebola.agregarPokemon(squirtle);
+        entrenador1.pokebola.agregarPokemon(pikachu);
+        entrenador1.pokebola.agregarPokemon(bulbasaur);
+        entrenador1.pokebola.agregarPokemon(flygon);
+        entrenador1.pokebola.agregarPokemon(swellow);
+
+
+        /* SETEO POKEMONES PARA ENTRENADOR 2 */
+        Pokemon hariyama = new Pokemon("Hariyama", new Lucha(), "Le gusta pelear(?", ascuas, lanzallamas, placaje, ignicion);
+        Pokemon swampert = new Pokemon("Swampert", new Agua(), "Nacio en un Lago(?", hidroCanion, rayoBurbuja, torrente, nadoRapido);
+        Pokemon claydol = new Pokemon ("Claydol", new Electrico(),"Hijo de los rayos", impactrueno, electrocanion, descarga, voltaje);
+        Pokemon exploud = new Pokemon("Exploud", new Normal(), "Nacio en un bosque(?", latigoCepa, clorofilaser, clorofila, enredadera);
+        Pokemon ludicolo = new Pokemon("Ludicolo", new Planta(), "Nacio en el bosque(?", cargaDragon, pulsoDragon, escamaEspecial, mareoEscamoso);
+        Pokemon cacnea = new Pokemon ("Cacnea", new Volador(),"Nacio en el bosque", picoteo, tornado, impulso, ojoCompuesto);
+
+
+    }
+    private Pokemon inicializarAtaques(){
+
+
+
+        Pokemon pokemon = new Pokemon("Charmander", new Fuego(), "Nacio en un volcan(?", habilidadFuegoFuerte, habilidadFuegoDebil, habilidadAguaFuerte, habilidadAguaDebil);
+        return pokemon;
+    }
+
 }

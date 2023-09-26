@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Ataque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Agua.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Agua.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Bicho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Bicho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Dragon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Electrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Electrico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fantasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Fuego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Hielo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Hielo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Lucha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Lucha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Normal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Planta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Planta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Psiquico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Psiquico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Roca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Roca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Tierra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Tierra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Veneno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Veneno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Volador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Volador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "element__fix__branch",
+    "git-widget-placeholder": "adan",
     "last_opened_file_path": "F:/Users/Nazareno/Documents/UBA XXI/testingOut"
   }
 }]]></component>

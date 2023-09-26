@@ -1,11 +1,13 @@
 package org.example.habilidad;
 
+import org.example.Juego;
 import org.example.pokemon.Pokemon;
 
 public class HabilidadModificacionEstadistica extends Habilidad{
     //borrar este constructor>solo puesto para no dar error
-    protected HabilidadModificacionEstadistica(String nombre, Integer cantidadDisponible, String tipoDeHabilidad) {
-        super(nombre, cantidadDisponible, tipoDeHabilidad);
+
+    public HabilidadModificacionEstadistica(int cantidadDisponible, Juego.tipoHabilidadEstadistica tipoHabilidadEstadistica) {
+        super();
     }
 //    final Integer AUMENTO  5;
 //    final Integer DISMINUYE 5;
