@@ -20,6 +20,11 @@ public class Estado {
         this.contadorTurnosPerdidos = 0;
     }
 
+    public void setEstado(EstadoPokemon estado){
+        this.estadoActual=estado;
+    }
+
+
     public EstadoPokemon getEstadoActual() {
         return estadoActual;
     }
@@ -56,6 +61,8 @@ public class Estado {
             //System.out.println(nombre + " está dormido, no puede atacar.");
         }
     }
+
+
     /*private estadoPokemon verificarEstado() {
         return estadoActual;
     }*/

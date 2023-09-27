@@ -15,7 +15,7 @@ public class Pokemon {
     String nombre;
     Double vida;
     Double nivel;
-    Integer velocidad;
+    Double velocidad;
     Double defensa;
     Double ataque;
     String historia;
@@ -54,7 +54,7 @@ public class Pokemon {
         this.vida = vida;
     }
 
-    public void setVelocidad(Integer velocidad) {
+    public void setVelocidad(Double velocidad) {
         this.velocidad = velocidad;
     }
 
@@ -66,7 +66,7 @@ public class Pokemon {
         this.ataque = ataque;
     }
 
-    public Integer getVelocidad() {
+    public Double getVelocidad() {
         return velocidad;
     }
 
@@ -110,6 +110,10 @@ public class Pokemon {
         return habilidades.get(4);
     }
 
+    public void modificarEstado(Ataque ataque){
+        this.estado=ataque.cambiarEstado(this.estado);
+    }
+
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         Ataque ataque_a_realizar = new Ataque();
@@ -150,4 +154,13 @@ public class Pokemon {
         System.out.println("Danio que le afecta: " + damage);
         this.vida -= damage;
     }
+
+    public void actualizarEstadisticas(Ataque ataque){
+        this.vida+=ataque.getVarianteVida();
+        this.ataque+=ataque.getVarianteVida();
+        this.defensa+=ataque.getVarianteVida();
+        this.velocidad+=ataque.getVarianteVida();
+    }
+
+
 }
