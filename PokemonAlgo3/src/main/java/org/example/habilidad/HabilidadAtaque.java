@@ -1,6 +1,7 @@
 package org.example.habilidad;
 
 import org.example.Ataque;
+import org.example.Ataque;
 import org.example.Elemento.Element;
 import org.example.pokemon.Pokemon;
 
@@ -15,6 +16,7 @@ public class HabilidadAtaque extends Habilidad{
         this.elemento = elemento;
         this.poder_de_ataque = poder_de_ataque;
     }
+    @Override
     public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar){
         ataque_a_realizar.setPoder(this.poder_de_ataque);
         ataque_a_realizar.setMismoTipo(this.elemento.bonus_mismo_tipo(element));

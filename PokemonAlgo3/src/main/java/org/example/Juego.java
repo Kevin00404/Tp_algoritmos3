@@ -1,6 +1,7 @@
 package org.example;
 import java.util.Scanner;
 import org.example.Elemento.*;
+import org.example.Estadistica.Estadistica;
 import org.example.estado.EstadoParalizado;
 import org.example.habilidad.Habilidad;
 import org.example.habilidad.HabilidadAtaque;
@@ -13,7 +14,7 @@ public class Juego {
     Entrenador entrenador2;
     public  EstadoPokemon estadoMiPokemon;
 
-    public  TipoHabilidadEstadistica estadisticaPokemon;
+    public Estadistica estadisticaPokemon;
     private Scanner scanner;
     public Juego(){
         scanner = new Scanner(System.in);
