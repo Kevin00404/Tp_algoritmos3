@@ -1,6 +1,7 @@
 package org.example.habilidad;
 
 import org.example.Ataque;
+import org.example.Ataque;
 import org.example.Elemento.Element;
 import org.example.estado.Estado;
 import org.example.pokemon.Pokemon;
@@ -15,6 +16,7 @@ public class Habilidad {
         this.cantidadDisponible = cantidadDisponible;
         this.tipoDeHabilidad = tipoDeHabilidad;
     }
+    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar){}
 
     public String getNombre() {
         return nombre;
@@ -26,10 +28,5 @@ public class Habilidad {
 
     public String getTipoDeHabilidad() {
         return tipoDeHabilidad;
-    }
-
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque) {
-
-        System.out.println("solo es un ejemplo");
     }
 }

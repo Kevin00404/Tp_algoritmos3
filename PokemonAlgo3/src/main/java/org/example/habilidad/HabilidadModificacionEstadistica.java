@@ -1,49 +1,22 @@
 package org.example.habilidad;
 
-import org.example.Juego;
+import org.example.Ataque;
+import org.example.Elemento.Element;
+import org.example.Estadistica.Estadistica;
 import org.example.pokemon.Pokemon;
 
-public class HabilidadModificacionEstadistica extends Habilidad{
-    //borrar este constructor>solo puesto para no dar error
+public class  HabilidadModificacionEstadistica extends Habilidad {
 
-    public HabilidadModificacionEstadistica(int cantidadDisponible, Juego.tipoHabilidadEstadistica tipoHabilidadEstadistica) {
-        super();
+    private Estadistica estadistica;
+
+    public HabilidadModificacionEstadistica(Integer cantidadDisponible, Estadistica estadistica) {
+        super("Cambiar estadistica a " + estadistica, cantidadDisponible, "Estadística");
+        this.estadistica = estadistica;
     }
-//    final Integer AUMENTO  5;
-//    final Integer DISMINUYE 5;
-//    final Integer MIN_VALOR=0;
-//    final Integer MAX_VALOR=100;
-//
-//    public void aumentarDefensa(Pokemon pokemon){
-//        aumenta(pokemon);
-//    }
-//
-//    //pasar pokemon que usa habilidad
-//    public void aumentarAtaque(Pokemon pokenon){
-//        aumenta(pokemon);
-//    }
-//
-//    //pasar pokemon que se ataca
-//    public void disminurAtaque(Pokemon pokemon){
-//        disminuye(pokemon);
-//    }
-//
-//    public void disminuirDefensa(Pokemon pokemon){
-//        aumenta(pokemon);
-//    }
-//
-//    public void aumenta(Pokemon pokemon){
-//        pokemon.ataque+=AUMENTO;
-//        if pokemon.ataque<MAX_VALOR{
-//            pokenon.ataque=MAX_VALOR
-//        }
-//    }
-//
-//    public void disminuye(Pokemon pokemon){
-//        pokemon.ataque-=DISMINUYE;
-//        if pokemon.ataque<MIN_VALOR{
-//            pokenon.ataque=MIN_VALOR
-//        }
-//    }
-
+    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar) {
+        estadistica.modificarEstadistica(ataque_a_realizar);
+        pokemon.actualizarEstadisticas(ataque_a_realizar);
+    }
 }
+
+

@@ -3,20 +3,19 @@ package org.example.pokemon;
 
 import org.example.Ataque;
 import org.example.Elemento.*;
+import org.example.EstadoPokemon;
 import org.example.estado.Estado;
-import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import static org.example.estado.Estado.estadoPokemon.NORMAL;
 
 public class Pokemon {
     String nombre;
     Double vida;
     Double nivel;
-    Integer velocidad;
+    Double velocidad;
     Double defensa;
     Double ataque;
     String historia;
@@ -47,6 +46,34 @@ public class Pokemon {
         this.habilidades.put(4, cuartaHabilidad);
     }
 
+    public Double getVida() {
+        return vida;
+    }
+
+    public void setVida(Double vida) {
+        this.vida = vida;
+    }
+
+    public void setVelocidad(Double velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public void setDefensa(Double defensa) {
+        this.defensa = defensa;
+    }
+
+    public void setAtaque(Double ataque) {
+        this.ataque = ataque;
+    }
+
+    public Double getVelocidad() {
+        return velocidad;
+    }
+
+    public Double getDefensa() {
+        return defensa;
+    }
+
     public Estado getEstado() {
         return estado;
     }
@@ -67,8 +94,26 @@ public class Pokemon {
         return vida > 0;
     }
 
-    //notaKevin:la habilidad atacar es única por pokemon. Creo no hay que pasarla por parámetro.
-    //e Integer que seria el ataque se puede reemplazar por this.ataque.
+    public Habilidad getPrimeraHabilidad() {
+        return habilidades.get(1);
+    }
+
+    public Habilidad getSegundaHabilidad() {
+        return habilidades.get(2);
+    }
+
+    public Habilidad getTerceraHabilidad() {
+        return habilidades.get(3);
+    }
+
+    public Habilidad getCuartaHabilidad() {
+        return habilidades.get(4);
+    }
+
+    public void modificarEstado(Ataque ataque){
+        this.estado=ataque.cambiarEstado(this.estado);
+    }
+
     public void atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         Ataque ataque_a_realizar = new Ataque();
@@ -91,7 +136,7 @@ public class Pokemon {
             case DORMIDO:
                 this.estado.puedeDespertarse(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/);
                 this.estado.verificarEstado();
-                if(this.estado.verificarEstado() == NORMAL){
+                if(this.estado.verificarEstado() == EstadoPokemon.NORMAL){
                     this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /* esto sería una clave de un diccionario*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
                 }
                 break;
@@ -108,5 +153,15 @@ public class Pokemon {
         Double damage = ataque_a_realizar.calcular_danio();
         System.out.println("Danio que le afecta: " + damage);
         this.vida -= damage;
+        /* SI ESTÁ MUERTO QUITAR EL POKEMON DE LA POKEBOLA (DICCIONARIO) */
     }
+
+    public void actualizarEstadisticas(Ataque ataque){
+        this.vida+=ataque.getVarianteVida();
+        this.ataque+=ataque.getVarianteVida();
+        this.defensa+=ataque.getVarianteVida();
+        this.velocidad+=ataque.getVarianteVida();
+    }
+
+
 }

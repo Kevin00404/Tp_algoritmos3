@@ -1,36 +1,24 @@
 package org.example.habilidad;
 
+import org.example.Ataque;
+import org.example.Elemento.Element;
+import org.example.EstadoPokemon;
 import org.example.Juego;
 import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.pokemon.Pokemon;
 
-public class HabilidadModificacionEstado extends Habilidad{
+public class HabilidadModificacionEstado extends Habilidad {
+    private EstadoPokemon asignarEstado;
 
-    private TipoHabilidadEstado tipoEstado;
-
-    public HabilidadModificacionEstado(Integer cantidadDisponible, Juego.estadoPokemon estadoPokemon){
-        super(cantidadDisponible);
+    public HabilidadModificacionEstado(Integer cantidadDisponible, EstadoPokemon asignarEstado) {
+        super("modifica estado a " + asignarEstado, cantidadDisponible, "Estado");
+        this.asignarEstado = asignarEstado;
     }
 
-    private void cambiarEstado(Pokemon pokemon, Estado estado) {
-        if (pokemon.getEstado() instanceof EstadoNormal){
-            pokemon.setEstado(estado);
-            System.out.println("El estado del pokemon "+ pokemon.getNombre()+ "cambio a estado "+estado);
-        }
-        System.out.println("No se cambio el estado del pokemon "+pokemon.getNombre()+". Sigue en estado "+pokemon.getEstado());
-    }
 
-    public void cambiarEstadoDormido(Pokemon pokemon,Estado estado){
-        cambiarEstado(pokemon,estado);
+    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar) {
+        ataque_a_realizar.setEstado(this.asignarEstado);
+        pokemon.modificarEstado(ataque_a_realizar);
     }
-
-    public void cambiarEstadoParalizado(Pokemon pokemon,Estado estado){
-        cambiarEstado(pokemon,estado);
-    }
-
-    public void cambiarEstadoEnvenenado(Pokemon pokemon,Estado estado){
-        cambiarEstado(pokemon,estado);
-    }
-
 }
