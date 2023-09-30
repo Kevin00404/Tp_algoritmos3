@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadistica/Estadistica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadistica/modAtaque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadistica/modDefensa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadistica/modVelocidad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadistica/modVida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Ataque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Ataque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TipoHabilidadEstadistica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/Habilidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;adan&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/UBA XXI/testingOut&quot;
-
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "F:/Users/Nazareno/Documents/UBA XXI/testingOut"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Elemento" />
