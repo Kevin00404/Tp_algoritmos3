@@ -11,7 +11,7 @@ public class Ataque {
     Double tipo;
     Double random;
     Double nivel;
-    EstadoPokemon estadoACambiar;
+    Estado estadoACambiar;
     Double varianteAtaque;
     Double varianteDefensa;
     Double varianteVelocidad;
@@ -24,17 +24,13 @@ public class Ataque {
         this.critico = 1.0;
     }
 
-    public void setEstado(EstadoPokemon estadoACambiar) {
+    public void setEstado(Estado estadoACambiar) {
         this.estadoACambiar = estadoACambiar;
     }
 public Estado cambiarEstado(Estado estado){
-        if (estado.verificarEstado()==EstadoPokemon.NORMAL){
-            estado.setEstadoActual(this.estadoACambiar);
-            System.out.println("El estado del pokemon ahora es " + this.estadoACambiar);
-            return estado;
-        }
-    System.out.println("No se cambio el estado del pokemon, el estado sigue siendo "+estado);
-        return estado;
+        estado.setEstadoActual(this.estadoACambiar);
+        System.out.println("El estado del pokemon ahora es " + this.estadoACambiar);
+        return estado.setEstadoActual(this.estadoACambiar);
 }
 
 

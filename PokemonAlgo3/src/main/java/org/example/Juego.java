@@ -3,6 +3,10 @@ import java.util.Scanner;
 import org.example.Elemento.*;
 import org.example.Estadistica.Estadistica;
 import org.example.Estadistica.modAtaque;
+import org.example.Estadistica.modDefensa;
+import org.example.Estadistica.modVelocidad;
+import org.example.estado.EstadoDormido;
+import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
 import org.example.habilidad.Habilidad;
 import org.example.habilidad.HabilidadAtaque;
@@ -63,8 +67,8 @@ public class Juego {
             case 1:
                 mostrarHabilidades(jugador.getPokemon()); /* ACÁ SE DEBERÍA BUSCAR EN JUGADOR.POKEBOLA.GETACTIVO() O ALGO ASÍ Y LUEGO LAS HABILIDADES DE ESE POKEMON*/
                 int habilidadElegida = scanner.nextInt();
-                Habilidad habilidad = jugador.getPokemon()/* ACÁ TAMBIÉN */.habilidades.get(habilidadElegida);
-                jugador.atacar(oponente.getPokemon()/* ACÁ TAMBIÉN */, habilidad /* ACÁ VAN LOS PARÁMETROS DEL MÉTODO DE LA CLASE ESTADO */);
+                //Habilidad habilidad = jugador.getPokemon()/* ACÁ TAMBIÉN */.habilidades.get(habilidadElegida);
+                jugador.atacar(oponente/* ACÁ TAMBIÉN */, habilidadElegida /* ACÁ VAN LOS PARÁMETROS DEL MÉTODO DE LA CLASE ESTADO */);
                 break;
             case 2:
                 /* ACÁ TIENE QUE IR A BUSCAR AL POKEMON ACTIVO Y APLICARLE EL ITEM SELECCIONADO */
@@ -159,57 +163,57 @@ public class Juego {
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (DEFENSA) */
 
-        HabilidadModificacionEstadistica domador = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* NORMAL */
-        HabilidadModificacionEstadistica descarga = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* ELÉCTRICO */
-        HabilidadModificacionEstadistica ignicion = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* FUEGO */
-        HabilidadModificacionEstadistica mantoFrondoso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* PLANTA */
-        HabilidadModificacionEstadistica escamaEspecial = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* DRAGON */
-        HabilidadModificacionEstadistica rociador = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* AGUA */
-        HabilidadModificacionEstadistica defensaLodo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_PROPIO); /* TIERRA */
+        HabilidadModificacionEstadistica domador = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica descarga = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica ignicion = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* FUEGO */
+        HabilidadModificacionEstadistica mantoFrondoso = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* PLANTA */
+        HabilidadModificacionEstadistica escamaEspecial = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* DRAGON */
+        HabilidadModificacionEstadistica rociador = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* AGUA */
+        HabilidadModificacionEstadistica defensaLodo = new HabilidadModificacionEstadistica(25, new modDefensa(20.0)); /* TIERRA */
 
-        HabilidadModificacionEstadistica domado = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* NORMAL */
-        HabilidadModificacionEstadistica voltaje = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* ELÉCTRICO */
-        HabilidadModificacionEstadistica mareoIgneo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* FUEGO */
-        HabilidadModificacionEstadistica enredadera = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* PLANTA */
-        HabilidadModificacionEstadistica mareoEscamoso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* DRAGON */
-        HabilidadModificacionEstadistica chapotear = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* AGUA */
-        HabilidadModificacionEstadistica lanzaLodo = new HabilidadModificacionEstadistica(25, estadisticaPokemon.DEFENSA_ENEMIGO); /* TIERRA */
+        HabilidadModificacionEstadistica domado = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica voltaje = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica mareoIgneo = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* FUEGO */
+        HabilidadModificacionEstadistica enredadera = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* PLANTA */
+        HabilidadModificacionEstadistica mareoEscamoso = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* DRAGON */
+        HabilidadModificacionEstadistica chapotear = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* AGUA */
+        HabilidadModificacionEstadistica lanzaLodo = new HabilidadModificacionEstadistica(25, new modDefensa(-20.0)); /* TIERRA */
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (ATAQUE) */
-        HabilidadModificacionEstadistica ojoCompuesto = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* NORMAL */
-        HabilidadModificacionEstadistica torrente = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* AGUA */
-        HabilidadModificacionEstadistica paraRayos = new HabilidadModificacionEstadistica(25, estadisticaPokemon.ATAQUE_PROPIO); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica ojoCompuesto = new HabilidadModificacionEstadistica(25, new modAtaque(20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica torrente = new HabilidadModificacionEstadistica(25, new modAtaque(20.0)); /* AGUA */
+        HabilidadModificacionEstadistica paraRayos = new HabilidadModificacionEstadistica(25, new modAtaque(20.0)); /* ELÉCTRICO */
 
-        HabilidadModificacionEstadistica intimidacion = new HabilidadModificacionEstadistica(25, new modAtaque(5.0)); /* NORMAL */
-        HabilidadModificacionEstadistica sumergido = new HabilidadModificacionEstadistica(25, new modAtaque(5.0)); /* AGUA */
-        HabilidadModificacionEstadistica enterrado = new HabilidadModificacionEstadistica(25, new modAtaque(5.0)); /* TIERRA */
+        HabilidadModificacionEstadistica intimidacion = new HabilidadModificacionEstadistica(25, new modAtaque(-5.0)); /* NORMAL */
+        HabilidadModificacionEstadistica sumergido = new HabilidadModificacionEstadistica(25, new modAtaque(-5.0)); /* AGUA */
+        HabilidadModificacionEstadistica enterrado = new HabilidadModificacionEstadistica(25, new modAtaque(-5.0)); /* TIERRA */
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (VELOCIDAD) */
-        HabilidadModificacionEstadistica impulso = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* NORMAL */
-        HabilidadModificacionEstadistica nadoRapido = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* AGUA */
-        HabilidadModificacionEstadistica clorofila = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_PROPIO); /* PLANTA */
+        HabilidadModificacionEstadistica impulso = new HabilidadModificacionEstadistica(25, new modVelocidad(20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica nadoRapido = new HabilidadModificacionEstadistica(25, new modVelocidad(20.0)); /* AGUA */
+        HabilidadModificacionEstadistica clorofila = new HabilidadModificacionEstadistica(25, new modVelocidad(20.0)); /* PLANTA */
 
-        HabilidadModificacionEstadistica coabrdia = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* NORMAL */
-        HabilidadModificacionEstadistica colaSurf = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* AGUA */
-        HabilidadModificacionEstadistica impetuArena = new HabilidadModificacionEstadistica(25, estadisticaPokemon.VELOCIDAD_ENEMIGO); /* TIERRA */
+        HabilidadModificacionEstadistica coabrdia = new HabilidadModificacionEstadistica(25, new modVelocidad(-20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica colaSurf = new HabilidadModificacionEstadistica(25, new modVelocidad(-20.0)); /* AGUA */
+        HabilidadModificacionEstadistica impetuArena = new HabilidadModificacionEstadistica(25, new modVelocidad(-20.0)); /* TIERRA */
 
-        HabilidadModificacionEstado chispa = new HabilidadModificacionEstado(25, EstadoPokemon.PARALIZADO); // eléctrico
-        HabilidadModificacionEstado dragonAliento = new HabilidadModificacionEstado(25, EstadoPokemon.PARALIZADO);// dragón
-        HabilidadModificacionEstado salpikaSurf = new HabilidadModificacionEstado(25, EstadoPokemon.PARALIZADO);// agua
-        HabilidadModificacionEstado paralizador = new HabilidadModificacionEstado(25, EstadoPokemon.PARALIZADO);// planta
-        HabilidadModificacionEstado palmeo = new HabilidadModificacionEstado(25, EstadoPokemon.PARALIZADO);// lucha
+        HabilidadModificacionEstado chispa = new HabilidadModificacionEstado(25, new EstadoParalizado()); // eléctrico
+        HabilidadModificacionEstado dragonAliento = new HabilidadModificacionEstado(25, new EstadoParalizado());// dragón
+        HabilidadModificacionEstado salpikaSurf = new HabilidadModificacionEstado(25, new EstadoParalizado());// agua
+        HabilidadModificacionEstado paralizador = new HabilidadModificacionEstado(25, new EstadoParalizado());// planta
+        HabilidadModificacionEstado palmeo = new HabilidadModificacionEstado(25, new EstadoParalizado());// lucha
 
-        HabilidadModificacionEstado bostezo = new HabilidadModificacionEstado(25, EstadoPokemon.DORMIDO);// normal
-        HabilidadModificacionEstado espora = new HabilidadModificacionEstado(25, EstadoPokemon.DORMIDO);// planta
-        HabilidadModificacionEstado gigasopor = new HabilidadModificacionEstado(25, EstadoPokemon.DORMIDO);// fantasma
-        HabilidadModificacionEstado hipnosis = new HabilidadModificacionEstado(25, EstadoPokemon.DORMIDO);// psíquico
-        HabilidadModificacionEstado besoAmoroso = new HabilidadModificacionEstado(25, EstadoPokemon.DORMIDO);// normal
+        HabilidadModificacionEstado bostezo = new HabilidadModificacionEstado(25, new EstadoDormido());// normal
+        HabilidadModificacionEstado espora = new HabilidadModificacionEstado(25, new EstadoDormido());// planta
+        HabilidadModificacionEstado gigasopor = new HabilidadModificacionEstado(25, new EstadoDormido());// fantasma
+        HabilidadModificacionEstado hipnosis = new HabilidadModificacionEstado(25, new EstadoDormido());// psíquico
+        HabilidadModificacionEstado besoAmoroso = new HabilidadModificacionEstado(25, new EstadoDormido());// normal
 
-        HabilidadModificacionEstado bombaLodo = new HabilidadModificacionEstado(25, EstadoPokemon.ENVENENADO);// veneno
-        HabilidadModificacionEstado gasVenenoso = new HabilidadModificacionEstado(25, EstadoPokemon.ENVENENADO);// veneno
-        HabilidadModificacionEstado gigaDescarga = new HabilidadModificacionEstado(25, EstadoPokemon.ENVENENADO);// eléctrico
-        HabilidadModificacionEstado gigaEstupor = new HabilidadModificacionEstado(25, EstadoPokemon.ENVENENADO);// planta
-        HabilidadModificacionEstado picotazoVeneno = new HabilidadModificacionEstado(25, EstadoPokemon.ENVENENADO);// veneno
+        HabilidadModificacionEstado bombaLodo = new HabilidadModificacionEstado(25, new EstadoEnvenenado());// veneno
+        HabilidadModificacionEstado gasVenenoso = new HabilidadModificacionEstado(25, new EstadoEnvenenado());// veneno
+        HabilidadModificacionEstado gigaDescarga = new HabilidadModificacionEstado(25, new EstadoEnvenenado());// eléctrico
+        HabilidadModificacionEstado gigaEstupor = new HabilidadModificacionEstado(25, new EstadoEnvenenado());// planta
+        HabilidadModificacionEstado picotazoVeneno = new HabilidadModificacionEstado(25, new EstadoEnvenenado());// veneno
 
         /* ESTADO
          * DORMIDO
