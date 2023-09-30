@@ -13,3 +13,4 @@ public class modAtaque implements Estadistica{
         ataque.setVarAtaque(varAtaque);
     }
 }
+

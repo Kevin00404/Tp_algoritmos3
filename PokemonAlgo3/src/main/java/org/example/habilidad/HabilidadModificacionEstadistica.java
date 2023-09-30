@@ -5,7 +5,7 @@ import org.example.Elemento.Element;
 import org.example.Estadistica.Estadistica;
 import org.example.pokemon.Pokemon;
 
-public class  HabilidadModificacionEstadistica extends Habilidad {
+public class HabilidadModificacionEstadistica extends Habilidad {
 
     private Estadistica estadistica;
 

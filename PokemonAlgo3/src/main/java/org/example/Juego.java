@@ -57,7 +57,6 @@ public class Juego {
         System.out.println("2. Usar Item");
         System.out.println("3. Mostrar campo de batalla");
         System.out.println("4. Rendirse");
-
         int opcion = scanner.nextInt();
 
         switch (opcion) {
