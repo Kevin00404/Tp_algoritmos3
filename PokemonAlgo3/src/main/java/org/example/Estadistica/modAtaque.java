@@ -5,7 +5,7 @@ import org.example.Ataque;
 public class modAtaque implements Estadistica{
     Double varAtaque;
     public modAtaque(Double varAtaque) {
-    this.varAtaque=varAtaque;
+        this.varAtaque=varAtaque;
     }
 
     @Override
@@ -13,3 +13,4 @@ public class modAtaque implements Estadistica{
         ataque.setVarAtaque(varAtaque);
     }
 }
+

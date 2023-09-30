@@ -153,6 +153,7 @@ public class Pokemon {
         Double damage = ataque_a_realizar.calcular_danio();
         System.out.println("Danio que le afecta: " + damage);
         this.vida -= damage;
+        /* SI ESTÁ MUERTO QUITAR EL POKEMON DE LA POKEBOLA (DICCIONARIO) */
     }
 
     public void actualizarEstadisticas(Ataque ataque){

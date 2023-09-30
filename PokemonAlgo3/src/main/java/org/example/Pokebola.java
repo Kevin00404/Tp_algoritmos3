@@ -56,7 +56,49 @@ public class Pokebola {
         return dicc.get(nombrePokemonElegido);
     }
 
+    public Map<String, Pokemon> getPokebola() {
+        return dicc;
+    }
+    public static void mostrarPokemones(Map<String, Pokemon> dicc){
+        for (Map.Entry<String, Pokemon> entry : dicc.entrySet()) {
+            String clave = entry.getKey();
+            Pokemon valor = entry.getValue();
+            System.out.println("Clave: " + clave + ", Valor: " + valor);
+        }
+    }
+=======
+    }
 
+    public void quitarPokemon(Pokemon pokemon) {
+        if (!dicc.containsKey(pokemon.getNombre())) {
+            System.out.println("El pokemon " + pokemon.getNombre() + " no esta en pokebola.");
+            return;
+        }
+        dicc.remove(pokemon.getNombre());
+    }
+
+    public Pokemon cambiarPokemon() {
+        String nombrePokemonElegido = "";
+        while (!dicc.containsKey(nombrePokemonElegido)) {
+            Scanner nombreVariableScaneado = new Scanner(System.in);
+
+            // Solicitar al usuario que ingrese un nombre de las opciones.
+            System.out.print("Pokemones disponibles: ");
+
+            for (String nombrePokemon : dicc.keySet()) {
+                System.out.println(nombrePokemon);
+            }
+
+            nombrePokemonElegido = nombreVariableScaneado.next();
+
+            if (!dicc.containsKey(nombrePokemonElegido)) {
+                {
+                    System.out.println("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
+                }
+            }
+        }
+        return dicc.get(nombrePokemonElegido);
+    }
 
     public void cantidadPokemones(){
         System.out.println(dicc.size());
