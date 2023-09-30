@@ -1,28 +1,40 @@
 package org.example.estado;
 
+import org.example.Ataque;
+import org.example.Elemento.Element;
+import org.example.EstadoPokemon;
+import org.example.habilidad.Habilidad;
+import org.example.pokemon.Pokemon;
+
 import java.util.Random;
 
 public class EstadoDormido extends Estado{
     public Integer contadorTurnosPerdidos;
-    private boolean estaDormido;
     private Integer turnosDormido;
 
     public EstadoDormido() {
         contadorTurnosPerdidos = 0;
+        turnosDormido = 0;
     }
-    public void puedeDespertarse(){
+    @Override
+    public Estado pasivo(Pokemon pokemon){
+        return this.puedeDespertarse();
+    }
+
+    public Estado puedeDespertarse(){
         contadorTurnosPerdidos ++;
         double probabilidadDespertar = 0.25 + contadorTurnosPerdidos * 0.25;
         Random random = new Random();
         if (random.nextDouble() < probabilidadDespertar) {
-            //System.out.println(nombre + " se ha despertado.");
-            estaDormido = false;
-            turnosDormido = 0;
+            return new EstadoNormal();
         }
         else{
-            turnosDormido ++;
-            estaDormido = true;
-            //System.out.println(nombre + " está dormido, no puede atacar.");
+            this.turnosDormido ++;
+            if(this.turnosDormido == 4){
+                return new EstadoNormal();
+            }
         }
+        return this;
+
     }
 }

@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pokebola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Ataque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Ataque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "estado__refactor",
     "last_opened_file_path": "F:/Users/Nazareno/Documents/UBA XXI/testingOut"
   }
 }]]></component>

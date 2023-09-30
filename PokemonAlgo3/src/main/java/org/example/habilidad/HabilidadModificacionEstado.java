@@ -9,9 +9,9 @@ import org.example.estado.EstadoNormal;
 import org.example.pokemon.Pokemon;
 
 public class HabilidadModificacionEstado extends Habilidad {
-    private EstadoPokemon asignarEstado;
+    private Estado asignarEstado;
 
-    public HabilidadModificacionEstado(Integer cantidadDisponible, EstadoPokemon asignarEstado) {
+    public HabilidadModificacionEstado(Integer cantidadDisponible, Estado asignarEstado) {
         super("modifica estado a " + asignarEstado, cantidadDisponible, "Estado");
         this.asignarEstado = asignarEstado;
     }
