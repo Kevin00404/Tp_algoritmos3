@@ -66,9 +66,10 @@ public class Pokebola {
             System.out.println("Clave: " + clave + ", Valor: " + valor);
         }
     }
-
-
-
+    public Pokemon setPokemonInicial(){
+        Pokemon primerPokemon = dicc.values().iterator().next();
+        return primerPokemon;
+    }
     public void cantidadPokemones(){
         System.out.println(dicc.size());
     }
