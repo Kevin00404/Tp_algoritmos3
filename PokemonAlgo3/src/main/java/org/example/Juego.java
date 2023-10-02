@@ -19,6 +19,8 @@ import org.example.Main;
 public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
+
+    final Integer POKEMONES_POR_POKEBOLA=6;
     public  EstadoPokemon estadoMiPokemon;
 
     public Estadistica estadisticaPokemon;
@@ -240,7 +242,7 @@ public class Juego {
         Pokemon swellow = new Pokemon ("Swellow", new Volador(),"Pollito de fuego", picoteo, tornado, impulso, ojoCompuesto);
 
 
-        Pokebola pokebola1 = new Pokebola();
+        Pokebola pokebola1 = new Pokebola(POKEMONES_POR_POKEBOLA);
         Entrenador entrenador1 = new Entrenador(pokebola1);
         entrenador1.pokebola.agregarPokemon(charmander);
         entrenador1.pokebola.agregarPokemon(squirtle);
@@ -260,7 +262,7 @@ public class Juego {
 
 
 
-        Pokebola pokebola2 = new Pokebola();
+        Pokebola pokebola2 = new Pokebola(POKEMONES_POR_POKEBOLA);
         Entrenador entrenador2 = new Entrenador(pokebola2);
         entrenador2.pokebola.agregarPokemon(hariyama);
         entrenador2.pokebola.agregarPokemon(swampert);
