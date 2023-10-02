@@ -19,6 +19,7 @@ import org.example.Main;
 public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
+    final Integer POKEMONES_POR_POKEBOLA = 6;
     public  EstadoPokemon estadoMiPokemon;
 
     public Estadistica estadisticaPokemon;
@@ -31,7 +32,7 @@ public class Juego {
 
     public void batalla() {
         System.out.println("¡Comienza la batalla de Pokémon!");
-        while (entrenador1.estaVivo() && entrenador2.estaVivo()) {
+        while (entrenador1.estaVivo() && entrenador2.estaVivo()) { // cambiar estaVivo()
             // Turno de entrenador1
             turnoJugador(entrenador1, entrenador2);
 
@@ -60,7 +61,8 @@ public class Juego {
         System.out.println("1. Atacar");
         System.out.println("2. Usar Item");
         System.out.println("3. Mostrar campo de batalla");
-        System.out.println("4. Rendirse");
+        System.out.println("4. Cambiar Pokemon");
+        System.out.println("5. Rendirse");
         int opcion = scanner.nextInt();
 
         switch (opcion) {
@@ -78,6 +80,9 @@ public class Juego {
                 campoDeBatalla(jugador, oponente);
                 break;
             case 4:
+                jugador.setPokemonActual(jugador.pokebola.cambiarPokemon());
+                break;
+            case 5:
                 System.out.println(jugador  + " se ha rendido. " + oponente + " gana la batalla.");
                 break;
             default:
@@ -92,8 +97,8 @@ public class Juego {
         System.out.println("4. " + pokemon.getCuartaHabilidad());
     }
     public void campoDeBatalla(Entrenador jugador, Entrenador oponente){
+        System.out.println("Hola");
         jugador.pokebola.mostrarPokemones(jugador.pokebola.getPokebola());
-        oponente.pokebola.mostrarPokemones(jugador.pokebola.getPokebola());
     }
     private void inicializar(){
 
@@ -240,7 +245,7 @@ public class Juego {
         Pokemon swellow = new Pokemon ("Swellow", new Volador(),"Pollito de fuego", picoteo, tornado, impulso, ojoCompuesto);
 
 
-        Pokebola pokebola1 = new Pokebola();
+        Pokebola pokebola1 = new Pokebola(POKEMONES_POR_POKEBOLA);
         Entrenador entrenador1 = new Entrenador(pokebola1);
         entrenador1.pokebola.agregarPokemon(charmander);
         entrenador1.pokebola.agregarPokemon(squirtle);
@@ -248,6 +253,7 @@ public class Juego {
         entrenador1.pokebola.agregarPokemon(bulbasaur);
         entrenador1.pokebola.agregarPokemon(flygon);
         entrenador1.pokebola.agregarPokemon(swellow);
+        entrenador1.setPokemonActual(entrenador1.pokebola.setPokemonInicial());
 
 
         /* SETEO POKEMONES PARA ENTRENADOR 2 */
@@ -268,6 +274,7 @@ public class Juego {
         entrenador2.pokebola.agregarPokemon(exploud);
         entrenador2.pokebola.agregarPokemon(ludicolo);
         entrenador2.pokebola.agregarPokemon(cacnea);
+        entrenador1.setPokemonActual(entrenador1.pokebola.setPokemonInicial());
 
     }
     /*private Pokemon inicializarAtaques(){
