@@ -28,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,8 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;git-widget-placeholder&quot;: &quot;adan&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/UBA XXI/testingOut&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -117,5 +120,15 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
