@@ -98,7 +98,7 @@ public class Juego {
     }
     public void campoDeBatalla(Entrenador jugador, Entrenador oponente){
         System.out.println("Hola");
-        jugador.pokebola.mostrarPokemones(jugador.pokebola.getPokebola());
+        jugador.pokebola.mostrarPokemones();
     }
     private void inicializar(){
 
@@ -266,7 +266,7 @@ public class Juego {
 
 
 
-        Pokebola pokebola2 = new Pokebola();
+        Pokebola pokebola2 = new Pokebola(POKEMONES_POR_POKEBOLA);
         Entrenador entrenador2 = new Entrenador(pokebola2);
         entrenador2.pokebola.agregarPokemon(hariyama);
         entrenador2.pokebola.agregarPokemon(swampert);
