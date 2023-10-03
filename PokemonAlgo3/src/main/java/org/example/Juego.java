@@ -94,8 +94,8 @@ public class Juego {
         System.out.println("4. " + pokemon.getCuartaHabilidad());
     }
     public void campoDeBatalla(Entrenador jugador, Entrenador oponente){
-        jugador.pokebola.mostrarPokemones(jugador.pokebola.getPokebola());
-        oponente.pokebola.mostrarPokemones(jugador.pokebola.getPokebola());
+        jugador.pokebola.mostrarPokemones();
+        oponente.pokebola.mostrarPokemones();
     }
     private void inicializar(){
 

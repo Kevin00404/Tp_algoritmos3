@@ -65,7 +65,7 @@ public class Pokebola {
         }
     }
 
-    public void mostratPokemones(){
+    public void mostrarPokemones(){
         _mostrarPokemones();
     }
 
