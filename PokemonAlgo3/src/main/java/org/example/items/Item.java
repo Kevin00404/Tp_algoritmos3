@@ -1,4 +1,7 @@
 package org.example.items;
 
-public class Item {
+import org.example.pokemon.Pokemon;
+
+public interface Item {
+    void usarItem(Pokemon pokemon);
 }

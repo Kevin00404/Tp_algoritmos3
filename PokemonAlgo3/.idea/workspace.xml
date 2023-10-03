@@ -5,7 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/CuraTotal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/ItemDeCuracion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/ItemDeEstado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/ItemDeSoporte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Mochila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Pocion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionAntiVeneno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionCurarParalisis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeAtaque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeDefensa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDespertarDormido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Revivir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +66,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;acoplacionDeItems&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/GitHub/Tp_algoritmos3/PokemonAlgo3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
     &quot;git-widget-placeholder&quot;: &quot;adan&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/UBA XXI/testingOut&quot;
   }
@@ -81,9 +111,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694905234508</updated>
+      <workItem from="1696131567298" duration="1426000" />
+      <workItem from="1696133134591" duration="11000" />
+      <workItem from="1696283488271" duration="10047000" />
+      <workItem from="1696332083546" duration="3168000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

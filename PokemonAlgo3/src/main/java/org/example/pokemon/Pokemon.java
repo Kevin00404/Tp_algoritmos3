@@ -6,6 +6,7 @@ import org.example.Elemento.*;
 import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
+import org.example.items.*;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -144,5 +145,40 @@ public class Pokemon {
         this.velocidad+=ataque.getVarianteVida();
     }
 
-
+    //Uso de Items
+    public void usarItem(Revivir revivir){
+        this.estado = this.estado.revivir(this, revivir);
+    }
+    public void usarItem(Pocion pocion){
+        this.estado = this.estado.curar(pocion, this);
+    }
+    public void usarItem(PocionAntiVeneno antiVeneno){
+        this.estado = this.estado.curarEstado(antiVeneno);
+    }
+    public void usarItem(PocionDespertarDormido despertar) {
+        this.estado = this.estado.curarEstado(despertar);
+    }
+    public void usarItem(CuraTotal curarCualquierEstado){this.estado = this.estado.curarEstado(curarCualquierEstado);}
+    public void usarItem(PocionDeAtaque itemDeAtaque){
+        this.estado = this.estado.aumentarAtaque(this, itemDeAtaque);
+    }
+    public void usarItem(PocionDeDefensa itemDeDefensa){
+        this.estado = this.estado.aumentarDefensa(this, itemDeDefensa);
+    }
+    public void aumentarAtaque(Double ataqueExtra){
+        this.ataque += ataqueExtra;
+    }
+    public void aumentarDefensa(Double defensaExtra){
+        this.defensa += defensaExtra;
+    }
+    public void curarVida(Pocion Curacion) {
+        if ((VIDAMAXIMA - this.vida) < Curacion.getValor()){
+            this.vida = VIDAMAXIMA;
+        } else {
+            this.vida += Curacion.getValor();
+        }
+    }
+    public void usarItem(PocionCurarParalisis curarParalisis) {
+        this.estado.curarEstado(curarParalisis);
+    }
 }
