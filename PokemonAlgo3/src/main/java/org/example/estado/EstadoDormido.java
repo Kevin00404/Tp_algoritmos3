@@ -12,6 +12,7 @@ public class EstadoDormido extends Estado{
     public EstadoDormido() {
         contadorTurnosPerdidos = 0;
         turnosDormido = 0;
+        this.nombre = "Dormido";
     }
     @Override
     public Estado pasivo(Pokemon pokemon){
@@ -67,5 +68,15 @@ public class EstadoDormido extends Estado{
     @Override
     public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
         return super.aumentarDefensa(pokemon, itemDeDefensa);
+    }
+
+    @Override
+    public boolean esNormal() {
+        return super.esNormal();
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
     }
 }

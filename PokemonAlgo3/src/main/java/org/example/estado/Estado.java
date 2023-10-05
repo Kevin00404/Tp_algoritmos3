@@ -7,6 +7,7 @@ import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
+    String nombre;
     public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar)
     {
         habilidad.atacar(pokemon, element, ataque_a_realizar);
@@ -38,5 +39,13 @@ public abstract class Estado {
     public Estado curarEstado(PocionCurarParalisis curarParalisis){ return this; }
     public Estado curarEstado(CuraTotal curarCualquierEstado){
         return new EstadoNormal();
+    }
+
+    public boolean esDebilitado() {
+        return false;
+    }
+    public boolean esNormal() {return false;}
+    public String getNombre() {
+        return this.nombre;
     }
 }

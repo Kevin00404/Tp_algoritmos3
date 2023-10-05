@@ -6,7 +6,7 @@ import org.example.pokemon.Pokemon;
 
 public class Main {
     public static void main(String[] args) {
-        HabilidadAtaque habilidadFuegoFuerte = new HabilidadAtaque(25, new Fuego(), 50.0);
+        /*HabilidadAtaque habilidadFuegoFuerte = new HabilidadAtaque(25, new Fuego(), 50.0);
         HabilidadAtaque habilidadFuegoDebil = new HabilidadAtaque(25, new Fuego(), 2.0);
         HabilidadAtaque habilidadAguaFuerte = new HabilidadAtaque(25, new Agua(), 50.0);
         HabilidadAtaque habilidadAguaDebil = new HabilidadAtaque(25, new Agua(), 2.0);
@@ -19,7 +19,7 @@ public class Main {
         pokemon_de_electricidad.atacar(pokemon_de_fuego, 3);
         pokemon_de_agua.atacar(pokemon_de_fuego, 3);
         pokemon_de_agua.atacar(pokemon_de_agua, 3);
-        pokemon_de_agua.atacar(pokemon_de_agua, 4);
-
+        pokemon_de_agua.atacar(pokemon_de_agua, 4);*/
+        Juego juego = new Juego();
     }
 }

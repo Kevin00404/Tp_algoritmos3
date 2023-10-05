@@ -8,7 +8,7 @@ import org.example.pokemon.Pokemon;
 
 public class EstadoParalizado extends Estado{
     public EstadoParalizado(){
-
+        this.nombre = "Paralizado";
     }
     @Override
     public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar){
@@ -58,5 +58,15 @@ public class EstadoParalizado extends Estado{
     @Override
     public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
         return super.aumentarAtaque(pokemon, itemDeAtaque);
+    }
+
+    @Override
+    public boolean esNormal() {
+        return super.esNormal();
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
     }
 }

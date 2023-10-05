@@ -4,6 +4,7 @@ package org.example.pokemon;
 import org.example.Ataque;
 import org.example.Elemento.*;
 import org.example.estado.Estado;
+import org.example.estado.EstadoDebilitado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 import org.example.items.*;
@@ -180,5 +181,20 @@ public class Pokemon {
     }
     public void usarItem(PocionCurarParalisis curarParalisis) {
         this.estado.curarEstado(curarParalisis);
+    }
+    public boolean estaDebilitado(){
+        return estado.esDebilitado();
+    }
+
+    public void debilitar() {
+        this.estado = new EstadoDebilitado();
+    }
+
+    public void datosDeBatalla() {
+        if(estado.esNormal()){
+            System.out.println(nombre + "\t vida: " + vida);
+        } else {
+            System.out.println(nombre + "\t vida: " + vida + "\t" + estado.getNombre());
+        }
     }
 }

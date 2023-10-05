@@ -64,6 +64,9 @@ public class Pokebola {
             System.out.println("Nombre: " + clave + "|Vida: " + pokemon.getVida());
         }
     }
+    public Pokemon obtenerPokemon(String pokemonSeleccionado){
+        return dicc.get(pokemonSeleccionado);
+    }
 
     public void mostrarPokemones(){
         _mostrarPokemones();
@@ -73,7 +76,29 @@ public class Pokebola {
         return dicc.values().iterator().next();
     }
 
-    public void cantidadPokemones(){
-        System.out.println(dicc.size());
+    public Integer cantidadPokemones(){
+        return dicc.size();
+    }
+
+    public Integer pokemonesDebilitados(){
+        Integer cantidadDeDebilitados = 0;
+        Set<String> claves = dicc.keySet();
+        Iterator<String> iterator = claves.iterator();
+        while (iterator.hasNext()) {
+            String clave = iterator.next();
+            if (dicc.get(clave).estaDebilitado()){
+                cantidadDeDebilitados++;
+            }
+        }
+        return cantidadDeDebilitados;
+    }
+
+    public void debilitarEquipo() {
+        Set<String> claves = dicc.keySet();
+        Iterator<String> iterator = claves.iterator();
+        while (iterator.hasNext()) {
+            String clave = iterator.next();
+            dicc.get(clave).debilitar();
+        }
     }
 }

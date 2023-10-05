@@ -1,14 +1,18 @@
 package org.example;
 
-import org.example.habilidad.Habilidad;
+import org.example.items.Mochila;
 import org.example.pokemon.Pokemon;
 
 public class Entrenador {
     Pokebola pokebola;
     Pokemon pokemonActual;
-    public Entrenador(Pokebola pokebola) {
+    Mochila mochila;
+    Integer nroEntrenador;
+    public Entrenador(Pokebola pokebola , Mochila mochila , Integer nroEntrenador) {
         this.pokebola = pokebola;
         this.pokemonActual = null;
+        this.mochila = mochila;
+        this.nroEntrenador = nroEntrenador;
     }
 
     public Pokemon getPokemonActual() {
@@ -37,4 +41,31 @@ public class Entrenador {
         return true;
     }
 
+    public boolean tienePokemonDisponible(){
+        return pokebola.pokemonesDebilitados() < pokebola.cantidadPokemones();
+    }
+
+    public void usarItemEnMochila(int objetoElegido, Pokemon pokemon) {
+        mochila.usarItem(pokemon,objetoElegido);
+    }
+
+    public void verMochila() {
+        mochila.mostrarItems();
+    }
+
+    public void verEquipo() {
+        pokebola.mostrarPokemones();
+    }
+
+    public Integer getNroEntrenador() {
+        return nroEntrenador;
+    }
+
+    public void rendirse() {
+        pokebola.debilitarEquipo();
+    }
+
+    public void mostrarPokemonEnBatalla() {
+        pokemonActual.datosDeBatalla();
+    }
 }

@@ -3,7 +3,8 @@ package org.example.items;
 import org.example.pokemon.Pokemon;
 
 public class Revivir extends ItemDeCuracion{
-    Revivir(Double valor , String nombre){
+    public Revivir(Double valor, String nombre , Integer disponible){
+        super(disponible);
         this.valor = valor;
         this.nombre = nombre;
     }
@@ -20,5 +21,11 @@ public class Revivir extends ItemDeCuracion{
     @Override
     public void usarItem(Pokemon pokemon) {
         pokemon.usarItem(this);
+        this.disponibles -=1;
+    }
+
+    @Override
+    public boolean quedanDisponibles() {
+        return super.quedanDisponibles();
     }
 }
