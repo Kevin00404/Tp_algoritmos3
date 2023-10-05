@@ -8,13 +8,11 @@ import org.example.Estadistica.modVelocidad;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
-import org.example.habilidad.Habilidad;
 import org.example.habilidad.HabilidadAtaque;
 import org.example.habilidad.HabilidadModificacionEstadistica;
 import org.example.habilidad.HabilidadModificacionEstado;
+import org.example.items.*;
 import org.example.pokemon.Pokemon;
-import org.example.Estadistica.Estadistica.*;
-import org.example.Main;
 
 public class Juego {
     Entrenador entrenador1;
@@ -32,22 +30,28 @@ public class Juego {
 
     public void batalla() {
         System.out.println("¡Comienza la batalla de Pokémon!");
-        while (entrenador1.estaVivo() && entrenador2.estaVivo()) { // cambiar estaVivo()
+        while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
             turnoJugador(entrenador1, entrenador2);
-
+            //verificar si se rindio
+            if (!entrenador1.tienePokemonDisponible()){
+                break;
+            }
             // Verificar si entrenador2 sigue vivo
-            if (!entrenador2.estaVivo()) {
-                System.out.println(entrenador2 + " ha perdido.");
+            if (!entrenador2.tienePokemonDisponible()) {
+                System.out.println("entrenador 2 ha perdido.");
                 break;
             }
 
             // Turno de entrenador2
             turnoJugador(entrenador2, entrenador1);
-
+            //verificar si se rindio
+            if (!entrenador2.tienePokemonDisponible()){
+                break;
+            }
             // Verificar si entrenador1 sigue vivo
-            if (!entrenador1.estaVivo()) {
-                System.out.println(entrenador1 + " ha perdido.");
+            if (!entrenador1.tienePokemonDisponible()) {
+                System.out.println("entrenador 1 ha perdido.");
                 break;
             }
         }
@@ -56,7 +60,7 @@ public class Juego {
     }
 
     public void turnoJugador(Entrenador jugador, Entrenador oponente) {
-        System.out.println(jugador + ", es tu turno.");
+        System.out.println("Entrenador " + jugador.getNroEntrenador() + ", es tu turno.");
         System.out.println("Elige una opción:");
         System.out.println("1. Atacar");
         System.out.println("2. Usar Item");
@@ -74,7 +78,13 @@ public class Juego {
                 break;
             case 2:
                 /* ACÁ TIENE QUE IR A BUSCAR AL POKEMON ACTIVO Y APLICARLE EL ITEM SELECCIONADO */
-                System.out.println(jugador  + " ha usado un item.");
+                System.out.println("seleccione item: ");
+                jugador.verMochila();
+                int objetoElegido = scanner.nextInt();
+                System.out.println("seleccione pokemon: ");
+                jugador.verEquipo();
+                String pokemonElegido = scanner.next();
+                jugador.usarItemEnMochila(objetoElegido , jugador.pokebola.obtenerPokemon(pokemonElegido) );
                 break;
             case 3:
                 campoDeBatalla(jugador, oponente);
@@ -83,7 +93,8 @@ public class Juego {
                 jugador.setPokemonActual(jugador.pokebola.cambiarPokemon());
                 break;
             case 5:
-                System.out.println(jugador  + " se ha rendido. " + oponente + " gana la batalla.");
+                jugador.rendirse();
+                System.out.println("jugador " + jugador.getNroEntrenador() + " se ha rendido. " + "jugador " + oponente.getNroEntrenador() + " gana la batalla.");
                 break;
             default:
                 System.out.println("Opción no válida. Se considera un turno sin acción.");
@@ -97,8 +108,11 @@ public class Juego {
         System.out.println("4. " + pokemon.getCuartaHabilidad());
     }
     public void campoDeBatalla(Entrenador jugador, Entrenador oponente){
-        System.out.println("Hola");
-        jugador.pokebola.mostrarPokemones();
+        System.out.println("Detalles del campo de Batalla:");
+        System.out.println("tu pokemon:");
+        jugador.mostrarPokemonEnBatalla();
+        System.out.println("pokemon enemigo");
+        oponente.mostrarPokemonEnBatalla();
     }
     private void inicializar(){
 
@@ -244,16 +258,17 @@ public class Juego {
         Pokemon flygon = new Pokemon("Squirtle", new Dragon(), "Nacio en el cielo(?", cargaDragon, pulsoDragon, escamaEspecial, mareoEscamoso);
         Pokemon swellow = new Pokemon ("Swellow", new Volador(),"Pollito de fuego", picoteo, tornado, impulso, ojoCompuesto);
 
+        Mochila mochilaEntrenador1 = inicializarItems();
 
         Pokebola pokebola1 = new Pokebola(POKEMONES_POR_POKEBOLA);
-        Entrenador entrenador1 = new Entrenador(pokebola1);
-        entrenador1.pokebola.agregarPokemon(charmander);
-        entrenador1.pokebola.agregarPokemon(squirtle);
-        entrenador1.pokebola.agregarPokemon(pikachu);
-        entrenador1.pokebola.agregarPokemon(bulbasaur);
-        entrenador1.pokebola.agregarPokemon(flygon);
-        entrenador1.pokebola.agregarPokemon(swellow);
-        entrenador1.setPokemonActual(entrenador1.pokebola.setPokemonInicial());
+        this.entrenador1 = new Entrenador(pokebola1 , mochilaEntrenador1 , 1);
+        this.entrenador1.pokebola.agregarPokemon(charmander);
+        this.entrenador1.pokebola.agregarPokemon(squirtle);
+        this.entrenador1.pokebola.agregarPokemon(pikachu);
+        this.entrenador1.pokebola.agregarPokemon(bulbasaur);
+        this.entrenador1.pokebola.agregarPokemon(flygon);
+        this.entrenador1.pokebola.agregarPokemon(swellow);
+        this.entrenador1.setPokemonActual(entrenador1.pokebola.setPokemonInicial());
 
 
         /* SETEO POKEMONES PARA ENTRENADOR 2 */
@@ -264,17 +279,17 @@ public class Juego {
         Pokemon ludicolo = new Pokemon("Ludicolo", new Planta(), "Nacio en el bosque(?", cargaDragon, pulsoDragon, escamaEspecial, mareoEscamoso);
         Pokemon cacnea = new Pokemon ("Cacnea", new Volador(),"Nacio en el bosque", picoteo, tornado, impulso, ojoCompuesto);
 
-
+        Mochila mochilaEntrenador2 = inicializarItems();
 
         Pokebola pokebola2 = new Pokebola(POKEMONES_POR_POKEBOLA);
-        Entrenador entrenador2 = new Entrenador(pokebola2);
-        entrenador2.pokebola.agregarPokemon(hariyama);
-        entrenador2.pokebola.agregarPokemon(swampert);
-        entrenador2.pokebola.agregarPokemon(claydol);
-        entrenador2.pokebola.agregarPokemon(exploud);
-        entrenador2.pokebola.agregarPokemon(ludicolo);
-        entrenador2.pokebola.agregarPokemon(cacnea);
-        entrenador1.setPokemonActual(entrenador1.pokebola.setPokemonInicial());
+        this.entrenador2 = new Entrenador(pokebola2 , mochilaEntrenador2 , 2);
+        this.entrenador2.pokebola.agregarPokemon(hariyama);
+        this.entrenador2.pokebola.agregarPokemon(swampert);
+        this.entrenador2.pokebola.agregarPokemon(claydol);
+        this.entrenador2.pokebola.agregarPokemon(exploud);
+        this.entrenador2.pokebola.agregarPokemon(ludicolo);
+        this.entrenador2.pokebola.agregarPokemon(cacnea);
+        this.entrenador2.setPokemonActual(entrenador2.pokebola.setPokemonInicial());
 
     }
     /*private Pokemon inicializarAtaques(){
@@ -284,5 +299,33 @@ public class Juego {
         Pokemon pokemon = new Pokemon("Charmander", new Fuego(), "Nacio en un volcan(?", habilidadFuegoFuerte, habilidadFuegoDebil, habilidadAguaFuerte, habilidadAguaDebil);
         return pokemon;
     }*/
+
+    /* INICIALIZACION DE ITEMS */
+    public Mochila inicializarItems(){
+        CuraTotal curaTotal = new CuraTotal("cura total" , 1);
+        PocionDespertarDormido despertar = new PocionDespertarDormido("despertar" , 1);
+        PocionAntiVeneno antiVeneno = new PocionAntiVeneno("antiveneno" , 1);
+        PocionCurarParalisis curarParalisis = new PocionCurarParalisis("antiparalisis" , 1);
+        Pocion pocionBasica = new Pocion(20.0 ,"pocion basica" , 1);
+        Pocion megaPocion = new Pocion(50.0 , "mega pocion" , 1);
+        Pocion hiperPocion = new Pocion(100.0 , "hiper pocion" , 1);
+        Revivir revivir = new Revivir(20.0 , "revivir" , 1);
+        Revivir maxRevivir = new Revivir(100.0 , "max revivir" , 1);
+        PocionDeAtaque ataqueX = new PocionDeAtaque("ataque x", 10.0 , 1);
+        PocionDeDefensa defensaX = new PocionDeDefensa("defensa x" , 10.0 , 1);
+        Mochila mochilaEntrenador = new Mochila();
+        mochilaEntrenador.agregarObjeto(pocionBasica);
+        mochilaEntrenador.agregarObjeto(megaPocion);
+        mochilaEntrenador.agregarObjeto(hiperPocion);
+        mochilaEntrenador.agregarObjeto(curaTotal);
+        mochilaEntrenador.agregarObjeto(antiVeneno);
+        mochilaEntrenador.agregarObjeto(despertar);
+        mochilaEntrenador.agregarObjeto(curarParalisis);
+        mochilaEntrenador.agregarObjeto(revivir);
+        mochilaEntrenador.agregarObjeto(maxRevivir);
+        mochilaEntrenador.agregarObjeto(ataqueX);
+        mochilaEntrenador.agregarObjeto(defensaX);
+        return mochilaEntrenador;
+    }
 
 }

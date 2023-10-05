@@ -1,14 +1,11 @@
 package org.example.estado;
 
-import org.example.Ataque;
-import org.example.Elemento.Element;
-import org.example.habilidad.Habilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public class EstadoEnvenenado extends Estado {
     public EstadoEnvenenado(){
-
+        this.nombre = "Envenenado";
     }
     @Override
     public Estado pasivo(Pokemon pokemon) {
@@ -48,5 +45,15 @@ public class EstadoEnvenenado extends Estado {
     @Override
     public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
         return super.aumentarAtaque(pokemon, itemDeAtaque);
+    }
+
+    @Override
+    public boolean esNormal() {
+        return super.esNormal();
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
     }
 }

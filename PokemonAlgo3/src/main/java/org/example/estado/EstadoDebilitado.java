@@ -4,6 +4,9 @@ import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public class EstadoDebilitado extends Estado{
+    public EstadoDebilitado(){
+        this.nombre = "Debilitado";
+    }
     @Override
     public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir) {
         pokemon.setVida(itemDeRevivir.getValor());
@@ -36,5 +39,20 @@ public class EstadoDebilitado extends Estado{
     @Override
     public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
         return this;
+    }
+
+    @Override
+    public boolean esDebilitado() {
+        return true;
+    }
+
+    @Override
+    public boolean esNormal() {
+        return super.esNormal();
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
     }
 }
