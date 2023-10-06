@@ -28,4 +28,9 @@ public class PocionDeDefensa extends ItemDeSoporte{
     public boolean quedanDisponibles() {
         return super.quedanDisponibles();
     }
+
+    @Override
+    public boolean sePuedeUsar(Pokemon pokemon) {
+        return !pokemon.getEstado().getNombre().equals("Debilitado") && pokemon.sePuedeCurar();
+    }
 }

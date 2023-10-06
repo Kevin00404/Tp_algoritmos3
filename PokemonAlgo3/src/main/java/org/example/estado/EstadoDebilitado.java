@@ -7,6 +7,7 @@ public class EstadoDebilitado extends Estado{
     public EstadoDebilitado(){
         this.nombre = "Debilitado";
     }
+
     @Override
     public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir) {
         pokemon.setVida(itemDeRevivir.getValor());

@@ -17,6 +17,7 @@ public abstract class Estado {
         return this;
     }
     public Estado setEstadoActual(Estado estado){
+        System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
         return this;
     }
     public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir){

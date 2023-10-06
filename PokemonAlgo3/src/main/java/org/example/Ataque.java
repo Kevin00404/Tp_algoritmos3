@@ -22,35 +22,37 @@ public class Ataque {
     public Ataque(){
         this.random = 1.0;
         this.critico = 1.0;
+        this.varianteAtaque = 0.0;
+        this.varianteDefensa = 0.0;
+        this.varianteVelocidad = 0.0;
+        this.varianteVida = 0.0;
     }
 
     public void setEstado(Estado estadoACambiar) {
         this.estadoACambiar = estadoACambiar;
     }
-public Estado cambiarEstado(Estado estado){
-        estado.setEstadoActual(this.estadoACambiar);
-        System.out.println("El estado del pokemon ahora es " + this.estadoACambiar);
+    public Estado cambiarEstado(Estado estado){
+
         return estado.setEstadoActual(this.estadoACambiar);
-}
+    }
 
 
 public void setVarAtaque(Double varAtaque){
-        this.varianteAtaque=varAtaque;
+    System.out.println("se modifica la ataque por: " + varAtaque);
+    this.varianteAtaque=varAtaque;
 }
     public void setVarVida(Double varVida){
-        this.varianteAtaque=varVida;
+        System.out.println("se modifica la vida por: " + varVida);
+        this.varianteVida=varVida;
     }
     public void setVarDefensa(Double varDefensa){
-        this.varianteAtaque=varDefensa;
+        System.out.println("se modifica la defensa por: " + varDefensa);
+        this.varianteDefensa=varDefensa;
     }
     public void setVarVelocidad(Double varVelocidad){
-        this.varianteAtaque=varVelocidad;
+        System.out.println("se modifica la velocidad por: " + varVelocidad);
+        this.varianteVelocidad=varVelocidad;
     }
-
-
-
-
-
 
     public void setAtaque(Double ataque){
         this.ataque = ataque;
@@ -74,7 +76,6 @@ public void setVarAtaque(Double varAtaque){
 
 
     public Double calcular_danio() {
-        System.out.println("nivel: " + nivel + "    critico: " + critico + "    poder: " + poder + "    ataque: " + ataque + "  defensa: " + defensa + "    mismoTipo: " + mismoTipo + "    tipo: " + tipo + "  random: " + random);
         return (((2 * nivel * critico * poder * (ataque/defensa))/5 + 2)/50)* mismoTipo * tipo * random;
     }
 

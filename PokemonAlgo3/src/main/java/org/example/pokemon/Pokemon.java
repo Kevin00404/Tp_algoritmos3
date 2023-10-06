@@ -38,6 +38,7 @@ public class Pokemon {
         this.historia = historia;
         this.ataque = 10.0;
         this.defensa = 10.0;
+        this.velocidad = 5.0;
         nivel = NIVEL_INICIO;
         vida = VIDAMAXIMA;
         estado = new EstadoNormal();
@@ -96,38 +97,44 @@ public class Pokemon {
         return vida > 0;
     }
 
-    public Habilidad getPrimeraHabilidad() {
-        return habilidades.get(1);
+    public String getPrimeraHabilidad() {
+        return habilidades.get(1).getNombre();
     }
 
-    public Habilidad getSegundaHabilidad() {
-        return habilidades.get(2);
+    public String getSegundaHabilidad() {
+        return habilidades.get(2).getNombre();
     }
 
-    public Habilidad getTerceraHabilidad() {
-        return habilidades.get(3);
+    public String getTerceraHabilidad() {
+        return habilidades.get(3).getNombre();
     }
 
-    public Habilidad getCuartaHabilidad() {
-        return habilidades.get(4);
+    public String getCuartaHabilidad() {
+        return habilidades.get(4).getNombre();
     }
 
     public void modificarEstado(Ataque ataque){
         this.estado=ataque.cambiarEstado(this.estado);
     }
 
-    public void atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
+    public boolean atacar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
+        if(!habilidad.sePuedeUsar()){
+            System.out.println("la habilidad no se puede usar");
+            return false;
+        }
         Ataque ataque_a_realizar = new Ataque();
         ataque_a_realizar.setAtaque(this.ataque);
         ataque_a_realizar.setNivel(this.nivel);
-        System.out.println("Mi habilidad de pokemon es: " + this.elemento.get_tipo());
         this.estado = this.estado.pasivo(this);
-        this.estado.atacar(pokemon /*pokemon al cuál se va a atacar*/, habilidad /*La habilidad que se usa*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
+        this.estado.atacar(habilidad.getObjetivo(this, pokemon) /*pokemon al cuál se va a atacar*/, habilidad /*La habilidad que se usa*/, this.elemento /* elemento del pokemon que está atacando*/, ataque_a_realizar);
+        return true;
     }
 
     public void envenenar(){
+        System.out.println("se esta envenenando por: " + (this.vida*5)/100);
         this.vida -= (this.vida*5)/100;
+        this.chequeoDeVida();
     }
 
     public void recibirDanio(Ataque ataque_a_realizar, Element element) {
@@ -136,14 +143,24 @@ public class Pokemon {
         Double damage = ataque_a_realizar.calcular_danio();
         System.out.println("Danio que le afecta: " + damage);
         this.vida -= damage;
+        System.out.println("vida restante: " + this.vida + " daño realizado: " + damage);
         /* SI ESTÁ MUERTO QUITAR EL POKEMON DE LA POKEBOLA (DICCIONARIO) */
+        this.chequeoDeVida();
+    }
+
+    public boolean chequeoDeVida() {
+        if (this.vida <= 0) {
+            this.estado = new EstadoDebilitado();
+            return false;
+        }
+        return true;
     }
 
     public void actualizarEstadisticas(Ataque ataque){
         this.vida+=ataque.getVarianteVida();
-        this.ataque+=ataque.getVarianteVida();
-        this.defensa+=ataque.getVarianteVida();
-        this.velocidad+=ataque.getVarianteVida();
+        this.ataque+=ataque.getVarianteAtaque();
+        this.defensa+=ataque.getVarianteDefensa();
+        this.velocidad+=ataque.getVarianteVelocidad();
     }
 
     //Uso de Items
@@ -158,6 +175,9 @@ public class Pokemon {
     }
     public void usarItem(PocionDespertarDormido despertar) {
         this.estado = this.estado.curarEstado(despertar);
+    }
+    public void usarItem(PocionCurarParalisis curarParalisis) {
+        this. estado = this.estado.curarEstado(curarParalisis);
     }
     public void usarItem(CuraTotal curarCualquierEstado){this.estado = this.estado.curarEstado(curarCualquierEstado);}
     public void usarItem(PocionDeAtaque itemDeAtaque){
@@ -179,9 +199,6 @@ public class Pokemon {
             this.vida += Curacion.getValor();
         }
     }
-    public void usarItem(PocionCurarParalisis curarParalisis) {
-        this.estado.curarEstado(curarParalisis);
-    }
     public boolean estaDebilitado(){
         return estado.esDebilitado();
     }
@@ -192,9 +209,26 @@ public class Pokemon {
 
     public void datosDeBatalla() {
         if(estado.esNormal()){
-            System.out.println(nombre + "\t vida: " + vida);
+            System.out.println(nombre + "\t lvl: " + nivel + "\t vida: " + vida +" "+ ataque +"\n" + defensa+ "\n" + velocidad);
         } else {
-            System.out.println(nombre + "\t vida: " + vida + "\t" + estado.getNombre());
+            System.out.println(nombre + "lvl: " + nivel + "\t vida: " + vida + "\t" + estado.getNombre());
         }
+    }
+
+    public void aplicarEfectos() {
+        this.estado = this.estado.pasivo(this);
+    }
+
+    public void mostrarHabilidades() {
+        System.out.println("Elige una habilidad:");
+        System.out.println("1. " + getPrimeraHabilidad() + "usos disponibles: " + this.habilidades.get(1).getCantidadDisponible());
+        System.out.println("2. " + getSegundaHabilidad() + "usos disponibles: " + this.habilidades.get(2).getCantidadDisponible());
+        System.out.println("3. " + getTerceraHabilidad() + "usos disponibles: " + this.habilidades.get(3).getCantidadDisponible());
+        System.out.println("4. " + getCuartaHabilidad() + "usos disponibles: " + this.habilidades.get(4).getCantidadDisponible());
+        System.out.println("5. volver atras");
+    }
+
+    public boolean sePuedeCurar() {
+        return vida < VIDAMAXIMA;
     }
 }

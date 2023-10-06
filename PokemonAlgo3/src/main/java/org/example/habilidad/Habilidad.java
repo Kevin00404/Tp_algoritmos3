@@ -22,11 +22,18 @@ public class Habilidad {
         return nombre;
     }
 
-    public Integer getCantidadDisponible() {
-        return cantidadDisponible;
+    public Pokemon getObjetivo(Pokemon pokemon1 , Pokemon pokemon2) {
+        return pokemon2;
     }
 
-    public String getTipoDeHabilidad() {
-        return tipoDeHabilidad;
+    public boolean sePuedeUsar() {
+        return cantidadDisponible > 0;
+    }
+    protected void consumirUso(){
+        this.cantidadDisponible -= 1;
+    }
+
+    public Integer getCantidadDisponible() {
+        return cantidadDisponible;
     }
 }

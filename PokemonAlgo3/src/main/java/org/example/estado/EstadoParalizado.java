@@ -17,7 +17,7 @@ public class EstadoParalizado extends Estado{
             System.out.println("El Pokémon está PARALIZADO y no pudo realizar la habilidad.");
         } else {
             habilidad.atacar(pokemon, element, ataque_a_realizar);
-            System.out.println("El Pokémon ya NO está PARALIZADO lanza la habilidad.");
+            System.out.println("El Pokémon esta Paralizado pero puedo lanzar la habilidad.");
             return new EstadoNormal();
         }
         return this;

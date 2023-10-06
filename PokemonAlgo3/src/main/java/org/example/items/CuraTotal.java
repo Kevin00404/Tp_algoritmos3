@@ -23,4 +23,9 @@ public class CuraTotal extends ItemDeEstado{
     public boolean quedanDisponibles() {
         return super.quedanDisponibles();
     }
+
+    @Override
+    public boolean sePuedeUsar(Pokemon pokemon) {
+        return true;
+    }
 }

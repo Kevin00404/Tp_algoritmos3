@@ -4,4 +4,8 @@ import org.example.Ataque;
 
 public interface Estadistica {
     void modificarEstadistica(Ataque ataque);
+
+    String getNombre();
+
+    boolean danina();
 }

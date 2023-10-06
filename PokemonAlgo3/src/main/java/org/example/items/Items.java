@@ -19,4 +19,8 @@ public abstract class Items implements Item {
     public boolean quedanDisponibles() {
         return disponibles>0;
     }
+
+    public boolean sePuedeUsar(Pokemon pokemon) {
+        return true;
+    }
 }

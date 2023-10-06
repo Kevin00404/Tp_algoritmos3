@@ -1,5 +1,8 @@
 package org.example.estado;
 
+import org.example.Ataque;
+import org.example.Elemento.Element;
+import org.example.habilidad.Habilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -14,6 +17,13 @@ public class EstadoDormido extends Estado{
         turnosDormido = 0;
         this.nombre = "Dormido";
     }
+
+    @Override
+    public Estado atacar(Pokemon pokemon, Habilidad habilidad, Element element, Ataque ataque_a_realizar) {
+        System.out.println("Esta dormido no puede atacar");
+        return this;
+    }
+
     @Override
     public Estado pasivo(Pokemon pokemon){
         return this.puedeDespertarse();
@@ -24,11 +34,13 @@ public class EstadoDormido extends Estado{
         double probabilidadDespertar = 0.25 + contadorTurnosPerdidos * 0.25;
         Random random = new Random();
         if (random.nextDouble() < probabilidadDespertar) {
+            System.out.println("el pokemon desperto");
             return new EstadoNormal();
         }
         else{
             this.turnosDormido ++;
             if(this.turnosDormido == 4){
+                System.out.println("el pokemon desperto");
                 return new EstadoNormal();
             }
         }
