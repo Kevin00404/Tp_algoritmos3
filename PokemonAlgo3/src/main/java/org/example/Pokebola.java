@@ -39,10 +39,16 @@ public class Pokebola {
 
             nombrePokemonElegido = nombreVariableScaneado.next();
 
+            if(nombrePokemonElegido.equals("cancelar")){
+                return null;
+            }
             if (!dicc.containsKey(nombrePokemonElegido)) {
                 {
                     System.out.println("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
                 }
+            } else if (!dicc.get(nombrePokemonElegido).chequeoDeVida()) {
+                nombrePokemonElegido = "";
+                System.out.println("El pokemon esta muerto, elija otro");
             }
         }
         return dicc.get(nombrePokemonElegido);
@@ -50,7 +56,7 @@ public class Pokebola {
 
     private void _mostrarPokemones(){
         // Solicitar al usuario que ingrese un nombre de las opciones.
-        System.out.print("Pokemones disponibles: ");
+        System.out.print("Pokemones disponibles: \n");
 
 
         Set<String> claves = dicc.keySet();

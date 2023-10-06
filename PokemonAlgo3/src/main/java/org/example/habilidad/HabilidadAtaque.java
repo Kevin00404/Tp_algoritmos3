@@ -11,15 +11,18 @@ public class HabilidadAtaque extends Habilidad{
     Element elemento;
     Double poder_de_ataque;
 
-    public HabilidadAtaque(Integer cantidadDisponible, Element elemento /*del pokemon que está atacando*/, Double poder_de_ataque) {
-        super("Habilidad de Ataque",cantidadDisponible,"Ataque");//se repite en las otras dos habilidades.
+    public HabilidadAtaque(String nombre, Integer cantidadDisponible, Element elemento /*del pokemon que está atacando*/, Double poder_de_ataque) {
+        super(nombre + " (Habilidad de Ataque)",cantidadDisponible,"Ataque");//se repite en las otras dos habilidades.
         this.elemento = elemento;
         this.poder_de_ataque = poder_de_ataque;
     }
     @Override
     public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar){
+        this.consumirUso();
+        System.out.println("se ha elegido la habilidad: " + this.nombre);
         ataque_a_realizar.setPoder(this.poder_de_ataque);
         ataque_a_realizar.setMismoTipo(this.elemento.bonus_mismo_tipo(element));
         pokemon.recibirDanio(ataque_a_realizar, elemento);
     }
+
 }

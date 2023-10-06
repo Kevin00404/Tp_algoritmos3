@@ -9,6 +9,7 @@ public class EstadoNormal extends Estado{
     }
     @Override
     public Estado setEstadoActual(Estado estado) {
+        System.out.println("el estado se cambia a: " + estado.getNombre());
         return estado;
     }
     @Override

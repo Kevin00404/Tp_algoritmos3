@@ -7,12 +7,12 @@ public class Entrenador {
     Pokebola pokebola;
     Pokemon pokemonActual;
     Mochila mochila;
-    Integer nroEntrenador;
-    public Entrenador(Pokebola pokebola , Mochila mochila , Integer nroEntrenador) {
+    String nombre;
+    public Entrenador(Pokebola pokebola , Mochila mochila , String nombre) {
         this.pokebola = pokebola;
         this.pokemonActual = null;
         this.mochila = mochila;
-        this.nroEntrenador = nroEntrenador;
+        this.nombre = nombre;
     }
 
     public Pokemon getPokemonActual() {
@@ -27,26 +27,23 @@ public class Entrenador {
         return pokebola;
     }
 
-    public void atacar(Entrenador entrenador, Integer habilidad){
-        pokemonActual.atacar(entrenador.getPokemonActual(), habilidad);
+    public boolean atacar(Entrenador entrenador, Integer habilidad){
+        return pokemonActual.atacar(entrenador.getPokemonActual(), habilidad);
     }
     public Pokemon getPokemon(){
         return pokemonActual;
     }
 
-    public boolean estaVivo(){
-        if (pokemonActual == null) {
-            return false;
-        }
-        return true;
+    public boolean pokemonEstaVivo(){
+        return pokemonActual.chequeoDeVida();
     }
 
     public boolean tienePokemonDisponible(){
         return pokebola.pokemonesDebilitados() < pokebola.cantidadPokemones();
     }
 
-    public void usarItemEnMochila(int objetoElegido, Pokemon pokemon) {
-        mochila.usarItem(pokemon,objetoElegido);
+    public boolean usarItemEnMochila(int objetoElegido, Pokemon pokemon) {
+        return mochila.usarItem(pokemon,objetoElegido);
     }
 
     public void verMochila() {
@@ -57,8 +54,8 @@ public class Entrenador {
         pokebola.mostrarPokemones();
     }
 
-    public Integer getNroEntrenador() {
-        return nroEntrenador;
+    public String getNroEntrenador() {
+        return nombre;
     }
 
     public void rendirse() {
@@ -67,5 +64,13 @@ public class Entrenador {
 
     public void mostrarPokemonEnBatalla() {
         pokemonActual.datosDeBatalla();
+    }
+
+    public void aplicarEfectos() {
+        pokemonActual.aplicarEfectos();
+    }
+
+    public String getNombre() {
+        return this.nombre;
     }
 }
