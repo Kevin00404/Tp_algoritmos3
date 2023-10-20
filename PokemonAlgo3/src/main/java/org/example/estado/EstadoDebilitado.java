@@ -1,5 +1,7 @@
 package org.example.estado;
 
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje.ComandoMensajePokemonDebilitado;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -55,5 +57,9 @@ public class EstadoDebilitado extends Estado{
     @Override
     public String getNombre() {
         return super.getNombre();
+    }
+
+    public Comando condicionarComando(Comando comando){
+        return new ComandoMensajePokemonDebilitado();
     }
 }

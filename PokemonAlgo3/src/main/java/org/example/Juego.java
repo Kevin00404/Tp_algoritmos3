@@ -1,10 +1,10 @@
 package org.example;
 import java.util.Scanner;
 import org.example.Elemento.*;
-import org.example.Estadistica.Estadistica;
+import org.example.Estadistica.ModificacionEstadistica;
 import org.example.Estadistica.modAtaque;
-import org.example.Estadistica.modDefensa;
-import org.example.Estadistica.modVelocidad;
+import org.example.Estadistica.ModDefensa;
+import org.example.Estadistica.ModVelocidad;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
@@ -20,7 +20,7 @@ public class Juego {
     final Integer POKEMONES_POR_POKEBOLA = 6;
     public  EstadoPokemon estadoMiPokemon;
 
-    public Estadistica estadisticaPokemon;
+    public ModificacionEstadistica modificacionEstadisticaPokemon;
     private Scanner scanner;
     public Juego(){
         scanner = new Scanner(System.in);
@@ -209,21 +209,21 @@ public class Juego {
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (DEFENSA) */
 
-        HabilidadModificacionEstadistica domador = new HabilidadModificacionEstadistica("domador" , 25, new modDefensa(20.0)); /* NORMAL */
-        HabilidadModificacionEstadistica descarga = new HabilidadModificacionEstadistica("descarga" , 25, new modDefensa(20.0)); /* ELÉCTRICO */
-        HabilidadModificacionEstadistica ignicion = new HabilidadModificacionEstadistica("ignicion" , 25, new modDefensa(20.0)); /* FUEGO */
-        HabilidadModificacionEstadistica mantoFrondoso = new HabilidadModificacionEstadistica("mantoFrondoso" , 25, new modDefensa(20.0)); /* PLANTA */
-        HabilidadModificacionEstadistica escamaEspecial = new HabilidadModificacionEstadistica("escamaEspecial" , 25, new modDefensa(20.0)); /* DRAGON */
-        HabilidadModificacionEstadistica rociador = new HabilidadModificacionEstadistica("rociador" , 25, new modDefensa(20.0)); /* AGUA */
-        HabilidadModificacionEstadistica defensaLodo = new HabilidadModificacionEstadistica("defensaLodo" , 25, new modDefensa(20.0)); /* TIERRA */
+        HabilidadModificacionEstadistica domador = new HabilidadModificacionEstadistica("domador" , 25, new ModDefensa(20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica descarga = new HabilidadModificacionEstadistica("descarga" , 25, new ModDefensa(20.0)); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica ignicion = new HabilidadModificacionEstadistica("ignicion" , 25, new ModDefensa(20.0)); /* FUEGO */
+        HabilidadModificacionEstadistica mantoFrondoso = new HabilidadModificacionEstadistica("mantoFrondoso" , 25, new ModDefensa(20.0)); /* PLANTA */
+        HabilidadModificacionEstadistica escamaEspecial = new HabilidadModificacionEstadistica("escamaEspecial" , 25, new ModDefensa(20.0)); /* DRAGON */
+        HabilidadModificacionEstadistica rociador = new HabilidadModificacionEstadistica("rociador" , 25, new ModDefensa(20.0)); /* AGUA */
+        HabilidadModificacionEstadistica defensaLodo = new HabilidadModificacionEstadistica("defensaLodo" , 25, new ModDefensa(20.0)); /* TIERRA */
 
-        HabilidadModificacionEstadistica domado = new HabilidadModificacionEstadistica("domado",25, new modDefensa(-20.0)); /* NORMAL */
-        HabilidadModificacionEstadistica voltaje = new HabilidadModificacionEstadistica("voltaje",25, new modDefensa(-20.0)); /* ELÉCTRICO */
-        HabilidadModificacionEstadistica mareoIgneo = new HabilidadModificacionEstadistica("mareoIgneo",25, new modDefensa(-20.0)); /* FUEGO */
-        HabilidadModificacionEstadistica enredadera = new HabilidadModificacionEstadistica("enredadera",25, new modDefensa(-20.0)); /* PLANTA */
-        HabilidadModificacionEstadistica mareoEscamoso = new HabilidadModificacionEstadistica("mareoEscamoso",25, new modDefensa(-20.0)); /* DRAGON */
-        HabilidadModificacionEstadistica chapotear = new HabilidadModificacionEstadistica("chapotear",25, new modDefensa(-20.0)); /* AGUA */
-        HabilidadModificacionEstadistica lanzaLodo = new HabilidadModificacionEstadistica("lanzaLodo",25, new modDefensa(-20.0)); /* TIERRA */
+        HabilidadModificacionEstadistica domado = new HabilidadModificacionEstadistica("domado",25, new ModDefensa(-20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica voltaje = new HabilidadModificacionEstadistica("voltaje",25, new ModDefensa(-20.0)); /* ELÉCTRICO */
+        HabilidadModificacionEstadistica mareoIgneo = new HabilidadModificacionEstadistica("mareoIgneo",25, new ModDefensa(-20.0)); /* FUEGO */
+        HabilidadModificacionEstadistica enredadera = new HabilidadModificacionEstadistica("enredadera",25, new ModDefensa(-20.0)); /* PLANTA */
+        HabilidadModificacionEstadistica mareoEscamoso = new HabilidadModificacionEstadistica("mareoEscamoso",25, new ModDefensa(-20.0)); /* DRAGON */
+        HabilidadModificacionEstadistica chapotear = new HabilidadModificacionEstadistica("chapotear",25, new ModDefensa(-20.0)); /* AGUA */
+        HabilidadModificacionEstadistica lanzaLodo = new HabilidadModificacionEstadistica("lanzaLodo",25, new ModDefensa(-20.0)); /* TIERRA */
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (ATAQUE) */
         HabilidadModificacionEstadistica ojoCompuesto = new HabilidadModificacionEstadistica("ojoCompuesto", 25, new modAtaque(20.0)); /* NORMAL */
@@ -235,13 +235,13 @@ public class Juego {
         HabilidadModificacionEstadistica enterrado = new HabilidadModificacionEstadistica("enterrado", 25, new modAtaque(-5.0)); /* TIERRA */
 
         /* MODIFICACIÓN DE ESTADÍSTICAS (VELOCIDAD) */
-        HabilidadModificacionEstadistica impulso = new HabilidadModificacionEstadistica("impulso", 25, new modVelocidad(20.0)); /* NORMAL */
-        HabilidadModificacionEstadistica nadoRapido = new HabilidadModificacionEstadistica("nadoRapido", 25, new modVelocidad(20.0)); /* AGUA */
-        HabilidadModificacionEstadistica clorofila = new HabilidadModificacionEstadistica("clorofila", 25, new modVelocidad(20.0)); /* PLANTA */
+        HabilidadModificacionEstadistica impulso = new HabilidadModificacionEstadistica("impulso", 25, new ModVelocidad(20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica nadoRapido = new HabilidadModificacionEstadistica("nadoRapido", 25, new ModVelocidad(20.0)); /* AGUA */
+        HabilidadModificacionEstadistica clorofila = new HabilidadModificacionEstadistica("clorofila", 25, new ModVelocidad(20.0)); /* PLANTA */
 
-        HabilidadModificacionEstadistica coabrdia = new HabilidadModificacionEstadistica("coabrdia", 25, new modVelocidad(-20.0)); /* NORMAL */
-        HabilidadModificacionEstadistica colaSurf = new HabilidadModificacionEstadistica("colaSurf", 25, new modVelocidad(-20.0)); /* AGUA */
-        HabilidadModificacionEstadistica impetuArena = new HabilidadModificacionEstadistica("impetuArena", 25, new modVelocidad(-20.0)); /* TIERRA */
+        HabilidadModificacionEstadistica coabrdia = new HabilidadModificacionEstadistica("coabrdia", 25, new ModVelocidad(-20.0)); /* NORMAL */
+        HabilidadModificacionEstadistica colaSurf = new HabilidadModificacionEstadistica("colaSurf", 25, new ModVelocidad(-20.0)); /* AGUA */
+        HabilidadModificacionEstadistica impetuArena = new HabilidadModificacionEstadistica("impetuArena", 25, new ModVelocidad(-20.0)); /* TIERRA */
 
         HabilidadModificacionEstado chispa = new HabilidadModificacionEstado("chispa", 25, new EstadoParalizado()); // eléctrico
         HabilidadModificacionEstado dragonAliento = new HabilidadModificacionEstado("dragonAliento", 25, new EstadoParalizado());// dragón

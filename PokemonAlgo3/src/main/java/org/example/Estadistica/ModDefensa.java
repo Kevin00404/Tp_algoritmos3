@@ -1,18 +1,19 @@
 package org.example.Estadistica;
 
-import org.example.Ataque;
+import org.example.Estadisticas.Estadisticas;
+import org.example.Turno.Turno;
 
-public class modDefensa implements Estadistica{
+public class ModDefensa extends ModEstadistica {
     String nombre;
     Double varDefensa;
-    public modDefensa(Double varDefensa) {
+    public ModDefensa(Double varDefensa) {
             this.varDefensa=varDefensa;
             this.nombre = "defensa";
         }
 
         @Override
-    public void modificarEstadistica(Ataque ataque) {
-            ataque.setVarDefensa(varDefensa);
+    public void modificarEstadistica(Estadisticas estadisticas) {
+            estadisticas.variarDefensa(varDefensa);
         }
 
     @Override

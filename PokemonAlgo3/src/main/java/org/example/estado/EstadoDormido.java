@@ -1,8 +1,9 @@
 package org.example.estado;
 
-import org.example.Ataque;
-import org.example.Elemento.Element;
-import org.example.habilidad.Habilidad;
+import org.example.Turno.Turno;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje.ComandoMensajePokemonDormido;
+import org.example.comando.ComandoMensaje.ComandoMensajePokemonParalizadoConHabilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -19,9 +20,9 @@ public class EstadoDormido extends Estado{
     }
 
     @Override
-    public Estado atacar(Pokemon pokemon, Habilidad habilidad, Element element, Ataque ataque_a_realizar) {
+    public Comando condicionarComando(Comando comando) {
         System.out.println("Esta dormido no puede atacar");
-        return this;
+        return new ComandoMensajePokemonDormido();
     }
 
     @Override

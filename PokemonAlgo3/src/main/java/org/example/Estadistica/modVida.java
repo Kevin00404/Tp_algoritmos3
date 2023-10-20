@@ -1,7 +1,7 @@
 package org.example.Estadistica;
 
-import org.example.Ataque;
-    public class modVida implements Estadistica{
+import org.example.Turno.Turno;
+    public class modVida implements ModificacionEstadistica {
         String nombre;
         Double varVida;
         public modVida(Double varVida) {
@@ -10,8 +10,8 @@ import org.example.Ataque;
         }
 
         @Override
-        public void modificarEstadistica(Ataque ataque) {
-            ataque.setVarVida(varVida);
+        public void modificarEstadistica(Turno turno) {
+            turno.setVarVida(varVida);
         }
 
         @Override

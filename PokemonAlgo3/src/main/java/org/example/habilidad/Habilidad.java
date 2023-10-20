@@ -1,12 +1,12 @@
 package org.example.habilidad;
 
-import org.example.Ataque;
-import org.example.Ataque;
+import org.example.Turno.Turno;
 import org.example.Elemento.Element;
-import org.example.estado.Estado;
+import org.example.Estadisticas.Estadisticas;
+import org.example.comando.Comando;
 import org.example.pokemon.Pokemon;
 
-public class Habilidad {
+public abstract class Habilidad {
     String nombre;
     Integer cantidadDisponible;
     String tipoDeHabilidad;
@@ -16,7 +16,7 @@ public class Habilidad {
         this.cantidadDisponible = cantidadDisponible;
         this.tipoDeHabilidad = tipoDeHabilidad;
     }
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar){}
+    public void atacar(Pokemon pokemon, Element element, Turno turno_a_realizar){}
 
     public String getNombre() {
         return nombre;
@@ -36,4 +36,6 @@ public class Habilidad {
     public Integer getCantidadDisponible() {
         return cantidadDisponible;
     }
+
+    public abstract Comando armarComando(Pokemon pokemon, Estadisticas estadisticas);
 }

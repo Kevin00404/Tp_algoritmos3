@@ -1,8 +1,8 @@
 package org.example.estado;
 
-import org.example.Ataque;
-import org.example.Elemento.Element;
-import org.example.habilidad.Habilidad;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje.ComandoMensajePokemonParalizadoConHabilidad;
+import org.example.comando.ComandoMensaje.ComandoMensajePokemonParalizadoSinHabilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -11,16 +11,14 @@ public class EstadoParalizado extends Estado{
         this.nombre = "Paralizado";
     }
     @Override
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar){
-
+    public Comando condicionarComando(Comando comando){
         if (Math.random() < 0.5) {
-            System.out.println("El Pokémon está PARALIZADO y no pudo realizar la habilidad.");
+            return new ComandoMensajePokemonParalizadoSinHabilidad();
         } else {
-            habilidad.atacar(pokemon, element, ataque_a_realizar);
-            System.out.println("El Pokémon esta Paralizado pero puedo lanzar la habilidad.");
-            return new EstadoNormal();
+            Comando nuevoComando = new ComandoMensajePokemonParalizadoConHabilidad();
+            nuevoComando.setNextComando(comando);
+            return comando;
         }
-        return this;
     }
 
     @Override

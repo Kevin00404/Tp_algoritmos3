@@ -1,8 +1,8 @@
 package org.example.Estadistica;
 
-import org.example.Ataque;
+import org.example.Turno.Turno;
 
-public class modAtaque implements Estadistica{
+public class modAtaque implements ModificacionEstadistica {
     String nombre;
     Double varAtaque;
     public modAtaque(Double varAtaque) {
@@ -11,8 +11,8 @@ public class modAtaque implements Estadistica{
     }
 
     @Override
-    public void modificarEstadistica(Ataque ataque) {
-        ataque.setVarAtaque(varAtaque);
+    public void modificarEstadistica(Turno turno) {
+        turno.setVarAtaque(varAtaque);
     }
 
     @Override

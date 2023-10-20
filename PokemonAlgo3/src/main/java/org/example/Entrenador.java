@@ -28,7 +28,7 @@ public class Entrenador {
     }
 
     public boolean atacar(Entrenador entrenador, Integer habilidad){
-        return pokemonActual.atacar(entrenador.getPokemonActual(), habilidad);
+        return pokemonActual.aplicar(entrenador.getPokemonActual(), habilidad);
     }
     public Pokemon getPokemon(){
         return pokemonActual;

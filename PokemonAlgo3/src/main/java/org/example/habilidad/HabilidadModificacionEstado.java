@@ -1,11 +1,8 @@
 package org.example.habilidad;
 
-import org.example.Ataque;
+import org.example.Turno.Turno;
 import org.example.Elemento.Element;
-import org.example.EstadoPokemon;
-import org.example.Juego;
 import org.example.estado.Estado;
-import org.example.estado.EstadoNormal;
 import org.example.pokemon.Pokemon;
 
 public class HabilidadModificacionEstado extends Habilidad {
@@ -17,11 +14,11 @@ public class HabilidadModificacionEstado extends Habilidad {
     }
 
 
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar) {
+    public void atacar(Pokemon pokemon, Element element, Turno turno_a_realizar) {
         this.consumirUso();
         System.out.println("se ha elegido la habilidad: " + this.nombre);
-        ataque_a_realizar.setEstado(this.asignarEstado);
-        pokemon.modificarEstado(ataque_a_realizar);
+        turno_a_realizar.setEstado(this.asignarEstado);
+        pokemon.modificarEstado(turno_a_realizar);
     }
 
     @Override

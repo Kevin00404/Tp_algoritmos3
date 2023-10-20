@@ -1,16 +1,17 @@
 package org.example.estado;
 
-import org.example.Ataque;
+import org.example.Turno.Turno;
 import org.example.Elemento.Element;
+import org.example.comando.Comando;
 import org.example.habilidad.Habilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
     String nombre;
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar)
+    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Turno turno_a_realizar)
     {
-        habilidad.atacar(pokemon, element, ataque_a_realizar);
+        habilidad.atacar(pokemon, element, turno_a_realizar);
         return this;
     }
     public Estado pasivo(Pokemon pokemon) {
@@ -48,5 +49,10 @@ public abstract class Estado {
     public boolean esNormal() {return false;}
     public String getNombre() {
         return this.nombre;
+    }
+
+    public Comando condicionarComando(Comando comando) {
+        return comando;
+
     }
 }
