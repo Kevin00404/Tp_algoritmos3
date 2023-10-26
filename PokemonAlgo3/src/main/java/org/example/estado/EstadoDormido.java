@@ -1,9 +1,7 @@
 package org.example.estado;
 
-import org.example.Turno.Turno;
 import org.example.comando.Comando;
-import org.example.comando.ComandoMensaje.ComandoMensajePokemonDormido;
-import org.example.comando.ComandoMensaje.ComandoMensajePokemonParalizadoConHabilidad;
+import org.example.comando.ComandoMensaje;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -21,8 +19,7 @@ public class EstadoDormido extends Estado{
 
     @Override
     public Comando condicionarComando(Comando comando) {
-        System.out.println("Esta dormido no puede atacar");
-        return new ComandoMensajePokemonDormido();
+        return new ComandoMensaje("Este pokemon esta dormido");
     }
 
     @Override
@@ -57,21 +54,8 @@ public class EstadoDormido extends Estado{
         return super.revivir(pokemon, itemDeRevivir);
     }
     @Override
-    public Estado curarEstado(PocionDespertarDormido despertar) {
+    public Estado curarEstado(EstadoDormido estadoACurar) {
         return new EstadoNormal();
-    }
-    @Override
-    public Estado curarEstado(PocionCurarParalisis curarParalisis) {
-        return super.curarEstado(curarParalisis);
-    }
-    @Override
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) {
-        return super.curarEstado(antiVeneno);
-    }
-
-    @Override
-    public Estado curarEstado(CuraTotal curarCualquierEstado) {
-        return super.curarEstado(curarCualquierEstado);
     }
 
     @Override

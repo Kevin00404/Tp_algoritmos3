@@ -1,6 +1,5 @@
 package org.example.items;
 
-import org.example.estado.Estado;
 import org.example.pokemon.Pokemon;
 
 public abstract class ItemDeEstado extends Items {
@@ -8,6 +7,7 @@ public abstract class ItemDeEstado extends Items {
         super(disponibles);
     }
     @Override
-    public void usarItem(Pokemon pokemon) {;
+    public boolean usarItem(Pokemon pokemon) {;
+        return false;
     }
 }

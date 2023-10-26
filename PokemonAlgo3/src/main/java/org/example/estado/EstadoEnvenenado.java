@@ -13,23 +13,9 @@ public class EstadoEnvenenado extends Estado {
         return this;
     }
     @Override
-    public Estado curarEstado(PocionAntiVeneno antiVeneno){
+    public Estado curarEstado(EstadoEnvenenado estadoACurar){
         return new EstadoNormal();
     }
-    @Override
-    public Estado curarEstado(PocionDespertarDormido despertar) {
-        return super.curarEstado(despertar);
-    }
-    @Override
-    public Estado curarEstado(PocionCurarParalisis curarParalisis) {
-        return super.curarEstado(curarParalisis);
-    }
-
-    @Override
-    public Estado curarEstado(CuraTotal curarCualquierEstado) {
-        return super.curarEstado(curarCualquierEstado);
-    }
-
     @Override
     public Estado curar(Pocion curar, Pokemon pokemon) {
         return super.curar(curar, pokemon);

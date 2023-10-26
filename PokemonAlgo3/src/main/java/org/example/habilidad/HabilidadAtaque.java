@@ -2,9 +2,8 @@ package org.example.habilidad;
 
 import org.example.comando.Comando;
 import org.example.comando.HacerDanioComando;
-import org.example.jugada.CalculadoraDanio;
+import org.example.CalculadoraDanio;
 import org.example.Elemento.Element;
-import org.example.Turno.Turno;
 import org.example.Estadisticas.Estadisticas;
 import org.example.pokemon.Pokemon;
 

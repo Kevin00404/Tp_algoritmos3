@@ -1,6 +1,9 @@
 package org.example;
 
+import org.example.Log.Log;
+import org.example.comando.Comando;
 import org.example.items.Mochila;
+import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
 
 public class Entrenador {
@@ -19,16 +22,27 @@ public class Entrenador {
         return pokemonActual;
     }
 
-    public void setPokemonActual(Pokemon pokemonActual) {
-        this.pokemonActual = pokemonActual;
+    public void cambiarPokemonActual(){
+        Log.getLog().log(this.nombre + " elegi tu pokemon: ");
+        this.pokemonActual = pokebola.cambiarPokemon();
+    }
+
+    public void jugarTurno(Entrenador oponente){
+        actualizarPokemonActual();
+    }
+
+    private void actualizarPokemonActual() {
+        if (pokemonActual == null){
+            cambiarPokemonActual();
+        }
     }
 
     public Pokebola getPokebola() {
         return pokebola;
     }
 
-    public boolean atacar(Entrenador entrenador, Integer habilidad){
-        return pokemonActual.aplicar(entrenador.getPokemonActual(), habilidad);
+    public void atacar(Entrenador entrenador, Integer habilidad){
+        pokemonActual.aplicar(entrenador.getPokemonActual(), habilidad);
     }
     public Pokemon getPokemon(){
         return pokemonActual;
@@ -42,8 +56,8 @@ public class Entrenador {
         return pokebola.pokemonesDebilitados() < pokebola.cantidadPokemones();
     }
 
-    public boolean usarItemEnMochila(int objetoElegido, Pokemon pokemon) {
-        return mochila.usarItem(pokemon,objetoElegido);
+    public boolean usarItemEnMochila(int objetoElegido, String pokemonElegido) {
+        return mochila.usarItem(pokebola.obtenerPokemon(pokemonElegido), objetoElegido);
     }
 
     public void verMochila() {
@@ -62,8 +76,8 @@ public class Entrenador {
         pokebola.debilitarEquipo();
     }
 
-    public void mostrarPokemonEnBatalla() {
-        pokemonActual.datosDeBatalla();
+    public Comando mostrarPokemonEnBatalla() {
+        return pokemonActual.datosDeBatalla();
     }
 
     public void aplicarEfectos() {
@@ -72,5 +86,13 @@ public class Entrenador {
 
     public String getNombre() {
         return this.nombre;
+    }
+
+    public void capturarPokemon(Pokemon pokemon){
+        pokebola.agregarPokemon(pokemon);
+    }
+
+    public void mostrarHabilidadesDePokemon() {
+        this.pokemonActual.mostrarHabilidades();
     }
 }

@@ -1,7 +1,7 @@
 package org.example.estado;
 
 import org.example.comando.Comando;
-import org.example.comando.ComandoMensaje.ComandoMensajePokemonDebilitado;
+import org.example.comando.ComandoMensaje;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
@@ -17,22 +17,6 @@ public class EstadoDebilitado extends Estado{
     }
     @Override
     public Estado curar(Pocion curar, Pokemon pokemon) {
-        return this;
-    }
-    @Override
-    public Estado curarEstado(PocionDespertarDormido despertar) {
-        return super.curarEstado(despertar);
-    }
-    @Override
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) {
-        return super.curarEstado(antiVeneno);
-    }
-    @Override
-    public Estado curarEstado(PocionCurarParalisis curarParalisis) {
-        return super.curarEstado(curarParalisis);
-    }
-    @Override
-    public Estado curarEstado(CuraTotal curarCualquierEstado) {
         return this;
     }
     @Override
@@ -53,6 +37,9 @@ public class EstadoDebilitado extends Estado{
     public boolean esNormal() {
         return super.esNormal();
     }
+    public Estado curarEstado(EstadoDebilitado estadoACurar) {
+        return new EstadoNormal();
+    }
 
     @Override
     public String getNombre() {
@@ -60,6 +47,9 @@ public class EstadoDebilitado extends Estado{
     }
 
     public Comando condicionarComando(Comando comando){
-        return new ComandoMensajePokemonDebilitado();
+        return new ComandoMensaje("Este pokemon esta debilitado");
+    }
+    public Comando permitirAplicarComando(Comando comando) {
+        return new ComandoMensaje("Este pokemon esta debilitado");
     }
 }

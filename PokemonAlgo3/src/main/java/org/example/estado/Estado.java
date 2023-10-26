@@ -1,17 +1,18 @@
 package org.example.estado;
 
-import org.example.Turno.Turno;
+import org.example.Turno.Eventos;
 import org.example.Elemento.Element;
 import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.habilidad.Habilidad;
 import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
     String nombre;
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Turno turno_a_realizar)
+    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
     {
-        habilidad.atacar(pokemon, element, turno_a_realizar);
+        habilidad.atacar(pokemon, element, eventos_a_realizar);
         return this;
     }
     public Estado pasivo(Pokemon pokemon) {
@@ -20,6 +21,10 @@ public abstract class Estado {
     public Estado setEstadoActual(Estado estado){
         System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
         return this;
+    }
+
+    public Comando mostrarEstado(){
+        return new ComandoMensaje("Estado Actual: " + nombre);
     }
     public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir){
         return this;
@@ -36,10 +41,11 @@ public abstract class Estado {
         pokemon.aumentarDefensa(itemDeDefensa.getValor());
         return this;
     }
-    public Estado curarEstado(PocionDespertarDormido despertar){ return this; }
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) { return this; }
-    public Estado curarEstado(PocionCurarParalisis curarParalisis){ return this; }
-    public Estado curarEstado(CuraTotal curarCualquierEstado){
+    public Estado curarEstado(EstadoParalizado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
+    public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
+    public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+    public Estado curarEstado(Estado estadoACurar){
         return new EstadoNormal();
     }
 
@@ -54,5 +60,8 @@ public abstract class Estado {
     public Comando condicionarComando(Comando comando) {
         return comando;
 
+    }
+    public Comando permitirAplicarComando(Comando comando) {
+        return comando;
     }
 }

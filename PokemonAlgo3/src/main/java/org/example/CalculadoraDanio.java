@@ -1,4 +1,4 @@
-package org.example.jugada;
+package org.example;
 
 import org.example.Elemento.Element;
 import org.example.Estadisticas.Estadisticas;

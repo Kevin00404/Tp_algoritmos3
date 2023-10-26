@@ -1,14 +1,18 @@
 package org.example.Estadistica;
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Turno;
 
 public abstract class ModEstadistica implements ModificacionEstadistica{
+    String nombre;
+    Double varEstadistica;
     @Override
     public abstract void modificarEstadistica(Estadisticas estadisticas);
 
+    public boolean danina() {
+        return this.varEstadistica <= 0;
+    }
+    public String getNombre() {
+        return nombre;
+    }
 
-
-    @Override
-    public abstract boolean danina();
 }

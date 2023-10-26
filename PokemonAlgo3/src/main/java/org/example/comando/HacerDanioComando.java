@@ -1,6 +1,6 @@
 package org.example.comando;
 
-import org.example.jugada.CalculadoraDanio;
+import org.example.CalculadoraDanio;
 import org.example.pokemon.Pokemon;
 
 public class HacerDanioComando extends Comando{

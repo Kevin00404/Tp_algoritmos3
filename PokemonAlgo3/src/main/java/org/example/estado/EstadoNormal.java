@@ -13,24 +13,6 @@ public class EstadoNormal extends Estado{
         return estado;
     }
     @Override
-    public Estado curarEstado(PocionCurarParalisis curarParalisis) {
-        return super.curarEstado(curarParalisis);
-    }
-    @Override
-    public Estado curarEstado(PocionDespertarDormido despertar) {
-        return super.curarEstado(despertar);
-    }
-    @Override
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) {
-        return super.curarEstado(antiVeneno);
-    }
-
-    @Override
-    public Estado curarEstado(CuraTotal curarCualquierEstado) {
-        return this;
-    }
-
-    @Override
     public Estado curar(Pocion curar, Pokemon pokemon) {
         return super.curar(curar, pokemon);
     }

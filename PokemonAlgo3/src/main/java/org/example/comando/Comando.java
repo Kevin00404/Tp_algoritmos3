@@ -1,17 +1,23 @@
 package org.example.comando;
 
 public abstract class Comando implements ComandoManejable {
-    ComandoManejable proximoComando;
+    ComandoManejable anteriorComando = null;
 
     @Override
     public void ejecutar() {
+        if (this.anteriorComando != null){
+            this.anteriorComando.ejecutar();
+        }
         this.ejecutarEsteComando();
-        this.proximoComando.ejecutar();
     }
 
     protected abstract void ejecutarEsteComando();
 
-    public void setNextComando(ComandoManejable comando) {
-        this.proximoComando = comando;
+    public void concatComands(ComandoManejable comando){
+        if (this.anteriorComando != null){
+            this.anteriorComando.concatComands(comando);
+        } else {
+            this.anteriorComando = comando;
+        }
     }
 }

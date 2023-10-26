@@ -2,14 +2,15 @@ package org.example.pokemon;
 
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Turno;
-import org.example.Elemento.*;
+import org.example.Turno.Eventos;
 import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
 import org.example.estado.EstadoDebilitado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 import org.example.items.*;
+import org.example.Log.Log;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -19,7 +20,6 @@ public class Pokemon {
     String nombre;
     String historia;
     Estado estado;
-    Element elemento;
     Estadisticas estadisticas;
     Dictionary<Integer, Habilidad> habilidades;
 
@@ -61,16 +61,15 @@ public class Pokemon {
         this.estado = estado;
     }
 
-    public boolean aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
+    public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
-        if(!habilidad.sePuedeUsar()){
-            System.out.println("la habilidad no se puede usar");
-            return false;
-        }
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
-        this.estado.condicionarComando(comandoJugada);
-        Turno.getTurno().agregarComando(comandoJugada);
-        return true;
+        comandoJugada = this.estado.condicionarComando(comandoJugada);
+        Eventos.getEventos().agregarComando(comandoJugada);
+    }
+
+    public void aplicarPasivos(){
+
     }
 
     public void envenenar(){
@@ -91,11 +90,11 @@ public class Pokemon {
         return true;
     }
 
-    public void actualizarEstadisticas(Turno turno){
-        this.vida+= turno.getVarianteVida();
-        this.ataque+= turno.getVarianteAtaque();
-        this.defensa+= turno.getVarianteDefensa();
-        this.velocidad+= turno.getVarianteVelocidad();
+    public void actualizarEstadisticas(Eventos eventos){
+        this.vida+= eventos.getVarianteVida();
+        this.ataque+= eventos.getVarianteAtaque();
+        this.defensa+= eventos.getVarianteDefensa();
+        this.velocidad+= eventos.getVarianteVelocidad();
     }
 
     //Uso de Items
@@ -142,12 +141,13 @@ public class Pokemon {
         this.estado = new EstadoDebilitado();
     }
 
-    public void datosDeBatalla() {
-        if(estado.esNormal()){
-            System.out.println(nombre + "\t lvl: " + nivel + "\t vida: " + vida +" "+ ataque +"\n" + defensa+ "\n" + velocidad);
-        } else {
-            System.out.println(nombre + "lvl: " + nivel + "\t vida: " + vida + "\t" + estado.getNombre());
-        }
+    public Comando datosDeBatalla() {
+        Comando mensajeNombre = new ComandoMensaje("Nombre: " + nombre);
+        Comando mostrarEstadisticas = estadisticas.mostrarEstadisticas();
+        Comando mostrarEstado = estado.mostrarEstado();
+        mostrarEstado.concatComands(mostrarEstadisticas);
+        mostrarEstadisticas.concatComands(mensajeNombre);
+        return mostrarEstado;
     }
 
     public void aplicarEfectos() {
@@ -155,12 +155,12 @@ public class Pokemon {
     }
 
     public void mostrarHabilidades() {
-        System.out.println("Elige una habilidad:");
-        System.out.println("1. " + getPrimeraHabilidad() + "usos disponibles: " + this.habilidades.get(1).getCantidadDisponible());
-        System.out.println("2. " + getSegundaHabilidad() + "usos disponibles: " + this.habilidades.get(2).getCantidadDisponible());
-        System.out.println("3. " + getTerceraHabilidad() + "usos disponibles: " + this.habilidades.get(3).getCantidadDisponible());
-        System.out.println("4. " + getCuartaHabilidad() + "usos disponibles: " + this.habilidades.get(4).getCantidadDisponible());
-        System.out.println("5. volver atras");
+        Log.getLog().log("Elige una habilidad:");
+        Log.getLog().log("1. " + getPrimeraHabilidad() + "usos disponibles: " + this.habilidades.get(1).getCantidadDisponible());
+        Log.getLog().log("2. " + getSegundaHabilidad() + "usos disponibles: " + this.habilidades.get(2).getCantidadDisponible());
+        Log.getLog().log("3. " + getTerceraHabilidad() + "usos disponibles: " + this.habilidades.get(3).getCantidadDisponible());
+        Log.getLog().log("4. " + getCuartaHabilidad() + "usos disponibles: " + this.habilidades.get(4).getCantidadDisponible());
+        Log.getLog().log("5. volver atras");
     }
 
     public boolean sePuedeCurar() {
@@ -169,5 +169,13 @@ public class Pokemon {
 
     public Estadisticas getEstadisticas() {
         return this.estadisticas;
+    }
+
+    public void curarEstado(Estado estadoACurar) {
+        estado = estado.curarEstado(estadoACurar);
+    }
+
+    public Comando habilitarComandoSiVive(Comando comando) {
+        return estado.permitirAplicarComando(comando);
     }
 }

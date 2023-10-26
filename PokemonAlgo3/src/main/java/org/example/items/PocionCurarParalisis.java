@@ -1,5 +1,10 @@
 package org.example.items;
 
+import org.example.Turno.Eventos;
+import org.example.comando.Comando;
+import org.example.comando.ComandoCurarEstado;
+import org.example.comando.ComandoMensaje;
+import org.example.estado.EstadoParalizado;
 import org.example.pokemon.Pokemon;
 
 public class PocionCurarParalisis extends ItemDeEstado{
@@ -13,14 +18,13 @@ public class PocionCurarParalisis extends ItemDeEstado{
         return nombre;
     }
     @Override
-    public void usarItem(Pokemon pokemon) {
-        pokemon.usarItem(this);
-        this.disponibles -=1;
-    }
-
-    @Override
-    public boolean quedanDisponibles() {
-        return super.quedanDisponibles();
+    public boolean usarItem(Pokemon pokemon) {
+        Comando comando = new ComandoCurarEstado(new EstadoParalizado(), pokemon);
+        Comando comandoMensaje = new ComandoMensaje("Pocion antiparalisis aplicada");
+        comandoMensaje.concatComands(comando);
+        Eventos.getEventos().agregarComando(comandoMensaje);
+        this.disponibles -= 1;
+        return true;
     }
 
     @Override

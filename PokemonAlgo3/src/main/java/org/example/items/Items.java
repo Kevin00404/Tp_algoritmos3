@@ -8,7 +8,8 @@ public abstract class Items implements Item {
         this.disponibles = disponibles;
     }
     @Override
-    public void usarItem(Pokemon pokemon) {
+    public boolean usarItem(Pokemon pokemon) {
+        return false;
     }
     public String getNombre(){ return null; }
 

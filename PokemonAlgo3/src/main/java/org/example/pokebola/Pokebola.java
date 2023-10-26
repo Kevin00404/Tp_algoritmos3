@@ -1,5 +1,6 @@
-package org.example;
+package org.example.pokebola;
 
+import org.example.Log.Log;
 import org.example.pokemon.Pokemon;
 
 import java.util.*;
@@ -16,7 +17,7 @@ public class Pokebola {
     //Agrega pokemon a pokebola. Si ya tiene la cantidad maxima de pokemones admitidos imprime error.
     public void agregarPokemon(Pokemon pokemon) {
         if (dicc.size() >= this.cantidadPokemones) {
-            System.out.println("Error:Pokebola ya contiene " + this.cantidadPokemones + " pokemones.");
+            Log.getLog().log("Error:Pokebola ya contiene " + this.cantidadPokemones + " pokemones.");
             return;
         }
         dicc.put(pokemon.getNombre(), pokemon);
@@ -24,7 +25,7 @@ public class Pokebola {
 
     public void quitarPokemon(Pokemon pokemon) {
         if (!dicc.containsKey(pokemon.getNombre())) {
-            System.out.println("El pokemon " + pokemon.getNombre() + " no esta en pokebola.");
+            Log.getLog().log("El pokemon " + pokemon.getNombre() + " no esta en pokebola.");
             return;
         }
         dicc.remove(pokemon.getNombre());
@@ -44,11 +45,11 @@ public class Pokebola {
             }
             if (!dicc.containsKey(nombrePokemonElegido)) {
                 {
-                    System.out.println("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
+                    Log.getLog().log("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
                 }
             } else if (!dicc.get(nombrePokemonElegido).chequeoDeVida()) {
                 nombrePokemonElegido = "";
-                System.out.println("El pokemon esta muerto, elija otro");
+                Log.getLog().log("El pokemon esta muerto, elija otro");
             }
         }
         return dicc.get(nombrePokemonElegido);
@@ -56,7 +57,7 @@ public class Pokebola {
 
     private void _mostrarPokemones(){
         // Solicitar al usuario que ingrese un nombre de las opciones.
-        System.out.print("Pokemones disponibles: \n");
+        Log.getLog().log("Pokemones disponibles: \n");
 
 
         Set<String> claves = dicc.keySet();
@@ -67,8 +68,9 @@ public class Pokebola {
         while (iterator.hasNext()) {
             String clave = iterator.next();
             Pokemon pokemon = dicc.get(clave);
-            System.out.println("Nombre: " + clave + "|Vida: " + pokemon.getVida());
+            Log.getLog().log("Nombre: " + clave + "|Vida: " + pokemon.getVida());
         }
+        Log.getLog().log("Cancelar");
     }
     public Pokemon obtenerPokemon(String pokemonSeleccionado){
         return dicc.get(pokemonSeleccionado);

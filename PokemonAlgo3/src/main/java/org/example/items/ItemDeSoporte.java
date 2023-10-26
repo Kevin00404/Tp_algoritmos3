@@ -17,6 +17,7 @@ public abstract class ItemDeSoporte extends Items {
     }
 
     @Override
-    public void usarItem(Pokemon pokemon) {
+    public boolean usarItem(Pokemon pokemon) {
+        return false;
     }
 }

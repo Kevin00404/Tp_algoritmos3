@@ -2,11 +2,8 @@ package org.example.habilidad;
 
 import org.example.Estadistica.ModEstadistica;
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Turno;
-import org.example.Elemento.Element;
-import org.example.Estadistica.ModificacionEstadistica;
 import org.example.comando.Comando;
-import org.example.comando.ComandoMensaje.ComandoMensajeHabilidadElegida;
+import org.example.comando.ComandoMensaje;
 import org.example.comando.ComandoModificarEstadistica;
 import org.example.pokemon.Pokemon;
 
@@ -27,14 +24,14 @@ public class HabilidadModificacionEstadistica extends Habilidad {
     @Override
     public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas) {
         this.consumirUso();
-        Comando comandoMensaje = new ComandoMensajeHabilidadElegida(this.nombre);
+        Comando comandoMensaje = new ComandoMensaje("se ha elegido la habilidad: " + this.nombre);
         Comando comandoJugada;
         if (modificacionEstadistica.danina()){
             comandoJugada = new ComandoModificarEstadistica(modificacionEstadistica, pokemon.getEstadisticas());
         } else {
             comandoJugada = new ComandoModificarEstadistica(modificacionEstadistica, estadisticas);
         }
-        comandoMensaje.setNextComando(comandoJugada);
+        comandoMensaje.concatComands(comandoJugada);
         return comandoMensaje;
     }
 }

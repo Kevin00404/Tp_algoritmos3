@@ -2,26 +2,17 @@ package org.example.Estadistica;
 
 import org.example.Estadisticas.Estadisticas;
 
-public class ModVelocidad implements ModificacionEstadistica {
-        String nombre;
-        Double varVelocidad;
+public class ModVelocidad extends ModEstadistica implements ModificacionEstadistica {
+
         public ModVelocidad(Double varVelocidad) {
-            this.varVelocidad=varVelocidad;
+            this.varEstadistica=varVelocidad;
             this.nombre = "velocidad";
         }
 
         @Override
         public void modificarEstadistica(Estadisticas estadisticas) {
-            estadisticas.variarVelocidad(varVelocidad);
+            estadisticas.variarVelocidad(varEstadistica);
         }
 
-        @Override
-        public String getNombre() {
-            return nombre;
-        }
-        @Override
-        public boolean danina() {
-            return this.varVelocidad <= 0;
-        }
     }
 

@@ -1,6 +1,8 @@
 package org.example.Estadisticas;
 
 import org.example.Elemento.Element;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 
 public abstract class Estadisticas implements EstadisticaModificable {
     Double maxVida;
@@ -49,5 +51,20 @@ public abstract class Estadisticas implements EstadisticaModificable {
 
     public void variarVelocidad(Double varVelocidad) {
         this.velocidad += varVelocidad;
+    }
+
+    public void variarVida(Double varVida) {
+        vida += varVida;
+        if (vida > maxVida){
+            vida = maxVida;
+        }
+    }
+
+    public void variarAtaque(Double varAtaque) {
+        this.ataque += varAtaque;
+    }
+
+    public Comando mostrarEstadisticas() {
+        return new ComandoMensaje("lvl: " + nivel + "\t vida: " + vida +" "+ ataque +"\n" + defensa+ "\n" + velocidad);
     }
 }
