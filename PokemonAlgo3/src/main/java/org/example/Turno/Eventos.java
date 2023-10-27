@@ -15,17 +15,21 @@ public class Eventos implements EventoManejable {
     private Eventos(){
         comando = null;
         problema = null;
+        historial = new ArrayList<ComandoManejable>();
     }
 
     public static Eventos getEventos(){
         if(eventos == null){
-            return new Eventos();
+            eventos = new Eventos();
+            return eventos;
         }
         return eventos;
     }
     public boolean ejecutarEvento(){
         if(problema == null){
-            comando.ejecutar();
+            if (comando != null){
+                comando.ejecutar();
+            }
             cambiarEvento();
             return true;
         }

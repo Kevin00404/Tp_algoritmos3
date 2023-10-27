@@ -14,10 +14,6 @@ public class PocionAntiVeneno extends ItemDeEstado{
         this.nombre = nombre;
     }
     @Override
-    public String getNombre() {
-        return nombre;
-    }
-    @Override
     public boolean usarItem(Pokemon pokemon) {
         Comando comando = new ComandoCurarEstado(new EstadoEnvenenado(), pokemon);
         Comando comandoMensaje = new ComandoMensaje("Pocion antiveneno aplicada");
@@ -25,15 +21,5 @@ public class PocionAntiVeneno extends ItemDeEstado{
         Eventos.getEventos().agregarComando(comandoMensaje);
         this.disponibles -= 1;
         return true;
-    }
-
-    @Override
-    public boolean quedanDisponibles() {
-        return super.quedanDisponibles();
-    }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return pokemon.getEstado().getNombre().equals("Envenenado");
     }
 }

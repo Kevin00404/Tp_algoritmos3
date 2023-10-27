@@ -17,15 +17,6 @@ public class Revivir extends ItemDeCuracion{
     }
 
     @Override
-    public String getNombre() {
-        return super.getNombre();
-    }
-
-    @Override
-    public Double getValor() {
-        return super.getValor();
-    }
-    @Override
     public boolean usarItem(Pokemon pokemon) {
         Comando comando = new ComandoCurarEstado(new EstadoDebilitado(), pokemon);
         Comando comandoMensaje = new ComandoMensaje("Pocion de resurreccion aplicada");
@@ -37,13 +28,4 @@ public class Revivir extends ItemDeCuracion{
         return true;
     }
 
-    @Override
-    public boolean quedanDisponibles() {
-        return super.quedanDisponibles();
-    }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return pokemon.getEstado().getNombre().equals("Debilitado");
-    }
 }

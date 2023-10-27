@@ -1,5 +1,6 @@
 package org.example.estado;
 
+import org.example.Estadisticas.Estadisticas;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.items.*;
@@ -23,7 +24,7 @@ public class EstadoDormido extends Estado{
     }
 
     @Override
-    public Estado pasivo(Pokemon pokemon){
+    public Estado pasivo(Estadisticas estadisticas){
         return this.puedeDespertarse();
     }
 
@@ -46,34 +47,10 @@ public class EstadoDormido extends Estado{
 
     }
     @Override
-    public Estado curar(Pocion curar, Pokemon pokemon) {
-        return super.curar(curar, pokemon);
-    }
-    @Override
-    public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir) {
-        return super.revivir(pokemon, itemDeRevivir);
-    }
-    @Override
     public Estado curarEstado(EstadoDormido estadoACurar) {
         return new EstadoNormal();
     }
-
-    @Override
-    public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
-        return super.aumentarAtaque(pokemon, itemDeAtaque);
-    }
-    @Override
-    public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
-        return super.aumentarDefensa(pokemon, itemDeDefensa);
-    }
-
-    @Override
-    public boolean esNormal() {
-        return super.esNormal();
-    }
-
-    @Override
-    public String getNombre() {
-        return super.getNombre();
+    public void aceptarEstado(Estado estado) {
+        estado.curarEstado(this);
     }
 }

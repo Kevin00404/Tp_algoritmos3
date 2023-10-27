@@ -36,11 +36,6 @@ public class Pokemon {
         this.estadisticas = estadisticas;
     }
 
-
-    public boolean estaVivo(){
-        return this.estadisticas.sigueVivo();
-    }
-
     public String getPrimeraHabilidad() {
         return habilidades.get(1).getNombre();
     }
@@ -69,13 +64,7 @@ public class Pokemon {
     }
 
     public void aplicarPasivos(){
-
-    }
-
-    public void envenenar(){
-        System.out.println("se esta envenenando por: " + (this.vida*5)/100);
-        this.vida -= (this.vida*5)/100;
-        this.chequeoDeVida();
+        this.estado = this.estado.pasivo(estadisticas);
     }
 
     public void recibirDanio(Double danio) {
@@ -83,56 +72,14 @@ public class Pokemon {
     }
 
     public boolean chequeoDeVida() {
-        if (this.vida <= 0) {
+        if (!estadisticas.sigueVivo()) {
             this.estado = new EstadoDebilitado();
             return false;
         }
         return true;
     }
 
-    public void actualizarEstadisticas(Eventos eventos){
-        this.vida+= eventos.getVarianteVida();
-        this.ataque+= eventos.getVarianteAtaque();
-        this.defensa+= eventos.getVarianteDefensa();
-        this.velocidad+= eventos.getVarianteVelocidad();
-    }
-
     //Uso de Items
-    public void usarItem(Revivir revivir){
-        this.estado = this.estado.revivir(this, revivir);
-    }
-    public void usarItem(Pocion pocion){
-        this.estado = this.estado.curar(pocion, this);
-    }
-    public void usarItem(PocionAntiVeneno antiVeneno){
-        this.estado = this.estado.curarEstado(antiVeneno);
-    }
-    public void usarItem(PocionDespertarDormido despertar) {
-        this.estado = this.estado.curarEstado(despertar);
-    }
-    public void usarItem(PocionCurarParalisis curarParalisis) {
-        this. estado = this.estado.curarEstado(curarParalisis);
-    }
-    public void usarItem(CuraTotal curarCualquierEstado){this.estado = this.estado.curarEstado(curarCualquierEstado);}
-    public void usarItem(PocionDeAtaque itemDeAtaque){
-        this.estado = this.estado.aumentarAtaque(this, itemDeAtaque);
-    }
-    public void usarItem(PocionDeDefensa itemDeDefensa){
-        this.estado = this.estado.aumentarDefensa(this, itemDeDefensa);
-    }
-    public void aumentarAtaque(Double ataqueExtra){
-        this.ataque += ataqueExtra;
-    }
-    public void aumentarDefensa(Double defensaExtra){
-        this.defensa += defensaExtra;
-    }
-    public void curarVida(Pocion Curacion) {
-        if ((VIDAMAXIMA - this.vida) < Curacion.getValor()){
-            this.vida = VIDAMAXIMA;
-        } else {
-            this.vida += Curacion.getValor();
-        }
-    }
     public boolean estaDebilitado(){
         return estado.esDebilitado();
     }
@@ -151,7 +98,7 @@ public class Pokemon {
     }
 
     public void aplicarEfectos() {
-        this.estado = this.estado.pasivo(this);
+        this.estado = this.estado.pasivo(estadisticas);
     }
 
     public void mostrarHabilidades() {
@@ -163,19 +110,23 @@ public class Pokemon {
         Log.getLog().log("5. volver atras");
     }
 
-    public boolean sePuedeCurar() {
-        return vida < VIDAMAXIMA;
-    }
-
     public Estadisticas getEstadisticas() {
         return this.estadisticas;
     }
 
     public void curarEstado(Estado estadoACurar) {
-        estado = estado.curarEstado(estadoACurar);
+        estadoACurar.aceptarEstado(this.estado);
     }
 
     public Comando habilitarComandoSiVive(Comando comando) {
         return estado.permitirAplicarComando(comando);
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public Double vida(){
+        return estadisticas.getVida();
     }
 }

@@ -14,10 +14,6 @@ public class PocionCurarParalisis extends ItemDeEstado{
         this.nombre = nombre;
     }
     @Override
-    public String getNombre() {
-        return nombre;
-    }
-    @Override
     public boolean usarItem(Pokemon pokemon) {
         Comando comando = new ComandoCurarEstado(new EstadoParalizado(), pokemon);
         Comando comandoMensaje = new ComandoMensaje("Pocion antiparalisis aplicada");
@@ -25,10 +21,5 @@ public class PocionCurarParalisis extends ItemDeEstado{
         Eventos.getEventos().agregarComando(comandoMensaje);
         this.disponibles -= 1;
         return true;
-    }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return pokemon.getEstado().getNombre().equals("Paralizado");
     }
 }

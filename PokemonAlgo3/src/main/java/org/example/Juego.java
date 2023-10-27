@@ -3,6 +3,7 @@ import java.util.Scanner;
 import org.example.Elemento.*;
 import org.example.Estadistica.ModificacionEstadistica;
 import org.example.Log.Log;
+import org.example.Turno.Eventos;
 import org.example.items.*;
 import org.example.jugada.Jugada;
 import org.example.jugada.JugadaFactory;
@@ -27,130 +28,77 @@ public class Juego {
     public void batalla() {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
-            entrenador1.jugarTurno(entrenador2);
             // Turno de entrenador1
             turnoJugador(entrenador1, entrenador2);
             //verificar si se rindio
-            if (!entrenador1.tienePokemonDisponible()){
+            if (entrenador1.murio()){
                 break;
             }
             // Verificar si entrenador2 sigue vivo
-            if (!entrenador2.tienePokemonDisponible()) {
-                System.out.println("entrenador 2 ha perdido.");
+            if (entrenador2.murio()) {
+                Log.getLog().log("entrenador 2 ha perdido.");
                 break;
-            }
-            if(!entrenador2.pokemonEstaVivo()){
-                entrenador2.setPokemonActual(entrenador2.pokebola.cambiarPokemon());
             }
             // Turno de entrenador2
             turnoJugador(entrenador2, entrenador1);
             //verificar si se rindio
-            if (!entrenador2.tienePokemonDisponible()){
+            if (entrenador2.murio()){
                 break;
             }
             // Verificar si entrenador1 sigue vivo
-            if (!entrenador1.tienePokemonDisponible()) {
-                System.out.println("entrenador 1 ha perdido.");
+            if (entrenador1.murio()) {
+                Log.getLog().log("entrenador 1 ha perdido.");
                 break;
             }
         }
 
         System.out.println("¡Fin del juego!");
     }
-    private void compararVelocidades() {
-        if (entrenador1.pokemonActual.getVelocidad() > entrenador2.pokemonActual.getVelocidad()){
-
-        } else {
-
-        }
-    }
 
     public void turnoJugador(Entrenador jugador, Entrenador oponente) {
+        jugador.actualizarPokemonActual();
         boolean pasarTurno = false;
         JugadaFactory jugadaFactory = new JugadaFactory(jugador, oponente);
         while(!pasarTurno){
             Jugada jugada = jugadaFactory.inicializarJugada();
             pasarTurno = jugada.jugar();
-            switch (opcion) {
-                case 1:
-                    mostrarHabilidades(jugador.getPokemon()); /* ACÁ SE DEBERÍA BUSCAR EN JUGADOR.POKEBOLA.GETACTIVO() O ALGO ASÍ Y LUEGO LAS HABILIDADES DE ESE POKEMON*/
-                    int habilidadElegida = scanner.nextInt();
-                    if (habilidadElegida == 5){
-                        break;
-                    }
-                    //Habilidad habilidad = jugador.getPokemon()/* ACÁ TAMBIÉN */.habilidades.get(habilidadElegida);
-                    jugador.atacar(oponente/* ACÁ TAMBIÉN */, habilidadElegida /* ACÁ VAN LOS PARÁMETROS DEL MÉTODO DE LA CLASE ESTADO */);
-                    break;
-                case 2:
-                    /* ACÁ TIENE QUE IR A BUSCAR AL POKEMON ACTIVO Y APLICARLE EL ITEM SELECCIONADO */
-                    System.out.println("seleccione item: ");
-                    jugador.verMochila();
-                    int objetoElegido = scanner.nextInt();
-                    if (objetoElegido == 0){
-                        break;
-                    }
-                    System.out.println("se ha Elegido: "+ objetoElegido);
-                    System.out.println("seleccione pokemon: ");
-                    jugador.verEquipo();
-                    String pokemonElegido = scanner.next();
-                    jugador.usarItemEnMochila(objetoElegido , pokemonElegido);
-                    //jugador.aplicarEfectos();
-                    break;
-                case 3:
-                    campoDeBatalla(jugador, oponente);
-                    break;
-                case 4:
-                    jugador.aplicarEfectos();
-                    System.out.println("x: cancelar");
-                    Pokemon opcionElegida = jugador.pokebola.cambiarPokemon();
-                    if (opcionElegida == null){
-                        break;
-                    }
-                    jugador.setPokemonActual(opcionElegida);
-                    turno = true;
-                    break;
-                case 5:
-                    jugador.rendirse();
-                    System.out.println("jugador " + jugador.getNroEntrenador() + " se ha rendido. " + "jugador " + oponente.getNroEntrenador() + " gana la batalla.");
-                    turno = true;
-                    break;
-                default:
-                    System.out.println("Opción no válida. Se considera un turno sin acción.");
-                    break;
-            }
+            oponente.efectosPasivos();
+            Eventos.getEventos().ejecutarEvento();
         }
     }
-    private void mostrarHabilidades(Pokemon pokemon) {
-        pokemon.mostrarHabilidades();
-    }
-    public void campoDeBatalla(Entrenador jugador, Entrenador oponente){
-        System.out.println("Detalles del campo de Batalla:");
-        System.out.println("tu pokemon:");
-        jugador.mostrarPokemonEnBatalla();
-        System.out.println("pokemon enemigo");
-        oponente.mostrarPokemonEnBatalla();
-    }
 
-    private Entrenador crearEntrenador1(PokemonBuilder pokemonBuilder){
+    private Entrenador crearEntrenador1(){
         Mochila mochilaEntrenador = inicializarItems();
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
         Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(1));
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Charmander").setElemento(new Fuego()).setHistoria("Nacio en un volcan(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Pikachu").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Bulbasaur").setElemento(new Planta()).setHistoria("Nacio en un bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
         return entrenador;
     }
 
-    private Entrenador crearEntrenador2(PokemonBuilder pokemonBuilder){
+    private Entrenador crearEntrenador2(){
         Mochila mochilaEntrenador = inicializarItems();
         Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(2));
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swampert").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Claydol").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Exploud").setElemento(new Normal()).setHistoria("Nacio en un bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
         return entrenador;
     }
@@ -158,10 +106,10 @@ public class Juego {
     private void inicializar(){
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
 
-        this.entrenador1 = crearEntrenador1(pokemonBuilder);
+        this.entrenador1 = crearEntrenador1();
         entrenador1.cambiarPokemonActual();
 
-        this.entrenador2 = crearEntrenador2(pokemonBuilder);
+        this.entrenador2 = crearEntrenador2();
         entrenador2.cambiarPokemonActual();
     }
 

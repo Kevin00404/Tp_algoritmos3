@@ -3,6 +3,8 @@ package org.example.Estadisticas;
 import org.example.Elemento.Element;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
+import org.example.estado.Estado;
+import org.example.estado.EstadoDebilitado;
 
 public abstract class Estadisticas implements EstadisticaModificable {
     Double maxVida;
@@ -13,7 +15,7 @@ public abstract class Estadisticas implements EstadisticaModificable {
     Double ataque;
     Element elemento;
 
-    public boolean sigueVivo(Double vida) {
+    public boolean sigueVivo() {
         return this.vida > 0.0;
     }
 
@@ -65,6 +67,19 @@ public abstract class Estadisticas implements EstadisticaModificable {
     }
 
     public Comando mostrarEstadisticas() {
-        return new ComandoMensaje("lvl: " + nivel + "\t vida: " + vida +" "+ ataque +"\n" + defensa+ "\n" + velocidad);
+        return new ComandoMensaje("lvl: " + nivel + "\t vida: " + vida +" ataque: "+ ataque +"\ndefensa: " + defensa+ "\nvelocidad: " + velocidad);
+    }
+
+    public Estado envenenar() {
+        this.vida -= 5.0;
+        if (!sigueVivo()){
+            vida = 0.0;
+            return new EstadoDebilitado();
+        }
+        return null;
+    }
+
+    public Double getVida() {
+        return vida;
     }
 }

@@ -14,14 +14,7 @@ public class Mochila {
         }
         System.out.println("0 - volver atras");
     }
-    public void agregarObjeto(Pocion pocion){ mochila.add(pocion); }
-    public void agregarObjeto(Revivir revivir){ mochila.add(revivir); }
-    public void agregarObjeto(PocionAntiVeneno antiVeneno){ mochila.add(antiVeneno); }
-    public void agregarObjeto(PocionCurarParalisis curarParalisis){mochila.add(curarParalisis);}
-    public void agregarObjeto(PocionDespertarDormido despertarDormido){mochila.add(despertarDormido);}
-    public void agregarObjeto(CuraTotal curaTotal){mochila.add(curaTotal);}
-    public void agregarObjeto(PocionDeDefensa soporteDeDefensa){ mochila.add(soporteDeDefensa); }
-    public void agregarObjeto(PocionDeAtaque soporteDeAtaque){ mochila.add(soporteDeAtaque); }
+    public void agregarObjeto(Items item){ mochila.add(item); }
     public boolean usarItem(Pokemon pokemon , int itemSeleccionado){
         boolean itemSeUso = mochila.get((itemSeleccionado-1)).usarItem(pokemon);
         gastarUsosDeItem(itemSeleccionado);

@@ -23,18 +23,4 @@ public class CuraTotal extends ItemDeEstado{
         return true;
     }
 
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    @Override
-    public boolean quedanDisponibles() {
-        return super.quedanDisponibles();
-    }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return true;
-    }
 }

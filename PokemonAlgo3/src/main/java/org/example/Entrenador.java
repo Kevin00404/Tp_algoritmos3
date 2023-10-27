@@ -1,7 +1,9 @@
 package org.example;
 
 import org.example.Log.Log;
+import org.example.Turno.Eventos;
 import org.example.comando.Comando;
+import org.example.comando.EfectosPasivosComando;
 import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
@@ -27,11 +29,15 @@ public class Entrenador {
         this.pokemonActual = pokebola.cambiarPokemon();
     }
 
+    public boolean murio(){
+        return pokebola.murieronTodos();
+    }
+
     public void jugarTurno(Entrenador oponente){
         actualizarPokemonActual();
     }
 
-    private void actualizarPokemonActual() {
+    public void actualizarPokemonActual() {
         if (pokemonActual == null){
             cambiarPokemonActual();
         }
@@ -94,5 +100,10 @@ public class Entrenador {
 
     public void mostrarHabilidadesDePokemon() {
         this.pokemonActual.mostrarHabilidades();
+    }
+
+    public void efectosPasivos() {
+        Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);
+        Eventos.getEventos().agregarComando(efectosPasivos);
     }
 }

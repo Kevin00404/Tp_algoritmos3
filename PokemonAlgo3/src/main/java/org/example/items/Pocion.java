@@ -13,14 +13,6 @@ public class Pocion extends ItemDeCuracion {
         this.valor = valor;
         this.nombre = nombre;
     }
-    @Override
-    public String getNombre() {
-        return super.getNombre();
-    }
-    @Override
-    public Double getValor() {
-        return super.getValor();
-    }
 
     @Override
     public boolean usarItem(Pokemon pokemon) {
@@ -36,13 +28,4 @@ public class Pocion extends ItemDeCuracion {
         return true;
     }
 
-    @Override
-    public boolean quedanDisponibles() {
-        return super.quedanDisponibles();
-    }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return (!pokemon.getEstado().getNombre().equals("Debilitado") && pokemon.sePuedeCurar());
-    }
 }

@@ -27,9 +27,4 @@ public class PocionDeAtaque extends ItemDeSoporte {
         Eventos.getEventos().agregarComando(comandoMensaje);
         return true;
     }
-
-    @Override
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return !pokemon.getEstado().getNombre().equals("Debilitado");
-    }
 }

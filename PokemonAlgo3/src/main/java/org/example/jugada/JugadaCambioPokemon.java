@@ -12,12 +12,6 @@ public class JugadaCambioPokemon extends Jugada {
     public boolean jugar() {
         System.out.println("x: cancelar");
         jugador.cambiarPokemonActual();
-        Pokemon opcionElegida = jugador.pokebola.cambiarPokemon();
-        if (opcionElegida == null){
-            break;
-        }
-        jugador.setPokemonActual(opcionElegida);
-        turno = true;
-        break;
+        return true;
     }
 }

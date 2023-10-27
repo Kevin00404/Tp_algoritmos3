@@ -1,5 +1,6 @@
 package org.example.estado;
 
+import org.example.Estadisticas.Estadisticas;
 import org.example.Turno.Eventos;
 import org.example.Elemento.Element;
 import org.example.comando.Comando;
@@ -15,7 +16,7 @@ public abstract class Estado {
         habilidad.atacar(pokemon, element, eventos_a_realizar);
         return this;
     }
-    public Estado pasivo(Pokemon pokemon) {
+    public Estado pasivo(Estadisticas estadisticas) {
         return this;
     }
     public Estado setEstadoActual(Estado estado){
@@ -26,26 +27,11 @@ public abstract class Estado {
     public Comando mostrarEstado(){
         return new ComandoMensaje("Estado Actual: " + nombre);
     }
-    public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir){
-        return this;
-    }
-    public Estado curar(Pocion curar, Pokemon pokemon) {
-        pokemon.curarVida(curar);
-        return this;
-    }
-    public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
-        pokemon.aumentarAtaque(itemDeAtaque.getValor());
-        return this;
-    }
-    public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
-        pokemon.aumentarDefensa(itemDeDefensa.getValor());
-        return this;
-    }
     public Estado curarEstado(EstadoParalizado estadoACurar){ return this; }
     public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
     public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
     public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
-    public Estado curarEstado(Estado estadoACurar){
+    public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
     }
 
@@ -64,4 +50,6 @@ public abstract class Estado {
     public Comando permitirAplicarComando(Comando comando) {
         return comando;
     }
+
+    public abstract void aceptarEstado(Estado estado);
 }

@@ -4,14 +4,16 @@ import org.example.pokemon.Pokemon;
 
 public abstract class Items implements Item {
     Integer disponibles;
-    Items(Integer disponibles){
+    String nombre;
+    public Items(Integer disponibles){
         this.disponibles = disponibles;
+        this.nombre = "item";
+    }
+    public String getNombre() {
+        return this.nombre;
     }
     @Override
-    public boolean usarItem(Pokemon pokemon) {
-        return false;
-    }
-    public String getNombre(){ return null; }
+    public abstract boolean usarItem(Pokemon pokemon);
 
     public Integer getDisponibles() {
         return disponibles;
@@ -21,7 +23,4 @@ public abstract class Items implements Item {
         return disponibles>0;
     }
 
-    public boolean sePuedeUsar(Pokemon pokemon) {
-        return true;
-    }
 }
