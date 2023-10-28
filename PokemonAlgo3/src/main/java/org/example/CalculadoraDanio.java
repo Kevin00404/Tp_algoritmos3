@@ -28,15 +28,17 @@ public class CalculadoraDanio {
         return 2.0;
     }
 
-    private int randomNum(){
+    private Double randomNum(){
         Random rand = new Random();
-        int upperbound = 39;
-        int random = rand.nextInt(upperbound);
+        Double upperbound = 39.0;
+        Double random = rand.nextDouble(upperbound);
         random += 217;
         return random/255;
     }
 
     public Double calcularDanio(){
-        return (((2*estadisticasPropias.getNivel()*this.critico()*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * randomNum();
+        Double critico = this.critico();
+        Double random = randomNum();
+        return (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
     }
 }

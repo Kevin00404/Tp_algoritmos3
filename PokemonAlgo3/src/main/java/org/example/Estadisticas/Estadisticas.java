@@ -45,6 +45,7 @@ public abstract class Estadisticas implements EstadisticaModificable {
 
     public void bajarVida(Double danio) {
         this.vida -= danio;
+        System.out.println("Hago " + danio + " de danio");
     }
 
     public void variarDefensa(Double varDefensa) {

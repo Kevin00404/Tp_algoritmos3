@@ -7,7 +7,6 @@ public abstract class Items implements Item {
     String nombre;
     public Items(Integer disponibles){
         this.disponibles = disponibles;
-        this.nombre = "item";
     }
     public String getNombre() {
         return this.nombre;

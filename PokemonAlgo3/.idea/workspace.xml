@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/comando/EfectosPasivosComando.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/comando/RendirseComando.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Hielo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Hielo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Turno/Eventos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Turno/Eventos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comando/ComandoAplicacionPocionBufeo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/CuraTotal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/CuraTotal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Mochila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Mochila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Pocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Pocion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/PocionAntiVeneno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionAntiVeneno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/PocionCurarParalisis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionCurarParalisis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeAtaque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeDefensa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDeDefensa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDespertarDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/PocionDespertarDormido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Revivir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Revivir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaRendicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaRendicion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/PokemonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/PokemonBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
