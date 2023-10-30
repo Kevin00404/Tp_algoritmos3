@@ -6,11 +6,11 @@ import org.example.Elemento.Element;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.habilidad.Habilidad;
-import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
     String nombre;
+    Estado proximoEstado;
     public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
     {
         habilidad.atacar(pokemon, element, eventos_a_realizar);
@@ -21,6 +21,14 @@ public abstract class Estado {
     }
     public Estado setEstadoActual(Estado estado){
         System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
+        return this;
+    }
+    public Estado concatenarEstado(Estado estado){
+        if (proximoEstado != null){
+            this.proximoEstado.concatenarEstado(estado);
+            return this;
+        }
+        this.proximoEstado = estado;
         return this;
     }
 
@@ -35,6 +43,25 @@ public abstract class Estado {
         return new EstadoNormal();
     }
 
+    public Comando condicionarConSiguienteEstado(Comando comando){
+        if (proximoEstado != null){
+            comando = proximoEstado.condicionarConSiguienteEstado(comando);
+        }
+        return this.condicionarComando(comando);
+    }
+    public Estado aceptarSiguienteEstado(Estado estado){
+        if (proximoEstado != null){
+            this.proximoEstado = proximoEstado.aceptarSiguienteEstado(estado);
+        }
+        return this.aceptarEstado(estado);
+    }
+    public Estado condicionarConSiguienteEstadoPasivo(Estadisticas estadisticas){
+        if (proximoEstado != null){
+            this.proximoEstado = this.proximoEstado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        }
+        return this.pasivo(estadisticas);
+    }
+
     public boolean esDebilitado() {
         return false;
     }
@@ -42,14 +69,19 @@ public abstract class Estado {
     public String getNombre() {
         return this.nombre;
     }
-
+    public void agregarEstado(Estado proximoEstado){
+        this.proximoEstado = proximoEstado;
+    }
     public Comando condicionarComando(Comando comando) {
         return comando;
-
     }
     public Comando permitirAplicarComando(Comando comando) {
         return comando;
     }
 
-    public abstract void aceptarEstado(Estado estado);
+    public abstract Estado aceptarEstado(Estado estado);
+
+    public Estado getProximoEstado(){
+        return proximoEstado;
+    }
 }
