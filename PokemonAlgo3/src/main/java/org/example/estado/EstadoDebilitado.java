@@ -1,9 +1,8 @@
 package org.example.estado;
 
+import org.example.Turno.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
-import org.example.items.*;
-import org.example.pokemon.Pokemon;
 
 public class EstadoDebilitado extends Estado{
     public EstadoDebilitado(){
@@ -14,7 +13,11 @@ public class EstadoDebilitado extends Estado{
         return true;
     }
     public Estado curarEstado(EstadoDebilitado estadoACurar) {
-        return new EstadoNormal();
+        Estado nuevoEstado = new EstadoNormal();
+        Comando comando = new ComandoMensaje("Reviviendo Pokemon");
+        Eventos.getEventos().agregarComando(comando);
+        nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        return nuevoEstado;
     }
     public Comando condicionarComando(Comando comando){
         return new ComandoMensaje("Este pokemon esta debilitado");
@@ -22,7 +25,13 @@ public class EstadoDebilitado extends Estado{
     public Comando permitirAplicarComando(Comando comando) {
         return new ComandoMensaje("Este pokemon esta debilitado");
     }
-    public void aceptarEstado(Estado estado) {
-        estado.curarEstado(this);
+    @Override
+    public Estado aceptarEstado(Estado estado) {
+        if(this.proximoEstado != null){
+            this.proximoEstado = this.proximoEstado.aceptarEstado(estado);
+        }
+        return estado.curarEstado(this);
     }
+
+
 }

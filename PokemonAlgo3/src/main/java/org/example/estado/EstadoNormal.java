@@ -1,8 +1,5 @@
 package org.example.estado;
 
-import org.example.items.*;
-import org.example.pokemon.Pokemon;
-
 public class EstadoNormal extends Estado{
     public EstadoNormal(){
         this.nombre = "Normal";
@@ -13,7 +10,8 @@ public class EstadoNormal extends Estado{
         return estado;
     }
 
-    public void aceptarEstado(Estado estado) {
+    public Estado aceptarEstado(Estado estado) {
         estado.curarEstado(this);
+        return estado;
     }
 }

@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "refactor__gigante__Naza"
+    "git-widget-placeholder": "adantp2"
   }
 }]]></component>
   <component name="RecentsManager">
