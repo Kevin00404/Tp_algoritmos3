@@ -1,45 +1,66 @@
 package org.example.estado;
 
-import org.example.Ataque;
+import org.example.Estadisticas.Estadisticas;
+import org.example.Turno.Eventos;
 import org.example.Elemento.Element;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.habilidad.Habilidad;
-import org.example.items.*;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
     String nombre;
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Ataque ataque_a_realizar)
+    Estado proximoEstado;
+    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
     {
-        habilidad.atacar(pokemon, element, ataque_a_realizar);
+        habilidad.atacar(pokemon, element, eventos_a_realizar);
         return this;
     }
-    public Estado pasivo(Pokemon pokemon) {
+    public Estado pasivo(Estadisticas estadisticas) {
         return this;
     }
     public Estado setEstadoActual(Estado estado){
         System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
         return this;
     }
-    public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir){
+    public Estado concatenarEstado(Estado estado){
+        if (proximoEstado != null){
+            this.proximoEstado.concatenarEstado(estado);
+            return this;
+        }
+        this.proximoEstado = estado;
         return this;
     }
-    public Estado curar(Pocion curar, Pokemon pokemon) {
-        pokemon.curarVida(curar);
-        return this;
+
+    public Comando mostrarEstado(){
+        return new ComandoMensaje("Estado Actual: " + nombre);
     }
-    public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
-        pokemon.aumentarAtaque(itemDeAtaque.getValor());
-        return this;
-    }
-    public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
-        pokemon.aumentarDefensa(itemDeDefensa.getValor());
-        return this;
-    }
-    public Estado curarEstado(PocionDespertarDormido despertar){ return this; }
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) { return this; }
-    public Estado curarEstado(PocionCurarParalisis curarParalisis){ return this; }
-    public Estado curarEstado(CuraTotal curarCualquierEstado){
+    public Estado curarEstado(EstadoParalizado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
+    public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
+    public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoConfundido estadoACurar){return this;}
+    public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
+    }
+
+    public Comando condicionarConSiguienteEstado(Comando comando, Estadisticas estadisticas){
+        if (proximoEstado != null){
+            comando = proximoEstado.condicionarConSiguienteEstado(comando, estadisticas);
+        }
+        return this.condicionarComando(comando,estadisticas);
+    }
+    public Estado aceptarSiguienteEstado(Estado estado){
+        if (proximoEstado != null){
+            this.proximoEstado = proximoEstado.aceptarSiguienteEstado(estado);
+        }
+        return this.aceptarEstado(estado);
+    }
+    public Estado condicionarConSiguienteEstadoPasivo(Estadisticas estadisticas){
+        if (proximoEstado != null){
+            this.proximoEstado = this.proximoEstado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        }
+        return this.pasivo(estadisticas);
     }
 
     public boolean esDebilitado() {
@@ -48,5 +69,20 @@ public abstract class Estado {
     public boolean esNormal() {return false;}
     public String getNombre() {
         return this.nombre;
+    }
+    public void agregarEstado(Estado proximoEstado){
+        this.proximoEstado = proximoEstado;
+    }
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas) {
+        return comando;
+    }
+    public Comando permitirAplicarComando(Comando comando) {
+        return comando;
+    }
+
+    public abstract Estado aceptarEstado(Estado estado);
+
+    public Estado getProximoEstado(){
+        return proximoEstado;
     }
 }

@@ -2,7 +2,7 @@ package org.example.Elemento;
 
 public class Hielo extends Element {
     public Hielo(){
-        String nombre_tipo = "Hielo";
+        nombre_tipo = "Hielo";
     }
     @Override
     public Double mixElement(Element element)

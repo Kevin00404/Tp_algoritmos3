@@ -1,15 +1,16 @@
 package org.example.habilidad;
 
-import org.example.Ataque;
-import org.example.Ataque;
+import org.example.comando.Comando;
+import org.example.comando.HacerDanioComando;
+import org.example.CalculadoraDanio;
 import org.example.Elemento.Element;
+import org.example.Estadisticas.Estadisticas;
 import org.example.pokemon.Pokemon;
 
-import java.util.Objects;
-
 public class HabilidadAtaque extends Habilidad{
-    Element elemento;
-    Double poder_de_ataque;
+    private Element elemento;
+
+    private Double poder_de_ataque;
 
     public HabilidadAtaque(String nombre, Integer cantidadDisponible, Element elemento /*del pokemon que está atacando*/, Double poder_de_ataque) {
         super(nombre + " (Habilidad de Ataque)",cantidadDisponible,"Ataque");//se repite en las otras dos habilidades.
@@ -17,12 +18,14 @@ public class HabilidadAtaque extends Habilidad{
         this.poder_de_ataque = poder_de_ataque;
     }
     @Override
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar){
+    public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas){
         this.consumirUso();
-        System.out.println("se ha elegido la habilidad: " + this.nombre);
-        ataque_a_realizar.setPoder(this.poder_de_ataque);
-        ataque_a_realizar.setMismoTipo(this.elemento.bonus_mismo_tipo(element));
-        pokemon.recibirDanio(ataque_a_realizar, elemento);
+        CalculadoraDanio calcDanio = armarDanio(pokemon, estadisticas);
+        return new HacerDanioComando(pokemon, calcDanio);
+    }
+
+    public CalculadoraDanio armarDanio(Pokemon pokemon, Estadisticas estadisticas){
+        return new CalculadoraDanio(estadisticas, pokemon.getEstadisticas(), this.poder_de_ataque, this.elemento);
     }
 
 }

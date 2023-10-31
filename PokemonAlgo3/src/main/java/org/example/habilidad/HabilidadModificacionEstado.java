@@ -1,11 +1,10 @@
 package org.example.habilidad;
 
-import org.example.Ataque;
-import org.example.Elemento.Element;
-import org.example.EstadoPokemon;
-import org.example.Juego;
+import org.example.Estadisticas.Estadisticas;
+import org.example.comando.CambiarEstadoComando;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
-import org.example.estado.EstadoNormal;
 import org.example.pokemon.Pokemon;
 
 public class HabilidadModificacionEstado extends Habilidad {
@@ -17,11 +16,12 @@ public class HabilidadModificacionEstado extends Habilidad {
     }
 
 
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar) {
+    public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas) {
         this.consumirUso();
-        System.out.println("se ha elegido la habilidad: " + this.nombre);
-        ataque_a_realizar.setEstado(this.asignarEstado);
-        pokemon.modificarEstado(ataque_a_realizar);
+        Comando comandoMensaje = new ComandoMensaje("se ha elegido la habilidad: " + this.nombre);
+        Comando comandoJugada = new CambiarEstadoComando(pokemon, this.asignarEstado);
+        comandoMensaje.concatComands(comandoJugada);
+        return comandoMensaje;
     }
 
     @Override

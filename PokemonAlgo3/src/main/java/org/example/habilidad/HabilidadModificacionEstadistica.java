@@ -1,23 +1,19 @@
 package org.example.habilidad;
 
-import org.example.Ataque;
-import org.example.Elemento.Element;
-import org.example.Estadistica.Estadistica;
+import org.example.Estadistica.ModEstadistica;
+import org.example.Estadisticas.Estadisticas;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
+import org.example.comando.ComandoModificarEstadistica;
 import org.example.pokemon.Pokemon;
 
 public class HabilidadModificacionEstadistica extends Habilidad {
 
-    private Estadistica estadistica;
+    private ModEstadistica modificacionEstadistica;
 
-    public HabilidadModificacionEstadistica(String nombre, Integer cantidadDisponible, Estadistica estadistica) {
-        super(nombre + " (Cambiar estadistica a " + estadistica.getNombre()+ ")", cantidadDisponible, "Estadística");
-        this.estadistica = estadistica;
-    }
-    public void atacar(Pokemon pokemon, Element element, Ataque ataque_a_realizar) {
-        this.consumirUso();
-        System.out.println("se ha elegido la habilidad: " + this.nombre);
-        estadistica.modificarEstadistica(ataque_a_realizar);
-        pokemon.actualizarEstadisticas(ataque_a_realizar);
+    public HabilidadModificacionEstadistica(String nombre, Integer cantidadDisponible, ModEstadistica modificacionEstadistica) {
+        super(nombre + " (Cambiar estadistica a " + modificacionEstadistica.getNombre()+ ")", cantidadDisponible, "Estadística");
+        this.modificacionEstadistica = modificacionEstadistica;
     }
 
     @Override
@@ -26,11 +22,17 @@ public class HabilidadModificacionEstadistica extends Habilidad {
     }
 
     @Override
-    public Pokemon getObjetivo(Pokemon pokemon1, Pokemon pokemon2) {
-        if (estadistica.danina()){
-            return pokemon2;
+    public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas) {
+        this.consumirUso();
+        Comando comandoMensaje = new ComandoMensaje("se ha elegido la habilidad: " + this.nombre);
+        Comando comandoJugada;
+        if (modificacionEstadistica.danina()){
+            comandoJugada = new ComandoModificarEstadistica(modificacionEstadistica, pokemon.getEstadisticas());
+        } else {
+            comandoJugada = new ComandoModificarEstadistica(modificacionEstadistica, estadisticas);
         }
-        return pokemon1;
+        comandoMensaje.concatComands(comandoJugada);
+        return comandoMensaje;
     }
 }
 

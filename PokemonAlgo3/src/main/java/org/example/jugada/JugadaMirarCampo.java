@@ -1,0 +1,20 @@
+package org.example.jugada;
+
+import org.example.Entrenador;
+import org.example.Turno.Eventos;
+import org.example.comando.Comando;
+
+public class JugadaMirarCampo extends Jugada {
+    public JugadaMirarCampo(Entrenador jugador, Entrenador oponente) {
+        super(jugador, oponente);
+    }
+
+    @Override
+    public boolean jugar() {
+        Comando mostrarInfoJugador = jugador.mostrarPokemonEnBatalla();
+        Comando mostrarInfoOponente = oponente.mostrarPokemonEnBatalla();
+        mostrarInfoOponente.concatComands(mostrarInfoJugador);
+        Eventos.getEventos().agregarComando(mostrarInfoOponente);
+        return false;
+    }
+}

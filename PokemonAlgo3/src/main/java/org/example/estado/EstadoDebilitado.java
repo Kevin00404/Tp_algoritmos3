@@ -1,59 +1,38 @@
 package org.example.estado;
 
-import org.example.items.*;
-import org.example.pokemon.Pokemon;
+import org.example.Estadisticas.Estadisticas;
+import org.example.Turno.Eventos;
+import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 
 public class EstadoDebilitado extends Estado{
     public EstadoDebilitado(){
         this.nombre = "Debilitado";
     }
-
-    @Override
-    public Estado revivir(Pokemon pokemon, Revivir itemDeRevivir) {
-        pokemon.setVida(itemDeRevivir.getValor());
-        return new EstadoNormal();
-    }
-    @Override
-    public Estado curar(Pocion curar, Pokemon pokemon) {
-        return this;
-    }
-    @Override
-    public Estado curarEstado(PocionDespertarDormido despertar) {
-        return super.curarEstado(despertar);
-    }
-    @Override
-    public Estado curarEstado(PocionAntiVeneno antiVeneno) {
-        return super.curarEstado(antiVeneno);
-    }
-    @Override
-    public Estado curarEstado(PocionCurarParalisis curarParalisis) {
-        return super.curarEstado(curarParalisis);
-    }
-    @Override
-    public Estado curarEstado(CuraTotal curarCualquierEstado) {
-        return this;
-    }
-    @Override
-    public Estado aumentarAtaque(Pokemon pokemon, PocionDeAtaque itemDeAtaque) {
-        return this;
-    }
-    @Override
-    public Estado aumentarDefensa(Pokemon pokemon, PocionDeDefensa itemDeDefensa) {
-        return this;
-    }
-
     @Override
     public boolean esDebilitado() {
         return true;
     }
-
+    public Estado curarEstado(EstadoDebilitado estadoACurar) {
+        Estado nuevoEstado = new EstadoNormal();
+        Comando comando = new ComandoMensaje("Reviviendo Pokemon");
+        Eventos.getEventos().agregarComando(comando);
+        nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        return nuevoEstado;
+    }
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas){
+        return new ComandoMensaje("Este pokemon esta debilitado");
+    }
+    public Comando permitirAplicarComando(Comando comando) {
+        return new ComandoMensaje("Este pokemon esta debilitado");
+    }
     @Override
-    public boolean esNormal() {
-        return super.esNormal();
+    public Estado aceptarEstado(Estado estado) {
+        if(this.proximoEstado != null){
+            this.proximoEstado = this.proximoEstado.aceptarEstado(estado);
+        }
+        return estado.curarEstado(this);
     }
 
-    @Override
-    public String getNombre() {
-        return super.getNombre();
-    }
+
 }
