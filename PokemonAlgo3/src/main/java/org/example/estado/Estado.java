@@ -39,15 +39,16 @@ public abstract class Estado {
     public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
     public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
     public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoConfundido estadoACurar){return this;}
     public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
     }
 
-    public Comando condicionarConSiguienteEstado(Comando comando){
+    public Comando condicionarConSiguienteEstado(Comando comando, Estadisticas estadisticas){
         if (proximoEstado != null){
-            comando = proximoEstado.condicionarConSiguienteEstado(comando);
+            comando = proximoEstado.condicionarConSiguienteEstado(comando, estadisticas);
         }
-        return this.condicionarComando(comando);
+        return this.condicionarComando(comando,estadisticas);
     }
     public Estado aceptarSiguienteEstado(Estado estado){
         if (proximoEstado != null){
@@ -72,7 +73,7 @@ public abstract class Estado {
     public void agregarEstado(Estado proximoEstado){
         this.proximoEstado = proximoEstado;
     }
-    public Comando condicionarComando(Comando comando) {
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas) {
         return comando;
     }
     public Comando permitirAplicarComando(Comando comando) {

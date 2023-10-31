@@ -80,6 +80,15 @@ public abstract class Estadisticas implements EstadisticaModificable {
         return null;
     }
 
+    public Estado confundirse(){
+        this.vida -= (this.vida * 15)/100;
+        if (!sigueVivo()){
+            vida = 0.0;
+            return new EstadoDebilitado();
+        }
+        return null;
+    }
+
     public Double getVida() {
         return vida;
     }

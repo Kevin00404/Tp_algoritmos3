@@ -18,7 +18,7 @@ public class EstadoDormido extends Estado{
     }
 
     @Override
-    public Comando condicionarComando(Comando comando) {
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas) {
         return new ComandoMensaje("Este pokemon esta dormido");
     }
 
@@ -35,6 +35,7 @@ public class EstadoDormido extends Estado{
             Estado nuevoEstado = new EstadoNormal();
             Comando comando = new ComandoMensaje("El pokemon despertó");
             nuevoEstado.agregarEstado(proximoEstado);
+            Eventos.getEventos().agregarComando(comando);
             return nuevoEstado;
         }
         else{

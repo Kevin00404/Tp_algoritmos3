@@ -1,5 +1,6 @@
 package org.example.estado;
 
+import org.example.Estadisticas.Estadisticas;
 import org.example.Turno.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
@@ -19,7 +20,7 @@ public class EstadoDebilitado extends Estado{
         nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
         return nuevoEstado;
     }
-    public Comando condicionarComando(Comando comando){
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas){
         return new ComandoMensaje("Este pokemon esta debilitado");
     }
     public Comando permitirAplicarComando(Comando comando) {

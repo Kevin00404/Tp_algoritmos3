@@ -9,7 +9,6 @@ import org.example.estado.Estado;
 import org.example.estado.EstadoDebilitado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
-import org.example.items.*;
 import org.example.Log.Log;
 
 import java.util.Dictionary;
@@ -59,7 +58,7 @@ public class Pokemon {
     public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
-        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
+        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, estadisticas);
         Eventos.getEventos().agregarComando(comandoJugada);
     }
 
