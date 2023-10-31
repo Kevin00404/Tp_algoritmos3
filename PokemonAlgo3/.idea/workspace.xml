@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/testCrearPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +44,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "refactor__gigante__Naza"
+    "git-widget-placeholder": "kevin__tpdos__"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Elemento" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\src\main\java" />
+      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\test" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.testCrearPokemon.testUno">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="PokemonAlgo3" />
@@ -65,8 +70,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testCrearPokemon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.testCrearPokemon" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testCrearPokemon.testUno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.testCrearPokemon" />
+      <option name="METHOD_NAME" value="testUno" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testCrearPokemon.testUno" />
+        <item itemvalue="JUnit.testCrearPokemon" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
