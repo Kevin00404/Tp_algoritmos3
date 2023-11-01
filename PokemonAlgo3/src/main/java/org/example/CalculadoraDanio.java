@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.Element;
 import org.example.Estadisticas.Estadisticas;
 
@@ -39,6 +40,7 @@ public class CalculadoraDanio {
     public Double calcularDanio(){
         Double critico = this.critico();
         Double random = randomNum();
-        return (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
+        Double danioHipotetico = (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
+        return ManejoDeClima.getTerreno().ventajaDelTerreno(danioHipotetico, estadisticasPropias);
     }
 }
