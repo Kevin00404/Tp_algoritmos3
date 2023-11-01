@@ -1,0 +1,33 @@
+@startuml
+
+interface EventoManejable{
++boolean ejecutarEvento()
++void agregarComando(Comando comando)
++void setearProblema(Comando comando)
+}
+
+Class Eventos{
+-ComandoManejable comando;
+-ArrayList<ComandoManejable> historial;
+-Comando problema;
+-{static} Eventos eventos;
++{static} Eventos getEventos()
++void cambiarEvento()
++void resetearEvento()
+}
+
+Abstract Comando1{}
+Abstract Comando2{}
+Abstract Comando3{}
+Abstract Comando4{}
+Abstract Comando5{}
+
+Eventos ..|> EventoManejable
+Eventos --> Eventos
+Eventos o-- Comando1
+Comando1 o-- Comando2
+Comando2 o-- Comando3
+Comando3 o-- Comando4
+Comando4 o-- Comando5
+
+@enduml
