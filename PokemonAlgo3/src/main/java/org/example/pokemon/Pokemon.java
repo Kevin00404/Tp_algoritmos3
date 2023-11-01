@@ -23,9 +23,6 @@ public class Pokemon {
     Estadisticas estadisticas;
     Dictionary<Integer, Habilidad> habilidades;
 
-    //Integer critico = 1; // hay que cambiarlo...que es esto?
-    //Integer random = 1; // hay que cambiarlo..que es esto?
-
 
 
     public Pokemon(String nombre, String historia, Hashtable<Integer, Habilidad> habilidades, Estadisticas estadisticas) {
@@ -35,6 +32,12 @@ public class Pokemon {
         this.habilidades = habilidades;
         this.estadisticas = estadisticas;
     }
+
+    //borrar, constructor hecho solo para hacer test
+    public Pokemon(String nombre, String historia, Habilidad habilidad, String estadistica) {
+        this.nombre=nombre;
+    }
+
 
     public String getPrimeraHabilidad() {
         return habilidades.get(1).getNombre();

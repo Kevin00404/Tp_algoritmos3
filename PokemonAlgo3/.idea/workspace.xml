@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/HabilidadTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/testEntrenador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
@@ -14,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
+>>>>>>> 26d3eeaf4e81142278f75ac9ca85f548a20a5c7e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +36,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -42,44 +54,134 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2VUz1ZmYDq4wnJ2p5LClb68m13M" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kevin__tpdos__&quot;
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "adantp2"
+>>>>>>> 26d3eeaf4e81142278f75ac9ca85f548a20a5c7e
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Elemento" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\src\main\java" />
+      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\test" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="unitarios" />
+      <recent name="org.example" />
+      <recent name="" />
+      <recent name="org.example.habilidad" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+  <component name="RunManager" selected="JUnit.EntrenadorTest.getPokemonActual">
+    <configuration name="EntrenadorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.EntrenadorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EntrenadorTest.getPokemonActual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.EntrenadorTest" />
+      <option name="METHOD_NAME" value="getPokemonActual" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in PokemonAlgo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testCrearPokemon.testUno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.testCrearPokemon" />
+      <option name="METHOD_NAME" value="testUno" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testEntrenador.tieneSeisPokemones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.testEntrenador" />
+      <option name="METHOD_NAME" value="tieneSeisPokemones" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EntrenadorTest.getPokemonActual" />
+        <item itemvalue="JUnit.EntrenadorTest" />
+        <item itemvalue="JUnit.java in PokemonAlgo3" />
+        <item itemvalue="JUnit.testEntrenador.tieneSeisPokemones" />
+        <item itemvalue="JUnit.testCrearPokemon.testUno" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8766d076-a851-401e-946b-67231b2299c5" name="Changes" comment="" />
+      <changelist id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="" />
       <created>1694905234508</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -104,5 +206,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Main_java$java_in_PokemonAlgo3.ic" NAME="java in PokemonAlgo3 Coverage Results" MODIFIED="1698860623511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

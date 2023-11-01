@@ -83,4 +83,8 @@ public abstract class Estadisticas implements EstadisticaModificable {
     public Double getVida() {
         return vida;
     }
+
+    public Double getMaxVida() {
+        return maxVida;
+    }
 }
