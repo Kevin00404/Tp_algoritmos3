@@ -56,18 +56,18 @@ public class Pokemon {
     }
 
     public void modificarEstado(Estado estado){
-        this.estado = estado;
+        this.estado = this.estado.concatenarEstado(estado);
     }
 
     public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
-        comandoJugada = this.estado.condicionarComando(comandoJugada);
+        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
         Eventos.getEventos().agregarComando(comandoJugada);
     }
 
     public void aplicarPasivos(){
-        this.estado = this.estado.pasivo(estadisticas);
+        this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
     }
 
     public void recibirDanio(Double danio) {
@@ -118,7 +118,7 @@ public class Pokemon {
     }
 
     public void curarEstado(Estado estadoACurar) {
-        estadoACurar.aceptarEstado(this.estado);
+        estadoACurar.aceptarSiguienteEstado(this.estado);
     }
 
     public Comando habilitarComandoSiVive(Comando comando) {

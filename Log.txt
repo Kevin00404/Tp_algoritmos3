@@ -1,0 +1,9 @@
+@startuml
+Class Log{
+-ComandoManejable comando
++{static} Log getLog()
++void log(String mensaje)
+}
+
+Log --> Log
+@enduml

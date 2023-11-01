@@ -1,9 +1,8 @@
 package org.example.estado;
 
+import org.example.Turno.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
-import org.example.items.*;
-import org.example.pokemon.Pokemon;
 
 public class EstadoParalizado extends Estado{
     public EstadoParalizado(){
@@ -21,9 +20,14 @@ public class EstadoParalizado extends Estado{
     }
     @Override
     public Estado curarEstado(EstadoParalizado estadoACurar) {
-        return new EstadoNormal();
+        Estado nuevoEstado = new EstadoNormal();
+        Comando comando = new ComandoMensaje("Curando paralisis");
+        Eventos.getEventos().agregarComando(comando);
+        nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        return nuevoEstado;
     }
-    public void aceptarEstado(Estado estado) {
+    public Estado aceptarEstado(Estado estado) {
         estado.curarEstado(this);
+        return estado;
     }
 }

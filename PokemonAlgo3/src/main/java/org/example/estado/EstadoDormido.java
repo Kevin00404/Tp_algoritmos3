@@ -3,8 +3,7 @@ package org.example.estado;
 import org.example.Estadisticas.Estadisticas;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
-import org.example.items.*;
-import org.example.pokemon.Pokemon;
+import org.example.Turno.Eventos;
 
 import java.util.Random;
 
@@ -33,24 +32,32 @@ public class EstadoDormido extends Estado{
         double probabilidadDespertar = 0.25 + contadorTurnosPerdidos * 0.25;
         Random random = new Random();
         if (random.nextDouble() < probabilidadDespertar) {
-            System.out.println("el pokemon desperto");
-            return new EstadoNormal();
+            Estado nuevoEstado = new EstadoNormal();
+            Comando comando = new ComandoMensaje("El pokemon despertó");
+            nuevoEstado.agregarEstado(proximoEstado);
+            return nuevoEstado;
         }
         else{
             this.turnosDormido ++;
             if(this.turnosDormido == 4){
-                System.out.println("el pokemon desperto");
-                return new EstadoNormal();
+                Estado nuevoEstado = new EstadoNormal();
+                Comando comando = new ComandoMensaje("El pokemon despertó");
+                Eventos.getEventos().agregarComando(comando);
+                nuevoEstado.agregarEstado(proximoEstado);
+                return nuevoEstado;
             }
         }
         return this;
-
     }
     @Override
     public Estado curarEstado(EstadoDormido estadoACurar) {
-        return new EstadoNormal();
+        Estado nuevoEstado = new EstadoNormal();
+        Comando comando = new ComandoMensaje("El pokemon despertó");
+        Eventos.getEventos().agregarComando(comando);
+        nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        return nuevoEstado;
     }
-    public void aceptarEstado(Estado estado) {
-        estado.curarEstado(this);
+    public Estado aceptarEstado(Estado estado) {
+        return estado.curarEstado(this);
     }
 }
