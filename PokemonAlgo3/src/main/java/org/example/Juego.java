@@ -1,5 +1,7 @@
 package org.example;
 import java.util.Scanner;
+
+import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.*;
 import org.example.Estadistica.ModificacionEstadistica;
 import org.example.Log.Log;
@@ -62,9 +64,11 @@ public class Juego {
         while(!pasarTurno){
             Jugada jugada = jugadaFactory.inicializarJugada();
             pasarTurno = jugada.jugar();
-            oponente.efectosPasivos();
             Eventos.getEventos().ejecutarEvento();
         }
+        oponente.efectosPasivos();
+        Eventos.getEventos().ejecutarEvento();
+        ManejoDeClima.getTerreno().aplicarDanioClima(jugador, oponente);
     }
 
     private Entrenador crearEntrenador1(){
