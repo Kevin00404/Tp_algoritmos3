@@ -9,7 +9,7 @@ import org.example.habilidad.Habilidad;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
-    String nombre;
+    public String nombre;
     Estado proximoEstado;
     public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
     {

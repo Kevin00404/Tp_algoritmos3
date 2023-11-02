@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EstadoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testCrearPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/testCrearPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +37,8 @@
       <recent name="unitarios" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ElectricoTest">
-    <configuration name="ElectricoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.EstadoTest.curarEstado">
+    <configuration name="CalculadoraDanioTest.testCalcularDanio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -48,29 +47,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ElectricoTest.testBonusMismoTipo_Match" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PokemonAlgo3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unitarios.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
-      <option name="METHOD_NAME" value="testBonusMismoTipo_Match" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
+      <option name="METHOD_NAME" value="testCalcularDanio" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElectricoTest.testBonusMismoTipo_NoMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculadoraDanioTest.testCritico" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -79,14 +63,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
-      <option name="METHOD_NAME" value="testBonusMismoTipo_NoMatch" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
+      <option name="METHOD_NAME" value="testCritico" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElectricoTest.testMultiplicadorDanioTipo_Fuego" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EstadoTest.curarEstado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -95,14 +79,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
-      <option name="METHOD_NAME" value="testMultiplicadorDanioTipo_Fuego" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.EstadoTest" />
+      <option name="METHOD_NAME" value="curarEstado" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElementTest.testBonusMismoTipo_Match" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EstadoTest.testConcatenarEstado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -111,8 +95,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.ElementTest" />
-      <option name="METHOD_NAME" value="testBonusMismoTipo_Match" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.EstadoTest" />
+      <option name="METHOD_NAME" value="testConcatenarEstado" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EstadoTest.testCurarEstadoDebilitado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.EstadoTest" />
+      <option name="METHOD_NAME" value="testCurarEstadoDebilitado" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ElectricoTest" />
-        <item itemvalue="JUnit.ElectricoTest.testMultiplicadorDanioTipo_Fuego" />
-        <item itemvalue="JUnit.ElectricoTest.testBonusMismoTipo_NoMatch" />
-        <item itemvalue="JUnit.ElectricoTest.testBonusMismoTipo_Match" />
-        <item itemvalue="JUnit.ElementTest.testBonusMismoTipo_Match" />
+        <item itemvalue="JUnit.EstadoTest.curarEstado" />
+        <item itemvalue="JUnit.EstadoTest.testCurarEstadoDebilitado" />
+        <item itemvalue="JUnit.EstadoTest.testConcatenarEstado" />
+        <item itemvalue="JUnit.CalculadoraDanioTest.testCalcularDanio" />
+        <item itemvalue="JUnit.CalculadoraDanioTest.testCritico" />
       </list>
     </recent_temporary>
   </component>
