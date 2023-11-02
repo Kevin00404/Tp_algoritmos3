@@ -4,7 +4,7 @@ public abstract class Element {
 
     final  double MATCH_TIPO_ATAQUE_Y_POKEMON=1.5;
     final double NO_MATCH_TIPO_ATAQUE_Y_POKEMON=1.0;
-    String nombre_tipo;
+    public String nombre_tipo;
     public String get_tipo()
     {
         return this.nombre_tipo;

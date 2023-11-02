@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/HabilidadTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/testEntrenador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" afterDir="false" />
+    <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
->>>>>>> 26d3eeaf4e81142278f75ac9ca85f548a20a5c7e
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testCrearPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/testCrearPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,71 +19,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="JUnit3 Test Class" />
         <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2VUz1ZmYDq4wnJ2p5LClb68m13M" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kevin__tpdos__&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "adantp2"
->>>>>>> 26d3eeaf4e81142278f75ac9ca85f548a20a5c7e
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "adantp222"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.example.Elemento" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\src\main\java" />
-      <recent name="C:\Users\whyan\OneDrive\Desktop\tp2\Tp_algoritmos3\PokemonAlgo3\test" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-      <recent name="junit.framework.TestCase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="unitarios" />
-      <recent name="org.example" />
-      <recent name="" />
-      <recent name="org.example.habilidad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EntrenadorTest.getPokemonActual">
-    <configuration name="EntrenadorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ElectricoTest">
+    <configuration name="ElectricoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -106,13 +48,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.EntrenadorTest" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EntrenadorTest.getPokemonActual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElectricoTest.testBonusMismoTipo_Match" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -121,22 +63,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.EntrenadorTest" />
-      <option name="METHOD_NAME" value="getPokemonActual" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
+      <option name="METHOD_NAME" value="testBonusMismoTipo_Match" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in PokemonAlgo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PokemonAlgo3" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testCrearPokemon.testUno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElectricoTest.testBonusMismoTipo_NoMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -145,14 +79,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.testCrearPokemon" />
-      <option name="METHOD_NAME" value="testUno" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
+      <option name="METHOD_NAME" value="testBonusMismoTipo_NoMatch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testEntrenador.tieneSeisPokemones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElectricoTest.testMultiplicadorDanioTipo_Fuego" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -161,8 +95,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.testEntrenador" />
-      <option name="METHOD_NAME" value="tieneSeisPokemones" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ElectricoTest" />
+      <option name="METHOD_NAME" value="testMultiplicadorDanioTipo_Fuego" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ElementTest.testBonusMismoTipo_Match" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ElementTest" />
+      <option name="METHOD_NAME" value="testBonusMismoTipo_Match" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,44 +120,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EntrenadorTest.getPokemonActual" />
-        <item itemvalue="JUnit.EntrenadorTest" />
-        <item itemvalue="JUnit.java in PokemonAlgo3" />
-        <item itemvalue="JUnit.testEntrenador.tieneSeisPokemones" />
-        <item itemvalue="JUnit.testCrearPokemon.testUno" />
+        <item itemvalue="JUnit.ElectricoTest" />
+        <item itemvalue="JUnit.ElectricoTest.testMultiplicadorDanioTipo_Fuego" />
+        <item itemvalue="JUnit.ElectricoTest.testBonusMismoTipo_NoMatch" />
+        <item itemvalue="JUnit.ElectricoTest.testBonusMismoTipo_Match" />
+        <item itemvalue="JUnit.ElementTest.testBonusMismoTipo_Match" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="097bb84a-9c76-4743-9843-765b0fb9664f" name="Changes" comment="" />
-      <created>1694905234508</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1694905234508</updated>
-      <workItem from="1696131567298" duration="1426000" />
-      <workItem from="1696133134591" duration="11000" />
-      <workItem from="1696283488271" duration="10047000" />
-      <workItem from="1696332083546" duration="3168000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$java_in_PokemonAlgo3.ic" NAME="java in PokemonAlgo3 Coverage Results" MODIFIED="1698860623511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
