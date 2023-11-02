@@ -39,6 +39,7 @@ public abstract class Estado {
     public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
     public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
     public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoConfuso estadoACurar){ return this; }
     public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
     }

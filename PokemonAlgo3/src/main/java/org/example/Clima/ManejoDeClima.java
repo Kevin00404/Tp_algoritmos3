@@ -27,9 +27,10 @@ public class ManejoDeClima {
         verificarFinalDeClima();
     }
 
-    void verificarFinalDeClima(){
-        if ( duracion < 0 ){
+    public void verificarFinalDeClima(){
+        if ( duracion <= 0 ){
             clima = setClima();
+            duracion = 5;
         }
     }
     public static ManejoDeClima getTerreno(){
@@ -45,6 +46,7 @@ public class ManejoDeClima {
     }
     public void cambiarClima(Climas nuevoClima){
         clima = nuevoClima;
+        duracion = 5;
     }
     private static Integer numeroAleatorio(Integer maximo){
         Random rand = new Random();
@@ -75,4 +77,15 @@ public class ManejoDeClima {
         return new Despejado();
     }
 
+    public String getClima() {
+        return clima.getNombre();
+    }
+
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
+    }
 }
