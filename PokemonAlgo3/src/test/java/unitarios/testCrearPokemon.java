@@ -17,7 +17,7 @@ public class testCrearPokemon {
 public void testUno(){
         Habilidad habilidad = mock(Habilidad.class);
 
-        Pokemon pokemon = new Pokemon("nomkjbre","historia",habilidad,"estadistica");
+        Pokemon pokemon = new Pokemon("nombre","historia",habilidad,"estadistica");
 
         assertEquals("nombre",pokemon.getNombre());
 
