@@ -1,3 +1,5 @@
+package borrador;
+
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
 import org.example.Log.Log;

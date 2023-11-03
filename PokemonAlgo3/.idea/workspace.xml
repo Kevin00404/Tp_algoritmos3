@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EstadoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/ElectricoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testEntrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/testEntrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/testPokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/testPokebola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,46 +26,38 @@
   "keyToString": {
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "adantp222"
+    "git-widget-placeholder": "refactor__gigante__Naza"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\whyan\OneDrive\Desktop\nuevotp2\Tp_algoritmos3\PokemonAlgo3\src\test\java" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="unitarios" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EstadoTest.curarEstado">
-    <configuration name="CalculadoraDanioTest.testCalcularDanio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in PokemonAlgo3">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unitarios.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
-      <option name="METHOD_NAME" value="testCalcularDanio" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalculadoraDanioTest.testCritico" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in PokemonAlgo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unitarios.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
-      <option name="METHOD_NAME" value="testCritico" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -74,7 +66,7 @@
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unitarios.*" />
+          <option name="PATTERN" value="borrador.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,7 +82,7 @@
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unitarios.*" />
+          <option name="PATTERN" value="borrador.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,7 +98,7 @@
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unitarios.*" />
+          <option name="PATTERN" value="borrador.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,15 +112,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in PokemonAlgo3" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EstadoTest.curarEstado" />
         <item itemvalue="JUnit.EstadoTest.testCurarEstadoDebilitado" />
         <item itemvalue="JUnit.EstadoTest.testConcatenarEstado" />
-        <item itemvalue="JUnit.CalculadoraDanioTest.testCalcularDanio" />
-        <item itemvalue="JUnit.CalculadoraDanioTest.testCritico" />
       </list>
     </recent_temporary>
   </component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699032746832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

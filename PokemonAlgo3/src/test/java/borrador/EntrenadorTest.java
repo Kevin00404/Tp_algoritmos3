@@ -1,4 +1,4 @@
-package unitarios;
+package borrador;
 
 import org.example.Entrenador;
 import org.example.items.Mochila;
