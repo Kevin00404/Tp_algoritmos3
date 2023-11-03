@@ -15,11 +15,14 @@ public abstract class Items implements Item {
     public abstract boolean usarItem(Pokemon pokemon);
 
     public Integer getDisponibles() {
-        return disponibles;
+        return this.disponibles;
     }
 
     public boolean quedanDisponibles() {
         return disponibles>0;
     }
 
+    public void gastar() {
+        this.disponibles -= 1;
+    }
 }
