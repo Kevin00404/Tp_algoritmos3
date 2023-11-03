@@ -16,15 +16,15 @@ public class Pocion extends ItemDeCuracion {
 
     @Override
     public boolean usarItem(Pokemon pokemon) {
-        if (this.disponibles < 0){
+        if (this.disponibles == 0){
             return false;
         }
         Comando comando = new ComandoModificarEstadistica(new ModVida(this.valor), pokemon.getEstadisticas());
         comando = pokemon.habilitarComandoSiVive(comando);
         Comando comandoMensaje = new ComandoMensaje("Se ha gastado una pocion");
-        this.disponibles -=1;
         comandoMensaje.concatComands(comando);
         Eventos.getEventos().agregarComando(comandoMensaje);
+        this.disponibles -= 1;
         return true;
     }
 

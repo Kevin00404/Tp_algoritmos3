@@ -25,4 +25,16 @@ public class Mochila {
             mochila.remove((item-1));
         }
     }
+
+    public Integer getUsosItem(Integer indice) {
+       return mochila.get(indice-1).getDisponibles();
+    }
+
+    public Integer getCantidadItems() {
+        Integer i = 0;
+        for (Items item: mochila) {
+            i++;
+        }
+        return i;
+    }
 }
