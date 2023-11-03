@@ -7,12 +7,10 @@ import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
 import org.example.estado.EstadoDebilitado;
-import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 import org.example.Log.Log;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 
 
@@ -58,12 +56,13 @@ public class Pokemon {
     public void modificarEstado(Estado estado){
     }
 
-    public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
+    public boolean aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
         //comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
         Eventos.getEventos().agregarComando(comandoJugada);
+        return true;
     }
 
     public void aplicarPasivos(){
@@ -73,6 +72,7 @@ public class Pokemon {
     public void recibirDanio(Double danio, String mensajeRecibido) {
         estadisticas.bajarVida(danio, mensajeRecibido);
     }
+
 
     public boolean chequeoDeVida() {
         if (!estadisticas.sigueVivo()) {
