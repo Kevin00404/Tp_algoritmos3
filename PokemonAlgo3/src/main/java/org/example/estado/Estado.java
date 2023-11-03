@@ -1,7 +1,7 @@
 package org.example.estado;
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.Elemento.Element;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
@@ -16,13 +16,10 @@ public abstract class Estado {
         habilidad.atacar(pokemon, element, eventos_a_realizar);
         return this;
     }
-    public Estado pasivo(Estadisticas estadisticas) {
+    public Estado pasivo(Estadisticas estadisticas, String nombre) {
         return this;
     }
-    public Estado setEstadoActual(Estado estado){
-        System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
-        return this;
-    }
+
     public Estado concatenarEstado(Estado estado){
         if (proximoEstado != null){
             this.proximoEstado.concatenarEstado(estado);
@@ -39,6 +36,7 @@ public abstract class Estado {
     public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
     public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
     public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+    public Estado curarEstado(EstadoConfuso estadoACurar){ return this; }
     public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
     }
@@ -59,7 +57,7 @@ public abstract class Estado {
         if (proximoEstado != null){
             this.proximoEstado = this.proximoEstado.condicionarConSiguienteEstadoPasivo(estadisticas);
         }
-        return this.pasivo(estadisticas);
+        return this.pasivo(estadisticas, "");
     }
 
     public boolean esDebilitado() {
@@ -83,5 +81,13 @@ public abstract class Estado {
 
     public Estado getProximoEstado(){
         return proximoEstado;
+    }
+    @Override
+    public boolean equals (Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Estado)) return false;
+        Estado otro = (Estado) obj;
+        return this.nombre.equals (otro.nombre);
     }
 }

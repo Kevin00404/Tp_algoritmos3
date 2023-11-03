@@ -2,18 +2,18 @@ package org.example.pokemon;
 
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
 import org.example.estado.EstadoDebilitado;
+import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
-import org.example.items.*;
 import org.example.Log.Log;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import javax.swing.text.html.HTMLDocument;
+import java.util.*;
 
 
 public class Pokemon {
@@ -56,13 +56,13 @@ public class Pokemon {
     }
 
     public void modificarEstado(Estado estado){
-        this.estado = this.estado.concatenarEstado(estado);
     }
 
     public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
+        System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
-        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
+        //comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
         Eventos.getEventos().agregarComando(comandoJugada);
     }
 
@@ -70,8 +70,8 @@ public class Pokemon {
         this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
     }
 
-    public void recibirDanio(Double danio) {
-        estadisticas.bajarVida(danio);
+    public void recibirDanio(Double danio, String mensajeRecibido) {
+        estadisticas.bajarVida(danio, mensajeRecibido);
     }
 
     public boolean chequeoDeVida() {
@@ -98,10 +98,6 @@ public class Pokemon {
         mostrarEstado.concatComands(mostrarEstadisticas);
         mostrarEstadisticas.concatComands(mensajeNombre);
         return mostrarEstado;
-    }
-
-    public void aplicarEfectos() {
-        this.estado = this.estado.pasivo(estadisticas);
     }
 
     public void mostrarHabilidades() {
@@ -131,5 +127,9 @@ public class Pokemon {
 
     public Double vida(){
         return estadisticas.getVida();
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 }

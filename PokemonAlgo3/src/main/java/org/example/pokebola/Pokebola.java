@@ -60,16 +60,12 @@ public class Pokebola {
         while (iterator.hasNext()) {
             String clave = iterator.next();
             Pokemon pokemon = dicc.get(clave);
-            Log.getLog().log("Nombre: " + clave + " |Vida: " + pokemon.vida());
+            Log.getLog().log("Nombre: " + clave + " |Vida: " + String.format("%.2f", pokemon.vida()));
         }
         Log.getLog().log("Cancelar");
     }
     public Pokemon obtenerPokemon(String pokemonSeleccionado){
         return dicc.get(pokemonSeleccionado);
-    }
-
-    public Pokemon setPokemonInicial(){
-        return dicc.values().iterator().next();
     }
 
     public Integer cantidadPokemones(){
@@ -99,6 +95,6 @@ public class Pokebola {
     }
 
     public boolean murieronTodos(){
-        return (pokemonesDebilitados() == 5);
+        return (pokemonesDebilitados() == 6);
     }
 }

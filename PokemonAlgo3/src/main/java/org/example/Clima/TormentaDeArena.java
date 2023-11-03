@@ -12,8 +12,8 @@ public class TormentaDeArena extends Climas{
     }
 
     @Override
-    public void danioPasivo(Entrenador jugador, Entrenador oponente) {
-        super.danioPasivo(jugador, oponente);
+    public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {
+        super.danioPasivo(jugador, oponente, mensaje);
     }
 
     @Override

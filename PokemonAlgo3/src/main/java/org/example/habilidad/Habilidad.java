@@ -1,6 +1,6 @@
 package org.example.habilidad;
 
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.Elemento.Element;
 import org.example.Estadisticas.Estadisticas;
 import org.example.comando.Comando;

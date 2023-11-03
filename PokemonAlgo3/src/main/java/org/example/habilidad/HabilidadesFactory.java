@@ -19,7 +19,8 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades = new Hashtable<Integer, Habilidad>();
         habilidades = new Hashtable<Integer, Habilidad>();
         crearBiblioteca();
-        generadorHabilidadesRandom();
+        //generadorHabilidadesRandom();
+        generarHabilidadesEspecificas();
     }
 
     private void generadorHabilidadesRandom() {
@@ -27,6 +28,13 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         habilidades.put(2, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(3, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(4, bibliotecaHabilidades.get(randBiblioRango()));
+    }
+
+    private void generarHabilidadesEspecificas(){
+        habilidades.put(1, bibliotecaHabilidades.get(1));
+        habilidades.put(2, bibliotecaHabilidades.get(31));
+        habilidades.put(3, bibliotecaHabilidades.get(71));
+        habilidades.put(4, bibliotecaHabilidades.get(57));
     }
 
     public void agregarHabilidad(Habilidad habilidad, Integer num){

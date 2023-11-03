@@ -13,6 +13,7 @@ public class HacerDanioComando extends Comando{
 
     @Override
     protected void ejecutarEsteComando() {
-        pokemonReceptor.recibirDanio(calcDanio.calcularDanio());
+        String mensaje = "se hizo: ";
+        pokemonReceptor.recibirDanio(calcDanio.calcularDanio(), mensaje);
     }
 }
