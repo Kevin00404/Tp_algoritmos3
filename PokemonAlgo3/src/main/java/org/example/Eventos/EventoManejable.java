@@ -1,4 +1,4 @@
-package org.example.Turno;
+package org.example.Eventos;
 
 import org.example.comando.Comando;
 

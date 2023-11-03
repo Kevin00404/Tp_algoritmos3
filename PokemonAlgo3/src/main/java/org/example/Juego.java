@@ -5,12 +5,11 @@ import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.*;
 import org.example.Estadistica.ModificacionEstadistica;
 import org.example.Log.Log;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.items.*;
 import org.example.jugada.Jugada;
 import org.example.jugada.JugadaFactory;
 import org.example.pokebola.Pokebola;
-import org.example.pokemon.Pokemon;
 import org.example.pokemon.PokemonBuilder;
 
 public class Juego {
@@ -26,11 +25,11 @@ public class Juego {
         this.inicializar();
         this.batalla();
     }
-
     public void batalla() {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
+            entrenador1.efectosPasivos();
             turnoJugador(entrenador1, entrenador2);
             //verificar si se rindio
             if (entrenador1.murio()){
@@ -41,7 +40,9 @@ public class Juego {
                 Log.getLog().log("entrenador 2 ha perdido.");
                 break;
             }
+            ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
             // Turno de entrenador2
+            entrenador2.efectosPasivos();
             turnoJugador(entrenador2, entrenador1);
             //verificar si se rindio
             if (entrenador2.murio()){
@@ -52,6 +53,7 @@ public class Juego {
                 Log.getLog().log("entrenador 1 ha perdido.");
                 break;
             }
+            ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
         }
 
         System.out.println("¡Fin del juego!");
@@ -66,9 +68,6 @@ public class Juego {
             pasarTurno = jugada.jugar();
             Eventos.getEventos().ejecutarEvento();
         }
-        oponente.efectosPasivos();
-        Eventos.getEventos().ejecutarEvento();
-        ManejoDeClima.getTerreno().aplicarDanioClima(jugador, oponente);
     }
 
     private Entrenador crearEntrenador1(){
@@ -121,12 +120,23 @@ public class Juego {
         String nombre = " ";
         System.out.println("jugador "+ numero + " ingresa tu nombre: ");
         nombre = scanner.next();
-        while (nombre.length() > 50){
-            System.out.println("nombre muy largo");
+        while (!nombreValido(nombre)){
+            System.out.println("nombre no valido");
             System.out.println("jugador "+ numero + " ingresa tu nombre: ");
             nombre = scanner.next();
         }
         return nombre;
+    }
+
+    private Boolean nombreValido(String nombre){
+        if (nombre == ""){
+            return false;
+        } else if (nombre == " "){
+            return false;
+        } else if ( nombre.length() >50){
+            return false;
+        }
+        return true;
     }
 
     /* INICIALIZACION DE ITEMS */
@@ -157,4 +167,11 @@ public class Juego {
         return mochilaEntrenador;
     }
 
+    public Entrenador getEntrenador1() {
+        return entrenador1;
+    }
+
+    public Entrenador getEntrenador2() {
+        return entrenador2;
+    }
 }

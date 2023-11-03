@@ -1,6 +1,6 @@
 package org.example.items;
 
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoCurarEstado;
 import org.example.comando.ComandoMensaje;
@@ -8,7 +8,6 @@ import org.example.estado.EstadoEnvenenado;
 import org.example.pokemon.Pokemon;
 
 public class PocionAntiVeneno extends ItemDeEstado{
-    String nombre;
     public PocionAntiVeneno(String nombre , Integer disponible){
         super(disponible);
         this.nombre = nombre;

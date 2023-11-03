@@ -10,6 +10,8 @@ public class EfectosPasivosComando extends Comando {
 
     @Override
     protected void ejecutarEsteComando() {
-        pokemon.aplicarPasivos();
+        if(!pokemon.estaDebilitado()){
+            pokemon.aplicarPasivos();
+        }
     }
 }

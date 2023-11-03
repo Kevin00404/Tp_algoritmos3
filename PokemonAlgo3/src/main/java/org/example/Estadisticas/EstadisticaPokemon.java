@@ -12,10 +12,10 @@ public class EstadisticaPokemon extends Estadisticas{
         this.defensa = defensa;
         this.velocidad = velocidad;
         this.elemento = elemento;
-        this.nivel = 1.0;
+        this.nivel = 1;
     }
 
-    public Double getNivel() {
+    public Integer getNivel() {
         return this.nivel;
     }
 

@@ -1,11 +1,9 @@
 package org.example.estado;
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
-
-import java.util.Random;
 
 public class EstadoConfuso extends Estado {
     private Integer turnosConfuso;
@@ -15,7 +13,7 @@ public class EstadoConfuso extends Estado {
     }
 
     @Override
-    public Estado pasivo(Estadisticas estadisticas) {
+    public Estado pasivo(Estadisticas estadisticas, String nombre) {
         turnosConfuso++;
         if (turnosConfuso <= 3){
             if ( !puedeAtacar() ){

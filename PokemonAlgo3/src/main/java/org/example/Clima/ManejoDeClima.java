@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class ManejoDeClima {
 
+    private Integer MAX_DURACION = 1;
     private static ManejoDeClima terreno;
     private Climas clima;
 
@@ -14,23 +15,17 @@ public class ManejoDeClima {
 
     private ManejoDeClima(){
         clima = setClima();
-        duracion = 5;
+        duracion = MAX_DURACION;
     }
 
     public Double ventajaDelTerreno(Double danioHipotetico, Estadisticas estadisticasPkmn){
         return clima.ventajaDeClima(danioHipotetico, estadisticasPkmn);
     }
 
-    public void danioPasivoDelTerreno(Entrenador jugador, Entrenador oponente){
-        clima.danioPasivo(jugador, oponente);
-        duracion -= 1;
-        verificarFinalDeClima();
-    }
-
     public void verificarFinalDeClima(){
-        if ( duracion <= 0 ){
+        if ( duracion == 0 ){
             clima = setClima();
-            duracion = 5;
+            duracion = MAX_DURACION;
         }
     }
     public static ManejoDeClima getTerreno(){
@@ -41,22 +36,25 @@ public class ManejoDeClima {
         return terreno;
     }
 
-    public void aplicarDanioClima(Entrenador jugador, Entrenador oponente){
-        clima.danioPasivo(jugador, oponente);
+    public void aplicarDanioTerreno(Entrenador jugador, Entrenador oponente){
+        String mensaje = "Daño causado por";
+        clima.danioPasivo(jugador, oponente, mensaje);
+        duracion -= 1;
+        verificarFinalDeClima();
     }
     public void cambiarClima(Climas nuevoClima){
         clima = nuevoClima;
-        duracion = 5;
+        duracion = MAX_DURACION;
     }
     private static Integer numeroAleatorio(Integer maximo){
         Random rand = new Random();
         return rand.nextInt(maximo) + 1;
     }
     private static Climas setClima() {
-        int numeroAleatorio = numeroAleatorio(3);
-        if ( numeroAleatorio == 3 ){
-            numeroAleatorio = numeroAleatorio(7);
-            switch (numeroAleatorio){
+        int numeroRng = numeroAleatorio(3);
+        if ( numeroRng == 3 ){
+            numeroRng = numeroAleatorio(7);
+            switch (numeroRng){
                 case 1:
                     return new Soleado();
                 case 2:
