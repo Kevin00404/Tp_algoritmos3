@@ -11,10 +11,5 @@ public class Lluvia extends Climas {
     }
 
     @Override
-    public Double ventajaDeClima(Double danioHipotetico, Estadisticas estadisticasPkmn) {
-        return super.ventajaDeClima(danioHipotetico, estadisticasPkmn);
-    }
-
-    @Override
     public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {}
 }

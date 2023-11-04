@@ -14,8 +14,4 @@ public class Soleado extends Climas {
     @Override
     public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {}
 
-    @Override
-    public Double ventajaDeClima(Double danioHipotetico , Estadisticas estadisticas) {
-        return super.ventajaDeClima(danioHipotetico, estadisticas);
-    }
 }

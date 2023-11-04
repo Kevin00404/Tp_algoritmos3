@@ -61,8 +61,10 @@ public class Pokemon {
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
+
         comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, this.estadisticas);
-        Eventos.getEventos().agregarComando(comandoJugada);
+       
+      Eventos.getEventos().agregarComando(comandoJugada);
         return true;
     }
 

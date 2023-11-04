@@ -4,6 +4,7 @@ import org.example.Elemento.Agua;
 import org.example.Estadisticas.Estadisticas;
 
 import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
 import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
@@ -43,37 +44,6 @@ public class PokemonTest {
 
 
     }
-
-    @Test
-    public void aplicarPasivos() {
-    }
-
-    @Test
-    public void recibirDanio() {
-    }
-
-    @Test
-    public void chequeoDeVida() {
-    }
-
-    @Test
-    public void estaDebilitado() {
-    }
-
-    @Test
-    public void debilitar() {
-    }
-
-    @Test
-    public void datosDeBatalla() {
-    }
-
-    @Test
-    public void aplicarEfectos() {
-    }
-
-
-
 
     @Test
     public void incio() {
@@ -122,7 +92,6 @@ public class PokemonTest {
     }
 
 
-
     @Test
     public void testRecibirDanio() {
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
@@ -135,6 +104,8 @@ public class PokemonTest {
         pokemon.recibirDanio(10.0,"mensaje");
         assertNotEquals(vidaInicio, pokemon.vida());
     }
+
+
 
 
 }

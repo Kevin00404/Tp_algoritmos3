@@ -7,6 +7,7 @@ public class Bicho extends Element{
     @Override
     public Double mixElement(Element element)
     {
+
         return element.multiplicador_danio_tipo(this);
     }
     @Override

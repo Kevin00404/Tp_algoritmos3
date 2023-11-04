@@ -19,7 +19,7 @@ public class CalculadoraDanio {
         this.estadisticasEnemigas = estadisticasEnemigas;
     }
 
-    private Double critico(){
+    public Double critico(){
         Random rand = new Random();
         int upperbound = 100;
         int random = rand.nextInt(upperbound);
@@ -29,7 +29,7 @@ public class CalculadoraDanio {
         return 2.0;
     }
 
-    private Double randomNum(){
+    public Double randomNum(){
         Random rand = new Random();
         Double upperbound = 39.0;
         Double random = rand.nextDouble(upperbound);

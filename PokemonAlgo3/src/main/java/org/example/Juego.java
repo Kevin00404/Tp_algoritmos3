@@ -16,15 +16,16 @@ public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
     final Integer POKEMONES_POR_POKEBOLA = 6;
-    public  EstadoPokemon estadoMiPokemon;
-
     public ModificacionEstadistica modificacionEstadisticaPokemon;
     private Scanner scanner;
     public Juego(){
         scanner = new Scanner(System.in);
+    }
+    public void iniciar_Juego(){
         this.inicializar();
         this.batalla();
     }
+
     public void batalla() {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
@@ -72,7 +73,7 @@ public class Juego {
         }
     }
 
-    private Entrenador crearEntrenador1(){
+    public Entrenador crearEntrenador1(){
         Mochila mochilaEntrenador = inicializarItems();
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(1));
@@ -90,7 +91,7 @@ public class Juego {
         return entrenador;
     }
 
-    private Entrenador crearEntrenador2(){
+    public Entrenador crearEntrenador2(){
         Mochila mochilaEntrenador = inicializarItems();
         Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(2));
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
@@ -108,7 +109,7 @@ public class Juego {
         return entrenador;
     }
 
-    private void inicializar(){
+    public void inicializar(){
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
 
         this.entrenador1 = crearEntrenador1();
@@ -118,7 +119,9 @@ public class Juego {
         entrenador2.cambiarPokemonActual();
     }
 
-    private String preguntarNombre(Integer numero) {
+
+
+    public String preguntarNombre(Integer numero) {
         String nombre = " ";
         System.out.println("jugador "+ numero + " ingresa tu nombre: ");
         nombre = scanner.next();
@@ -130,7 +133,7 @@ public class Juego {
         return nombre;
     }
 
-    private Boolean nombreValido(String nombre){
+    public Boolean nombreValido(String nombre){
         if (nombre == ""){
             return false;
         } else if (nombre == " "){
@@ -167,13 +170,5 @@ public class Juego {
         mochilaEntrenador.agregarObjeto(ataqueX);
         mochilaEntrenador.agregarObjeto(defensaX);
         return mochilaEntrenador;
-    }
-
-    public Entrenador getEntrenador1() {
-        return entrenador1;
-    }
-
-    public Entrenador getEntrenador2() {
-        return entrenador2;
     }
 }

@@ -28,8 +28,6 @@ import static org.mockito.Mockito.mock;
 
 public class clasesUsaEntrenador {
     private Entrenador entrenador;
-    private Pokebola pokebola;
-    private Mochila mochila;
     @BeforeEach
     public void setup() {
         this.entrenador= crearEntrenador();
@@ -134,31 +132,6 @@ assertEquals("JugadorNombre",entrenador.getNombre());
 
 
     }
-
-
-
-    //  @Test
-//    void verificaSalidade_CambiarPOkemon() {
-//
-//
-//
-//        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outputStream));
-//
-//        // Llamar a entrenador.cambiarPokemonActual();
-//        entrenador.cambiarPokemonActual();
-//
-//        // Restaurar la salida estándar
-//        System.setOut(System.out);
-//
-//        // Obtener la salida como una cadena
-//        String output = outputStream.toString().trim(); // trim() para eliminar espacios en blanco adicionales
-//
-//        // Verificar que la primera línea sea igual a lo que esperas
-//        String primeraLineaEsperada = "Pokemones disponibles: ";
-//        assertEquals(primeraLineaEsperada, output.split("\n")[0]);
-//
-//        //assertSame(pokemon2, pokemon);
 
 
 
