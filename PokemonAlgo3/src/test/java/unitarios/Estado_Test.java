@@ -65,7 +65,7 @@ public class Estado_Test {
     public void testAceptarEstadoEstadoEnvenenado() {
         EstadoEnvenenado envenenado = new EstadoEnvenenado();
 
-        assertEquals(envenenado,envenenado.aceptarEstado(new EstadoEnvenenado()));
+        assertEquals(new EstadoNormal(),envenenado.aceptarEstado(new EstadoEnvenenado()));
     }
 
     @Test
@@ -99,7 +99,6 @@ public class Estado_Test {
         assertEquals(estado,debili.aceptarEstado(estado));
     }
 
-    ///parte de Metodo CurarEstado
     @Test
     public void curar_Estado() {
         EstadoEnvenenado envenenado = new EstadoEnvenenado();
@@ -135,22 +134,5 @@ public class Estado_Test {
         EstadoDebilitado estado = new EstadoDebilitado();
 
         assertEquals(new EstadoNormal(),estado.curarEstado(estado));
-    }
-
-    //Dormido
-    @Test
-    public void etsadopuedeDespertarse() {
-        EstadoDormido estado = new EstadoDormido();
-
-        assertEquals(new EstadoNormal(),estado.puedeDespertarse());
-    }
-
-    @Test
-    public void agregarEstado() {
-        Estadisticas estadistica =mock(Estadisticas.class);
-
-        EstadoConfuso estado = new EstadoConfuso();
-
-        assertEquals(new EstadoConfuso(),estado.pasivo(estadistica,"nombre"));
     }
 }

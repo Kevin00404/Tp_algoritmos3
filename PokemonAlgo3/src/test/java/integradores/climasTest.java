@@ -82,7 +82,4 @@ public class climasTest {
         assertNotNull(tormentaDeRayo);
     }
 
-
-
-
 }

@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 
 public class fuegoTest {
 
-
         private Element elemento;
 
         @Before

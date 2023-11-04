@@ -8,8 +8,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 public class JugadaFactoryTest {
-
-
     @Test
     public void inicializarJugada() {
     }

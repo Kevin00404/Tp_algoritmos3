@@ -58,7 +58,6 @@ assertFalse(entrenador.murio());
 assertEquals("JugadorNombre",entrenador.getNombre());
 
 
-
     }
 
 
@@ -130,10 +129,7 @@ assertEquals("JugadorNombre",entrenador.getNombre());
         pokebola_.agregarPokemon(pokemon3);
         pokebola_.agregarPokemon(pokemon4);
 
-
     }
-
-
 
 
     private Entrenador crearEntrenador(){

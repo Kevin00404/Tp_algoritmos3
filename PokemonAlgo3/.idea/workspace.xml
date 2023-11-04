@@ -5,58 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/JuegoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/climasTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/comandoTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/jugadaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/AguaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/BichoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/DragonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/ElementTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/Estado_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/JugadaFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/JugadaNoJugadaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/electricoos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/fantasmaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/fuegoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/hieloTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/luchaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/normalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/plantaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/psiquicotest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/rocaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/tierraTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/venenoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/voladorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/Granizo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/Granizo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/Huracan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/Huracan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/Lluvia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/Lluvia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/Niebla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/Niebla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/Soleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/Soleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/TormentaDeArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/TormentaDeArena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/TormentaDeRayo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/TormentaDeRayo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Bicho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Bicho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elemento/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EstadoPokemon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/borrador/testPokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/testPokebola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/JuegoPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/JuegoPokemonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/batalla.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/JuegoPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/JuegoPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/JuegoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/JuegoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/inte.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/pokebolaTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/EntrenadorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/climasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/climasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/comandoTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/ClimaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/ClimaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/EstadoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/Estado_Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/Estado_Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/JugadaFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/JugadaFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/JugadaNoJugadaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/JugadaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/fuegoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/fuegoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/hieloTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/hieloTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +35,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2XgZBeCa3Gi5LSNEalL4MYn2wUB" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -91,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "kevin__tp2final",
+    "git-widget-placeholder": "refactor__gigante__Naza",
     "last_opened_file_path": "C:/Users/whyan/OneDrive/Desktop/tp2/Tp_algoritmos3"
   }
 }]]></component>
@@ -117,65 +78,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="climasTest.lluvia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClimaTest.duracionReiniciadaAlCambiarClima" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integradores.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.climasTest" />
-      <option name="METHOD_NAME" value="lluvia" />
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.ClimaTest" />
+      <option name="METHOD_NAME" value="duracionReiniciadaAlCambiarClima" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="climasTest.niebla" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Estado_Test.etsadopuedeDespertarse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integradores.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.climasTest" />
-      <option name="METHOD_NAME" value="niebla" />
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.Estado_Test" />
+      <option name="METHOD_NAME" value="etsadopuedeDespertarse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="climasTest.tormentaDeArena" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Estado_Test.testAceptarEstadoEstadoEnvenenado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integradores.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.climasTest" />
-      <option name="METHOD_NAME" value="tormentaDeArena" />
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.Estado_Test" />
+      <option name="METHOD_NAME" value="testAceptarEstadoEstadoEnvenenado" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="climasTest.tormentaDeArena_TormentaDeRayo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JuegoPokemonTest.itemSeEliminaAlQuedarseSinUsos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integradores.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.climasTest" />
-      <option name="METHOD_NAME" value="tormentaDeArena_TormentaDeRayo" />
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.JuegoPokemonTest" />
+      <option name="METHOD_NAME" value="itemSeEliminaAlQuedarseSinUsos" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,10 +145,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in PokemonAlgo3" />
-        <item itemvalue="JUnit.climasTest.tormentaDeArena_TormentaDeRayo" />
-        <item itemvalue="JUnit.climasTest.tormentaDeArena" />
-        <item itemvalue="JUnit.climasTest.niebla" />
-        <item itemvalue="JUnit.climasTest.lluvia" />
+        <item itemvalue="JUnit.ClimaTest.duracionReiniciadaAlCambiarClima" />
+        <item itemvalue="JUnit.Estado_Test.etsadopuedeDespertarse" />
+        <item itemvalue="JUnit.Estado_Test.testAceptarEstadoEstadoEnvenenado" />
+        <item itemvalue="JUnit.JuegoPokemonTest.itemSeEliminaAlQuedarseSinUsos" />
       </list>
     </recent_temporary>
   </component>
@@ -214,7 +175,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699085955594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699086910818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Main_java$Estado_Test_curarEstado.ic" NAME="Estado_Test.curarEstado Coverage Results" MODIFIED="1699067897943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>unitarios.*</FILTER>
     </SUITE>
