@@ -93,6 +93,10 @@ public class Pokebola {
             dicc.get(clave).debilitar();
         }
     }
+    public Pokemon setPokemonInicial(){
+        return dicc.values().iterator().next();
+    }
+
 
     public boolean murieronTodos(){
         return (pokemonesDebilitados() == 6);
