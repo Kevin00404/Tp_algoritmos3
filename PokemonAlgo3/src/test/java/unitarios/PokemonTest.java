@@ -90,17 +90,6 @@ public class PokemonTest {
         assertNotNull(pokemon.getEstadisticas());
 
 
-
-        ////////////////////////////
-//        String output = systemOutRule.getLog();
-//
-//        // Verifica que la salida sea la esperada
-//        assertEquals("Mensaje esperado", output.trim()); // Asegúrate de ajustar el mensaje esperado
-//
-//        pokemon.mostrarHabilidades();
-        //////////////////////////////
-
-
         Comando comando =mock(Comando.class);
         assertNotNull(pokemon.habilitarComandoSiVive(comando));
 

@@ -39,5 +39,9 @@ public class pokebolaTest {
 
             // Verificar que se eligió el Pokémon correcto
             assertEquals("Charmander", pokemonElegido.getNombre());
+
+
+
+
         }
     }

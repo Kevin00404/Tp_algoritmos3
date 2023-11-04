@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/pokebolaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokebolaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/batalla.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/integradores/inte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/EntrenadorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitarios/EstadoTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/pokebolaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/pokebolaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/HabilidadTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokemonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +28,24 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2XgZBeCa3Gi5LSNEalL4MYn2wUB" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "kevin__tp2final",
@@ -47,6 +61,7 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="unitarios" />
+      <recent name="org.example" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in PokemonAlgo3">
@@ -58,7 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PokemonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculadoraDanioTest.testCalcularDanio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -67,44 +82,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.PokemonTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PokemonTest.testRecibirDanio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PokemonAlgo3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unitarios.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unitarios" />
-      <option name="MAIN_CLASS_NAME" value="unitarios.PokemonTest" />
-      <option name="METHOD_NAME" value="testRecibirDanio" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
+      <option name="METHOD_NAME" value="testCalcularDanio" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="clasesUsaEntrenador" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculadoraDanioTest.testRandomNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integradores.*" />
+          <option name="PATTERN" value="unitarios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.clasesUsaEntrenador" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.CalculadoraDanioTest" />
+      <option name="METHOD_NAME" value="testRandomNum" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pokebolaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="batalla.batalla" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <extension name="coverage">
         <pattern>
@@ -113,8 +114,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="integradores" />
-      <option name="MAIN_CLASS_NAME" value="integradores.pokebolaTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="integradores.batalla" />
+      <option name="METHOD_NAME" value="batalla" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testyCalcularDanio.testRandomNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.testyCalcularDanio" />
+      <option name="METHOD_NAME" value="testRandomNum" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,17 +140,25 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in PokemonAlgo3" />
-        <item itemvalue="JUnit.pokebolaTest" />
-        <item itemvalue="JUnit.clasesUsaEntrenador" />
-        <item itemvalue="JUnit.PokemonTest" />
-        <item itemvalue="JUnit.PokemonTest.testRecibirDanio" />
+        <item itemvalue="JUnit.testyCalcularDanio.testRandomNum" />
+        <item itemvalue="JUnit.CalculadoraDanioTest.testRandomNum" />
+        <item itemvalue="JUnit.CalculadoraDanioTest.testCalcularDanio" />
+        <item itemvalue="JUnit.batalla.batalla" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="" />
+      <created>1699052550615</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699052550615</updated>
+    </task>
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699051945366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699060669252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

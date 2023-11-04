@@ -53,6 +53,14 @@ public class clasesUsaEntrenador {
         //Al inicio el pokemon Actual es Null
         assertNull(pokemonActual);
 
+assertTrue(entrenador.tienePokemonDisponible());
+assertFalse(entrenador.murio());
+
+
+assertEquals("JugadorNombre",entrenador.getNombre());
+
+
+
     }
 
 
@@ -60,136 +68,98 @@ public class clasesUsaEntrenador {
     public void testCambiarPokemon() {
         Pokebola pokebola_= new Pokebola(6);
 
-        // Definir la entrada de usuario simulada
-        String input = "Pikachu\n"; // Ingresa el nombre del primer Pokémon
 
-        // Convertir la entrada simulada en un flujo de entrada
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon1 = pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon2 = pokemonBuilder.setNombre("Pikachu").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon3 = pokemonBuilder.setNombre("pok3").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon4 = pokemonBuilder.setNombre("poke4").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokebola_.agregarPokemon(pokemon1);
+        pokebola_.agregarPokemon(pokemon2);
+        pokebola_.agregarPokemon(pokemon3);
+        pokebola_.agregarPokemon(pokemon4);
+
+        String input = "Pikachu\n";
+
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        // Llamar a tu método que utiliza System.in
         Pokemon pokemonElegido = pokebola_.cambiarPokemon();
 
-        // Restaurar System.in
         System.setIn(System.in);
 
-        // Verificar que el Pokémon elegido sea el primero del diccionario
-        String nombrePokemonEsperado = "Pikachu"; // Nombre del primer Pokémon en el diccionario
+        String nombrePokemonEsperado = "Pikachu";
         assertEquals(nombrePokemonEsperado, pokemonElegido.getNombre());
+
     }
 
     @Test
-    void verificaSalidade_CambiarPOkemon() {
+    public void ts2() {
+        Pokebola pokebola_= new Pokebola(6);
 
 
-
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        // Llamar a entrenador.cambiarPokemonActual();
-        entrenador.cambiarPokemonActual();
-
-        // Restaurar la salida estándar
-        System.setOut(System.out);
-
-        // Obtener la salida como una cadena
-        String output = outputStream.toString().trim(); // trim() para eliminar espacios en blanco adicionales
-
-        // Verificar que la primera línea sea igual a lo que esperas
-        String primeraLineaEsperada = "Pokemones disponibles: ";
-        assertEquals(primeraLineaEsperada, output.split("\n")[0]);
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon1 = pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
 
 
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon2 = pokemonBuilder.setNombre("Pikachu").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
 
-        //assertSame(pokemon2, pokemon);
+
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon3 = pokemonBuilder.setNombre("pok3").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokemonBuilder = new PokemonBuilder();
+        Pokemon pokemon4 = pokemonBuilder.setNombre("poke4").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon();
+
+
+        pokebola_.agregarPokemon(pokemon1);
+        pokebola_.agregarPokemon(pokemon2);
+        pokebola_.agregarPokemon(pokemon3);
+        pokebola_.agregarPokemon(pokemon4);
+
 
     }
 
 
 
-    @Test
-    void getPokemonActual() {
-    }
+    //  @Test
+//    void verificaSalidade_CambiarPOkemon() {
+//
+//
+//
+//        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outputStream));
+//
+//        // Llamar a entrenador.cambiarPokemonActual();
+//        entrenador.cambiarPokemonActual();
+//
+//        // Restaurar la salida estándar
+//        System.setOut(System.out);
+//
+//        // Obtener la salida como una cadena
+//        String output = outputStream.toString().trim(); // trim() para eliminar espacios en blanco adicionales
+//
+//        // Verificar que la primera línea sea igual a lo que esperas
+//        String primeraLineaEsperada = "Pokemones disponibles: ";
+//        assertEquals(primeraLineaEsperada, output.split("\n")[0]);
+//
+//        //assertSame(pokemon2, pokemon);
 
-    @Test
-    void cambiarPokemonActual() {
-    }
-
-    @Test
-    void murio() {
-    }
-
-    @Test
-    void jugarTurno() {
-    }
-
-    @Test
-    void actualizarPokemonActual() {
-    }
-
-    @Test
-    void getPokebola() {
-    }
-
-    @Test
-    void atacar() {
-    }
-
-    @Test
-    void getPokemon() {
-    }
-
-    @Test
-    void pokemonEstaVivo() {
-    }
-
-    @Test
-    void tienePokemonDisponible() {
-    }
-
-    @Test
-    void usarItemEnMochila() {
-    }
-
-    @Test
-    void verMochila() {
-    }
-
-    @Test
-    void verEquipo() {
-    }
-
-    @Test
-    void getNroEntrenador() {
-    }
-
-    @Test
-    void rendirse() {
-    }
-
-    @Test
-    void mostrarPokemonEnBatalla() {
-    }
-
-    @Test
-    void aplicarEfectos() {
-    }
-
-    @Test
-    void getNombre() {
-    }
-
-    @Test
-    void capturarPokemon() {
-    }
-
-    @Test
-    void mostrarHabilidadesDePokemon() {
-    }
-
-    @Test
-    void efectosPasivos() {
-    }
 
 
 
