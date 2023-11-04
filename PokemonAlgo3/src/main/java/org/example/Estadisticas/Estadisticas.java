@@ -88,13 +88,8 @@ public abstract class Estadisticas implements EstadisticaModificable {
         return null;
     }
 
-    public Estado confundir(){
+    public void confundir(){
         this.vida -= (maxVida * 0.15);
-        if (!sigueVivo()){
-            vida = 0.0;
-            return new EstadoDebilitado();
-        }
-        return null;
     }
 
     public Double getVida() {

@@ -11,7 +11,6 @@ public class EstadoNormal extends Estado{
     }
 
     public Estado aceptarEstado(Estado estado) {
-        estado.curarEstado(this);
-        return estado;
+        return estado.curarEstado(this);
     }
 }

@@ -61,6 +61,8 @@ public class PokemonBuilder implements PokemonBuilderI{
     }
     public PokemonBuilder setElemento(Element elemento){
         this.elemento = elemento;
+        estadisticasFactory = new EstadisticaFactory(elemento);
+        estadisticas = estadisticasFactory.crearEstadisticas();
         return this;
     }
     public PokemonBuilder setNombre(String nombre){
@@ -82,7 +84,7 @@ public class PokemonBuilder implements PokemonBuilderI{
     }
 
     private Element getElementoRandom(){
-        Random rand = new Random(15);
+        Random rand = new Random(10);
         return bibliotecaElemento.get(rand.nextInt(14)+1);
     }
 }
