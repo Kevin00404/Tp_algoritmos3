@@ -54,19 +54,24 @@ public class Pokemon {
     }
 
     public void modificarEstado(Estado estado){
+        this.estado.agregarEstado(estado);
     }
 
     public boolean aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
         System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
-        //comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada);
+        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, this.estadisticas);
         Eventos.getEventos().agregarComando(comandoJugada);
         return true;
     }
 
     public void aplicarPasivos(){
-        this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        if (!estadisticas.sigueVivo()){
+            this.estado = new EstadoDebilitado();
+        } else {
+            this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        }
     }
 
     public void recibirDanio(Double danio, String mensajeRecibido) {
@@ -114,7 +119,7 @@ public class Pokemon {
     }
 
     public void curarEstado(Estado estadoACurar) {
-        estadoACurar.aceptarSiguienteEstado(this.estado);
+        this.estado.aceptarSiguienteEstado(estadoACurar);
     }
 
     public Comando habilitarComandoSiVive(Comando comando) {

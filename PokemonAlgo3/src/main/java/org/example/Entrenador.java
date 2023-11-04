@@ -3,6 +3,7 @@ package org.example;
 import org.example.Log.Log;
 import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.comando.EfectosPasivosComando;
 import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
@@ -89,6 +90,5 @@ public class Entrenador {
     public void efectosPasivos() {
         Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);
         Eventos.getEventos().agregarComando(efectosPasivos);
-        Eventos.getEventos().ejecutarEvento();
     }
 }

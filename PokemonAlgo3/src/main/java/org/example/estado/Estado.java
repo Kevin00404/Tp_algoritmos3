@@ -41,11 +41,11 @@ public abstract class Estado {
         return new EstadoNormal();
     }
 
-    public Comando condicionarConSiguienteEstado(Comando comando){
+    public Comando condicionarConSiguienteEstado(Comando comando, Estadisticas estadisticas){
         if (proximoEstado != null){
-            comando = proximoEstado.condicionarConSiguienteEstado(comando);
+            comando = proximoEstado.condicionarConSiguienteEstado(comando, estadisticas);
         }
-        return this.condicionarComando(comando);
+        return this.condicionarComando(comando, estadisticas);
     }
     public Estado aceptarSiguienteEstado(Estado estado){
         if (proximoEstado != null){
@@ -68,9 +68,13 @@ public abstract class Estado {
         return this.nombre;
     }
     public void agregarEstado(Estado proximoEstado){
-        this.proximoEstado = proximoEstado;
+        if (this.proximoEstado == null){
+            this.proximoEstado = proximoEstado;
+        } else {
+            this.proximoEstado.agregarEstado(proximoEstado);
+        }
     }
-    public Comando condicionarComando(Comando comando) {
+    public Comando condicionarComando(Comando comando, Estadisticas estadisticas) {
         return comando;
     }
     public Comando permitirAplicarComando(Comando comando) {
