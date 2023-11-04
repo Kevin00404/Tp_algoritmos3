@@ -23,10 +23,10 @@ public class EstadoEnvenenado extends Estado {
         Comando comando = new ComandoMensaje("Curando veneno");
         Eventos.getEventos().agregarComando(comando);
         nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        nuevoEstado.agregarEstado(proximoEstado);
         return nuevoEstado;
     }
     public Estado aceptarEstado(Estado estado) {
-        estado.curarEstado(this);
-        return estado;
+        return estado.curarEstado(this);
     }
 }

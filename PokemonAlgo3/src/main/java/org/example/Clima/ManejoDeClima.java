@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ManejoDeClima {
 
-    private Integer MAX_DURACION = 1;
+    private Integer MAX_DURACION = 3;
     private static ManejoDeClima terreno;
     private Climas clima;
 

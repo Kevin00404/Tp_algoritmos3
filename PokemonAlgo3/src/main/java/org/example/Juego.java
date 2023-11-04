@@ -30,8 +30,9 @@ public class Juego {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
-            entrenador1.efectosPasivos();
             turnoJugador(entrenador1, entrenador2);
+            entrenador1.efectosPasivos();
+            Eventos.getEventos().ejecutarEvento();
             //verificar si se rindio
             if (entrenador1.murio()){
                 break;
@@ -43,8 +44,9 @@ public class Juego {
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
             // Turno de entrenador2
-            entrenador2.efectosPasivos();
             turnoJugador(entrenador2, entrenador1);
+            entrenador2.efectosPasivos();
+            Eventos.getEventos().ejecutarEvento();
             //verificar si se rindio
             if (entrenador2.murio()){
                 break;
