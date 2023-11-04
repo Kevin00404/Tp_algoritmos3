@@ -20,6 +20,10 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
+    public void setPokemonActual(Pokemon pokemon){
+        this.pokemonActual=pokemon;
+    }
+
     public Pokemon getPokemonActual() {
         return pokemonActual;
     }

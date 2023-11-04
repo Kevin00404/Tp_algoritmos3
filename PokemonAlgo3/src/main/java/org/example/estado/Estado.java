@@ -11,11 +11,7 @@ import org.example.pokemon.Pokemon;
 public abstract class Estado {
     public String nombre;
     Estado proximoEstado;
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
-    {
-        habilidad.atacar(pokemon, element, eventos_a_realizar);
-        return this;
-    }
+
     public Estado pasivo(Estadisticas estadisticas, String nombre) {
         return this;
     }
@@ -47,6 +43,7 @@ public abstract class Estado {
         }
         return this.condicionarComando(comando);
     }
+
     public Estado aceptarSiguienteEstado(Estado estado){
         if (proximoEstado != null){
             this.proximoEstado = proximoEstado.aceptarSiguienteEstado(estado);
@@ -63,7 +60,7 @@ public abstract class Estado {
     public boolean esDebilitado() {
         return false;
     }
-    public boolean esNormal() {return false;}
+
     public String getNombre() {
         return this.nombre;
     }

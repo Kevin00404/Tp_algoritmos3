@@ -10,14 +10,4 @@ public class TormentaDeArena extends Climas{
         this.setElementosConVentaja("Tierra");
         this.setElementosConVentaja("Roca");
     }
-
-    @Override
-    public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {
-        super.danioPasivo(jugador, oponente, mensaje);
-    }
-
-    @Override
-    public Double ventajaDeClima(Double danioHipotetico, Estadisticas estadisticasPkmn) {
-        return super.ventajaDeClima(danioHipotetico, estadisticasPkmn);
-    }
 }

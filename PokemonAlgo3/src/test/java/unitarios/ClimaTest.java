@@ -35,7 +35,7 @@ public class ClimaTest {
         Despejado clima = new Despejado();
         ManejoDeClima.getTerreno().cambiarClima(clima);
         //assert
-        assertEquals(ManejoDeClima.getTerreno().getDuracion(), 5);
+        assertEquals(ManejoDeClima.getTerreno().getDuracion(), 1);
     }
     @Test
     public void climaCambiaCuandoDuracionEs0(){

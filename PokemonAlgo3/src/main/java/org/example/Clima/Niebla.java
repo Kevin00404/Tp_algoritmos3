@@ -13,8 +13,4 @@ public class Niebla extends Climas {
     @Override
     public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {}
 
-    @Override
-    public Double ventajaDeClima(Double danioHipotetico, Estadisticas estadisticasPkmn) {
-        return super.ventajaDeClima(danioHipotetico, estadisticasPkmn);
-    }
 }

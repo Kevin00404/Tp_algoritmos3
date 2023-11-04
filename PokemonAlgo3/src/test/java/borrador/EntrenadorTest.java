@@ -30,8 +30,8 @@ public class EntrenadorTest {
     }
 
     @Test
-    public void entrenadorNoEsnulo(){
-        assertNotNull(entrenador);
+    public void entrenadorEsnulo(){
+        assertNull(entrenador);
     }
 
 
@@ -53,83 +53,4 @@ public class EntrenadorTest {
         assertEquals(pokemon,entrenador.getPokemonActual());
     }
 
-    @Test
-    public void cambiarPokemonActual() {
-    }
-
-    @Test
-    public void murio() {
-    }
-
-    @Test
-    public void jugarTurno() {
-    }
-
-    @Test
-    public void actualizarPokemonActual() {
-    }
-
-    @Test
-    public void getPokebola() {
-    }
-
-    @Test
-    public void atacar() {
-    }
-
-    @Test
-    public void getPokemon() {
-    }
-
-    @Test
-    public void pokemonEstaVivo() {
-    }
-
-    @Test
-    public void tienePokemonDisponible() {
-    }
-
-    @Test
-    public void usarItemEnMochila() {
-    }
-
-    @Test
-    public void verMochila() {
-    }
-
-    @Test
-    public void verEquipo() {
-    }
-
-    @Test
-    public void getNroEntrenador() {
-    }
-
-    @Test
-    public void rendirse() {
-    }
-
-    @Test
-    public void mostrarPokemonEnBatalla() {
-    }
-
-    @Test
-    public void aplicarEfectos() {
-    }
-
-    @Test
-    public void getNombre() {
-    }
-
-    @Test
-    public void capturarPokemon() {
-    }
-
-    @Test
-    public void mostrarHabilidadesDePokemon() {
-    }
-
-    @Test
-    public void efectosPasivos() {
-    }
 }

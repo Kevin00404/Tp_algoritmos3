@@ -9,14 +9,4 @@ public class TormentaDeRayo extends Climas{
         this.setNombre("Tormenta de rayos");
         this.setElementosConVentaja("Electrico");
     }
-
-    @Override
-    public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensaje) {
-        super.danioPasivo(jugador, oponente, mensaje);
-    }
-
-    @Override
-    public Double ventajaDeClima(Double danioHipotetico, Estadisticas estadisticasPkmn) {
-        return super.ventajaDeClima(danioHipotetico, estadisticasPkmn);
-    }
 }
