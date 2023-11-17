@@ -1,6 +1,7 @@
 package org.example.Estadisticas;
 
 import org.example.Elemento.Element;
+import org.example.Log.Log;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
@@ -9,7 +10,7 @@ import org.example.estado.EstadoDebilitado;
 public abstract class Estadisticas implements EstadisticaModificable {
     Double maxVida;
     Double vida;
-    Double nivel;
+    Integer nivel;
     Double velocidad;
     Double defensa;
     Double ataque;
@@ -19,7 +20,7 @@ public abstract class Estadisticas implements EstadisticaModificable {
         return this.vida > 0.0;
     }
 
-    public abstract Double getNivel();
+    public abstract Integer getNivel();
 
 
     public Double getAtaque(){
@@ -43,9 +44,9 @@ public abstract class Estadisticas implements EstadisticaModificable {
         return this.elemento;
     }
 
-    public void bajarVida(Double danio) {
+    public void bajarVida(Double danio, String mensajeRecibido) {
         this.vida -= danio;
-        System.out.println("Hago " + danio + " de danio");
+        Log.getLog().log(mensajeRecibido + String.format("%.2f", danio) + " de danio");
     }
 
     public void variarDefensa(Double varDefensa) {
@@ -68,10 +69,17 @@ public abstract class Estadisticas implements EstadisticaModificable {
     }
 
     public Comando mostrarEstadisticas() {
-        return new ComandoMensaje("lvl: " + nivel + "\t vida: " + vida +" ataque: "+ ataque +"\ndefensa: " + defensa+ "\nvelocidad: " + velocidad);
+        return new ComandoMensaje(
+                        "lvl: " + nivel +
+                        "\t vida: " + String.format("%.2f", vida) +
+                        " ataque: "+ String.format("%.2f", ataque) +
+                        "\ndefensa: " + String.format("%.2f", defensa)+
+                        "\nvelocidad: " + String.format("%.2f", velocidad)
+        );
     }
 
-    public Estado envenenar() {
+    public Estado envenenar(String nombrePokemon) {
+        Log.getLog().log(nombrePokemon + " esta envenenado, recibio " + 5 +" de danio");
         this.vida -= 5.0;
         if (!sigueVivo()){
             vida = 0.0;
@@ -80,6 +88,7 @@ public abstract class Estadisticas implements EstadisticaModificable {
         return null;
     }
 
+<<<<<<< HEAD
     public Estado confundirse(){
         this.vida -= (this.vida * 15)/100;
         if (!sigueVivo()){
@@ -87,9 +96,17 @@ public abstract class Estadisticas implements EstadisticaModificable {
             return new EstadoDebilitado();
         }
         return null;
+=======
+    public void confundir(){
+        this.vida -= (maxVida * 0.15);
+>>>>>>> 93348b1bfc4796b06fce42ef2ac06323731ae9c9
     }
 
     public Double getVida() {
         return vida;
+    }
+
+    public Double getMaxVida() {
+        return maxVida;
     }
 }

@@ -1,7 +1,7 @@
 package org.example.estado;
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 
@@ -10,8 +10,8 @@ public class EstadoEnvenenado extends Estado {
         this.nombre = "Envenenado";
     }
     @Override
-    public Estado pasivo(Estadisticas estadisticas) {
-        Estado estadoNuevo = estadisticas.envenenar();
+    public Estado pasivo(Estadisticas estadisticas, String nombrePokemon) {
+        Estado estadoNuevo = estadisticas.envenenar(nombrePokemon);
         if (estadoNuevo == null){
             return this;
         }
@@ -23,10 +23,10 @@ public class EstadoEnvenenado extends Estado {
         Comando comando = new ComandoMensaje("Curando veneno");
         Eventos.getEventos().agregarComando(comando);
         nuevoEstado.agregarEstado(estadoACurar.getProximoEstado());
+        nuevoEstado.agregarEstado(proximoEstado);
         return nuevoEstado;
     }
     public Estado aceptarEstado(Estado estado) {
-        estado.curarEstado(this);
-        return estado;
+        return estado.curarEstado(this);
     }
 }

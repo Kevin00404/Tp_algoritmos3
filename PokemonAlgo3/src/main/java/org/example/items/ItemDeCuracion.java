@@ -7,7 +7,7 @@ public abstract class ItemDeCuracion extends Items{
         super(disponibles);
     }
     Double valor;
-    String nombre;
+
     public String getNombre() {
         return this.nombre;
     }

@@ -1,8 +1,9 @@
 package org.example;
 
 import org.example.Log.Log;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
+import org.example.comando.ComandoMensaje;
 import org.example.comando.EfectosPasivosComando;
 import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
@@ -20,6 +21,10 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
+    public void setPokemonActual(Pokemon pokemon){
+        this.pokemonActual=pokemon;
+    }
+
     public Pokemon getPokemonActual() {
         return pokemonActual;
     }
@@ -33,18 +38,10 @@ public class Entrenador {
         return pokebola.murieronTodos();
     }
 
-    public void jugarTurno(Entrenador oponente){
-        actualizarPokemonActual();
-    }
-
     public void actualizarPokemonActual() {
         if (pokemonActual == null){
             cambiarPokemonActual();
         }
-    }
-
-    public Pokebola getPokebola() {
-        return pokebola;
     }
 
     public void atacar(Entrenador entrenador, Integer habilidad){
@@ -52,10 +49,6 @@ public class Entrenador {
     }
     public Pokemon getPokemon(){
         return pokemonActual;
-    }
-
-    public boolean pokemonEstaVivo(){
-        return pokemonActual.chequeoDeVida();
     }
 
     public boolean tienePokemonDisponible(){
@@ -84,10 +77,6 @@ public class Entrenador {
 
     public Comando mostrarPokemonEnBatalla() {
         return pokemonActual.datosDeBatalla();
-    }
-
-    public void aplicarEfectos() {
-        pokemonActual.aplicarEfectos();
     }
 
     public String getNombre() {

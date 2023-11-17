@@ -1,0 +1,55 @@
+@startuml
+
+Interface ComandoManejable{
++void ejecutar()
++void concatComands(ComandoManejable comando);
+}
+
+Abstract Comando{
+-ComandoManejable anteriorComando
++void ejecutar()
++void concatComands(ComandoManejable comando)
++{abstract} void ejecutarEsteComando()
+}
+
+Class ComandoCurarEstado{
+-Pokemon pokemon
+-Estado estadoACurar
++void ejecutarEsteComando()
+}
+Class CambiarEstadoComando{
+-Pokemon pokemon
+-Estado estado
++void ejecutarEsteComando()
+}
+Class ComandoMensaje{
++void ejecutarEsteComando()
+}
+Class ComandoModificarEstadistica{
+-ModEstadistica modificadorEstadistica
+-Estadisticas estadisticas
++void ejecutarEsteComando()
+}
+Class EfectosPasivosComando{
+-Pokemon pokemon
++void ejecutarEsteComando()
+}
+Class HacerDanioComando{
+-Pokemon pokemon
+-CalculadoraDanio calculadora
++void ejecutarEsteComando()
+}
+Class RendirseComando{
+Entrenador jugador;
++void ejecutarEsteComando()
+}
+
+Comando ..|> ComandoManejable
+ComandoCurarEstado --|> Comando
+CambiarEstadoComando --|> Comando
+ComandoMensaje --|> Comando
+ComandoModificarEstadistica --|> Comando
+EfectosPasivosComando --|> Comando
+RendirseComando --|> Comando
+HacerDanioComando --|> Comando
+@enduml

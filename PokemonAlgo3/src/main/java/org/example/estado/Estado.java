@@ -1,7 +1,7 @@
 package org.example.estado;
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.Elemento.Element;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
@@ -9,20 +9,13 @@ import org.example.habilidad.Habilidad;
 import org.example.pokemon.Pokemon;
 
 public abstract class Estado {
-    String nombre;
+    public String nombre;
     Estado proximoEstado;
-    public Estado atacar(Pokemon pokemon /*pokemon a atacar*/, Habilidad habilidad /*habilidad seleccionada por el usuario*/, Element element /*elemento del pokemon que está atacando*/, Eventos eventos_a_realizar)
-    {
-        habilidad.atacar(pokemon, element, eventos_a_realizar);
+
+    public Estado pasivo(Estadisticas estadisticas, String nombre) {
         return this;
     }
-    public Estado pasivo(Estadisticas estadisticas) {
-        return this;
-    }
-    public Estado setEstadoActual(Estado estado){
-        System.out.println("este pokemon ya tiene un estado y no puede cambiarlo");
-        return this;
-    }
+
     public Estado concatenarEstado(Estado estado){
         if (proximoEstado != null){
             this.proximoEstado.concatenarEstado(estado);
@@ -39,7 +32,11 @@ public abstract class Estado {
     public Estado curarEstado(EstadoEnvenenado estadoACurar) { return this; }
     public Estado curarEstado(EstadoDormido estadoACurar){ return this; }
     public Estado curarEstado(EstadoDebilitado estadoACurar){ return this; }
+<<<<<<< HEAD
     public Estado curarEstado(EstadoConfundido estadoACurar){return this;}
+=======
+    public Estado curarEstado(EstadoConfuso estadoACurar){ return this; }
+>>>>>>> 93348b1bfc4796b06fce42ef2ac06323731ae9c9
     public Estado curarEstado(EstadoNormal estadoACurar){
         return new EstadoNormal();
     }
@@ -48,8 +45,13 @@ public abstract class Estado {
         if (proximoEstado != null){
             comando = proximoEstado.condicionarConSiguienteEstado(comando, estadisticas);
         }
+<<<<<<< HEAD
         return this.condicionarComando(comando,estadisticas);
+=======
+        return this.condicionarComando(comando, estadisticas);
+>>>>>>> 93348b1bfc4796b06fce42ef2ac06323731ae9c9
     }
+
     public Estado aceptarSiguienteEstado(Estado estado){
         if (proximoEstado != null){
             this.proximoEstado = proximoEstado.aceptarSiguienteEstado(estado);
@@ -60,18 +62,22 @@ public abstract class Estado {
         if (proximoEstado != null){
             this.proximoEstado = this.proximoEstado.condicionarConSiguienteEstadoPasivo(estadisticas);
         }
-        return this.pasivo(estadisticas);
+        return this.pasivo(estadisticas, "");
     }
 
     public boolean esDebilitado() {
         return false;
     }
-    public boolean esNormal() {return false;}
+
     public String getNombre() {
         return this.nombre;
     }
     public void agregarEstado(Estado proximoEstado){
-        this.proximoEstado = proximoEstado;
+        if (this.proximoEstado == null){
+            this.proximoEstado = proximoEstado;
+        } else {
+            this.proximoEstado.agregarEstado(proximoEstado);
+        }
     }
     public Comando condicionarComando(Comando comando, Estadisticas estadisticas) {
         return comando;
@@ -84,5 +90,13 @@ public abstract class Estado {
 
     public Estado getProximoEstado(){
         return proximoEstado;
+    }
+    @Override
+    public boolean equals (Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Estado)) return false;
+        Estado otro = (Estado) obj;
+        return this.nombre.equals (otro.nombre);
     }
 }

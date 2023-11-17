@@ -1,7 +1,7 @@
 package org.example.jugada;
 
 import org.example.Entrenador;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.comando.RendirseComando;

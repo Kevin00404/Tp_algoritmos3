@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.Element;
 import org.example.Estadisticas.Estadisticas;
 
@@ -18,7 +19,7 @@ public class CalculadoraDanio {
         this.estadisticasEnemigas = estadisticasEnemigas;
     }
 
-    private Double critico(){
+    public Double critico(){
         Random rand = new Random();
         int upperbound = 100;
         int random = rand.nextInt(upperbound);
@@ -28,7 +29,7 @@ public class CalculadoraDanio {
         return 2.0;
     }
 
-    private Double randomNum(){
+    public Double randomNum(){
         Random rand = new Random();
         Double upperbound = 39.0;
         Double random = rand.nextDouble(upperbound);
@@ -39,6 +40,10 @@ public class CalculadoraDanio {
     public Double calcularDanio(){
         Double critico = this.critico();
         Double random = randomNum();
-        return (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
+        Double danioHipotetico = (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
+        System.out.println(danioHipotetico);
+        Double danioReal = ManejoDeClima.getTerreno().ventajaDelTerreno(danioHipotetico, estadisticasPropias);
+        System.out.println(danioReal);
+        return danioReal;
     }
 }

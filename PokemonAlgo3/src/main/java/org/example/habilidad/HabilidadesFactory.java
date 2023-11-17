@@ -1,10 +1,12 @@
 package org.example.habilidad;
 
+import org.example.Clima.*;
 import org.example.Elemento.*;
 import org.example.Estadistica.ModAtaque;
 import org.example.Estadistica.ModDefensa;
 import org.example.Estadistica.ModVelocidad;
 import org.example.Log.Log;
+import org.example.estado.EstadoConfuso;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
@@ -19,7 +21,8 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades = new Hashtable<Integer, Habilidad>();
         habilidades = new Hashtable<Integer, Habilidad>();
         crearBiblioteca();
-        generadorHabilidadesRandom();
+        //generadorHabilidadesRandom();
+        generarHabilidadesEspecificas();
     }
 
     private void generadorHabilidadesRandom() {
@@ -27,6 +30,13 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         habilidades.put(2, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(3, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(4, bibliotecaHabilidades.get(randBiblioRango()));
+    }
+
+    private void generarHabilidadesEspecificas(){
+        habilidades.put(1, bibliotecaHabilidades.get(1));
+        habilidades.put(2, bibliotecaHabilidades.get(31));
+        habilidades.put(3, bibliotecaHabilidades.get(71));
+        habilidades.put(4, bibliotecaHabilidades.get(72));
     }
 
     public void agregarHabilidad(Habilidad habilidad, Integer num){
@@ -120,5 +130,13 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades.put(69, new HabilidadModificacionEstado("gigaDescarga", 25, new EstadoEnvenenado()));
         bibliotecaHabilidades.put(70, new HabilidadModificacionEstado("gigaEstupor", 25, new EstadoEnvenenado()));
         bibliotecaHabilidades.put(71, new HabilidadModificacionEstado("picotazoVeneno", 25, new EstadoEnvenenado()));
+        bibliotecaHabilidades.put(72, new HabilidadModificacionEstado("psiquico", 25, new EstadoConfuso()));
+        bibliotecaHabilidades.put(73, new HabilidadModificacionTerreno("dia soleado", 25, new Soleado()));
+        bibliotecaHabilidades.put(74, new HabilidadModificacionTerreno("lluvia", 25, new Lluvia()));
+        bibliotecaHabilidades.put(75, new HabilidadModificacionTerreno("granizo", 25, new Granizo()));
+        bibliotecaHabilidades.put(76, new HabilidadModificacionTerreno("tormenta rayo", 25, new TormentaDeRayo()));
+        bibliotecaHabilidades.put(77, new HabilidadModificacionTerreno("tormenta de arena", 25, new TormentaDeArena()));
+        bibliotecaHabilidades.put(78, new HabilidadModificacionTerreno("neblina", 25, new Niebla()));
+        bibliotecaHabilidades.put(79, new HabilidadModificacionTerreno("huracan", 25, new Huracan()));
     }
 }

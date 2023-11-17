@@ -1,0 +1,51 @@
+@startuml
+
+Interface JugadaI{
++boolean jugar()
+}
+
+Abstract Jugada{
+-Entrenador jugador
+-Entrenador oponente
++boolean {abstract} jugar()
+}
+
+Class JugadaAtaque{
++boolean jugar()
+}
+Class JugadaCambioPokemon{
++boolean jugar()
+}
+Class JugadaItem{
++boolean jugar()
+}
+Class JugadaMirarCampo{
++boolean jugar()
+}
+Class JugadaNoJugada{
++boolean jugar()
+}
+Class JugadaRendicion{
++boolean jugar()
+}
+
+Class JugadaFactory{
++Jugada inicializarJugada()
+}
+
+Class Juego{}
+
+
+
+Jugada ..|> JugadaI
+JugadaFactory o-- JugadaI
+Jugada ^-- JugadaAtaque
+Jugada ^-- JugadaCambioPokemon
+Jugada ^-- JugadaItem
+Jugada ^-- JugadaMirarCampo
+Jugada ^-- JugadaNoJugada
+Jugada ^-- JugadaRendicion
+Juego ..> Jugada
+Juego ..> JugadaFactory
+
+@enduml

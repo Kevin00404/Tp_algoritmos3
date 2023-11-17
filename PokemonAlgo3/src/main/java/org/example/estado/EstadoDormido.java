@@ -3,7 +3,7 @@ package org.example.estado;
 import org.example.Estadisticas.Estadisticas;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ public class EstadoDormido extends Estado{
     }
 
     @Override
-    public Estado pasivo(Estadisticas estadisticas){
+    public Estado pasivo(Estadisticas estadisticas, String nombre){
         return this.puedeDespertarse();
     }
 

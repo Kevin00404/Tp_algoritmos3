@@ -1,0 +1,60 @@
+@startuml
+Class Estadisticas{
+-Double maxVida
+-Double vida
+-Double nivel
+-Double velocidad
+-Double defensa
+-Double ataque
+-Element elemento
++Double bufeoReaccionElemento(Element elementoDeAtaque)
++Double debufeoReaccionElemento(Element elementoDeAtaque)
++void bajarVida(Double danio)
++void variarDefensa(Double varDefensa)
++void variarVelocidad(Double varVelocidad)
++void variarVida(Double varVida)
++void variarAtaque(Double varAtaque)
++Comando mostrarEstadisticas()
++Estado envenenar()
+}
+Class HabilidadModificacionEstadistica{
++Comando armarComando(Pokemon pokemon, Estadisticas estadisticas)
+}
+Class ComandoModificarEstadistica{
+#void ejecutarEsteComando()
+}
+
+interface ModificacionEstadistica{
++void modificarEstadistica(Estadisticas estadisticas)
++boolean danina()
+}
+
+Abstract ModEstadistica{
+String nombre;
+Double varEstadistica
++{abstract} void modificarEstadistica(Estadisticas estadisticas)
++boolean danina()
+}
+
+Class ModDefensa{
++void modificarEstadistica(Estadisticas estadisticas)
+}
+Class ModAtaque{
++void modificarEstadistica(Estadisticas estadisticas)
+}
+Class ModVelocidad{
++void modificarEstadistica(Estadisticas estadisticas)
+}
+Class ModVida{
++void modificarEstadistica(Estadisticas estadisticas)
+}
+
+ModVida --|> ModEstadistica
+ModAtaque --|> ModEstadistica
+ModDefensa --|> ModEstadistica
+ModVelocidad --|> ModEstadistica
+ModEstadistica ..|> ModificacionEstadistica
+ComandoModificarEstadistica o-- Estadisticas
+ComandoModificarEstadistica o-- ModificacionEstadistica
+HabilidadModificacionEstadistica --> ComandoModificarEstadistica
+@enduml

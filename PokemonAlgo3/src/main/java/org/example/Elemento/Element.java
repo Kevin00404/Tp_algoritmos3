@@ -4,7 +4,7 @@ public abstract class Element {
 
     final  double MATCH_TIPO_ATAQUE_Y_POKEMON=1.5;
     final double NO_MATCH_TIPO_ATAQUE_Y_POKEMON=1.0;
-    String nombre_tipo;
+    public String nombre_tipo;
     public String get_tipo()
     {
         return this.nombre_tipo;
@@ -31,6 +31,7 @@ public abstract class Element {
     public abstract Double multiplicador_danio_tipo(Tierra tierra);
     public abstract Double multiplicador_danio_tipo(Veneno veneno);
     public abstract Double multiplicador_danio_tipo(Volador volador);
+
     public Double multiplicador_danio_tipo(Element element) {
         System.out.println("ERROR, Madre efectua calculo que deberia efectuar hijo");
         return 0.0;

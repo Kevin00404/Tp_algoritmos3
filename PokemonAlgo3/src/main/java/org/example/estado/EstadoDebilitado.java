@@ -1,7 +1,11 @@
 package org.example.estado;
 
+<<<<<<< HEAD
 import org.example.Estadisticas.Estadisticas;
 import org.example.Turno.Eventos;
+=======
+import org.example.Eventos.Eventos;
+>>>>>>> 93348b1bfc4796b06fce42ef2ac06323731ae9c9
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 

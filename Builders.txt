@@ -1,0 +1,58 @@
+@startuml
+Interface PokemonBuilderI {
++Pokemon crearPokemon()
+}
+
+Class PokemonBuilder{
+-Element elemento;
+-String nombre;
+-String historia;
+-Estado estado;
+-Estadisticas estadisticas;
+-Hashtable<Integer, Habilidad> habilidades;
++void setElemento(Element elemento)
++void setNombre(String nombre)
++void setHistoria(String Historia)
++void setHabilidadesFactory(HabilidadesFactory hf)
++void setEstadisticaFactory(EstadisticaFactory ef)
+}
+
+interface EstadisticaFactoryI{
++Estadisticas crearEstadisticas();
+}
+
+Class EstadisticaFactory{
+-Double maxVida;
+-Double velocidad;
+-Double defensa;
+-Double ataque;
+-Element elemento;
++void setMaxVida(Double maxVida)
++void setAtaque(Double ataque)
++void setDefensa(Double defensa)
++void setVelocidad(Double velocidad)
+}
+
+interface HabilidadesFactoryI {
++Hashtable<Integer, Habilidad> habilidades();
+}
+
+Class HabilidadesFactory{ 
+-Hashtable<Integer, Habilidad> habilidades
+-Hashtable<Integer, Habilidad> bibliotecaHabilidades
++void agregarHabilidad(Habilidad h, Integer n)
+}
+
+Class Pokemon{}
+Class Estadisticas{}
+abstract Habilidad{}
+
+PokemonBuilder ..|> PokemonBuilderI
+HabilidadesFactory ..|> HabilidadesFactoryI
+EstadisticaFactory ..|> EstadisticaFactoryI
+PokemonBuilder o-- EstadisticaFactoryI
+PokemonBuilder o-- HabilidadesFactoryI
+PokemonBuilder ..> Pokemon
+HabilidadesFactory ..> Habilidad
+EstadisticaFactory ..> Estadisticas
+@enduml

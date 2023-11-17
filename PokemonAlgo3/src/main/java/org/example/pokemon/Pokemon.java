@@ -2,7 +2,7 @@ package org.example.pokemon;
 
 
 import org.example.Estadisticas.Estadisticas;
-import org.example.Turno.Eventos;
+import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.estado.Estado;
@@ -11,8 +11,7 @@ import org.example.estado.EstadoNormal;
 import org.example.habilidad.Habilidad;
 import org.example.Log.Log;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.*;
 
 
 public class Pokemon {
@@ -21,9 +20,6 @@ public class Pokemon {
     Estado estado;
     Estadisticas estadisticas;
     Dictionary<Integer, Habilidad> habilidades;
-
-    //Integer critico = 1; // hay que cambiarlo...que es esto?
-    //Integer random = 1; // hay que cambiarlo..que es esto?
 
 
 
@@ -34,6 +30,12 @@ public class Pokemon {
         this.habilidades = habilidades;
         this.estadisticas = estadisticas;
     }
+
+    //borrar, constructor hecho solo para hacer test
+    public Pokemon(String nombre, String historia, Habilidad habilidad, String estadistica) {
+        this.nombre=nombre;
+    }
+
 
     public String getPrimeraHabilidad() {
         return habilidades.get(1).getNombre();
@@ -52,23 +54,37 @@ public class Pokemon {
     }
 
     public void modificarEstado(Estado estado){
-        this.estado = this.estado.concatenarEstado(estado);
+        this.estado.agregarEstado(estado);
     }
 
-    public void aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
+    public boolean aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
+        System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
+<<<<<<< HEAD
         comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, estadisticas);
         Eventos.getEventos().agregarComando(comandoJugada);
+=======
+
+        comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, this.estadisticas);
+       
+      Eventos.getEventos().agregarComando(comandoJugada);
+        return true;
+>>>>>>> 93348b1bfc4796b06fce42ef2ac06323731ae9c9
     }
 
     public void aplicarPasivos(){
-        this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        if (!estadisticas.sigueVivo()){
+            this.estado = new EstadoDebilitado();
+        } else {
+            this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
+        }
     }
 
-    public void recibirDanio(Double danio) {
-        estadisticas.bajarVida(danio);
+    public void recibirDanio(Double danio, String mensajeRecibido) {
+        estadisticas.bajarVida(danio, mensajeRecibido);
     }
+
 
     public boolean chequeoDeVida() {
         if (!estadisticas.sigueVivo()) {
@@ -96,10 +112,6 @@ public class Pokemon {
         return mostrarEstado;
     }
 
-    public void aplicarEfectos() {
-        this.estado = this.estado.pasivo(estadisticas);
-    }
-
     public void mostrarHabilidades() {
         Log.getLog().log("Elige una habilidad:");
         Log.getLog().log("1. " + getPrimeraHabilidad() + "usos disponibles: " + this.habilidades.get(1).getCantidadDisponible());
@@ -114,7 +126,7 @@ public class Pokemon {
     }
 
     public void curarEstado(Estado estadoACurar) {
-        estadoACurar.aceptarSiguienteEstado(this.estado);
+        this.estado.aceptarSiguienteEstado(estadoACurar);
     }
 
     public Comando habilitarComandoSiVive(Comando comando) {
@@ -127,5 +139,9 @@ public class Pokemon {
 
     public Double vida(){
         return estadisticas.getVida();
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 }
