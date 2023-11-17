@@ -10,6 +10,7 @@ import org.example.estado.EstadoConfuso;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
+import org.json.simple.JSONObject;
 
 import java.util.Random;
 import java.util.Hashtable;
@@ -138,5 +139,74 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades.put(77, new HabilidadModificacionTerreno("tormenta de arena", 25, new TormentaDeArena()));
         bibliotecaHabilidades.put(78, new HabilidadModificacionTerreno("neblina", 25, new Niebla()));
         bibliotecaHabilidades.put(79, new HabilidadModificacionTerreno("huracan", 25, new Huracan()));
+    }
+
+    private void crearBibliotecaConJSON(JSONObject habilidad) {
+        if (habilidad.get("tipo") != null) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadAtaque((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), obtenerElemento((String) habilidad.get("elemento")), (Double) habilidad.get("potencia")));
+        } else if (((habilidad.get("tipo")).equals("defensa"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModDefensa((Double) habilidad.get("valor"))));
+        } else if (((habilidad.get("tipo")).equals("ataque"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModAtaque((Double) habilidad.get("valor"))));
+        } else if (((habilidad.get("tipo")).equals("velocidad"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModVelocidad((Double) habilidad.get("valor"))));
+        } else if (((habilidad.get("tipo")).equals("dormido"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoDormido()));
+        } else if (((habilidad.get("tipo")).equals("envenenado"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoEnvenenado()));
+        } else if (((habilidad.get("tipo")).equals("paralizado"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoParalizado()));
+        } else if (((habilidad.get("tipo")).equals("confuso"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoConfuso()));
+        } else if (((habilidad.get("tipo")).equals("soleado"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Soleado()));
+        } else if (((habilidad.get("tipo")).equals("lluvia"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Lluvia()));
+        } else if (((habilidad.get("tipo")).equals("granizo"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Granizo()));
+        } else if (((habilidad.get("tipo")).equals("tormentaDeRayo"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new TormentaDeRayo()));
+        } else if (((habilidad.get("tipo")).equals("tormentaDeArena"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new TormentaDeArena()));
+        } else if (((habilidad.get("tipo")).equals("niebla"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Niebla()));
+        } else if (((habilidad.get("tipo")).equals("huracan"))) {
+            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Huracan()));
+        }
+    }
+
+    private Element obtenerElemento(String elemento) {
+        if (elemento.equals("agua")){
+            return new Agua();
+        }else if (elemento.equals("bicho")){
+            return new Bicho();
+        } else if (elemento.equals("dragon")) {
+            return new Dragon();
+        } else if (elemento.equals("electrico")) {
+            return new Electrico();
+        } else if (elemento.equals("fantasma")) {
+            return new Fantasma();
+        } else if (elemento.equals("fuego")) {
+            return new Fuego();
+        } else if (elemento.equals("hielo")) {
+            return new Hielo();
+        } else if (elemento.equals("lucha")) {
+            return new Lucha();
+        } else if (elemento.equals("normal")) {
+            return new Normal();
+        } else if (elemento.equals("planta")) {
+            return new Planta();
+        } else if (elemento.equals("psiquico")) {
+            return new Psiquico();
+        } else if (elemento.equals("roca")) {
+            return new Roca();
+        } else if (elemento.equals("tierra")){
+            return new Tierra();
+        } else if (elemento.equals("veneno")) {
+            return new Veneno();
+        } else if (elemento.equals("volador")) {
+            return new Volador();
+        }
+        return null;
     }
 }

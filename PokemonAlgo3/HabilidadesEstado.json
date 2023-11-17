@@ -1,0 +1,98 @@
+[
+  {
+    "id": 57,
+    "nombre": "chispa",
+    "disponibles": 25,
+    "tipo": "paralizado"
+  },
+  {
+    "id": 58,
+    "nombre": "dragonAliento",
+    "disponibles": 25,
+    "tipo": "paralizado"
+  },
+  {
+    "id": 59,
+    "nombre": "salpikaSurf",
+    "disponibles": 25,
+    "tipo": "paralizado"
+  },
+  {
+    "id": 60,
+    "nombre": "paralizador",
+    "disponibles": 25,
+    "tipo": "paralizado"
+  },
+  {
+    "id": 61,
+    "nombre": "palmeo",
+    "disponibles": 25,
+    "tipo": "paralizado"
+  },
+  {
+    "id": 62,
+    "nombre": "bostezo",
+    "disponibles": 25,
+    "tipo": "dormido"
+  },
+  {
+    "id": 63,
+    "nombre": "espora",
+    "disponibles": 25,
+    "tipo": "dormido"
+  },
+  {
+    "id": 64,
+    "nombre": "gigasopor",
+    "disponibles": 25,
+    "tipo": "dormido"
+  },
+  {
+    "id": 65,
+    "nombre": "hipnosis",
+    "disponibles": 25,
+    "tipo": "dormido"
+  },
+  {
+    "id": 66,
+    "nombre": "besoAmoroso",
+    "disponibles": 25,
+    "tipo": "dormido"
+  },
+  {
+    "id": 67,
+    "nombre": "bombaLodo",
+    "disponibles": 25,
+    "tipo": "envenenado"
+  },
+  {
+    "id": 68,
+    "nombre": "gasVenenoso",
+    "disponibles": 25,
+    "tipo": "envenenado"
+  },
+  {
+    "id": 69,
+    "nombre": "gigaDescarga",
+    "disponibles": 25,
+    "tipo": "envenenado"
+  },
+  {
+    "id": 70,
+    "nombre": "gigaEstupor",
+    "disponibles": 25,
+    "tipo": "envenenado"
+  },
+  {
+    "id": 71,
+    "nombre": "picotazoVeneno",
+    "disponibles": 25,
+    "tipo": "envenenado"
+  },
+  {
+    "id": 72,
+    "nombre": "psiquico",
+    "disponibles": 25,
+    "tipo": "confuso"
+  }
+]
