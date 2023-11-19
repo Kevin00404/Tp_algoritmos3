@@ -73,10 +73,10 @@ public class Juego {
         }
     }
 
-    public Entrenador crearEntrenador1(){
+    public Entrenador crearEntrenador1(String nombre){
         Mochila mochilaEntrenador = inicializarItems();
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
-        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(1));
+        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , nombre);
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Charmander").setElemento(new Fuego()).setHistoria("Nacio en un volcan(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
@@ -88,12 +88,13 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
+        System.out.println("Se creo el entrenador 1 en Juego!");
         return entrenador;
     }
 
-    public Entrenador crearEntrenador2(){
+    public Entrenador crearEntrenador2(String nombre){
         Mochila mochilaEntrenador = inicializarItems();
-        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(2));
+        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , nombre);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
@@ -106,16 +107,14 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
+        System.out.println("Se creo el entrenador 2 en Juego!");
         return entrenador;
     }
 
     public void inicializar(){
-        PokemonBuilder pokemonBuilder = new PokemonBuilder();
 
-        this.entrenador1 = crearEntrenador1();
         entrenador1.cambiarPokemonActual();
 
-        this.entrenador2 = crearEntrenador2();
         entrenador2.cambiarPokemonActual();
     }
 

@@ -75,7 +75,7 @@ public class JuegoTest {
     }
 
     @Test
-    public void crearEntrenador1() {
+    public void crearEntrenador1(String nombre) {
         Pokebola pokebola=new Pokebola(6);
         Mochila mochila=new Mochila();
 
@@ -88,7 +88,7 @@ public class JuegoTest {
         Juego juego = new Juego();
 
 
-        assertEquals(entrenadorEsperado.getClass(),juego.crearEntrenador1().getClass());
+        assertEquals(entrenadorEsperado.getClass(),juego.crearEntrenador1(nombre).getClass());
     }
     @Test
     public void crearEntrenador2() {
@@ -103,7 +103,7 @@ public class JuegoTest {
         Juego juego = new Juego();
 
 
-        assertEquals(entrenadorEsperado.getClass(),juego.crearEntrenador2().getClass());
+        assertEquals(entrenadorEsperado.getClass(),juego.crearEntrenador2("nombreEntrenador2").getClass());
     }
 
 
@@ -117,6 +117,6 @@ public class JuegoTest {
         Juego juego = new Juego();
 
 
-        juego.crearEntrenador1();
+        juego.crearEntrenador1("nombre");
     }
 }

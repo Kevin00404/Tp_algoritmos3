@@ -9,6 +9,9 @@ import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Entrenador {
     Pokebola pokebola;
     Pokemon pokemonActual;
@@ -94,5 +97,9 @@ public class Entrenador {
     public void efectosPasivos() {
         Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);
         Eventos.getEventos().agregarComando(efectosPasivos);
+    }
+
+    public ArrayList<String> listaPokemones() {
+        return pokebola.mostrarPokemones();
     }
 }
