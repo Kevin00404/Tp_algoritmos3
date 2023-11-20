@@ -32,9 +32,9 @@ public class Entrenador {
         return pokemonActual;
     }
 
-    public void cambiarPokemonActual(){
+    public void cambiarPokemonActual(String pokemon){
         Log.getLog().log(this.nombre + " elegi tu pokemon: ");
-        this.pokemonActual = pokebola.cambiarPokemon();
+        this.pokemonActual = pokebola.cambiarPokemon(pokemon);
     }
 
     public boolean murio(){
@@ -43,7 +43,7 @@ public class Entrenador {
 
     public void actualizarPokemonActual() {
         if (pokemonActual == null){
-            cambiarPokemonActual();
+            cambiarPokemonActual("");
         }
     }
 

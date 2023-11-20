@@ -23,9 +23,10 @@ public class Pokebola {
         dicc.put(pokemon.getNombre(), pokemon);
     }
 
-    public Pokemon cambiarPokemon() {
+    public Pokemon cambiarPokemon(String pokemon) {
+        System.out.println("Vamos a cambiar el pokemon actual a: " + pokemon);
         String nombrePokemonElegido = "";
-        while (!dicc.containsKey(nombrePokemonElegido)) {
+        while (!dicc.containsKey(pokemon)) {
             Scanner nombreVariableScaneado = new Scanner(System.in);
 
             mostrarPokemones();
@@ -44,6 +45,7 @@ public class Pokebola {
                 Log.getLog().log("El pokemon esta muerto, elija otro");
             }
         }
+        System.out.println("Cambiado Exitosamente!");
         return dicc.get(nombrePokemonElegido);
     }
 

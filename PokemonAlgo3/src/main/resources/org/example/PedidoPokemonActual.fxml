@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="1098.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.JuegoFX">
+<AnchorPane prefHeight="1098.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PedirPokemonController">
    <children>
       <Label fx:id="presentar_pokemones" layoutX="712.0" layoutY="99.0" text="Poner Texto" textAlignment="CENTER">
          <font>
@@ -16,27 +16,27 @@
       </Label>
       <VBox layoutX="453.0" layoutY="314.0" prefHeight="673.0" prefWidth="1013.0">
          <children>
-            <Button fx:id="b_pok_1" alignment="CENTER" mnemonicParsing="false" prefHeight="124.0" prefWidth="1013.0" text="Button">
+            <Button fx:id="b_pok_1" alignment="CENTER" mnemonicParsing="false" prefHeight="124.0" prefWidth="1013.0" text="Button" onAction="#clickBotonPrimero">
                <font>
                   <Font size="50.0" />
                </font>
             </Button>
-            <Button fx:id="b_pok_2" mnemonicParsing="false" prefHeight="125.0" prefWidth="1015.0" text="Button">
+            <Button fx:id="b_pok_2" mnemonicParsing="false" prefHeight="125.0" prefWidth="1015.0" text="Button" onAction="#clickBotonSegundo">
                <font>
                   <Font size="50.0" />
                </font>
             </Button>
-            <Button fx:id="b_pok_3" mnemonicParsing="false" prefHeight="125.0" prefWidth="1013.0" text="Button">
+            <Button fx:id="b_pok_3" mnemonicParsing="false" prefHeight="125.0" prefWidth="1013.0" text="Button" onAction="#clickBotonTercero">
                <font>
                   <Font size="50.0" />
                </font>
             </Button>
-            <Button fx:id="b_pok_4" mnemonicParsing="false" prefHeight="130.0" prefWidth="1013.0" text="Button">
+            <Button fx:id="b_pok_4" mnemonicParsing="false" prefHeight="130.0" prefWidth="1013.0" text="Button" onAction="#clickBotonCuarto">
                <font>
                   <Font size="50.0" />
                </font>
             </Button>
-            <Button fx:id="b_pok_5" mnemonicParsing="false" prefHeight="136.0" prefWidth="1013.0" text="Button">
+            <Button fx:id="b_pok_5" mnemonicParsing="false" prefHeight="136.0" prefWidth="1013.0" text="Button" onAction="#clickBotonQuinto">
                <font>
                   <Font size="50.0" />
                </font>

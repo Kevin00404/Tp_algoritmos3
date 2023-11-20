@@ -11,7 +11,7 @@ public class JugadaCambioPokemon extends Jugada {
     @Override
     public boolean jugar() {
         System.out.println("x: cancelar");
-        jugador.cambiarPokemonActual();
+        jugador.cambiarPokemonActual("");
         return true;
     }
 }

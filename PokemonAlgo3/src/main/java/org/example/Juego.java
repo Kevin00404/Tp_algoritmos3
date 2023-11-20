@@ -1,4 +1,5 @@
 package org.example;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.example.Clima.ManejoDeClima;
@@ -113,9 +114,9 @@ public class Juego {
 
     public void inicializar(){
 
-        entrenador1.cambiarPokemonActual();
+        entrenador1.cambiarPokemonActual("");
 
-        entrenador2.cambiarPokemonActual();
+        entrenador2.cambiarPokemonActual("");
     }
 
 
@@ -169,5 +170,35 @@ public class Juego {
         mochilaEntrenador.agregarObjeto(ataqueX);
         mochilaEntrenador.agregarObjeto(defensaX);
         return mochilaEntrenador;
+    }
+
+    public void setEntrenador1(Entrenador entrenador) {
+        this.entrenador1 = entrenador;
+    }
+
+    public void setEntrenador2(Entrenador entrenador) {
+        this.entrenador2 = entrenador;
+    }
+
+    public String getEntrenadorUnoNombre(){
+        return this.entrenador1.getNombre();
+    }
+    public String getEntrenadorDosNombre(){
+        return this.entrenador2.getNombre();
+    }
+
+    public ArrayList<String> getPokemonesPokebolaUno() {
+        return this.entrenador1.listaPokemones();
+    }
+
+    public ArrayList<String> getPokemonesPokebolaDos() {
+        return this.entrenador2.listaPokemones();
+    }
+
+    public void cambiarPokemonEntrenadorUno(String pokemon) {
+        this.entrenador1.cambiarPokemonActual(pokemon);
+    }
+    public void cambiarPokemonEntrenadorDos(String pokemon) {
+        this.entrenador2.cambiarPokemonActual(pokemon);
     }
 }

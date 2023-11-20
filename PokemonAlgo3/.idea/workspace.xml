@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/EntrenadorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/inicio.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/preguntar_primer_jugador_nombre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirNombresController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/BatallaJugadorUno.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/JuegoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/JuegoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/preguntar_primer_jugador_nombre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/preguntar_primer_jugador_nombre.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/PokebolaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokebolaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +35,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="module-info" />
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,9 +51,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2XgZBeCa3Gi5LSNEalL4MYn2wUB" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -61,28 +62,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "java__fx__development",
-    "last_opened_file_path": "F:/Users/Nazareno/Documents/Projects/Tp_Algoritmos_newest/Tp_algoritmos3/PokemonAlgo3/src/main/java/org/example/MainFX.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4637931",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;java__fx__development&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/Projects/Tp_Algoritmos_newest/Tp_algoritmos3/PokemonAlgo3/src/main/java/org/example/MainFX.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4637931&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -219,6 +220,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699052550615</updated>
       <workItem from="1700323290670" duration="35925000" />
+      <workItem from="1700422763536" duration="12044000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,67 @@
+package org.example;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class PedirNombresController {
+
+    @FXML
+    public TextField nombre_jugador_1;
+    @FXML
+    public Label pregunta_nombre_label;
+    @FXML
+    public Button boton_de_envio;
+    private Stage stage;
+    private Juego juego;
+    public void setPrimaryStage(Stage primaryStage){
+        this.stage = primaryStage;
+    }
+
+    @FXML
+    public void clickBoton() throws IOException {
+        String nombre_ingresado = nombre_jugador_1.getText();
+        this.juego.setEntrenador1(juego.crearEntrenador1(nombre_ingresado));
+        pregunta_nombre_label.setText("Por favor, seleccione el nombre del entrenador (Jugador 2): ");
+        boton_de_envio.setOnAction(e -> {
+            try {
+                activarEscenaPedirPokemon();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        System.out.println("Se setea nueva accion en el boton");
+    }
+    @FXML
+    public void activarEscenaPedirPokemon() throws IOException {
+        String nombre_ingresado = nombre_jugador_1.getText();
+        this.juego.setEntrenador2(juego.crearEntrenador2(nombre_ingresado));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
+        Parent root = fxmlloader.load();
+
+        PedirPokemonController pedirPokemon = fxmlloader.getController();
+        pedirPokemon.setPrimaryStage(this.stage);
+        pedirPokemon.setJuego(this.juego);
+        pedirPokemon.inicializarDataPrimerJugador();
+
+        Scene scene = new Scene(root, 1920, 1080);
+        this.stage.setScene(scene);
+        this.stage.setTitle("Pidiendo Pokemon");
+        this.stage.show();
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+
+    public void escenaPreguntaEntrenadorDos() {
+
+    }
+}
