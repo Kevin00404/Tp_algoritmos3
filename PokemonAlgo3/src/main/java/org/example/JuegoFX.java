@@ -63,7 +63,17 @@ public class JuegoFX extends Application {
     public void crearEscenaPedidoPokemonActual(Stage primaryStage) throws IOException {
         stage = primaryStage;
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
-        scene = new Scene(fxmlloader.load(), 1920, 1080);
+
+        double screenWidth = stage.getWidth();
+        double screenHeight = stage.getHeight();
+
+        double widthPercentage = 1.0;
+        double heightPercentage = 1.0;
+
+        double windowWidth = screenWidth * widthPercentage;
+        double windowHeight = screenHeight * heightPercentage;
+
+        scene = new Scene(fxmlloader.load(), windowWidth, windowHeight);
 
     }
 

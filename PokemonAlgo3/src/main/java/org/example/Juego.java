@@ -11,11 +11,16 @@ import org.example.items.*;
 import org.example.jugada.Jugada;
 import org.example.jugada.JugadaFactory;
 import org.example.pokebola.Pokebola;
+import org.example.pokemon.Pokemon;
 import org.example.pokemon.PokemonBuilder;
 
 public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
+
+    private Entrenador entrenador_actual;
+    private Entrenador entrenador_no_actual;
+
     final Integer POKEMONES_POR_POKEBOLA = 6;
     public ModificacionEstadistica modificacionEstadisticaPokemon;
     private Scanner scanner;
@@ -72,6 +77,8 @@ public class Juego {
             pasarTurno = jugada.jugar();
             Eventos.getEventos().ejecutarEvento();
         }
+        entrenador_actual=oponente;
+        entrenador_no_actual=jugador;
     }
 
     public Entrenador crearEntrenador1(String nombre){
@@ -117,6 +124,7 @@ public class Juego {
         entrenador1.cambiarPokemonActual("");
 
         entrenador2.cambiarPokemonActual("");
+
     }
 
 
@@ -185,6 +193,23 @@ public class Juego {
     }
     public String getEntrenadorDosNombre(){
         return this.entrenador2.getNombre();
+    }
+
+    public Double getVidaPokemonAtacante() {
+        System.out.println("hola");
+        System.out.println(entrenador_actual.getPokemonActual());
+        System.out.println(entrenador1.getPokemonActual());
+        return entrenador_actual.getPokemonActual().getEstadisticas().getVida();
+    }
+    public String getNombrePokemonAtacante(){
+        return entrenador_actual.getPokemonActual().getNombre();
+    }
+    public String getNombrePokemon_a_Atacar(){
+        return entrenador_no_actual.getPokemonActual().getNombre();
+    }
+
+    public Entrenador getEntrenador_no_actual() {
+        return entrenador_no_actual;
     }
 
     public ArrayList<String> getPokemonesPokebolaUno() {

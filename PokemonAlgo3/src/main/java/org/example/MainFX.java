@@ -36,16 +36,16 @@ public class MainFX extends Application {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
         Parent root = fxmlloader.load();
 
+        //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
         PedirNombresController pedirNombres = fxmlloader.getController();
         pedirNombres.setPrimaryStage(primeStage);
         pedirNombres.setJuego(new Juego());
 
-        Scene scene = new Scene(root, 1920, 1080);
+        Scene scene = new Scene(root, primeStage.getWidth(), primeStage.getHeight());
+
+
         primeStage.setScene(scene);
         primeStage.setTitle("Pidiendo Nombre");
         primeStage.show();
-
-
     }
-
 }

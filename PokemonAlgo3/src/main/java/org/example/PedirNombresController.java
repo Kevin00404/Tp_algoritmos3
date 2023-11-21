@@ -44,6 +44,7 @@ public class PedirNombresController {
         String nombre_ingresado = nombre_jugador_1.getText();
         this.juego.setEntrenador2(juego.crearEntrenador2(nombre_ingresado));
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
+        //Aqui se guardan los atributos
         Parent root = fxmlloader.load();
 
         PedirPokemonController pedirPokemon = fxmlloader.getController();
@@ -51,7 +52,8 @@ public class PedirNombresController {
         pedirPokemon.setJuego(this.juego);
         pedirPokemon.inicializarDataPrimerJugador();
 
-        Scene scene = new Scene(root, 1920, 1080);
+        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+
         this.stage.setScene(scene);
         this.stage.setTitle("Pidiendo Pokemon");
         this.stage.show();
