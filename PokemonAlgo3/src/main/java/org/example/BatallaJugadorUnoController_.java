@@ -126,14 +126,14 @@ public class BatallaJugadorUnoController_ {
         this.stage.show();
     }
 
-    @FXML
-    private void clickRendirse() throws IOException {
-        try {
-            activarEscenaRendirse();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
+//    @FXML
+//    private void clickRendirse() throws IOException {
+//        try {
+//            activarEscenaRendirse();
+//        } catch (IOException ex) {
+//            throw new RuntimeException(ex);
+//        }
+//    }
 
 
     public void activarEscenaRendirse(){

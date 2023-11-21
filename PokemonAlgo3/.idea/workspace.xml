@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ElegirPokemonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/batalla_uno.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/elegirPokemon.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PedirNombresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirNombresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/BatallaJugadorUno.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
