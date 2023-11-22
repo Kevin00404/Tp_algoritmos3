@@ -36,7 +36,9 @@ public class Entrenador {
 
     public void cambiarPokemonActual(String pokemon){
         Log.getLog().log(this.nombre + " elegi tu pokemon: ");
+        System.out.println(42);
         this.pokemonActual = pokebola.cambiarPokemon(pokemon);
+        System.out.println(this.pokemonActual.getNombre());
     }
 
     public boolean murio(){

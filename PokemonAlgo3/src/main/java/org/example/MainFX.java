@@ -41,7 +41,7 @@ public class MainFX extends Application {
         pedirNombres.setPrimaryStage(primeStage);
         pedirNombres.setJuego(new Juego());
 
-        Scene scene = new Scene(root, primeStage.getWidth(), primeStage.getHeight());
+        Scene scene = new Scene(root);
 
 
         primeStage.setScene(scene);

@@ -37,7 +37,6 @@ public class PedirNombresController {
                 throw new RuntimeException(ex);
             }
         });
-        System.out.println("Se setea nueva accion en el boton");
     }
     @FXML
     public void activarEscenaPedirPokemon() throws IOException {
@@ -63,7 +62,5 @@ public class PedirNombresController {
         this.juego = juego;
     }
 
-    public void escenaPreguntaEntrenadorDos() {
 
-    }
 }

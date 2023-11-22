@@ -52,27 +52,25 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void inicializarDatosdeBatalla() {
-
         crear_barras_de_vida();
         nombre_jugador_actual.setText(juego.getEntrenadorUnoNombre());
         nombre_jugador_no_actual.setText(juego.getEntrenadorDosNombre());
         info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
+        //Se asigna que las barras en vista sean las del juego: se guardan en un metodo weight que no tiene relacion con el valor real del progreso en el javaFX
+      barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemonAtacante());
+      barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemon_a_Atacar());
 
-       ///////////////////////// manejo_barra_vida_turno();
-
-        //Se asigna que las barras en vista sean las del juego:
-      //////////////////  barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemonAtacante());
-     ////////////////   barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemon_a_Atacar());
-
-
+        manejo_barra_vida_turno();
     }
-    //////////Descomentar una vez arreglado que al llegar a esta escena ya estan seteados lso entrenadores con su pokemon actual.
-//    private void manejo_barra_vida_turno(){
-//        Double vida_actual=juego.getVidaPokemonAtacante();
-//        Double vida_max=barras_vida_pokemones.get(juego.getNombrePokemonAtacante()).getMaxHeight();
-//        cant_vida.setText(vida_actual+"/"+vida_max);
-//    }
-////////////////////////////////
+
+    private void manejo_barra_vida_turno(){
+        Double vida_actual=juego.getVidaPokemonAtacante();
+        Double vida_max=barras_vida_pokemones.get(juego.getNombrePokemonAtacante()).getMaxWidth();
+        cant_vida.setText(vida_actual+"/"+vida_max);
+
+        cant_vida.setText(String.format("%.2f", vida_actual)+"/"+String.format("%.2f", vida_max));
+    }
+
 
 //Crea un mapa del estilo <NombrePOkemon, barra_de_Vida>  con la barra de vida maxima segun la vida con la que inica cada Pokemon.
         private void crear_barras_de_vida() {
@@ -83,14 +81,14 @@ public class BatallaJugadorUnoController_ {
 
             for (HashMap.Entry<String,Double> entry : dicc_vidasMax.entrySet()) {
                 ProgressBar barra_vida=new ProgressBar();
-                barra_vida.setMaxHeight(entry.getValue());
+                barra_vida.setMaxWidth(entry.getValue());
                 barras_vida_pokemones.put(entry.getKey(),barra_vida);
             }
 
             dicc_vidasMax=juego.entrenador2.diccionario_Pokemon_vidaMax();
             for (HashMap.Entry<String,Double> entry : dicc_vidasMax.entrySet()) {
                 ProgressBar barra_vida=new ProgressBar();
-                barra_vida.setMaxHeight(entry.getValue());
+                barra_vida.setMaxWidth(5555555);
                 barras_vida_pokemones.put(entry.getKey(),barra_vida);
             }
     }
@@ -108,18 +106,17 @@ public class BatallaJugadorUnoController_ {
         }
     }
     public void activarEscenaCambiarPokemon() throws IOException{
-        System.out.println(1444);
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirPokemon.fxml"));
-        System.out.println(1222);
         Parent root = fxmlloader.load();
-        System.out.println(1);
+
 
         ElegirPokemonController elegirPokemones = fxmlloader.getController();
         elegirPokemones.setPrimaryStage(this.stage);
         elegirPokemones.setJuego(this.juego);
-        System.out.println(333);
-        elegirPokemones.inicializarDataPokemones();
-        System.out.println(2);
+        ArrayList<String> lista_pokemones=juego.getPokemonesPokebolaJugadorActual();
+        elegirPokemones.inicializarDataPokemones(barras_vida_pokemones,lista_pokemones);
+
+
         Scene scene = new Scene(root);
         this.stage.setScene(scene);
         this.stage.setTitle("Batalla");
@@ -138,6 +135,7 @@ public class BatallaJugadorUnoController_ {
     public void activarEscenaRendirse_()throws IOException{
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionRendirse.fxml"));
         //Aqui se guardan los atributos
+
         Parent root = fxmlloader.load();
 
         ConfirmarRendirseController confirmar_rendirse = fxmlloader.getController();
