@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ConfirmarRendirseController">
+<children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <children>
+            <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <ImageView fx:id="clima" fitHeight="368.0" fitWidth="664.0" layoutX="1.0" layoutY="-90.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/campo.jpg" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="434.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/1_Hxptm5gIRc3HyYXzw5nfpw.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/cham.jpg" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="654.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/texto.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="134.0" fitWidth="314.0" layoutX="318.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/opciones.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="200.0" layoutX="211.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/Datos_jugador_a_atacar.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="nombre_jugador_no_actual" layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre" wrappingWidth="178.93670654296875" />
+            <ProgressBar fx:id="barra_vida_no_actual" layoutX="237.0" layoutY="37.0" prefHeight="18.0" prefWidth="162.0" progress="1.0" style="-fx-background-color: green; -fx-border-color: green;" />
+            <ImageView fitHeight="75.0" fitWidth="227.0" layoutX="255.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Imgs/Datos_jugador_Actual.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="nombre_jugador_actual" layoutX="269.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre" wrappingWidth="199.99999999999994" />
+            <ProgressBar fx:id="barra_vida_actual" layoutX="304.0" layoutY="214.0" prefHeight="18.0" prefWidth="162.0" progress="1.0" />
+            <Text fx:id="cant_vida" layoutX="385.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cant_Vida" wrappingWidth="90.93670654296875" />
+            <TabPane layoutX="137.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+            <Label layoutX="28.0" layoutY="271.0" prefHeight="86.0" prefWidth="298.0" text="¿Seguro que quieres">
+                <font>
+                    <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="317.0" prefHeight="57.0" prefWidth="179.0" text="rendirte?">
+                <font>
+                    <Font name="Comic Sans MS Bold Italic" size="26.0" />
+                </font>
+            </Label>
+            <Button fx:id="siRendirse" layoutX="365.0" layoutY="308.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" text="Sí" onAction="#clickBotonSi"/>
+            <Button fx:id="NorRndirse" layoutX="489.0" layoutY="308.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" text="No" onAction="#clickBotonNo"/>
+        </children>
+    </AnchorPane>
+</children>
+</VBox>

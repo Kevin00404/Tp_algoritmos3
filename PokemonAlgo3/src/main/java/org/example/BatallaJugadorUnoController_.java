@@ -107,7 +107,7 @@ public class BatallaJugadorUnoController_ {
             throw new RuntimeException(ex);
         }
     }
-    private void activarEscenaCambiarPokemon() throws IOException{
+    public void activarEscenaCambiarPokemon() throws IOException{
         System.out.println(1444);
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirPokemon.fxml"));
         System.out.println(1222);
@@ -120,25 +120,39 @@ public class BatallaJugadorUnoController_ {
         System.out.println(333);
         elegirPokemones.inicializarDataPokemones();
         System.out.println(2);
-        Scene scene = new Scene(root, 1920, 1080);
+        Scene scene = new Scene(root);
         this.stage.setScene(scene);
         this.stage.setTitle("Batalla");
         this.stage.show();
     }
 
-//    @FXML
-//    private void clickRendirse() throws IOException {
-//        try {
-//            activarEscenaRendirse();
-//        } catch (IOException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//    }
+    @FXML
+    public void activarEscenaRendirse() throws IOException {
+        try {
+            activarEscenaRendirse_();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void activarEscenaRendirse_()throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionRendirse.fxml"));
+        //Aqui se guardan los atributos
+        Parent root = fxmlloader.load();
+
+        ConfirmarRendirseController confirmar_rendirse = fxmlloader.getController();
+        confirmar_rendirse.setPrimaryStage(this.stage);
+        confirmar_rendirse.setJuego(this.juego);
+        //confirmar_rendirse.inicializarDataEscenaConfirmarRedirse();  //Carga los datos de imagenes y nombres correctos
+
+        Scene scene = new Scene(root);
+
+        this.stage.setScene(scene);
+        this.stage.setTitle("Pidiendo Pokemon");
+        this.stage.show();
 
 
-    public void activarEscenaRendirse(){
-        System.out.println();
-        //Se debe configurar el boton, no crear toda una escena/
+
 
     }
 

@@ -52,7 +52,7 @@ public class PedirNombresController {
         pedirPokemon.setJuego(this.juego);
         pedirPokemon.inicializarDataPrimerJugador();
 
-        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        Scene scene = new Scene(root);
 
         this.stage.setScene(scene);
         this.stage.setTitle("Pidiendo Pokemon");
