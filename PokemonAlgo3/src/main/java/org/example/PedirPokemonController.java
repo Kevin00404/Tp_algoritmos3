@@ -113,6 +113,9 @@ public class PedirPokemonController {
 
         Scene scene = new Scene(root);
         this.stage.setScene(scene);
+
+        batallaUno.guardarEscenaBatalla(this.stage,scene);
+
         this.stage.setTitle("Batalla");
         this.stage.show();
     }

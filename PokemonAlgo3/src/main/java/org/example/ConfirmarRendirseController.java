@@ -2,6 +2,7 @@ package org.example;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,13 +21,18 @@ public class ConfirmarRendirseController {
     @FXML
     public Text cant_vida;
 
+    public Stage escenaBatalla;
+    public Scene escenaBatallaParametro;
+
     @FXML
     public void clickBotonSi(ActionEvent actionEvent) {
     }
 
     @FXML
     public void clickBotonNo(ActionEvent actionEvent) {
-        
+        escenaBatalla.setScene(escenaBatallaParametro);
+        escenaBatalla.setTitle("as");
+        escenaBatalla.show();
     }
 
 
@@ -52,4 +58,8 @@ public class ConfirmarRendirseController {
     }
 
 
+    public void guardarEscenaBatalla(Stage escenaBatalla, Scene escenaBatallaParametro) {
+        this.escenaBatalla=escenaBatalla;
+        this.escenaBatallaParametro=escenaBatallaParametro;
+    }
 }

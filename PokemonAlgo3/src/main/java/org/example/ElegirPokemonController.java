@@ -92,19 +92,41 @@ public class ElegirPokemonController implements Initializable {
 
     @FXML
     public void clickBotonPrimero() throws IOException {
-        juego.cambiaPokemonJugadorActual(pokemonesDisponibles.get(0));
-
-        cambiarEscenaConfirmarCambioPokemon();
+        cambiarEscenaConfirmarCambioPokemon(pokemonesDisponibles.get(0));
 
     }
+    @FXML
+    public void clickBotonSegundo() throws IOException {
+        cambiarEscenaConfirmarCambioPokemon(pokemonesDisponibles.get(1));
 
-    private void cambiarEscenaConfirmarCambioPokemon() throws IOException {
+    }
+    @FXML
+    public void clickBotonTercero() throws IOException {
+        cambiarEscenaConfirmarCambioPokemon(pokemonesDisponibles.get(2));
+
+    }
+    @FXML
+    public void clickBotonCuarto() throws IOException {
+        cambiarEscenaConfirmarCambioPokemon(pokemonesDisponibles.get(4));
+
+    }
+    @FXML
+    public void clickBotonQuinto() throws IOException {
+        cambiarEscenaConfirmarCambioPokemon(pokemonesDisponibles.get(5));
+    }
+
+
+
+
+    private void cambiarEscenaConfirmarCambioPokemon(String nombreNBuevoPOkemonActual) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionRendirseEstasSeguro.fxml"));
         Parent root = fxmlloader.load();
         ConfirmacionCambiarPokemonController cambiarPokemonConfirmar = fxmlloader.getController();
         cambiarPokemonConfirmar.setPrimaryStage(this.stage);
         cambiarPokemonConfirmar.setJuego(this.juego);
-        cambiarPokemonConfirmar.inicializarDataDeFondo();
+
+
+        cambiarPokemonConfirmar.inicializarDataDeFondo(nombreNBuevoPOkemonActual);
 
         Scene scene = new Scene(root);
         this.stage.setScene(scene);

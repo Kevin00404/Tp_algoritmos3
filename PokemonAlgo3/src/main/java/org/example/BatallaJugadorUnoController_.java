@@ -40,6 +40,9 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public Text cant_vida;
 
+    public Stage escenaBatalla;
+    public Scene escenaBatallaParametro;
+
     public HashMap<String, ProgressBar> barras_vida_pokemones;
 
 
@@ -146,6 +149,10 @@ public class BatallaJugadorUnoController_ {
         Scene scene = new Scene(root);
 
         this.stage.setScene(scene);
+
+
+        confirmar_rendirse.guardarEscenaBatalla(escenaBatalla,escenaBatallaParametro);
+
         this.stage.setTitle("Pidiendo Pokemon");
         this.stage.show();
 
@@ -155,5 +162,8 @@ public class BatallaJugadorUnoController_ {
     }
 
 
-
+    public void guardarEscenaBatalla(Stage stage,Scene escena) {
+        this.escenaBatalla=stage;
+        this.escenaBatallaParametro=escenaBatallaParametro;
+    }
 }
