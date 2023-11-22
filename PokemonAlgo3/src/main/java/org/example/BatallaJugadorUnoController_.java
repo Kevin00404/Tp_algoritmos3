@@ -143,7 +143,7 @@ public class BatallaJugadorUnoController_ {
         ConfirmarRendirseController confirmar_rendirse = fxmlloader.getController();
         confirmar_rendirse.setPrimaryStage(this.stage);
         confirmar_rendirse.setJuego(this.juego);
-        //confirmar_rendirse.inicializarDataEscenaConfirmarRedirse();  //Carga los datos de imagenes y nombres correctos
+        confirmar_rendirse.inicializarDataEscenaConfirmarRedirse(nombre_jugador_actual,nombre_jugador_no_actual,barra_vida_actual,barra_vida_no_actual,cant_vida);  //Carga los datos de imagenes y nombres correctos
 
         Scene scene = new Scene(root);
 
