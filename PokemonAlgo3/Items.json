@@ -1,62 +1,56 @@
 [
   {
     "nombre": "Hiper Poción",
-    "id": 4,
-    "disponibilidad": 10,
+    "id": 1,
+    "disponibilidad": 1,
     "valor": 100
   },
   {
     "nombre": "Defensa x",
-    "id": 37,
-    "disponibilidad": 10,
+    "id": 2,
+    "disponibilidad": 2,
     "valor": 20
   },
   {
     "nombre": "Cura Total",
-    "id": 67,
-    "disponibilidad": 10,
+    "id": 3,
+    "disponibilidad": 1,
     "valor": 20
   },
   {
     "nombre": "Revivir",
-    "id": 12,
-    "disponibilidad": 8,
+    "id": 4,
+    "disponibilidad": 1,
     "valor": 15
   },
   {
-    "nombre": "AntiConfusion",
-    "id": 22,
-    "disponibilidad": 10,
+    "nombre": "Ataque X",
+    "id": 5,
+    "disponibilidad": 1,
     "valor": 0
   },
   {
     "nombre": "Despertar",
-    "id": 53,
-    "disponibilidad": 10,
+    "id": 6,
+    "disponibilidad": 1,
     "valor": 0
   },
   {
-    "nombre": "Caramelo Raro",
-    "id": 79,
-    "disponibilidad": 9,
+    "nombre": "Pocion",
+    "id": 7,
+    "disponibilidad": 1,
     "valor": 30
   },
   {
     "nombre": "AntiParalizar",
-    "id": 227,
-    "disponibilidad": 11,
-    "valor": 0
-  },
-  {
-    "nombre": "Despertar",
-    "id": 227,
-    "disponibilidad": 11,
+    "id": 8,
+    "disponibilidad": 1,
     "valor": 0
   },
   {
     "nombre": "Antidoto",
-    "id": 227,
-    "disponibilidad": 11,
+    "id": 9,
+    "disponibilidad": 1,
     "valor": 0
   }
 ]
