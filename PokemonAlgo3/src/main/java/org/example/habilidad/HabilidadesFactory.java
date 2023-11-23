@@ -5,11 +5,13 @@ import org.example.Elemento.*;
 import org.example.Estadistica.ModAtaque;
 import org.example.Estadistica.ModDefensa;
 import org.example.Estadistica.ModVelocidad;
+import org.example.JSON.LeerArchivoJson;
 import org.example.Log.Log;
 import org.example.estado.EstadoConfuso;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.Random;
@@ -21,7 +23,10 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
     public HabilidadesFactory(){
         bibliotecaHabilidades = new Hashtable<Integer, Habilidad>();
         habilidades = new Hashtable<Integer, Habilidad>();
-        crearBiblioteca();
+        crearBibliotecaConJSON("HabilidadesAtaque.json");
+        crearBibliotecaConJSON("HabilidadesEstadistica.json");
+        crearBibliotecaConJSON("HabilidadesEstado.json");
+        crearBibliotecaConJSON("HabilidadesTerreno.json");
         //generadorHabilidadesRandom();
         generarHabilidadesEspecificas();
     }
@@ -141,37 +146,49 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades.put(79, new HabilidadModificacionTerreno("huracan", 25, new Huracan()));
     }
 
-    private void crearBibliotecaConJSON(JSONObject habilidad) {
-        if (habilidad.get("tipo") != null) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadAtaque((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), obtenerElemento((String) habilidad.get("elemento")), (Double) habilidad.get("potencia")));
+    public void crearBibliotecaConJSON(String path) {
+        LeerArchivoJson json = new LeerArchivoJson();
+        JSONArray habilidades = json.obtenerArrayJSON(path);
+        for (int i = 0; i < habilidades.size(); i++){
+            crearHabilidad((JSONObject) habilidades.get(i));
+        }
+    }
+
+    private void crearHabilidad(JSONObject habilidad) {
+        if (habilidad.get("tipo").equals("")) {
+            Long potencia = (Long) habilidad.get("potencia");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadAtaque((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), obtenerElemento((String) habilidad.get("elemento")), potencia.doubleValue()));
         } else if (((habilidad.get("tipo")).equals("defensa"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModDefensa((Double) habilidad.get("valor"))));
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModDefensa(valor.doubleValue())));
         } else if (((habilidad.get("tipo")).equals("ataque"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModAtaque((Double) habilidad.get("valor"))));
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModAtaque(valor.doubleValue())));
         } else if (((habilidad.get("tipo")).equals("velocidad"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new ModVelocidad((Double) habilidad.get("valor"))));
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModVelocidad(valor.doubleValue())));
         } else if (((habilidad.get("tipo")).equals("dormido"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoDormido()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoDormido()));
         } else if (((habilidad.get("tipo")).equals("envenenado"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoEnvenenado()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoEnvenenado()));
         } else if (((habilidad.get("tipo")).equals("paralizado"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoParalizado()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoParalizado()));
         } else if (((habilidad.get("tipo")).equals("confuso"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionEstado((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new EstadoConfuso()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoConfuso()));
         } else if (((habilidad.get("tipo")).equals("soleado"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Soleado()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Soleado()));
         } else if (((habilidad.get("tipo")).equals("lluvia"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Lluvia()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Lluvia()));
         } else if (((habilidad.get("tipo")).equals("granizo"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Granizo()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Granizo()));
         } else if (((habilidad.get("tipo")).equals("tormentaDeRayo"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new TormentaDeRayo()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new TormentaDeRayo()));
         } else if (((habilidad.get("tipo")).equals("tormentaDeArena"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new TormentaDeArena()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new TormentaDeArena()));
         } else if (((habilidad.get("tipo")).equals("niebla"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Niebla()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Niebla()));
         } else if (((habilidad.get("tipo")).equals("huracan"))) {
-            bibliotecaHabilidades.put((int) habilidad.get("id"), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), (int) habilidad.get("disponibles"), new Huracan()));
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Huracan()));
         }
     }
 

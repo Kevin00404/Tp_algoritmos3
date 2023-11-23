@@ -3,96 +3,112 @@
     "id": 57,
     "nombre": "chispa",
     "disponibles": 25,
-    "tipo": "paralizado"
+    "tipo": "paralizado",
+    "elemento": ""
   },
   {
     "id": 58,
     "nombre": "dragonAliento",
     "disponibles": 25,
-    "tipo": "paralizado"
+    "tipo": "paralizado",
+    "elemento": ""
   },
   {
     "id": 59,
     "nombre": "salpikaSurf",
     "disponibles": 25,
-    "tipo": "paralizado"
+    "tipo": "paralizado",
+    "elemento": ""
   },
   {
     "id": 60,
     "nombre": "paralizador",
     "disponibles": 25,
-    "tipo": "paralizado"
+    "tipo": "paralizado",
+    "elemento": ""
   },
   {
     "id": 61,
     "nombre": "palmeo",
     "disponibles": 25,
-    "tipo": "paralizado"
+    "tipo": "paralizado",
+    "elemento": ""
   },
   {
     "id": 62,
     "nombre": "bostezo",
     "disponibles": 25,
-    "tipo": "dormido"
+    "tipo": "dormido",
+    "elemento": ""
   },
   {
     "id": 63,
     "nombre": "espora",
     "disponibles": 25,
-    "tipo": "dormido"
+    "tipo": "dormido",
+    "elemento": ""
   },
   {
     "id": 64,
     "nombre": "gigasopor",
     "disponibles": 25,
-    "tipo": "dormido"
+    "tipo": "dormido",
+    "elemento": ""
   },
   {
     "id": 65,
     "nombre": "hipnosis",
     "disponibles": 25,
-    "tipo": "dormido"
+    "tipo": "dormido",
+    "elemento": ""
   },
   {
     "id": 66,
     "nombre": "besoAmoroso",
     "disponibles": 25,
-    "tipo": "dormido"
+    "tipo": "dormido",
+    "elemento": ""
   },
   {
     "id": 67,
     "nombre": "bombaLodo",
     "disponibles": 25,
-    "tipo": "envenenado"
+    "tipo": "envenenado",
+    "elemento": ""
   },
   {
     "id": 68,
     "nombre": "gasVenenoso",
     "disponibles": 25,
-    "tipo": "envenenado"
+    "tipo": "envenenado",
+    "elemento": ""
   },
   {
     "id": 69,
     "nombre": "gigaDescarga",
     "disponibles": 25,
-    "tipo": "envenenado"
+    "tipo": "envenenado",
+    "elemento": ""
   },
   {
     "id": 70,
     "nombre": "gigaEstupor",
     "disponibles": 25,
-    "tipo": "envenenado"
+    "tipo": "envenenado",
+    "elemento": ""
   },
   {
     "id": 71,
     "nombre": "picotazoVeneno",
     "disponibles": 25,
-    "tipo": "envenenado"
+    "tipo": "envenenado",
+    "elemento": ""
   },
   {
     "id": 72,
     "nombre": "psiquico",
     "disponibles": 25,
-    "tipo": "confuso"
+    "tipo": "confuso",
+    "elemento": ""
   }
 ]

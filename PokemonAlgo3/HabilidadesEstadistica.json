@@ -1,184 +1,210 @@
 [
   {
     "id": 31,
-    "nombre": "domador\" , 25, new ModDefensa(20.0)));",
+    "nombre": "domador",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 32,
     "nombre": "descarga",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 33,
     "nombre": "ignicion",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 34,
     "nombre": "mantoFrondoso",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 35,
     "nombre": "escamaEspecial",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 36,
     "nombre": "rociador",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 37,
     "nombre": "defensaLodo",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 38,
     "nombre": "domado",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 39,
     "nombre": "voltaje",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 40,
     "nombre": "mareoIgneo",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 41,
     "nombre": "enredadera",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 42,
     "nombre": "mareoEscamoso",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 43,
     "nombre": "chapotear",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 44,
     "nombre": "lanzaLodo",
     "disponibles": 25,
     "tipo": "defensa",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 45,
     "nombre": "ojoCompuesto",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 46,
     "nombre": "torrente",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 47,
     "nombre": "paraRayos",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 48,
     "nombre": "intimidacion",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": -5
+    "valor": -5,
+    "elemento": ""
   },
   {
     "id": 49,
     "nombre": "sumergido",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": -5
+    "valor": -5,
+    "elemento": ""
   },
   {
     "id": 50,
     "nombre": "enterrado",
     "disponibles": 25,
     "tipo": "ataque",
-    "valor": -5
+    "valor": -5,
+    "elemento": ""
   },
   {
     "id": 51,
     "nombre": "impulso",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 52,
     "nombre": "nadoRapido",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 53,
     "nombre": "clorofila",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": 20
+    "valor": 20,
+    "elemento": ""
   },
   {
     "id": 54,
     "nombre": "coabrdia",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": -20
+    "valor": -20,
+    "elemento": ""
   },
   {
     "id": 55,
     "nombre": "colaSurf",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": -20
+    "valor": -20,
+    "elemento": ""
   },
   {
     "id": 56,
     "nombre": "impetuArena",
     "disponibles": 25,
     "tipo": "velocidad",
-    "valor": -20
+    "valor": -20,
+    "elemento": ""
   }
 ]
