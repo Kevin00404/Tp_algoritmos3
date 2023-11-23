@@ -19,16 +19,16 @@ public class ConfirmacionCambiarPokemonController {
     }
 
 
-@FXML
+    @FXML
     public void clickSiSeguro(){
-    System.out.println(222);
-        juego.cambiaPokemonJugadorActual(this.nombreNuevoPokemonActual);
-        System.out.println(juego.getPokemonActualNombre());
-}
-@FXML
-public void clickNoSeguro(){
-        //llamara a escena anterior
-}
+        System.out.println(222);
+            juego.cambiaPokemonJugadorActual(this.nombreNuevoPokemonActual);
+            System.out.println(juego.getPokemonActualNombre());
+    }
+    @FXML
+    public void clickNoSeguro(){
+            //llamara a escena anterior
+    }
 
 
 

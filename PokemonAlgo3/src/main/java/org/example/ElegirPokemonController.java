@@ -119,7 +119,7 @@ public class ElegirPokemonController implements Initializable {
 
 
     private void cambiarEscenaConfirmarCambioPokemon(String nombreNBuevoPOkemonActual) throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionRendirseEstasSeguro.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionCambiarPokemon.fxml"));
         Parent root = fxmlloader.load();
         ConfirmacionCambiarPokemonController cambiarPokemonConfirmar = fxmlloader.getController();
         cambiarPokemonConfirmar.setPrimaryStage(this.stage);
