@@ -1,9 +1,11 @@
 package org.example;
+import java.io.IOException;
 import java.util.Scanner;
 
 import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.*;
 import org.example.Estadistica.ModificacionEstadistica;
+import org.example.JSON.LeerArchivoJson;
 import org.example.Log.Log;
 import org.example.Eventos.Eventos;
 import org.example.items.*;
@@ -11,12 +13,13 @@ import org.example.jugada.Jugada;
 import org.example.jugada.JugadaFactory;
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.PokemonBuilder;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class Juego {
     Entrenador entrenador1;
     Entrenador entrenador2;
     final Integer POKEMONES_POR_POKEBOLA = 6;
-    public ModificacionEstadistica modificacionEstadisticaPokemon;
     private Scanner scanner;
     public Juego(){
         scanner = new Scanner(System.in);
@@ -24,6 +27,26 @@ public class Juego {
     public void iniciar_Juego(){
         this.inicializar();
         this.batalla();
+    }
+
+    public void iniciarJuegoConJSON(String path) throws IOException {
+        LeerArchivoJson json = new LeerArchivoJson();
+        JSONArray partida = json.obtenerArrayJSON(path);
+        for (int i = 0; i < partida.size(); i++){
+            JSONObject entrenador = (JSONObject) partida.get(i);
+            crearEntrenador((String) entrenador.get("nombre"), (Long) entrenador.get("pokemons"), i);
+        }
+        this.batalla();
+    }
+
+    private void crearEntrenador(String nombre, Long pokemons, int nro) {
+        if (nro == 0) {
+            this.entrenador1 = crearEntrenador1(nombre, pokemons.intValue());
+            entrenador1.cambiarPokemonActual();
+        } else {
+            this.entrenador2 = crearEntrenador2(nombre, pokemons.intValue());
+            entrenador2.cambiarPokemonActual();
+        }
     }
 
     public void batalla() {
@@ -91,9 +114,45 @@ public class Juego {
         return entrenador;
     }
 
+    public Entrenador crearEntrenador1(String nombre, Integer cantidadPokemones){
+        Mochila mochilaEntrenador = inicializarItems();
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
+        Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Charmander").setElemento(new Fuego()).setHistoria("Nacio en un volcan(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Pikachu").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Bulbasaur").setElemento(new Planta()).setHistoria("Nacio en un bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
+        return entrenador;
+    }
+
     public Entrenador crearEntrenador2(){
         Mochila mochilaEntrenador = inicializarItems();
         Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(2));
+        PokemonBuilder pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Swampert").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Claydol").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Exploud").setElemento(new Normal()).setHistoria("Nacio en un bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
+        pokemonBuilder = new PokemonBuilder();
+        entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
+        return entrenador;
+    }
+
+    public Entrenador crearEntrenador2(String nombre, Integer cantidadPokemones){
+        Mochila mochilaEntrenador = inicializarItems();
+        Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();

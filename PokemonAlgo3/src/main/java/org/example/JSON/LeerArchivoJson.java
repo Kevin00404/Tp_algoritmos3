@@ -34,4 +34,23 @@ public class LeerArchivoJson {
         String dato = (String) actual.get("nombre");
         System.out.println(actual.get("id"));
     }
+
+    public JSONArray obtenerArrayJSON(String ruta){
+        String path = String.valueOf(Paths.get(ruta));
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader fr = new FileReader(path);
+            Object obj = parser.parse(fr);
+            JSONArray pkmn = (JSONArray) obj;
+            return pkmn;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
 }

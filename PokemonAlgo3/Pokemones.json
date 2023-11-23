@@ -1,7 +1,7 @@
 [
   {
     "nombre": "Bulbasaur",
-    "id": 10,
+    "id": 1,
     "nivel": 5,
     "tipo": "planta",
     "historia": "Esta es una historia",
@@ -13,7 +13,7 @@
   },
   {
     "nombre": "Charmander",
-    "id": 7,
+    "id": 2,
     "nivel": 6,
     "tipo": "fuego",
     "historia": "Esta es una historia",
@@ -25,7 +25,7 @@
   },
   {
     "nombre": "Squirtle",
-    "id": 4,
+    "id": 3,
     "nivel": 5,
     "tipo": "agua",
     "historia": "Esta es una historia",
@@ -37,7 +37,7 @@
   },
   {
     "nombre": "Pikachu",
-    "id": 25,
+    "id": 4,
     "nivel": 8,
     "tipo": "eléctrico",
     "historia": "Este Pokémon es conocido por su cola con forma de rayo.",
@@ -49,7 +49,7 @@
   },
   {
     "nombre": "Jigglypuff",
-    "id": 39,
+    "id": 5,
     "nivel": 7,
     "tipo": "hada",
     "historia": "Jigglypuff canta una linda canción que induce el sueño en quienes la escuchan.",
@@ -61,7 +61,7 @@
   },
   {
     "nombre": "Geodude",
-    "id": 74,
+    "id": 6,
     "nivel": 6,
     "tipo": "roca",
     "historia": "Geodude es un Pokémon de tipo roca que se encuentra comúnmente en cuevas y montañas.",
@@ -73,7 +73,7 @@
   },
   {
     "nombre": "Eevee",
-    "id": 133,
+    "id": 7,
     "nivel": 5,
     "tipo": "normal",
     "historia": "Eevee es conocido por su habilidad para evolucionar en múltiples formas.",
@@ -85,7 +85,7 @@
   },
   {
     "nombre": "Vulpix",
-    "id": 37,
+    "id": 8,
     "nivel": 6,
     "tipo": "fuego",
     "historia": "Vulpix tiene una cola de fuego que arde con intensidad cuando está feliz.",
@@ -97,7 +97,7 @@
   },
   {
     "nombre": "Spearow",
-    "id": 21,
+    "id": 9,
     "nivel": 7,
     "tipo": "volador",
     "historia": "Spearow es un Pokémon pájaro que vuela a gran velocidad en busca de presas.",
@@ -109,7 +109,7 @@
   },
   {
     "nombre": "Sandshrew",
-    "id": 27,
+    "id": 10,
     "nivel": 6,
     "tipo": "tierra",
     "historia": "Sandshrew se enrolla en una bola para protegerse de los depredadores.",
@@ -121,7 +121,7 @@
   },
   {
     "nombre": "Oddish",
-    "id": 43,
+    "id": 11,
     "nivel": 5,
     "tipo": "planta/veneno",
     "historia": "Oddish emite un aroma dulce y relajante mientras absorbe la luz solar.",
@@ -133,7 +133,7 @@
   },
   {
     "nombre": "Psyduck",
-    "id": 54,
+    "id": 12,
     "nivel": 6,
     "tipo": "agua",
     "historia": "Psyduck sufre dolores de cabeza intensos que desatan poderes psíquicos.",
@@ -145,7 +145,7 @@
   },
   {
     "nombre": "Mankey",
-    "id": 56,
+    "id": 13,
     "nivel": 5,
     "tipo": "lucha",
     "historia": "Mankey se enfurece fácilmente y ataca con furia a cualquier cosa que lo provoque.",
@@ -157,7 +157,7 @@
   },
   {
     "nombre": "Growlithe",
-    "id": 58,
+    "id": 14,
     "nivel": 6,
     "tipo": "fuego",
     "historia": "Growlithe es un compañero leal que protege a su entrenador con valentía.",
@@ -169,7 +169,7 @@
   },
   {
     "nombre": "Poliwag",
-    "id": 60,
+    "id": 15,
     "nivel": 5,
     "tipo": "agua",
     "historia": "Poliwag nada elegantemente con su vientre hinchado, atrapando la atención de los curiosos.",
@@ -181,7 +181,7 @@
   },
   {
     "nombre": "Abra",
-    "id": 63,
+    "id": 16,
     "nivel": 5,
     "tipo": "psíquico",
     "historia": "Abra es capaz de leer mentes, pero suelen dormirse antes de poder hacerlo.",
@@ -193,7 +193,7 @@
   },
   {
     "nombre": "Machop",
-    "id": 66,
+    "id": 17,
     "nivel": 6,
     "tipo": "lucha",
     "historia": "Machop se entrena levantando pesadas piedras para fortalecer sus músculos.",
@@ -205,7 +205,7 @@
   },
   {
     "nombre": "Tentacool",
-    "id": 72,
+    "id": 18,
     "nivel": 5,
     "tipo": "agua/veneno",
     "historia": "Tentacool flota en el océano y atrapa a los desprevenidos con sus tentáculos venenosos.",
@@ -217,7 +217,7 @@
   },
   {
     "nombre": "Doduo",
-    "id": 84,
+    "id": 19,
     "nivel": 6,
     "tipo": "normal/volador",
     "historia": "Doduo corre a gran velocidad y puede esquivar obstáculos con facilidad gracias a sus dos cabezas.",
@@ -229,7 +229,7 @@
   },
   {
     "nombre": "Seel",
-    "id": 86,
+    "id": 20,
     "nivel": 5,
     "tipo": "agua",
     "historia": "Seel disfruta de las aguas frías y nada con gracia en lagos y océanos.",
@@ -241,7 +241,7 @@
   },
   {
     "nombre": "Grimer",
-    "id": 88,
+    "id": 21,
     "nivel": 6,
     "tipo": "veneno",
     "historia": "Grimer se forma a partir de desechos tóxicos y puede disolverse en lodo para evitar ataques.",
