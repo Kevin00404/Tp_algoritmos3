@@ -1,0 +1,58 @@
+[
+    {
+        "id": 73,
+        "nombre": "dia soleado",
+        "disponibles": 25,
+        "tipo": "soleado",
+        "elemento": ""
+    },
+    {
+        "id": 74,
+        "nombre": "danza lluvia",
+        "disponibles": 25,
+        "tipo": "lluvia",
+        "elemento": ""
+    },
+    {
+        "id": 75,
+        "nombre": "granizo",
+        "disponibles": 25,
+        "tipo": "granizo",
+        "elemento": ""
+    },
+    {
+        "id": 76,
+        "nombre": "tormenta electrica",
+        "disponibles": 25,
+        "tipo": "tormentaDeRayo",
+        "elemento": ""
+    },
+    {
+        "id": 77,
+        "nombre": "tormenta de arena",
+        "disponibles": 25,
+        "tipo": "tormentaDeArena",
+        "elemento": ""
+    },
+    {
+        "id": 78,
+        "nombre": "neblina",
+        "disponibles": 25,
+        "tipo": "niebla",
+        "elemento": ""
+    },
+    {
+        "id": 79,
+        "nombre": "huracan",
+        "disponibles": 25,
+        "tipo": "huracan",
+        "elemento": ""
+    }
+]
+
+
+
+
+
+
+

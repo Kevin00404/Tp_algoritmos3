@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "nombre": "ascuas",
+    "disponibles": 25,
+    "elemento": "fuego",
+    "potencia": 40,
+    "tipo": ""
+  },
+  {
+    "id": 2,
+    "nombre": "lanzallamas",
+    "disponibles": 25,
+    "elemento": "fuego",
+    "potencia": 90,
+    "tipo": ""
+  },
+  {
+    "id": 3,
+    "nombre": "hidroCanion",
+    "disponibles": 25,
+    "elemento": "agua",
+    "potencia": 150,
+    "tipo": ""
+  },
+  {
+  "id": 4,
+  "nombre": "rayoBurbuja",
+    "disponibles": 25,
+  "elemento": "agua",
+  "potencia": 65,
+    "tipo": ""
+  },
+  {
+  "id": 5,
+  "nombre": "corteFuria",
+    "disponibles": 25,
+  "elemento": "bicho",
+  "potencia": 40,
+    "tipo": ""
+  },
+  {
+  "id": 6,
+  "nombre": "picadura",
+    "disponibles": 25,
+  "elemento": "bicho",
+  "potencia": 60,
+    "tipo": ""
+  },
+  {
+  "id": 7,
+  "nombre": "cargaDragon",
+    "disponibles": 25,
+  "elemento": "dragon",
+  "potencia": 100,
+    "tipo": ""
+  },
+  {
+  "id": 8,
+  "nombre": "pulsoDragon",
+    "disponibles": 25,
+  "elemento": "dragon",
+  "potencia": 80,
+    "tipo": ""
+  },
+  {
+  "id": 9,
+  "nombre": "impactrueno",
+    "disponibles": 25,
+  "elemento": "electrico",
+  "potencia": 40,
+    "tipo": ""
+  },
+  {
+  "id": 10,
+  "nombre": "electrocanion",
+    "disponibles": 25,
+  "elemento": "electrico",
+  "potencia": 120,
+    "tipo": ""
+  },
+  {
+  "id": 11,
+  "nombre": "bolaSombra",
+    "disponibles": 25,
+  "elemento": "fantasma",
+  "potencia": 80,
+    "tipo": ""
+  },
+  {
+  "id": 12,
+  "nombre": "poltergeist",
+    "disponibles": 25,
+    "elemento": "fantasma",
+  "potencia": 110,
+    "tipo": ""
+  },
+  {
+  "id": 13,
+  "nombre": "rayoHielo",
+    "disponibles": 25,
+  "elemento": "hielo",
+  "potencia": 90,
+    "tipo": ""
+  },
+  {
+  "id": 14,
+  "nombre": "ventisca",
+    "disponibles": 25,
+  "elemento": "hielo",
+  "potencia": 110,
+    "tipo": ""
+  },
+  {
+  "id": 15,
+  "nombre": "demolicion",
+    "disponibles": 25,
+  "elemento": "lucha",
+  "potencia": 75,
+    "tipo": ""
+  },
+  {
+  "id": 16,
+  "nombre": "doblePatada",
+    "disponibles": 25,
+  "elemento": "lucha",
+  "potencia": 60,
+    "tipo": ""
+  },
+  {
+  "id": 17,
+  "nombre": "placaje",
+    "disponibles": 25,
+  "elemento": "normal",
+  "potencia": 40,
+    "tipo": ""
+  },
+  {
+  "id": 18,
+  "nombre": "corte",
+    "disponibles": 25,
+  "elemento": "normal",
+  "potencia": 50,
+    "tipo": ""
+  },
+  {
+  "id": 19,
+  "nombre": "latigoCepa",
+    "disponibles": 25,
+  "elemento": "planta",
+  "potencia": 45,
+    "tipo": ""
+  },
+  {
+  "id": 20,
+  "nombre": "clorofilaser",
+    "disponibles": 25,
+  "elemento": "planta",
+  "potencia": 120,
+    "tipo": ""
+  },
+  {
+  "id": 21,
+  "nombre": "comeSuenios",
+    "disponibles": 25,
+  "elemento": "psiquico",
+  "potencia": 120,
+    "tipo": ""
+  },
+  {
+  "id": 22,
+  "nombre": "psicoRayo",
+    "disponibles": 25,
+  "elemento": "psiquico",
+  "potencia": 120,
+    "tipo": ""
+  },
+  {
+  "id": 23,
+  "nombre": "avalancha",
+    "disponibles": 25,
+  "elemento": "roca",
+  "potencia": 65,
+    "tipo": ""
+  },
+  {
+  "id": 24,
+  "nombre": "lanzaRocas",
+    "disponibles": 25,
+  "elemento": "roca",
+  "potencia": 50,
+    "tipo": ""
+  },
+  {
+  "id": 25,
+  "nombre": "disparoLodo",
+    "disponibles": 25,
+  "elemento": "tierra",
+  "potencia": 55,
+    "tipo": ""
+  },
+  {
+  "id": 26,
+  "nombre": "terremoto",
+    "disponibles": 25,
+  "elemento": "tierra",
+  "potencia": 100,
+    "tipo": ""
+  },
+  {
+  "id": 27,
+  "nombre": "acido",
+    "disponibles": 25,
+  "elemento": "veneno",
+  "potencia": 40,
+    "tipo": ""
+  },
+  {
+  "id": 28,
+  "nombre": "residuos",
+    "disponibles": 25,
+  "elemento": "veneno",
+  "potencia": 65,
+    "tipo": ""
+  },
+  {
+  "id": 29,
+  "nombre": "picoteo",
+    "disponibles": 25,
+  "elemento": "volador",
+  "potencia": 60,
+    "tipo": ""
+  },
+  {
+  "id": 30,
+  "nombre": "tornado",
+    "disponibles": 25,
+  "elemento": "volador",
+  "potencia": 40,
+    "tipo": ""
+}
+]

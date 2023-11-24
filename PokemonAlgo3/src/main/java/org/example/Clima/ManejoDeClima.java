@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ManejoDeClima {
 
-    private Integer MAX_DURACION = 3;
+    private Integer MAX_DURACION = 5;
     private static ManejoDeClima terreno;
     private Climas clima;
 
@@ -15,6 +15,7 @@ public class ManejoDeClima {
 
     private ManejoDeClima(){
         clima = setClima();
+        //clima = setClimaEspecifico();
         duracion = MAX_DURACION;
     }
 
@@ -85,5 +86,9 @@ public class ManejoDeClima {
 
     public void setDuracion(Integer duracion) {
         this.duracion = duracion;
+    }
+
+    private static Climas setClimaEspecifico(){
+        return new TormentaDeRayo();
     }
 }

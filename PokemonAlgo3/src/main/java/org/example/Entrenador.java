@@ -103,6 +103,14 @@ public class Entrenador {
         Eventos.getEventos().agregarComando(efectosPasivos);
     }
 
+
+    public void pokemonSiguePeleando() {
+        if (pokemonActual.estaDebilitado()){
+            Log.getLog().log(pokemonActual.getNombre() + " fue debilitado ");
+            cambiarPokemonActual();
+        }
+    }
+  
     public ArrayList<String> listaPokemones() {
         return pokebola.mostrarPokemones();
     }
@@ -120,5 +128,6 @@ public class Entrenador {
 
         return dicc_nombre_vida;
     }
+
 
 }

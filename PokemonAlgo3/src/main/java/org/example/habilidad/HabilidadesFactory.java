@@ -5,11 +5,14 @@ import org.example.Elemento.*;
 import org.example.Estadistica.ModAtaque;
 import org.example.Estadistica.ModDefensa;
 import org.example.Estadistica.ModVelocidad;
+import org.example.JSON.LeerArchivoJson;
 import org.example.Log.Log;
 import org.example.estado.EstadoConfuso;
 import org.example.estado.EstadoDormido;
 import org.example.estado.EstadoEnvenenado;
 import org.example.estado.EstadoParalizado;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.Random;
 import java.util.Hashtable;
@@ -20,9 +23,12 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
     public HabilidadesFactory(){
         bibliotecaHabilidades = new Hashtable<Integer, Habilidad>();
         habilidades = new Hashtable<Integer, Habilidad>();
-        crearBiblioteca();
+        crearBibliotecaConJSON("HabilidadesAtaque.json");
+        crearBibliotecaConJSON("HabilidadesEstadistica.json");
+        crearBibliotecaConJSON("HabilidadesEstado.json");
+        crearBibliotecaConJSON("HabilidadesTerreno.json");
         //generadorHabilidadesRandom();
-        generarHabilidadesEspecificas();
+        //generarHabilidadesEspecificas();
     }
 
     private void generadorHabilidadesRandom() {
@@ -32,11 +38,16 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         habilidades.put(4, bibliotecaHabilidades.get(randBiblioRango()));
     }
 
-    private void generarHabilidadesEspecificas(){
-        habilidades.put(1, bibliotecaHabilidades.get(1));
+    private void generarHabilidadesEspecificas(JSONObject pokemonObjeto){
+        JSONArray habilidades = (JSONArray) pokemonObjeto.get("habilidades");
+        for (int i = 0; i < habilidades.size(); i++){
+            Integer id = ((Long) habilidades.get(i)).intValue();
+            this.habilidades.put(i+1, bibliotecaHabilidades.get(id));
+        }
+        /*habilidades.put(1, bibliotecaHabilidades.get(1));
         habilidades.put(2, bibliotecaHabilidades.get(31));
         habilidades.put(3, bibliotecaHabilidades.get(71));
-        habilidades.put(4, bibliotecaHabilidades.get(72));
+        habilidades.put(4, bibliotecaHabilidades.get(72));*/
     }
 
     public void agregarHabilidad(Habilidad habilidad, Integer num){
@@ -138,5 +149,92 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         bibliotecaHabilidades.put(77, new HabilidadModificacionTerreno("tormenta de arena", 25, new TormentaDeArena()));
         bibliotecaHabilidades.put(78, new HabilidadModificacionTerreno("neblina", 25, new Niebla()));
         bibliotecaHabilidades.put(79, new HabilidadModificacionTerreno("huracan", 25, new Huracan()));
+    }
+
+    public void crearBibliotecaConJSON(String path) {
+        LeerArchivoJson json = new LeerArchivoJson();
+        JSONArray habilidades = json.obtenerArrayJSON(path);
+        for (int i = 0; i < habilidades.size(); i++){
+            crearHabilidad((JSONObject) habilidades.get(i));
+        }
+    }
+
+    private void crearHabilidad(JSONObject habilidad) {
+        if (habilidad.get("tipo").equals("")) {
+            Long potencia = (Long) habilidad.get("potencia");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadAtaque((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), obtenerElemento((String) habilidad.get("elemento")), potencia.doubleValue()));
+        } else if (((habilidad.get("tipo")).equals("defensa"))) {
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModDefensa(valor.doubleValue())));
+        } else if (((habilidad.get("tipo")).equals("ataque"))) {
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModAtaque(valor.doubleValue())));
+        } else if (((habilidad.get("tipo")).equals("velocidad"))) {
+            Long valor = (Long) habilidad.get("valor");
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstadistica((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new ModVelocidad(valor.doubleValue())));
+        } else if (((habilidad.get("tipo")).equals("dormido"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoDormido()));
+        } else if (((habilidad.get("tipo")).equals("envenenado"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoEnvenenado()));
+        } else if (((habilidad.get("tipo")).equals("paralizado"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoParalizado()));
+        } else if (((habilidad.get("tipo")).equals("confuso"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionEstado((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new EstadoConfuso()));
+        } else if (((habilidad.get("tipo")).equals("soleado"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Soleado()));
+        } else if (((habilidad.get("tipo")).equals("lluvia"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Lluvia()));
+        } else if (((habilidad.get("tipo")).equals("granizo"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Granizo()));
+        } else if (((habilidad.get("tipo")).equals("tormentaDeRayo"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new TormentaDeRayo()));
+        } else if (((habilidad.get("tipo")).equals("tormentaDeArena"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new TormentaDeArena()));
+        } else if (((habilidad.get("tipo")).equals("niebla"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Niebla()));
+        } else if (((habilidad.get("tipo")).equals("huracan"))) {
+            bibliotecaHabilidades.put(Math.toIntExact((Long) habilidad.get("id")), new HabilidadModificacionTerreno((String) habilidad.get("nombre"), Math.toIntExact((Long) habilidad.get("disponibles")), new Huracan()));
+        }
+    }
+
+    private Element obtenerElemento(String elemento) {
+        if (elemento.equals("agua")){
+            return new Agua();
+        }else if (elemento.equals("bicho")){
+            return new Bicho();
+        } else if (elemento.equals("dragon")) {
+            return new Dragon();
+        } else if (elemento.equals("electrico")) {
+            return new Electrico();
+        } else if (elemento.equals("fantasma")) {
+            return new Fantasma();
+        } else if (elemento.equals("fuego")) {
+            return new Fuego();
+        } else if (elemento.equals("hielo")) {
+            return new Hielo();
+        } else if (elemento.equals("lucha")) {
+            return new Lucha();
+        } else if (elemento.equals("normal")) {
+            return new Normal();
+        } else if (elemento.equals("planta")) {
+            return new Planta();
+        } else if (elemento.equals("psiquico")) {
+            return new Psiquico();
+        } else if (elemento.equals("roca")) {
+            return new Roca();
+        } else if (elemento.equals("tierra")){
+            return new Tierra();
+        } else if (elemento.equals("veneno")) {
+            return new Veneno();
+        } else if (elemento.equals("volador")) {
+            return new Volador();
+        }
+        return null;
+    }
+
+    @Override
+    public Hashtable<Integer, Habilidad> crearHabilidadesEspecificas(JSONObject pokemonObjeto) {
+        generarHabilidadesEspecificas(pokemonObjeto);
+        return habilidades;
     }
 }
