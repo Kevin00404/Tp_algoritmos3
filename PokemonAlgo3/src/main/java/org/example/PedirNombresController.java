@@ -37,13 +37,13 @@ public class PedirNombresController {
                 throw new RuntimeException(ex);
             }
         });
-        System.out.println("Se setea nueva accion en el boton");
     }
     @FXML
     public void activarEscenaPedirPokemon() throws IOException {
         String nombre_ingresado = nombre_jugador_1.getText();
         this.juego.setEntrenador2(juego.crearEntrenador2(nombre_ingresado));
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
+        //Aqui se guardan los atributos
         Parent root = fxmlloader.load();
 
         PedirPokemonController pedirPokemon = fxmlloader.getController();
@@ -51,7 +51,8 @@ public class PedirNombresController {
         pedirPokemon.setJuego(this.juego);
         pedirPokemon.inicializarDataPrimerJugador();
 
-        Scene scene = new Scene(root, 1920, 1080);
+        Scene scene = new Scene(root);
+
         this.stage.setScene(scene);
         this.stage.setTitle("Pidiendo Pokemon");
         this.stage.show();
@@ -61,7 +62,5 @@ public class PedirNombresController {
         this.juego = juego;
     }
 
-    public void escenaPreguntaEntrenadorDos() {
 
-    }
 }

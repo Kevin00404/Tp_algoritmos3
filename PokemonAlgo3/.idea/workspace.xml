@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirNombresController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/BatallaJugadorUno.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaCambioPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/PedidoPokemonActual.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/preguntar_primer_jugador_nombre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/preguntar_primer_jugador_nombre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/borrador/EntrenadorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integradores/clasesUsaEntrenador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/EntrenadorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitarios/PokebolaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitarios/PokebolaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ConfirmacionCambiarPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ConfirmacionCambiarPokemonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElegirPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElegirPokemonController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +23,17 @@
         <option value="JUnit4 Test Class" />
         <option value="module-info" />
         <option value="JavaFXApplication" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MacroExpansionManager">
@@ -71,13 +62,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;java__fx__development&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Users/Nazareno/Documents/Projects/Tp_Algoritmos_newest/Tp_algoritmos3/PokemonAlgo3/src/main/java/org/example/MainFX.java&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kev__fx&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/whyan/OneDrive/Desktop/tp__3/Tp_algoritmos3/PokemonAlgo3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.4637931&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
@@ -227,6 +218,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.adoc" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -249,9 +243,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699086910818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Main_java$Estado_Test_curarEstado.ic" NAME="Estado_Test.curarEstado Coverage Results" MODIFIED="1699067897943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>unitarios.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699086910818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

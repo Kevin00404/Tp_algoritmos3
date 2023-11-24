@@ -102,14 +102,20 @@ public class PedirPokemonController {
 
 
     private void cambiarEscenaBatalla() throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("BatallaJugadorUno.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
         Parent root = fxmlloader.load();
-        BatallaJugadorUnoController batallaUno = fxmlloader.getController();
+        BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
         batallaUno.setPrimaryStage(this.stage);
         batallaUno.setJuego(this.juego);
-        batallaUno.inicializarDataBatalla();
-        Scene scene = new Scene(root, 1920, 1080);
+        batallaUno.inicializarDatosdeBatalla();
+
+
+
+        Scene scene = new Scene(root);
         this.stage.setScene(scene);
+
+        batallaUno.guardarEscenaBatalla(this.stage,scene);
+
         this.stage.setTitle("Batalla");
         this.stage.show();
     }
