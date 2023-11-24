@@ -1,6 +1,7 @@
 package org.example.Estadisticas;
 
 import org.example.Elemento.Element;
+import org.json.simple.JSONObject;
 
 import java.util.Random;
 
@@ -58,5 +59,9 @@ public class EstadisticaFactory implements EstadisticaFactoryI{
     }
     public void setVelocidad(Double velocidad){
         this.velocidad = velocidad;
+    }
+
+    public Estadisticas crearEstadisticasEspecificas(JSONObject pkmn){
+        return new EstadisticaPokemon(pkmn, elemento);
     }
 }

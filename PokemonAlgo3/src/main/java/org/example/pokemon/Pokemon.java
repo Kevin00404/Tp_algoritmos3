@@ -78,6 +78,7 @@ public class Pokemon {
 
     public void recibirDanio(Double danio, String mensajeRecibido) {
         estadisticas.bajarVida(danio, mensajeRecibido);
+        chequeoDeVida();
     }
 
 

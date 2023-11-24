@@ -23,8 +23,14 @@ public abstract class Climas implements Clima {
     @Override
     public void danioPasivo(Entrenador jugador, Entrenador oponente, String mensajeRecibido) {
         String mensaje = mensajeRecibido + " " + nombre + ": ";
-        jugador.getPokemonActual().recibirDanio(jugador.getPokemonActual().getEstadisticas().getMaxVida() * 0.03 , mensaje);
-        oponente.getPokemonActual().recibirDanio(oponente.getPokemonActual().getEstadisticas().getMaxVida() * 0.03, mensaje);
+        if ( !contieneElemento(jugador.getPokemonActual().getEstadisticas()) ){
+            jugador.getPokemonActual().recibirDanio(jugador.getPokemonActual().getEstadisticas().getMaxVida() * 0.03 , mensaje);
+        }
+        //jugador.getPokemonActual().recibirDanio(jugador.getPokemonActual().getEstadisticas().getMaxVida() * 0.03 , mensaje);
+        if ( !contieneElemento(oponente.getPokemonActual().getEstadisticas()) ) {
+            oponente.getPokemonActual().recibirDanio(oponente.getPokemonActual().getEstadisticas().getMaxVida() * 0.03, mensaje);
+        }
+        //oponente.getPokemonActual().recibirDanio(oponente.getPokemonActual().getEstadisticas().getMaxVida() * 0.03, mensaje);
     }
 
     public String getNombre() {

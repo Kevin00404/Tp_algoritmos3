@@ -99,6 +99,6 @@ public class Pokebola {
 
 
     public boolean murieronTodos(){
-        return (pokemonesDebilitados() == 6);
+        return (pokemonesDebilitados() == cantidadPokemones);
     }
 }

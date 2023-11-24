@@ -2,55 +2,46 @@
   {
     "nombre": "Hiper Poción",
     "id": 1,
-    "disponibilidad": 1,
     "valor": 100
   },
   {
     "nombre": "Defensa x",
     "id": 2,
-    "disponibilidad": 2,
     "valor": 20
   },
   {
     "nombre": "Cura Total",
     "id": 3,
-    "disponibilidad": 1,
-    "valor": 20
+    "valor": 0
   },
   {
     "nombre": "Revivir",
     "id": 4,
-    "disponibilidad": 1,
     "valor": 15
   },
   {
     "nombre": "Ataque X",
     "id": 5,
-    "disponibilidad": 1,
-    "valor": 0
+    "valor": 10
   },
   {
     "nombre": "Despertar",
     "id": 6,
-    "disponibilidad": 1,
     "valor": 0
   },
   {
     "nombre": "Pocion",
     "id": 7,
-    "disponibilidad": 1,
     "valor": 30
   },
   {
     "nombre": "AntiParalizar",
     "id": 8,
-    "disponibilidad": 1,
     "valor": 0
   },
   {
     "nombre": "Antidoto",
     "id": 9,
-    "disponibilidad": 1,
     "valor": 0
   }
 ]

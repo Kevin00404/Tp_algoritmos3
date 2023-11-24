@@ -28,7 +28,7 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         crearBibliotecaConJSON("HabilidadesEstado.json");
         crearBibliotecaConJSON("HabilidadesTerreno.json");
         //generadorHabilidadesRandom();
-        generarHabilidadesEspecificas();
+        //generarHabilidadesEspecificas();
     }
 
     private void generadorHabilidadesRandom() {
@@ -38,11 +38,16 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         habilidades.put(4, bibliotecaHabilidades.get(randBiblioRango()));
     }
 
-    private void generarHabilidadesEspecificas(){
-        habilidades.put(1, bibliotecaHabilidades.get(1));
+    private void generarHabilidadesEspecificas(JSONObject pokemonObjeto){
+        JSONArray habilidades = (JSONArray) pokemonObjeto.get("habilidades");
+        for (int i = 0; i < habilidades.size(); i++){
+            Integer id = ((Long) habilidades.get(i)).intValue();
+            this.habilidades.put(i+1, bibliotecaHabilidades.get(id));
+        }
+        /*habilidades.put(1, bibliotecaHabilidades.get(1));
         habilidades.put(2, bibliotecaHabilidades.get(31));
         habilidades.put(3, bibliotecaHabilidades.get(71));
-        habilidades.put(4, bibliotecaHabilidades.get(72));
+        habilidades.put(4, bibliotecaHabilidades.get(72));*/
     }
 
     public void agregarHabilidad(Habilidad habilidad, Integer num){
@@ -225,5 +230,11 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
             return new Volador();
         }
         return null;
+    }
+
+    @Override
+    public Hashtable<Integer, Habilidad> crearHabilidadesEspecificas(JSONObject pokemonObjeto) {
+        generarHabilidadesEspecificas(pokemonObjeto);
+        return habilidades;
     }
 }

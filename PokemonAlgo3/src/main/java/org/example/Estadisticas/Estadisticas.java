@@ -46,7 +46,11 @@ public abstract class Estadisticas implements EstadisticaModificable {
 
     public void bajarVida(Double danio, String mensajeRecibido) {
         this.vida -= danio;
+        if (this.vida < 0){
+            this.vida = 0.0;
+        }
         Log.getLog().log(mensajeRecibido + String.format("%.2f", danio) + " de danio");
+
     }
 
     public void variarDefensa(Double varDefensa) {

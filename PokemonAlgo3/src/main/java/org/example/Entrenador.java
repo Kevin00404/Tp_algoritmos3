@@ -95,4 +95,11 @@ public class Entrenador {
         Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);
         Eventos.getEventos().agregarComando(efectosPasivos);
     }
+
+    public void pokemonSiguePeleando() {
+        if (pokemonActual.estaDebilitado()){
+            Log.getLog().log(pokemonActual.getNombre() + " fue debilitado ");
+            cambiarPokemonActual();
+        }
+    }
 }

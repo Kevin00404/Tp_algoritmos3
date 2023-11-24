@@ -1,10 +1,12 @@
 package org.example;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.example.Clima.ManejoDeClima;
 import org.example.Elemento.*;
-import org.example.Estadistica.ModificacionEstadistica;
 import org.example.JSON.LeerArchivoJson;
 import org.example.Log.Log;
 import org.example.Eventos.Eventos;
@@ -34,17 +36,17 @@ public class Juego {
         JSONArray partida = json.obtenerArrayJSON(path);
         for (int i = 0; i < partida.size(); i++){
             JSONObject entrenador = (JSONObject) partida.get(i);
-            crearEntrenador((String) entrenador.get("nombre"), (Long) entrenador.get("pokemons"), i);
+            crearEntrenador((String) entrenador.get("nombre"), (Long) entrenador.get("pokemons"), i, (JSONObject) entrenador.get("items"));
         }
         this.batalla();
     }
 
-    private void crearEntrenador(String nombre, Long pokemons, int nro) {
+    private void crearEntrenador(String nombre, Long pokemons, int nro, JSONObject items) {
         if (nro == 0) {
-            this.entrenador1 = crearEntrenador1(nombre, pokemons.intValue());
+            this.entrenador1 = crearEntrenador1(nombre, pokemons.intValue(), items);
             entrenador1.cambiarPokemonActual();
         } else {
-            this.entrenador2 = crearEntrenador2(nombre, pokemons.intValue());
+            this.entrenador2 = crearEntrenador2(nombre, pokemons.intValue(), items);
             entrenador2.cambiarPokemonActual();
         }
     }
@@ -62,7 +64,7 @@ public class Juego {
             }
             // Verificar si entrenador2 sigue vivo
             if (entrenador2.murio()) {
-                Log.getLog().log("entrenador 2 ha perdido.");
+                Log.getLog().log("entrenador " + entrenador2.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
@@ -76,7 +78,7 @@ public class Juego {
             }
             // Verificar si entrenador1 sigue vivo
             if (entrenador1.murio()) {
-                Log.getLog().log("entrenador 1 ha perdido.");
+                Log.getLog().log("entrenador "+ entrenador1.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
@@ -87,6 +89,7 @@ public class Juego {
 
     public void turnoJugador(Entrenador jugador, Entrenador oponente) {
         jugador.actualizarPokemonActual();
+        jugador.pokemonSiguePeleando();
         boolean pasarTurno = false;
         JugadaFactory jugadaFactory = new JugadaFactory(jugador, oponente);
         while(!pasarTurno){
@@ -114,21 +117,15 @@ public class Juego {
         return entrenador;
     }
 
-    public Entrenador crearEntrenador1(String nombre, Integer cantidadPokemones){
-        Mochila mochilaEntrenador = inicializarItems();
+    public Entrenador crearEntrenador1(String nombre, Integer cantidadPokemones, JSONObject items){
+        Mochila mochilaEntrenador = inicializarItemsConJSON(items);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Charmander").setElemento(new Fuego()).setHistoria("Nacio en un volcan(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Pikachu").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Bulbasaur").setElemento(new Planta()).setHistoria("Nacio en un bosque(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
+        List<Integer> ids = new ArrayList<>();
+        for(int i = 0; i < cantidadPokemones; i++){
+            entrenador.capturarPokemon(pokemonBuilder.generarPokemon(ids));
+            pokemonBuilder = new PokemonBuilder();
+        }
         return entrenador;
     }
 
@@ -150,21 +147,15 @@ public class Juego {
         return entrenador;
     }
 
-    public Entrenador crearEntrenador2(String nombre, Integer cantidadPokemones){
-        Mochila mochilaEntrenador = inicializarItems();
-        Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
+    public Entrenador crearEntrenador2(String nombre, Integer cantidadPokemones, JSONObject items){
+        Mochila mochilaEntrenador = inicializarItemsConJSON(items);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Swampert").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Claydol").setElemento(new Electrico()).setHistoria("Hijo de los rayos").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Exploud").setElemento(new Normal()).setHistoria("Nacio en un bosque(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
-        pokemonBuilder = new PokemonBuilder();
-        entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
+        Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
+        List<Integer> ids = new ArrayList<>();
+        for(int i = 0; i < cantidadPokemones; i++){
+            entrenador.capturarPokemon(pokemonBuilder.generarPokemon(ids));
+            pokemonBuilder = new PokemonBuilder();
+        }
         return entrenador;
     }
 
@@ -229,5 +220,65 @@ public class Juego {
         mochilaEntrenador.agregarObjeto(ataqueX);
         mochilaEntrenador.agregarObjeto(defensaX);
         return mochilaEntrenador;
+    }
+
+    private Mochila inicializarItemsConJSON(JSONObject items) {
+        LeerArchivoJson json = new LeerArchivoJson();
+        JSONArray itemDb = json.obtenerArrayJSON("Items.json");
+        Set<String> itemsEspecificos = items.keySet();
+        Mochila mochilaEntrenador = new Mochila();
+        for (String key : itemsEspecificos) {
+            Integer contador = 0;
+            while(!seEncontroItem(key, (JSONObject) itemDb.get(contador) )){
+                contador++;
+            }
+            agregarItemAMochila((Long) items.get(key), (JSONObject) itemDb.get(contador), mochilaEntrenador );
+        }
+
+        return mochilaEntrenador;
+    }
+
+    private void agregarItemAMochila(Long disponibles, JSONObject item, Mochila mochilaEntrenador) {
+        mochilaEntrenador.agregarObjeto(crearItem(disponibles.intValue(), item));
+    }
+
+    private Items crearItem(Integer disponibles, JSONObject item) {
+        if ( ((String)item.get("nombre")).equals("Cura Total") ){
+
+            return new CuraTotal( (String) item.get("nombre"), disponibles );
+
+        } else if ( ((String)item.get("nombre")).equals("Defensa x") ) {
+
+            return new PocionDeDefensa((String) item.get("nombre"), ( (Long) item.get("valor") ).doubleValue(), disponibles);
+
+        } else if ( ((String)item.get("nombre")).equals("Revivir") || ((String)item.get("nombre")).equals("Max Revivir") ) {
+
+            return new Revivir(( (Long) item.get("valor") ).doubleValue(), (String) item.get("nombre"), disponibles );
+
+        } else if ( ((String)item.get("nombre")).equals("Ataque X") ) {
+
+            return new PocionDeAtaque((String) item.get("nombre"), ( (Long) item.get("valor") ).doubleValue(), disponibles);
+
+        } else if ( ((String)item.get("nombre")).equals("Despertar") ) {
+
+            return new PocionDespertarDormido((String) item.get("nombre"), disponibles);
+
+        } else if ( ((String)item.get("nombre")).equals("Pocion") || ((String)item.get("nombre")).equals("Hiper Poción") ) {
+
+            return new Pocion( ( (Long) item.get("valor") ).doubleValue(), (String) item.get("nombre"), disponibles);
+
+        } else if ( ((String)item.get("nombre")).equals("AntiParalizar") ) {
+
+            return new PocionCurarParalisis((String) item.get("nombre"), disponibles);
+
+        } else {
+
+            return new PocionAntiVeneno( (String) item.get("nombre"), disponibles );
+
+        }
+    }
+
+    private boolean seEncontroItem(String key, JSONObject item) {
+        return ( ((Long) item.get("id")).toString() ).equals(key);
     }
 }
