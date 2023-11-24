@@ -93,7 +93,7 @@ assertEquals("JugadorNombre",entrenador.getNombre());
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        Pokemon pokemonElegido = pokebola_.cambiarPokemon();
+        Pokemon pokemonElegido = pokebola_.cambiarPokemon("");
 
         System.setIn(System.in);
 

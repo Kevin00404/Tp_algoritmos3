@@ -1,5 +1,7 @@
 package org.example;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
 import org.example.Elemento.*;
 import org.example.JSON.LeerArchivoJson;
 import org.example.habilidad.HabilidadAtaque;
@@ -25,5 +27,10 @@ public class Main {
             System.out.println(key);
         }
         System.out.println(claves);*/
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
     }
 }

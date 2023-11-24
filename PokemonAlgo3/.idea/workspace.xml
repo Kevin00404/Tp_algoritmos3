@@ -19,16 +19,33 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
+        <option value="module-info" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="p3fgkrbi" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -56,12 +73,15 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\resources\org\example" />
+      <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\resources" />
+      <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\java\org\example" />
       <recent name="C:\Users\whyan\OneDrive\Desktop\nuevotp2\Tp_algoritmos3\PokemonAlgo3\src\test\java" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -87,6 +107,8 @@
     <configuration name="All in PokemonAlgo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PokemonAlgo3" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,6 +162,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JuegoPokemonTest.itemSeEliminaAlQuedarseSinUsos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PokemonAlgo3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitarios" />
+      <option name="MAIN_CLASS_NAME" value="unitarios.JuegoPokemonTest" />
+      <option name="METHOD_NAME" value="itemSeEliminaAlQuedarseSinUsos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.PokemonFX" />
+      <item itemvalue="JUnit.All in PokemonAlgo3" />
+      <item itemvalue="JUnit.ClimaTest.duracionReiniciadaAlCambiarClima" />
+      <item itemvalue="JUnit.Estado_Test.etsadopuedeDespertarse" />
+      <item itemvalue="JUnit.Estado_Test.testAceptarEstadoEstadoEnvenenado" />
+      <item itemvalue="JUnit.JuegoPokemonTest.itemSeEliminaAlQuedarseSinUsos" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -166,6 +223,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.adoc" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -176,6 +236,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Main_java$All_in_PokemonAlgo3.ic" NAME="All in PokemonAlgo3 Coverage Results" MODIFIED="1699086910818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

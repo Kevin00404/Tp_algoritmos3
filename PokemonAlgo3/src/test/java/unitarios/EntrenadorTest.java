@@ -33,8 +33,8 @@ public class EntrenadorTest {
 
         //Debe funcionar con pokemon
         Pokemon pokemon =mock(Pokemon.class);
-        when(pokebola.cambiarPokemon()).thenReturn(pokemon);
-        entrenador.cambiarPokemonActual();
+        when(pokebola.cambiarPokemon("")).thenReturn(pokemon);
+        entrenador.cambiarPokemonActual("");
         assertEquals(pokemon,entrenador.getPokemonActual());
     }
 
@@ -49,8 +49,8 @@ public class EntrenadorTest {
     @Test
     public void getPokemon() {
         Pokemon pokemon =mock(Pokemon.class);
-        when(pokebola.cambiarPokemon()).thenReturn(pokemon);
-        entrenador.cambiarPokemonActual();
+        when(pokebola.cambiarPokemon("")).thenReturn(pokemon);
+        entrenador.cambiarPokemonActual("");
 
         assertEquals(entrenador.getPokemon(),pokemon);
     }
