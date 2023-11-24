@@ -23,35 +23,15 @@ public class Pokebola {
         dicc.put(pokemon.getNombre(), pokemon);
     }
 
-    public Pokemon cambiarPokemon() {
-        String nombrePokemonElegido = "";
-        while (!dicc.containsKey(nombrePokemonElegido)) {
-            Scanner nombreVariableScaneado = new Scanner(System.in);
-
-            mostrarPokemones();
-
-            nombrePokemonElegido = nombreVariableScaneado.next();
-
-            if(nombrePokemonElegido.equals("cancelar")){
-                return null;
-            }
-            if (!dicc.containsKey(nombrePokemonElegido)) {
-                {
-                    Log.getLog().log("No ingresaste el nombre correcto del pokemon. Vuelve a seleccionar.");
-                }
-            } else if (!dicc.get(nombrePokemonElegido).chequeoDeVida()) {
-                nombrePokemonElegido = "";
-                Log.getLog().log("El pokemon esta muerto, elija otro");
-            }
-        }
-        return dicc.get(nombrePokemonElegido);
+    public Pokemon cambiarPokemon(String pokemon) {
+        return dicc.get(pokemon);
     }
 
-    public void mostrarPokemones(){
+    public ArrayList<String> mostrarPokemones(){
         // Solicitar al usuario que ingrese un nombre de las opciones.
         Log.getLog().log("Pokemones disponibles: \n");
 
-
+        ArrayList<String> lista = new ArrayList<>();
         Set<String> claves = dicc.keySet();
 
         // Crear un iterador para las claves
@@ -61,8 +41,10 @@ public class Pokebola {
             String clave = iterator.next();
             Pokemon pokemon = dicc.get(clave);
             Log.getLog().log("Nombre: " + clave + " |Vida: " + String.format("%.2f", pokemon.vida()));
+            lista.add(clave);
         }
         Log.getLog().log("Cancelar");
+        return lista;
     }
     public Pokemon obtenerPokemon(String pokemonSeleccionado){
         return dicc.get(pokemonSeleccionado);

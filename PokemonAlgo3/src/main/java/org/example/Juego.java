@@ -1,4 +1,5 @@
 package org.example;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.example.Clima.ManejoDeClima;
@@ -10,17 +11,15 @@ import org.example.items.*;
 import org.example.jugada.Jugada;
 import org.example.jugada.JugadaFactory;
 import org.example.pokebola.Pokebola;
+import org.example.pokemon.Pokemon;
 import org.example.pokemon.PokemonBuilder;
 
 public class Juego {
-    Entrenador entrenador1;
-    Entrenador entrenador2;
-    final Integer POKEMONES_POR_POKEBOLA = 6;
-    public ModificacionEstadistica modificacionEstadisticaPokemon;
-    private Scanner scanner;
-    public Juego(){
-        scanner = new Scanner(System.in);
-    }
+
+
+
+
+
     public void iniciar_Juego(){
         this.inicializar();
         this.batalla();
@@ -62,7 +61,7 @@ public class Juego {
         System.out.println("¡Fin del juego!");
     }
 
-    public void turnoJugador(Entrenador jugador, Entrenador oponente) {
+    public void     turnoJugador(Entrenador jugador, Entrenador oponente) {
         jugador.actualizarPokemonActual();
         boolean pasarTurno = false;
         JugadaFactory jugadaFactory = new JugadaFactory(jugador, oponente);
@@ -71,12 +70,115 @@ public class Juego {
             pasarTurno = jugada.jugar();
             Eventos.getEventos().ejecutarEvento();
         }
+        entrenador_actual=oponente;
+        entrenador_no_actual=jugador;
     }
 
-    public Entrenador crearEntrenador1(){
+    public void inicializar(){
+
+        entrenador1.cambiarPokemonActual("");
+
+        entrenador2.cambiarPokemonActual("");
+
+    }
+
+//////////////
+    //todo metodos anteriores que ya no se usan:
+
+
+//    public String preguntarNombre(Integer numero) {
+//        String nombre = " ";
+//        System.out.println("jugador "+ numero + " ingresa tu nombre: ");
+//        nombre = scanner.next();
+//        while (!nombreValido(nombre)){
+//            System.out.println("nombre no valido");
+//            System.out.println("jugador "+ numero + " ingresa tu nombre: ");
+//            nombre = scanner.next();
+//        }
+//        return nombre;
+//    }
+
+    public Boolean nombreValido(String nombre){
+        if (nombre == ""){
+            return false;
+        } else if (nombre == " "){
+            return false;
+        } else if ( nombre.length() >50){
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+    public String getEntrenadorUnoNombre(){
+        return this.entrenador1.getNombre();
+    }
+    public String getEntrenadorDosNombre(){
+        return this.entrenador2.getNombre();
+    }
+
+    public Double getVidaPokemonAtacante() {
+        return entrenador_actual.getPokemonActual().getEstadisticas().getVida();
+    }
+    public String getNombrePokemonAtacante(){
+        System.out.println("entro");
+        System.out.println(entrenador_actual.getPokemonActual().getNombre());
+        return entrenador1.getPokemonActual().getNombre();
+    }
+    public String getNombrePokemon_a_Atacar(){
+        return entrenador2.getPokemonActual().getNombre();
+    }
+
+    public Entrenador getEntrenador_no_actual() {
+        return entrenador_no_actual;
+    }
+
+    public ArrayList<String> getPokemonesPokebolaUno() {
+        return this.entrenador1.listaPokemones();
+    }
+
+    public ArrayList<String> getPokemonesPokebolaJugadorActual() {
+        return this.entrenador_actual.listaPokemones();
+    }
+
+    public ArrayList<String> getPokemonesPokebolaDos() {
+        return this.entrenador2.listaPokemones();
+    }
+
+    public void cambiarPokemonEntrenadorUno(String pokemon) {
+        this.entrenador1.cambiarPokemonActual(pokemon);
+    }
+    public void cambiarPokemonEntrenadorDos(String pokemon) {
+        this.entrenador2.cambiarPokemonActual(pokemon);
+    }
+
+
+///Nuevo Juego:
+    ////
+//    /
+//    /
+//    /
+//    /
+//    /
+//    /
+//    /
+    ///
+    Entrenador entrenador1;
+    Entrenador entrenador2;
+    private Entrenador entrenador_actual;
+    private Entrenador entrenador_no_actual;
+    final Integer POKEMONES_POR_POKEBOLA = 6;
+    private Scanner scanner;
+
+
+
+
+    public Entrenador crearEntrenador1(String nombre){
         Mochila mochilaEntrenador = inicializarItems();
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
-        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(1));
+        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , nombre);
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Charmander").setElemento(new Fuego()).setHistoria("Nacio en un volcan(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Squirtle").setElemento(new Agua()).setHistoria("Nacio en un Lago(?").crearPokemon());
@@ -88,12 +190,13 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
+        System.out.println("Se creo el entrenador 1 en Juego!");
         return entrenador;
     }
 
-    public Entrenador crearEntrenador2(){
+    public Entrenador crearEntrenador2(String nombre){
         Mochila mochilaEntrenador = inicializarItems();
-        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , preguntarNombre(2));
+        Entrenador entrenador = new Entrenador(new Pokebola(POKEMONES_POR_POKEBOLA) , mochilaEntrenador , nombre);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Hariyama").setElemento(new Lucha()).setHistoria("Le gusta pelear(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
@@ -106,43 +209,10 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
+        System.out.println("Se creo el entrenador 2 en Juego!");
         return entrenador;
     }
 
-    public void inicializar(){
-        PokemonBuilder pokemonBuilder = new PokemonBuilder();
-
-        this.entrenador1 = crearEntrenador1();
-        entrenador1.cambiarPokemonActual();
-
-        this.entrenador2 = crearEntrenador2();
-        entrenador2.cambiarPokemonActual();
-    }
-
-
-
-    public String preguntarNombre(Integer numero) {
-        String nombre = " ";
-        System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-        nombre = scanner.next();
-        while (!nombreValido(nombre)){
-            System.out.println("nombre no valido");
-            System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-            nombre = scanner.next();
-        }
-        return nombre;
-    }
-
-    public Boolean nombreValido(String nombre){
-        if (nombre == ""){
-            return false;
-        } else if (nombre == " "){
-            return false;
-        } else if ( nombre.length() >50){
-            return false;
-        }
-        return true;
-    }
 
     /* INICIALIZACION DE ITEMS */
     public Mochila inicializarItems(){
@@ -171,4 +241,27 @@ public class Juego {
         mochilaEntrenador.agregarObjeto(defensaX);
         return mochilaEntrenador;
     }
+
+
+    public Juego(){
+        scanner = new Scanner(System.in);
+    }
+
+    public void setEntrenador1(Entrenador entrenador) {
+        this.entrenador1 = entrenador;
+        entrenador_actual=entrenador;
+    }
+
+    public void setEntrenador2(Entrenador entrenador) {
+        this.entrenador2 = entrenador;
+        entrenador_no_actual=entrenador2;
+    }
+
+    public void cambiaPokemonJugadorActual(String nombrePokemon){
+        entrenador_actual.cambiarPokemonActual(nombrePokemon);
+    }
+    public String getPokemonActualNombre(){
+        return entrenador_actual.getPokemonActual().getNombre();
+    }
+
 }

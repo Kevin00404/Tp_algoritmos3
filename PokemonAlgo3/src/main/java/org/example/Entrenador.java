@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.scene.control.ProgressBar;
 import org.example.Log.Log;
 import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
@@ -8,6 +9,10 @@ import org.example.comando.EfectosPasivosComando;
 import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Entrenador {
     Pokebola pokebola;
@@ -29,9 +34,11 @@ public class Entrenador {
         return pokemonActual;
     }
 
-    public void cambiarPokemonActual(){
+    public void cambiarPokemonActual(String pokemon){
         Log.getLog().log(this.nombre + " elegi tu pokemon: ");
-        this.pokemonActual = pokebola.cambiarPokemon();
+        System.out.println(42);
+        this.pokemonActual = pokebola.cambiarPokemon(pokemon);
+        System.out.println(this.pokemonActual.getNombre());
     }
 
     public boolean murio(){
@@ -40,7 +47,7 @@ public class Entrenador {
 
     public void actualizarPokemonActual() {
         if (pokemonActual == null){
-            cambiarPokemonActual();
+            cambiarPokemonActual("");
         }
     }
 
@@ -95,4 +102,23 @@ public class Entrenador {
         Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);
         Eventos.getEventos().agregarComando(efectosPasivos);
     }
+
+    public ArrayList<String> listaPokemones() {
+        return pokebola.mostrarPokemones();
+    }
+
+    public HashMap<String,Double> diccionario_Pokemon_vidaMax(){
+        HashMap<String,Double> dicc_nombre_vida= new HashMap<String,Double>();
+
+        ArrayList<String> listaPokemones = listaPokemones();
+        dicc_nombre_vida.put(listaPokemones.get(0), pokebola.obtenerPokemon(listaPokemones.get(0)).vida());
+        dicc_nombre_vida.put(listaPokemones.get(1), pokebola.obtenerPokemon(listaPokemones.get(1)).vida());
+        dicc_nombre_vida.put(listaPokemones.get(2), pokebola.obtenerPokemon(listaPokemones.get(2)).vida());
+        dicc_nombre_vida.put(listaPokemones.get(3), pokebola.obtenerPokemon(listaPokemones.get(3)).vida());
+        dicc_nombre_vida.put(listaPokemones.get(4), pokebola.obtenerPokemon(listaPokemones.get(4)).vida());
+        dicc_nombre_vida.put(listaPokemones.get(5), pokebola.obtenerPokemon(listaPokemones.get(5)).vida());
+
+        return dicc_nombre_vida;
+    }
+
 }

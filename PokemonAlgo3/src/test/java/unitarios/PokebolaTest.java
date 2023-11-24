@@ -64,7 +64,7 @@ class PokebolaTest {
         System.setIn(inputStream);
 
 
-        Pokemon pokemonElegido = pokebola.cambiarPokemon();
+        Pokemon pokemonElegido = pokebola.cambiarPokemon("");
         System.setIn(System.in);
 
 
