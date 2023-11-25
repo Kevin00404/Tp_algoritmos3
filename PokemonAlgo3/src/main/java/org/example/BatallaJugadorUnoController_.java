@@ -18,7 +18,6 @@ import java.util.HashMap;
 
 public class BatallaJugadorUnoController_ {
     private Stage stage;
-    private Juego juego;
     @FXML
     public Text info_juego;
     @FXML
@@ -42,6 +41,7 @@ public class BatallaJugadorUnoController_ {
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
+    public ManejadorDeDatosBatalla manejador;
 
     public HashMap<String, ProgressBar> barras_vida_pokemones;
 
@@ -51,34 +51,33 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void setJuego(Juego juego) {
-        this.juego = juego;
+        this.manejador = new ManejadorDeDatosBatalla();
+        manejador.ordenarData(juego);
     }
 
     public void inicializarDatosdeBatalla() {
         crear_barras_de_vida();
-        nombre_jugador_actual.setText(juego.getEntrenadorUnoNombre());
-        nombre_jugador_no_actual.setText(juego.getEntrenadorDosNombre());
+        nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
+        nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
         info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
         //Se asigna que las barras en vista sean las del juego: se guardan en un metodo weight que no tiene relacion con el valor real del progreso en el javaFX
-      barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemonAtacante());
-      barra_vida_actual=barras_vida_pokemones.get(juego.getNombrePokemon_a_Atacar());
-
+        barra_vida_actual=barras_vida_pokemones.get(manejador.getNombrePokemonAtacante());
+        barra_vida_actual=barras_vida_pokemones.get(manejador.getNombrePokemonContrario());
         manejo_barra_vida_turno();
     }
 
     private void manejo_barra_vida_turno(){
-        Double vida_actual=juego.getVidaPokemonAtacante();
-        Double vida_max=barras_vida_pokemones.get(juego.getNombrePokemonAtacante()).getMaxWidth();
+        Double vida_actual=manejador.getVidaPokemonAtacante();
+        Double vida_max=barras_vida_pokemones.get(manejador.getNombrePokemonAtacante()).getMaxWidth();
         cant_vida.setText(vida_actual+"/"+vida_max);
-
         cant_vida.setText(String.format("%.2f", vida_actual)+"/"+String.format("%.2f", vida_max));
     }
 
 
 //Crea un mapa del estilo <NombrePOkemon, barra_de_Vida>  con la barra de vida maxima segun la vida con la que inica cada Pokemon.
         private void crear_barras_de_vida() {
-            HashMap<String,Double> dicc_vidasMax=juego.entrenador1.diccionario_Pokemon_vidaMax();
-            dicc_vidasMax=juego.entrenador1.diccionario_Pokemon_vidaMax();
+            //HashMap<String,Double> dicc_vidasMax=juego.entrenador1.diccionario_Pokemon_vidaMax();
+            HashMap<String,Double> dicc_vidasMax=manejador.getVidaMaximaJugadorActual();
 
             barras_vida_pokemones = new HashMap<String, ProgressBar>();
 
@@ -87,8 +86,7 @@ public class BatallaJugadorUnoController_ {
                 barra_vida.setMaxWidth(entry.getValue());
                 barras_vida_pokemones.put(entry.getKey(),barra_vida);
             }
-
-            dicc_vidasMax=juego.entrenador2.diccionario_Pokemon_vidaMax();
+            dicc_vidasMax=manejador.getVidaMaximaJugadorContrario();
             for (HashMap.Entry<String,Double> entry : dicc_vidasMax.entrySet()) {
                 ProgressBar barra_vida=new ProgressBar();
                 barra_vida.setMaxWidth(5555555);
@@ -115,8 +113,8 @@ public class BatallaJugadorUnoController_ {
 
         ElegirPokemonController elegirPokemones = fxmlloader.getController();
         elegirPokemones.setPrimaryStage(this.stage);
-        elegirPokemones.setJuego(this.juego);
-        ArrayList<String> lista_pokemones=juego.getPokemonesPokebolaJugadorActual();
+        elegirPokemones.setManejador(this.manejador);
+        ArrayList<String> lista_pokemones=manejador.getPokemonesPokebolaJugadorActual();
         elegirPokemones.inicializarDataPokemones(barras_vida_pokemones,lista_pokemones);
 
 
@@ -143,7 +141,7 @@ public class BatallaJugadorUnoController_ {
 
         ConfirmarRendirseController confirmar_rendirse = fxmlloader.getController();
         confirmar_rendirse.setPrimaryStage(this.stage);
-        confirmar_rendirse.setJuego(this.juego);
+        confirmar_rendirse.setManejador(this.manejador);
         confirmar_rendirse.inicializarDataEscenaConfirmarRedirse(nombre_jugador_actual,nombre_jugador_no_actual,barra_vida_actual,barra_vida_no_actual,cant_vida);  //Carga los datos de imagenes y nombres correctos
 
         Scene scene = new Scene(root);

@@ -410,7 +410,11 @@ public class Juego {
         return entrenador_actual.getPokemonActual().getNombre();
     }
 
-    public Entrenador getEntrenador_actual() {
-        return entrenador_actual;
+    public Entrenador getEntrenador(int i) {
+        if(i ==1){
+            return this.entrenador1;
+        } else {
+            return this.entrenador2;
+        }
     }
 }

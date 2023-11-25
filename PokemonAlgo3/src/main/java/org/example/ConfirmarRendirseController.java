@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 public class ConfirmarRendirseController {
     private Stage stage;
-    private Juego juego;
     @FXML
     public Text nombre_jugador_actual;
     @FXML
@@ -23,6 +22,7 @@ public class ConfirmarRendirseController {
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
+    private ManejadorDeDatosBatalla manejador;
 
     @FXML
     public void clickBotonSi(ActionEvent actionEvent) {
@@ -53,13 +53,14 @@ public class ConfirmarRendirseController {
         this.stage = stage;
     }
 
-    public void setJuego(Juego juego) {
-        this.juego = juego;
-    }
 
 
     public void guardarEscenaBatalla(Stage escenaBatalla, Scene escenaBatallaParametro) {
         this.escenaBatalla=escenaBatalla;
         this.escenaBatallaParametro=escenaBatallaParametro;
+    }
+
+    public void setManejador(ManejadorDeDatosBatalla manejador) {
+        this.manejador = manejador;
     }
 }
