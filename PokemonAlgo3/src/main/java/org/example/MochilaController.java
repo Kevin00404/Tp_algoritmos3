@@ -14,7 +14,7 @@ public class MochilaController {
 
     private Stage stage;
 
-    private Juego juego;
+    private ManejadorDeDatosBatalla manejador;
 
     @FXML
     public ListView listaItems;
@@ -29,8 +29,8 @@ public class MochilaController {
         this.stage = stage;
     }
 
-    public void setJuego(Juego juego) {
-        this.juego = juego;
+    public void setManejador(ManejadorDeDatosBatalla manejador) {
+        this.manejador = manejador;
     }
 
     public void inicializarDataMochila(Entrenador entrenadorActual) {
@@ -58,4 +58,5 @@ public class MochilaController {
             }
         });
     }
+
 }

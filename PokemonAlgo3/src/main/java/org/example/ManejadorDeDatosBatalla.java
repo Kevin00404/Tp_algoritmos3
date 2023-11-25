@@ -74,4 +74,19 @@ public class ManejadorDeDatosBatalla {
     public void cambiaPokemon(String nombreNuevoPokemonActual) {
         entrenador_actual.cambiarPokemonActual(nombreNuevoPokemonActual);
     }
+
+    public Entrenador getEntrenador_actual() {
+        return entrenador_actual;
+    }
+
+    public void cambiarJugadores(){
+        if (jugador_actual_num == 1 && jugador_contrario_num == 2){
+            jugador_actual_num = 2;
+            jugador_contrario_num = 1;
+        } else {
+            jugador_actual_num = 1;
+            jugador_contrario_num = 2;
+        }
+        ordenarData(this.juego);
+    }
 }

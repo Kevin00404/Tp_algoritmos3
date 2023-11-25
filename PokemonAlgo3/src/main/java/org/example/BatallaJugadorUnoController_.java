@@ -176,8 +176,8 @@ public class BatallaJugadorUnoController_ {
 
         MochilaController mochilaController = fxmlLoader.getController();
         mochilaController.setPrimaryStage(this.stage);
-        mochilaController.setJuego(this.juego);
-        mochilaController.inicializarDataMochila(juego.getEntrenador_actual());
+        mochilaController.setManejador(this.manejador);
+        mochilaController.inicializarDataMochila(manejador.getEntrenador_actual());
 
         Scene scene = new Scene(root);
 
