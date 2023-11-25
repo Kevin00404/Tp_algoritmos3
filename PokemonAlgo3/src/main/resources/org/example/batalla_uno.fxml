@@ -51,7 +51,7 @@
                 </ImageView>
                 <Button fx:id="atacar" layoutX="348.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="110.0" text="Atacar" />
                 <Button fx:id="cambiar_pokemon" layoutX="348.0" layoutY="346.0" mnemonicParsing="false" onAction="#clickCambiarPokemon" prefHeight="39.0" prefWidth="118.0" text="Cambiar Pokemon" />
-                <Button fx:id="mochila_" layoutX="488.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="110.0" text="Mochila" />
+                <Button fx:id="mochila_" layoutX="488.0" layoutY="295.0" mnemonicParsing="false" onAction="#clickMostrarMochila" prefHeight="39.0" prefWidth="110.0" text="Mochila" />
                 <Button fx:id="rendirse" layoutX="488.0" layoutY="346.0" mnemonicParsing="false" onAction="#activarEscenaRendirse" prefHeight="39.0" prefWidth="110.0" text="Rendirse" />
                 <ImageView fitHeight="57.0" fitWidth="200.0" layoutX="211.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
