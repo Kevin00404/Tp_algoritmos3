@@ -37,4 +37,8 @@ public class Mochila {
         }
         return i;
     }
+
+    public List<Items> getItems() {
+        return mochila;
+    }
 }

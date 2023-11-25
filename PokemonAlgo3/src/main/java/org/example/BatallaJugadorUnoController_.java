@@ -161,6 +161,33 @@ public class BatallaJugadorUnoController_ {
 
     }
 
+    //boton mochila
+
+    @FXML
+    public void clickMostrarMochila() throws IOException{
+        try{
+            activarEscenaMostrarMochila();
+        }catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void activarEscenaMostrarMochila() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mochila.fxml"));
+        Parent root  = fxmlLoader.load();
+
+        MochilaController mochilaController = fxmlLoader.getController();
+        mochilaController.setPrimaryStage(this.stage);
+        mochilaController.setJuego(this.juego);
+        mochilaController.inicializarDataMochila(juego.getEntrenador_actual());
+
+        Scene scene = new Scene(root);
+
+        this.stage.setScene(scene);
+        this.stage.setTitle("mochila");
+        this.stage.show();
+    }
+
 
     public void guardarEscenaBatalla(Stage stage,Scene escena) {
         this.escenaBatalla=stage;

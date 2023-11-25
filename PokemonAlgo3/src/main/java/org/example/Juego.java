@@ -410,4 +410,7 @@ public class Juego {
         return entrenador_actual.getPokemonActual().getNombre();
     }
 
+    public Entrenador getEntrenador_actual() {
+        return entrenador_actual;
+    }
 }

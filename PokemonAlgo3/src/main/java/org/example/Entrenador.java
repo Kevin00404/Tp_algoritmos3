@@ -6,6 +6,7 @@ import org.example.Eventos.Eventos;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.comando.EfectosPasivosComando;
+import org.example.items.Items;
 import org.example.items.Mochila;
 import org.example.pokebola.Pokebola;
 import org.example.pokemon.Pokemon;
@@ -130,4 +131,7 @@ public class Entrenador {
     }
 
 
+    public Mochila getMochila() {
+        return mochila;
+    }
 }
