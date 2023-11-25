@@ -23,7 +23,6 @@ public class ElegirPokemonController implements Initializable {
     //TODO hcer 5 funbciones para ocntrolar dependiendo dde que pokemon se debe cambiar.
 
     private Stage stage;
-    private Juego juego;
 
     private String nombnrePokemonActual;
 
@@ -42,6 +41,8 @@ public class ElegirPokemonController implements Initializable {
     @FXML
     public Label nombre5;
     public List<String> pokemonesDisponibles;
+    private ManejadorDeDatosBatalla manejador;
+
     //@FXML
     //public Label nombreActual;
     @Override
@@ -58,7 +59,7 @@ public class ElegirPokemonController implements Initializable {
 
 
     public void setearBotonesNombres_Barras_nivelVida(){
-        String nombre_actual=juego.getPokemonActualNombre();
+        String nombre_actual=manejador.getNombrePokemonAtacante();
 
 
         List<String> resultadoFiltrado = pokemones.stream()
@@ -84,10 +85,8 @@ public class ElegirPokemonController implements Initializable {
 
 
 
-    public void setPrimaryStage(Stage stage) {this.stage = stage;
-    }
-    public void setJuego(Juego juego) {
-        this.juego = juego;
+    public void setPrimaryStage(Stage stage) {
+        this.stage = stage;
     }
 
     @FXML
@@ -123,7 +122,7 @@ public class ElegirPokemonController implements Initializable {
         Parent root = fxmlloader.load();
         ConfirmacionCambiarPokemonController cambiarPokemonConfirmar = fxmlloader.getController();
         cambiarPokemonConfirmar.setPrimaryStage(this.stage);
-        cambiarPokemonConfirmar.setJuego(this.juego);
+        cambiarPokemonConfirmar.setManejador(this.manejador);
 
 
         cambiarPokemonConfirmar.inicializarDataDeFondo(nombreNBuevoPOkemonActual);
@@ -134,8 +133,9 @@ public class ElegirPokemonController implements Initializable {
         this.stage.show();
     }
 
-
-
+    public void setManejador(ManejadorDeDatosBatalla manejador) {
+        this.manejador = manejador;
+    }
 
 
 //    @FXML

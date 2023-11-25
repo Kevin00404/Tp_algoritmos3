@@ -5,13 +5,11 @@ import javafx.stage.Stage;
 
 public class ConfirmacionCambiarPokemonController {
     private Stage stage;
-    private Juego juego;
 
     private String nombreNuevoPokemonActual;
+    private ManejadorDeDatosBatalla manejador;
+
     public void setPrimaryStage(Stage stage) {this.stage = stage;
-    }
-    public void setJuego(Juego juego) {
-        this.juego = juego;
     }
 
     public void inicializarDataDeFondo(String nombreNuevoPokemonActual) {
@@ -22,8 +20,8 @@ public class ConfirmacionCambiarPokemonController {
     @FXML
     public void clickSiSeguro(){
         System.out.println(222);
-            juego.cambiaPokemonJugadorActual(this.nombreNuevoPokemonActual);
-            System.out.println(juego.getPokemonActualNombre());
+            manejador.cambiaPokemon(this.nombreNuevoPokemonActual);
+            System.out.println(manejador.getNombrePokemonAtacante());
     }
     @FXML
     public void clickNoSeguro(){
@@ -31,6 +29,7 @@ public class ConfirmacionCambiarPokemonController {
     }
 
 
-
-
+    public void setManejador(ManejadorDeDatosBatalla manejador) {
+        this.manejador = manejador;
+    }
 }
