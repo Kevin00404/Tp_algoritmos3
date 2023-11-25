@@ -104,12 +104,12 @@ public class Entrenador {
     }
 
 
-    public void pokemonSiguePeleando() {
+    /*public void pokemonSiguePeleando() {
         if (pokemonActual.estaDebilitado()){
             Log.getLog().log(pokemonActual.getNombre() + " fue debilitado ");
             cambiarPokemonActual();
         }
-    }
+    }*/
   
     public ArrayList<String> listaPokemones() {
         return pokebola.mostrarPokemones();

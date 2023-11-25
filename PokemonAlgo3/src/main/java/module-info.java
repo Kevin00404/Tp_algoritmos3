@@ -4,4 +4,5 @@ module PokemonAlgo3 {
     requires javafx.controls;
     requires javafx.media;
     requires javafx.fxml;
+    requires json.simple;
 }

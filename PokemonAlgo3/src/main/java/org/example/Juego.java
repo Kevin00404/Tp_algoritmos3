@@ -26,7 +26,7 @@ public class Juego {
         this.batalla();
     }
 
-    public void iniciarJuegoConJSON(String path) throws IOException {
+    /*public void iniciarJuegoConJSON(String path) throws IOException {
         LeerArchivoJson json = new LeerArchivoJson();
         JSONArray partida = json.obtenerArrayJSON(path);
         for (int i = 0; i < partida.size(); i++){
@@ -44,7 +44,7 @@ public class Juego {
             this.entrenador2 = crearEntrenador2(nombre, pokemons.intValue(), items);
             entrenador2.cambiarPokemonActual();
         }
-    }
+    }*/
 
     public void batalla() {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
@@ -84,7 +84,7 @@ public class Juego {
 
     public void     turnoJugador(Entrenador jugador, Entrenador oponente) {
         jugador.actualizarPokemonActual();
-        jugador.pokemonSiguePeleando();
+        //jugador.pokemonSiguePeleando();
         boolean pasarTurno = false;
         JugadaFactory jugadaFactory = new JugadaFactory(jugador, oponente);
         while(!pasarTurno){

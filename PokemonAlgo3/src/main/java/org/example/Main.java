@@ -16,8 +16,8 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Juego juego = new Juego();
-        juego.iniciarJuegoConJSON("Partida.json");
+        /*Juego juego = new Juego();
+        juego.iniciarJuegoConJSON("Partida.json");*/
         /*LeerArchivoJson json = new LeerArchivoJson();
         JSONArray array = json.obtenerArrayJSON("Partida.json");
         JSONObject object = (JSONObject) array.get(0);
@@ -29,8 +29,4 @@ public class Main {
         System.out.println(claves);*/
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-
-    }
 }
