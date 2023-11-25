@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,6 +39,14 @@ public class BatallaJugadorUnoController_ {
     public ProgressBar barra_vida_no_actual;
     @FXML
     public Text cant_vida;
+    @FXML
+    public Button habilidad_uno_boton;
+    @FXML
+    public Button habilidad_dos_boton;
+    @FXML
+    public Button habilidad_tres_boton;
+    @FXML
+    public Button habilidad_cuatro_boton;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -191,4 +200,47 @@ public class BatallaJugadorUnoController_ {
         this.escenaBatalla=stage;
         this.escenaBatallaParametro=escenaBatallaParametro;
     }
+
+    @FXML
+    public void elegirHabilidad(ActionEvent actionEvent) {
+        inhabilitarBotonesIniciales();
+        habilitarBotonesDeHabilidad();
+        info_juego.setText("Que habilidad quieres usar?");
+    }
+
+    private void habilitarBotonesDeHabilidad() {
+        habilidad_uno_boton.setDisable(false);
+        habilidad_dos_boton.setDisable(false);
+        habilidad_tres_boton.setDisable(false);
+        habilidad_cuatro_boton.setDisable(false);
+        habilidad_uno_boton.setVisible(true);
+        habilidad_dos_boton.setVisible(true);
+        habilidad_tres_boton.setVisible(true);
+        habilidad_cuatro_boton.setVisible(true);
+    }
+
+    public void inhabilitarBotonesIniciales(){
+        cambiar_pokemon.setDisable(true);
+        mochila_.setDisable(true);
+        atacar.setDisable(true);
+        rendirse.setDisable(true);
+        cambiar_pokemon.setVisible(false);
+        mochila_.setVisible(false);
+        atacar.setVisible(false);
+        rendirse.setVisible(false);
+    }
+
+    public void activarHabilidadUno(ActionEvent actionEvent) {
+        info_juego.setText("Se activo la habilidad 1");
+    }
+    public void activarHabilidadDos(ActionEvent actionEvent) {
+        info_juego.setText("Se activo la habilidad 2");
+    }
+    public void activarHabilidadTres(ActionEvent actionEvent) {
+        info_juego.setText("Se activo la habilidad 3");
+    }
+    public void activarHabilidadCuatro(ActionEvent actionEvent) {
+        info_juego.setText("Se activo la habilidad 4");
+    }
+
 }
