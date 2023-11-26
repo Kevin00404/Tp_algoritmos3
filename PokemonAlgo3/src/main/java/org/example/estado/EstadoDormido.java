@@ -27,6 +27,9 @@ public class EstadoDormido extends Estado{
         return this.puedeDespertarse();
     }
 
+    public Estado copiar(){
+        return new EstadoDormido();
+    }
     public Estado puedeDespertarse(){
         contadorTurnosPerdidos ++;
         double probabilidadDespertar = 0.25 + contadorTurnosPerdidos * 0.25;
@@ -59,5 +62,10 @@ public class EstadoDormido extends Estado{
     }
     public Estado aceptarEstado(Estado estado) {
         return estado.curarEstado(this);
+    }
+
+    @Override
+    public boolean existeEstadoDormido(){
+        return true;
     }
 }

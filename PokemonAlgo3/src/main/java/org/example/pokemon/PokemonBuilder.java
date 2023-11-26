@@ -38,6 +38,7 @@ public class PokemonBuilder implements PokemonBuilderI{
         habilidadesFactory = new HabilidadesFactory();
         estadisticasFactory = new EstadisticaFactory(elemento);
         estadisticas = estadisticasFactory.crearEstadisticas();
+        habilidadesFactory.generadorHabilidadesRandom();
         habilidades = habilidadesFactory.habilidades();
         nombre = "???";
         historia = "???";

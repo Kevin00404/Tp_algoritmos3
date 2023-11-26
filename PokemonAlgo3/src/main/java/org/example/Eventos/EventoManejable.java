@@ -4,7 +4,7 @@ import org.example.comando.Comando;
 
 public interface EventoManejable {
 
-    boolean ejecutarEvento();
+    boolean ejecutarEvento() throws InterruptedException;
 
     void agregarComando(Comando comando);
 

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -44,16 +48,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="22.0" />
                     </font>
                 </Text>
-                <ImageView fitHeight="134.0" fitWidth="314.0" layoutX="318.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Imgs/opciones.png" />
-                    </image>
-                </ImageView>
-                <Button fx:id="atacar" layoutX="348.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="110.0" text="Atacar" />
-                <Button fx:id="cambiar_pokemon" layoutX="348.0" layoutY="346.0" mnemonicParsing="false" onAction="#clickCambiarPokemon" prefHeight="39.0" prefWidth="118.0" text="Cambiar Pokemon" />
-                <Button fx:id="mochila_" layoutX="488.0" layoutY="295.0" mnemonicParsing="false" onAction="#clickMostrarMochila" prefHeight="39.0" prefWidth="110.0" text="Mochila" />
-                <Button fx:id="rendirse" layoutX="488.0" layoutY="346.0" mnemonicParsing="false" onAction="#activarEscenaRendirse" prefHeight="39.0" prefWidth="110.0" text="Rendirse" />
-                <ImageView fitHeight="57.0" fitWidth="200.0" layoutX="211.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="72.0" fitWidth="228.0" layoutX="183.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Imgs/Datos_jugador_a_atacar.png" />
                     </image>
@@ -71,6 +66,127 @@
                <font>
                   <Font name="Comic Sans MS" size="17.0" />
                </font></Text>
+            <AnchorPane layoutX="331.0" layoutY="276.0" prefHeight="113.0" prefWidth="314.0">
+               <children>
+                      <ImageView fitHeight="134.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@Imgs/opciones.png" />
+                          </image>
+                      </ImageView>
+                  <GridPane alignment="CENTER" layoutX="10.0" layoutY="9.0" prefHeight="105.0" prefWidth="298.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                            <Button fx:id="rendirse" mnemonicParsing="false" onAction="#activarEscenaRendirse" prefHeight="40.0" prefWidth="137.0" text="Rendirse" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="1.0" />
+                           </GridPane.margin>
+                        </Button>
+                            <Button fx:id="cambiar_pokemon" mnemonicParsing="false" onAction="#clickCambiarPokemon" prefHeight="40.0" prefWidth="143.0" text="Cambiar Pokemon" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                            <Button fx:id="mochila_" mnemonicParsing="false" onAction="#clickMostrarMochila" prefHeight="40.0" prefWidth="145.0" text="Mochila" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="3.0" />
+                           </GridPane.margin>
+                        </Button>
+                            <Button fx:id="atacar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#elegirHabilidad" prefHeight="40.0" prefWidth="143.0" text="Atacar" textAlignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="4.0" top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="habilidad_uno_boton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#activarHabilidadUno" prefHeight="45.0" prefWidth="144.0" text="Habilidad1" textAlignment="CENTER" visible="false">
+                           <GridPane.margin>
+                              <Insets left="3.0" top="3.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="habilidad_dos_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadDos" prefHeight="45.0" prefWidth="143.0" text="Habilidad2" visible="false" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="habilidad_tres_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadTres" prefHeight="45.0" prefWidth="145.0" text="Habilidad3" visible="false" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="3.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="habilidad_cuatro_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadCuatro" prefHeight="45.0" prefWidth="143.0" text="Habilidad4" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <GridPane layoutX="262.0" layoutY="216.0" prefHeight="36.0" prefWidth="41.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="zzzAtacante" fitHeight="61.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoDormido.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="paralizadoAtacante" fitHeight="82.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoParalizado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="venenoAtacante" fitHeight="77.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoEnvenenado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="confusoAtacante" fitHeight="81.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@Imgs/EstadoConfuso.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <GridPane layoutX="189.0" layoutY="32.0" prefHeight="32.0" prefWidth="44.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="15.66668701171875" minHeight="0.333343505859375" prefHeight="15.66668701171875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.666656494140625" minHeight="10.0" prefHeight="20.33331298828125" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="zzzContrario" fitHeight="82.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoDormido.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="venenoContrario" fitHeight="90.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoEnvenenado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="paralizadoContrario" fitHeight="71.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoParalizado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="confusoContrario" fitHeight="16.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@Imgs/EstadoConfuso.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
             </children>
         </AnchorPane>
     </children>

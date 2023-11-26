@@ -4,11 +4,13 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,7 +37,11 @@ public class MainFX extends Application {
         pedirNombres.setPrimaryStage(primeStage);
         pedirNombres.setJuego(new Juego());
 
-        Scene scene = new Scene(root);
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+
 
 
         primeStage.setScene(scene);

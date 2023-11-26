@@ -1,6 +1,10 @@
 package org.example;
 
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import org.example.Estadisticas.Estadisticas;
+import org.example.Eventos.Eventos;
+import org.example.jugada.JugadaAtaque;
 import org.example.pokemon.Pokemon;
 
 import java.util.ArrayList;
@@ -92,5 +96,91 @@ public class ManejadorDeDatosBatalla {
 
     public Estadisticas getEstadisticasPokemonActual() {
         return estadisticas_pokemon_actual;
+
+    public void cargarHabilidades(Button h1, Button h2, Button h3, Button h4) {
+        h1.setText(pokemon_entrenador_actual.getPrimeraHabilidad());
+        h2.setText(pokemon_entrenador_actual.getSegundaHabilidad());
+        h3.setText(pokemon_entrenador_actual.getTerceraHabilidad());
+        h4.setText(pokemon_entrenador_actual.getCuartaHabilidad());
+    }
+
+    public void ejecutarHabilidadUno() throws InterruptedException {
+        JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
+        jugada.setHabilidad(1);
+        jugada.jugar();
+        Eventos.getEventos().ejecutarEvento();
+    }
+    public void ejecutarHabilidadDos() throws InterruptedException {
+        JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
+        jugada.setHabilidad(2);
+        jugada.jugar();
+        Eventos.getEventos().ejecutarEvento();
+    }
+    public void ejecutarHabilidadTres() throws InterruptedException {
+        JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
+        jugada.setHabilidad(3);
+        jugada.jugar();
+        Eventos.getEventos().ejecutarEvento();
+    }
+    public void ejecutarHabilidadCuatro() throws InterruptedException {
+        JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
+        jugada.setHabilidad(4);
+        jugada.jugar();
+        Eventos.getEventos().ejecutarEvento();
+    }
+
+    public double getMaxVidaPokemonAtacante() {
+        return estadisticas_pokemon_actual.getMaxVida();
+    }
+
+    public double getMaxVidaPokemonContrario() {
+        return estadisticas_pokemon_contrario.getMaxVida();
+    }
+
+    public void setearEstados(ImageView paralizadoAtacante, ImageView venenoAtacante, ImageView zzzAtacante, ImageView confusoAtacante, ImageView paralizadoContrario, ImageView venenoContrario, ImageView zzzContrario, ImageView confusoContrario) {
+        if(pokemon_entrenador_actual.getEstado().existeEstadoParalizado()){
+            paralizadoAtacante.setVisible(true);
+        } else {
+            paralizadoAtacante.setVisible(false);
+        }
+        if(pokemon_entrenador_actual.getEstado().existeEstadoDormido()){
+            zzzAtacante.setVisible(true);
+        } else {
+            zzzAtacante.setVisible(false);
+        }
+        if(pokemon_entrenador_actual.getEstado().existeEstadoConfuso()){
+            confusoAtacante.setVisible(true);
+        } else {
+            confusoAtacante.setVisible(false);
+        }
+        if(pokemon_entrenador_actual.getEstado().existeEstadoEnvenenado()){
+            venenoAtacante.setVisible(true);
+        } else {
+            venenoAtacante.setVisible(false);
+        }
+        if(pokemon_entrenador_contrario.getEstado().existeEstadoEnvenenado()){
+            venenoContrario.setVisible(true);
+        } else {
+            venenoContrario.setVisible(false);
+        }
+        if(pokemon_entrenador_contrario.getEstado().existeEstadoParalizado()){
+            paralizadoContrario.setVisible(true);
+        } else {
+            paralizadoContrario.setVisible(false);
+        }
+        if(pokemon_entrenador_contrario.getEstado().existeEstadoConfuso()){
+            confusoContrario.setVisible(true);
+        } else {
+            confusoContrario.setVisible(false);
+        }
+        if(pokemon_entrenador_contrario.getEstado().existeEstadoDormido()){
+            zzzContrario.setVisible(true);
+        } else {
+            zzzContrario.setVisible(false);
+        }
+    }
+    public void ejecutarPasivos() {
+        entrenador_contrario.efectosPasivos();
+
     }
 }

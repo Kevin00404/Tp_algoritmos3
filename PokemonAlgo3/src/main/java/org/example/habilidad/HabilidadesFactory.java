@@ -31,7 +31,7 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
         //generarHabilidadesEspecificas();
     }
 
-    private void generadorHabilidadesRandom() {
+    public void generadorHabilidadesRandom() {
         habilidades.put(1, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(2, bibliotecaHabilidades.get(randBiblioRango()));
         habilidades.put(3, bibliotecaHabilidades.get(randBiblioRango()));

@@ -19,7 +19,7 @@ public class HabilidadModificacionEstado extends Habilidad {
     public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas) {
         this.consumirUso();
         Comando comandoMensaje = new ComandoMensaje("se ha elegido la habilidad: " + this.nombre);
-        Comando comandoJugada = new CambiarEstadoComando(pokemon, this.asignarEstado);
+        Comando comandoJugada = new CambiarEstadoComando(pokemon, this.asignarEstado.copiar());
         comandoMensaje.concatComands(comandoJugada);
         return comandoMensaje;
     }
