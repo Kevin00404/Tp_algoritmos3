@@ -13,7 +13,7 @@ public class JugadaItem extends Jugada {
     }
 
     @Override
-    public boolean jugar() {
+    public boolean jugar() throws InterruptedException {
         Log.getLog().log("seleccione item: ");
         jugador.verMochila();
         int objetoElegido = scanner.nextInt();

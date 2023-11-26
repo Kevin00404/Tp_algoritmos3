@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.example.items.Items;
 import org.example.pokemon.Pokemon;
 
@@ -91,6 +93,8 @@ public class SeleccionarPokemonParaItemController {
     public Button seleccionarPkmn5;
     @FXML
     public Button seleccionarPkmn6;
+    @FXML
+    public AnchorPane main;
     private Scene escenaBatalla;
 
     public void setPrimaryStage(Stage stage) {
@@ -102,6 +106,7 @@ public class SeleccionarPokemonParaItemController {
     }
 
     public void inicializarDataPokemones( Integer item) {
+        animacionFadeIn();
         itemAUsar = item;
         setDatosPkmnActual();
         Integer i= 2;
@@ -156,6 +161,14 @@ public class SeleccionarPokemonParaItemController {
             pokemonQueUsaItem = pkmn6Nombre.getText();
             disableOtherButtons(seleccionarPkmnActual, seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn5);
         });
+    }
+
+    @FXML
+    public void animacionFadeIn(){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), main);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
      public void setDatosPkmnActual(){
          pkmnActualNombre.setText(manejador.getEntrenador_actual().getPokemonActual().getNombre());
@@ -229,14 +242,36 @@ public class SeleccionarPokemonParaItemController {
     }
 
     @FXML
-    public void usarItem() throws IOException {
+    public void usarItem() throws IOException, InterruptedException {
         Pokemon poke = encontrarPoke(pokemonQueUsaItem);
-        manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar+1);
+        Boolean seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar+1);
 
-        this.stage.setScene(escenaBatalla);
-        this.stage.setTitle("batalla");
-        this.stage.show();
+        if (seUsoItem){
+
+            animacionFadeIn(escenaBatalla);
+
+            this.stage.setScene(escenaBatalla);
+            this.stage.setTitle("batalla");
+            this.stage.show();
+
+        } else {
+
+
+
+        }
+
+
     }
+
+    @FXML
+    public void animacionFadeIn(Scene escena){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), escena.getRoot());
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+
+
 
     private Pokemon encontrarPoke(String pokemonQueUsaItem) {
         System.out.println(pokemonQueUsaItem);
@@ -285,6 +320,7 @@ public class SeleccionarPokemonParaItemController {
         mochilaController.setPrimaryStage(this.stage);
         mochilaController.setManejador(this.manejador);
         mochilaController.inicializarDataMochila(manejador.getEntrenador_actual());
+        mochilaController.setScene(escenaBatalla);
 
         Scene scene = new Scene(root);
 

@@ -12,7 +12,7 @@ public abstract class Items implements Item {
         return this.nombre;
     }
     @Override
-    public abstract boolean usarItem(Pokemon pokemon);
+    public abstract boolean usarItem(Pokemon pokemon) throws InterruptedException;
 
     public Integer getDisponibles() {
         return this.disponibles;
