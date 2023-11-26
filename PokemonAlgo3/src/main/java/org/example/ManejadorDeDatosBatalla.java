@@ -1,6 +1,7 @@
 package org.example;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import org.example.Estadisticas.Estadisticas;
 import org.example.Eventos.Eventos;
@@ -27,6 +28,14 @@ public class ManejadorDeDatosBatalla {
     public ManejadorDeDatosBatalla(){
         jugador_actual_num = 1;
         jugador_contrario_num = 2;
+    }
+
+    public Double getVidaPokemon(Integer nroEntrenador){
+        return this.juego.getEntrenador(nroEntrenador).getPokemonActual().getEstadisticas().getVida();
+    }
+
+    public Double getMaxVidaPokemon(Integer nroEntrenador){
+        return this.juego.getEntrenador(nroEntrenador).getPokemonActual().getEstadisticas().getMaxVida();
     }
 
     public void ordenarData(Juego juego) {
@@ -83,7 +92,7 @@ public class ManejadorDeDatosBatalla {
         return entrenador_actual;
     }
 
-    public void cambiarJugadores(){
+    public void cambiarJugadores(ProgressBar barraAtacante, ProgressBar barraOponente){
         if (jugador_actual_num == 1 && jugador_contrario_num == 2){
             jugador_actual_num = 2;
             jugador_contrario_num = 1;
@@ -96,6 +105,7 @@ public class ManejadorDeDatosBatalla {
 
     public Estadisticas getEstadisticasPokemonActual() {
         return estadisticas_pokemon_actual;
+    }
 
     public void cargarHabilidades(Button h1, Button h2, Button h3, Button h4) {
         h1.setText(pokemon_entrenador_actual.getPrimeraHabilidad());

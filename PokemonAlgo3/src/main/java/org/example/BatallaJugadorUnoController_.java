@@ -1,10 +1,6 @@
 package org.example;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.ScaleTransition;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,6 +73,14 @@ public class BatallaJugadorUnoController_ {
     public HashMap<String, ProgressBar> barras_vida_pokemones;
     private Scene escenaDeBatalla;
 
+    private Double posicionXBarraAtacante;
+
+    private Double posicionYBarraAtacante;
+
+    private Double posicionXBarraOponente;
+
+    private Double posicionYBarraOponente;
+
 
     public void setPrimaryStage(Stage stage) {
         this.stage = stage;
@@ -89,18 +93,51 @@ public class BatallaJugadorUnoController_ {
 
     public void inicializarDatosdeBatalla() {
         Log.getLog().setFuente(info_juego);
+        guardarPosicionesDeBarras();
         recargarDatos();
+    }
+
+    private void guardarPosicionesDeBarras(){
+
+        posicionXBarraAtacante = barra_vida_actual.getLayoutX();
+
+        posicionYBarraAtacante = barra_vida_actual.getLayoutY();
+
+        posicionXBarraOponente = barra_vida_no_actual.getLayoutX();
+
+        posicionYBarraOponente = barra_vida_no_actual.getLayoutY();
     }
 
     public void recargarDatos(){
         manejador.ejecutarPasivos();
-        nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
-        nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
-        manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
+        if (barra_vida_actual.getLayoutX() >= 303.0){
+            barra_vida_actual.setLayoutX(237.0);
+            barra_vida_actual.setLayoutY(37.0);
+        } else {
+            barra_vida_actual.setLayoutX(304.0);
+            barra_vida_actual.setLayoutY(214.0);
+        }
+        if (barra_vida_no_actual.getLayoutX() <= 238.0){
+            barra_vida_no_actual.setLayoutX(304.0);
+            barra_vida_no_actual.setLayoutY(214.0);
+        } else {
+            barra_vida_no_actual.setLayoutX(237.0);
+            barra_vida_no_actual.setLayoutY(37.0);
+        }
+        setDatosAtacante();
+        setDatosOponente();
+    }
+
+    private void setDatosAtacante(){
         manejo_barra_vida_turno();
-        setearVida(barra_vida_actual, manejador.getVidaPokemonAtacante()/ manejador.getMaxVidaPokemonAtacante());
-        setearVida(barra_vida_no_actual, manejador.getVidaPokemonContrario()/manejador.getMaxVidaPokemonContrario());
+        setearVida(barra_vida_actual, manejador.getVidaPokemon(2)/manejador.getMaxVidaPokemon(2));
+        nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
+        manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
         info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
+    }
+    private void setDatosOponente(){
+        setearVida(barra_vida_no_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
+        nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
     }
 
     private void manejo_barra_vida_turno(){
@@ -213,6 +250,7 @@ public class BatallaJugadorUnoController_ {
         this.escenaDeBatalla = scene;
     }
 
+    //boton atacar
     @FXML
     public void elegirHabilidad(ActionEvent actionEvent) {
         inhabilitarBotonesIniciales();
@@ -270,7 +308,7 @@ public class BatallaJugadorUnoController_ {
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores();
+        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException {
@@ -278,7 +316,7 @@ public class BatallaJugadorUnoController_ {
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores();
+        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException {
@@ -286,7 +324,7 @@ public class BatallaJugadorUnoController_ {
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores();
+        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException {
@@ -294,9 +332,19 @@ public class BatallaJugadorUnoController_ {
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores();
+        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
+
+    /*private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
+        Duration duration = Duration.seconds(2); // Duración de la animación en segundos
+        KeyValue keyValue = new KeyValue(barra_vida_actual.progressProperty(), vidaActualizada);
+        KeyFrame keyFrame = new KeyFrame(duration, keyValue);
+
+        Timeline timeline = new Timeline(keyFrame);
+        timeline.play();
+        //barra_vida.setProgress(vidaActualizada);
+    }*/
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
         System.out.println("Progreso de Barra de vida: " + barra_vida.getProgress());
@@ -313,11 +361,6 @@ public class BatallaJugadorUnoController_ {
                 )
         );
         task.playFromStart();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 
