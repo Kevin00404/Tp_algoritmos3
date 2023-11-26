@@ -29,7 +29,8 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primeStage) throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
+        inicializar(primeStage);
+        /*FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
         Parent root = fxmlloader.load();
 
         //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
@@ -46,6 +47,34 @@ public class MainFX extends Application {
 
         primeStage.setScene(scene);
         primeStage.setTitle("Pidiendo Nombre");
+        primeStage.show();*/
+
+
+    }
+
+    public void inicializar( Stage primeStage) throws IOException {
+
+        Juego juego = new Juego();
+        juego = juego.iniciarJuegoConJSON("Partida.json");
+
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirJSON.fxml"));
+        Parent root = fxmlloader.load();
+
+        //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
+        ElegirJSONController json = fxmlloader.getController();
+        json.setPrimaryStage(primeStage);
+        json.setJuego(juego);
+
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+
+
+
+        primeStage.setScene(scene);
+        primeStage.setTitle("Pidiendo Nombre");
         primeStage.show();
+
     }
 }
