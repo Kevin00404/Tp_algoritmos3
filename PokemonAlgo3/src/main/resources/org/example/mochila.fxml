@@ -5,22 +5,34 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="main" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MochilaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MochilaController">
    <children>
       <ListView fx:id="listaItems" layoutX="200.0" layoutY="-1.0" onMouseClicked="#confirmarUso" prefHeight="314.0" prefWidth="400.0" />
       <AnchorPane layoutY="313.0" prefHeight="75.0" prefWidth="600.0">
          <children>
             <ImageView fx:id="imagenItem" fitHeight="88.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="descripcionItem" layoutX="154.0" prefHeight="88.0" prefWidth="446.0" text="descripcion" />
-            <AnchorPane fx:id="salirDeMochila" layoutX="472.0" prefHeight="88.0" prefWidth="127.0">
+            <GridPane fx:id="confirmarUso" alignment="CENTER" layoutX="395.0" layoutY="17.0" prefHeight="54.0" prefWidth="184.0" visible="false">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="47.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="98.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="42.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Button fx:id="salir" layoutX="23.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#volverABatalla" prefHeight="44.0" prefWidth="82.0" text="Salir" />
-                  <Button fx:id="confirmarNo" layoutX="66.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#ocultarConfirmacion" prefHeight="17.0" prefWidth="59.0" text="no" visible="false" />
-                  <Label fx:id="confirmarUsoLabel" alignment="CENTER" layoutX="19.0" layoutY="14.0" prefHeight="17.0" prefWidth="95.0" text="usar este item?" visible="false" />
-                  <Button fx:id="confirmarSi" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#elegirPokemonItem" prefHeight="25.0" prefWidth="59.0" text="si" visible="false" />
+                  <Button fx:id="confirmarNo" mnemonicParsing="false" onMouseClicked="#ocultarConfirmacion" prefHeight="25.0" prefWidth="86.0" text="no" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="usar este item?" GridPane.columnIndex="1" />
+                  <Button fx:id="confirmarSi" mnemonicParsing="false" onMouseClicked="#elegirPokemonItem" prefHeight="25.0" prefWidth="59.0" text="si" GridPane.rowIndex="2" />
                </children>
-            </AnchorPane>
+            </GridPane>
          </children>
       </AnchorPane>
    </children>
