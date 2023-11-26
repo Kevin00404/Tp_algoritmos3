@@ -14,18 +14,15 @@ public class JugadaItem extends Jugada {
 
     @Override
     public boolean jugar() throws InterruptedException {
-        Log.getLog().log("seleccione item: ");
-        jugador.verMochila();
+        /*jugador.verMochila();
         int objetoElegido = scanner.nextInt();
         if (valorObjetoValido(objetoElegido)){
-            Log.getLog().log("se ha Elegido: "+ objetoElegido);
-            Log.getLog().log("seleccione pokemon: ");
+
             jugador.verEquipo();
             String pokemonElegido = scanner.next();
             return jugador.usarItemEnMochila(objetoElegido , pokemonElegido);
             //jugador.aplicarEfectos();
-        }
-        Log.getLog().log("Ese no es un objeto valido");
+        }*/
         return false;
     }
 

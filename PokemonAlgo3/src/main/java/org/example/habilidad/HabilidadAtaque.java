@@ -22,7 +22,6 @@ public class HabilidadAtaque extends Habilidad{
     public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas){
         this.consumirUso();
         CalculadoraDanio calcDanio = armarDanio(pokemon, estadisticas);
-        this.avisarDeUso();
         return new HacerDanioComando(pokemon, calcDanio);
     }
 

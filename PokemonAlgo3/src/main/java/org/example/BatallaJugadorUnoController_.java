@@ -132,8 +132,8 @@ public class BatallaJugadorUnoController_ {
         setearVida(barra_vida_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
-        Log.getLog().log(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
         manejador.cambiarClima(Despejado, Huracan, Soleado, Niebla, Lluvia, TormentaDeArena, TormentaDeRayo, Granizo);
+        Log.getLog().log(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
         chequearPokemonesMuertos();
     }
 

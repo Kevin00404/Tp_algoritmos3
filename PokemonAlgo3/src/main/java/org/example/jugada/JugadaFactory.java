@@ -16,13 +16,13 @@ public class JugadaFactory {
     }
 
     public Jugada inicializarJugada(){
-        Log.getLog().log(jugador.getNroEntrenador() + ", es tu turno.");
+        /*Log.getLog().log(jugador.getNroEntrenador() + ", es tu turno.");
         Log.getLog().log("Elige una opción:");
         Log.getLog().log("1. Atacar");
         Log.getLog().log("2. Usar Item");
         Log.getLog().log("3. Mostrar campo de batalla");
         Log.getLog().log("4. Cambiar Pokemon");
-        Log.getLog().log("5. Rendirse");
+        Log.getLog().log("5. Rendirse");*/
         return jugadaElegida(scanner.nextInt());
     }
     public Jugada jugadaElegida(Integer num){

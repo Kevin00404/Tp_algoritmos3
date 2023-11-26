@@ -32,7 +32,6 @@ public class HabilidadModificacionEstadistica extends Habilidad {
             comandoJugada = new ComandoModificarEstadistica(modificacionEstadistica, estadisticas);
         }
         comandoMensaje.concatComands(comandoJugada);
-        this.avisarDeUso();
         return comandoMensaje;
     }
 }
