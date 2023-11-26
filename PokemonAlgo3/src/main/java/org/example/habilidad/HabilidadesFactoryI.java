@@ -9,4 +9,6 @@ public interface HabilidadesFactoryI {
     Hashtable<Integer, Habilidad> habilidades();
 
     Hashtable<Integer, Habilidad> crearHabilidadesEspecificas(JSONObject pokemonObjeto);
+
+    void generadorHabilidadesRandom();
 }

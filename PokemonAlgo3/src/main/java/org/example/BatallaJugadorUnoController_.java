@@ -1,15 +1,22 @@
 package org.example;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.example.Log.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +24,22 @@ import java.util.HashMap;
 
 
 public class BatallaJugadorUnoController_ {
+    @FXML
+    public ImageView zzzContrario;
+    @FXML
+    public ImageView confusoContrario;
+    @FXML
+    public ImageView paralizadoContrario;
+    @FXML
+    public ImageView venenoContrario;
+    @FXML
+    public ImageView confusoAtacante;
+    @FXML
+    public ImageView zzzAtacante;
+    @FXML
+    public ImageView paralizadoAtacante;
+    @FXML
+    public ImageView venenoAtacante;
     private Stage stage;
     @FXML
     public Text info_juego;
@@ -38,6 +61,14 @@ public class BatallaJugadorUnoController_ {
     public ProgressBar barra_vida_no_actual;
     @FXML
     public Text cant_vida;
+    @FXML
+    public Button habilidad_uno_boton;
+    @FXML
+    public Button habilidad_dos_boton;
+    @FXML
+    public Button habilidad_tres_boton;
+    @FXML
+    public Button habilidad_cuatro_boton;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -56,42 +87,25 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void inicializarDatosdeBatalla() {
-        crear_barras_de_vida();
+        Log.getLog().setFuente(info_juego);
+        recargarDatos();
+    }
+
+    public void recargarDatos(){
+        manejador.ejecutarPasivos();
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
-        info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
-        //Se asigna que las barras en vista sean las del juego: se guardan en un metodo weight que no tiene relacion con el valor real del progreso en el javaFX
-        barra_vida_actual=barras_vida_pokemones.get(manejador.getNombrePokemonAtacante());
-        barra_vida_actual=barras_vida_pokemones.get(manejador.getNombrePokemonContrario());
+        manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
         manejo_barra_vida_turno();
+        setearVida(barra_vida_actual, manejador.getVidaPokemonAtacante()/ manejador.getMaxVidaPokemonAtacante());
+        setearVida(barra_vida_no_actual, manejador.getVidaPokemonContrario()/manejador.getMaxVidaPokemonContrario());
+        info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
     }
 
     private void manejo_barra_vida_turno(){
         Double vida_actual=manejador.getVidaPokemonAtacante();
-        Double vida_max=barras_vida_pokemones.get(manejador.getNombrePokemonAtacante()).getMaxWidth();
-        cant_vida.setText(vida_actual+"/"+vida_max);
-        cant_vida.setText(String.format("%.2f", vida_actual)+"/"+String.format("%.2f", vida_max));
-    }
-
-
-//Crea un mapa del estilo <NombrePOkemon, barra_de_Vida>  con la barra de vida maxima segun la vida con la que inica cada Pokemon.
-        private void crear_barras_de_vida() {
-            //HashMap<String,Double> dicc_vidasMax=juego.entrenador1.diccionario_Pokemon_vidaMax();
-            HashMap<String,Double> dicc_vidasMax=manejador.getVidaMaximaJugadorActual();
-
-            barras_vida_pokemones = new HashMap<String, ProgressBar>();
-
-            for (HashMap.Entry<String,Double> entry : dicc_vidasMax.entrySet()) {
-                ProgressBar barra_vida=new ProgressBar();
-                barra_vida.setMaxWidth(entry.getValue());
-                barras_vida_pokemones.put(entry.getKey(),barra_vida);
-            }
-            dicc_vidasMax=manejador.getVidaMaximaJugadorContrario();
-            for (HashMap.Entry<String,Double> entry : dicc_vidasMax.entrySet()) {
-                ProgressBar barra_vida=new ProgressBar();
-                barra_vida.setMaxWidth(5555555);
-                barras_vida_pokemones.put(entry.getKey(),barra_vida);
-            }
+        Double vida_max=manejador.getMaxVidaPokemonAtacante();
+        cant_vida.setText(String.format("%.0f", vida_actual)+"/"+String.format("%.0f", vida_max));
     }
 
 
@@ -191,4 +205,113 @@ public class BatallaJugadorUnoController_ {
         this.escenaBatalla=stage;
         this.escenaBatallaParametro=escenaBatallaParametro;
     }
+
+    @FXML
+    public void elegirHabilidad(ActionEvent actionEvent) {
+        inhabilitarBotonesIniciales();
+        manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
+        habilitarBotonesDeHabilidad();
+        info_juego.setText("Que habilidad quieres usar?");
+    }
+
+    private void habilitarBotonesDeHabilidad() {
+        habilidad_uno_boton.setDisable(false);
+        habilidad_dos_boton.setDisable(false);
+        habilidad_tres_boton.setDisable(false);
+        habilidad_cuatro_boton.setDisable(false);
+        habilidad_uno_boton.setVisible(true);
+        habilidad_dos_boton.setVisible(true);
+        habilidad_tres_boton.setVisible(true);
+        habilidad_cuatro_boton.setVisible(true);
+    }
+
+    private void deshabilitarBotonesDeHabilidad(){
+        habilidad_uno_boton.setDisable(true);
+        habilidad_dos_boton.setDisable(true);
+        habilidad_tres_boton.setDisable(true);
+        habilidad_cuatro_boton.setDisable(true);
+        habilidad_uno_boton.setVisible(false);
+        habilidad_dos_boton.setVisible(false);
+        habilidad_tres_boton.setVisible(false);
+        habilidad_cuatro_boton.setVisible(false);
+    }
+
+    public void habilitarBotonesIniciales(){
+        cambiar_pokemon.setDisable(false);
+        mochila_.setDisable(false);
+        atacar.setDisable(false);
+        rendirse.setDisable(false);
+        cambiar_pokemon.setVisible(true);
+        mochila_.setVisible(true);
+        atacar.setVisible(true);
+        rendirse.setVisible(true);
+    }
+
+    public void inhabilitarBotonesIniciales(){
+        cambiar_pokemon.setDisable(true);
+        mochila_.setDisable(true);
+        atacar.setDisable(true);
+        rendirse.setDisable(true);
+        cambiar_pokemon.setVisible(false);
+        mochila_.setVisible(false);
+        atacar.setVisible(false);
+        rendirse.setVisible(false);
+    }
+
+    public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException {
+        manejador.ejecutarHabilidadUno();
+        deshabilitarBotonesDeHabilidad();
+        Log.getLog().log("Que desea hacer?");
+        habilitarBotonesIniciales();
+        manejador.cambiarJugadores();
+        recargarDatos();
+    }
+    public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException {
+        manejador.ejecutarHabilidadDos();
+        deshabilitarBotonesDeHabilidad();
+        Log.getLog().log("Que desea hacer?");
+        habilitarBotonesIniciales();
+        manejador.cambiarJugadores();
+        recargarDatos();
+    }
+    public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException {
+        manejador.ejecutarHabilidadTres();
+        deshabilitarBotonesDeHabilidad();
+        Log.getLog().log("Que desea hacer?");
+        habilitarBotonesIniciales();
+        manejador.cambiarJugadores();
+        recargarDatos();
+    }
+    public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException {
+        manejador.ejecutarHabilidadCuatro();
+        deshabilitarBotonesDeHabilidad();
+        Log.getLog().log("Que desea hacer?");
+        habilitarBotonesIniciales();
+        manejador.cambiarJugadores();
+        recargarDatos();
+    }
+
+    private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
+        System.out.println("Progreso de Barra de vida: " + barra_vida.getProgress());
+        System.out.println("Se va a setear a: " + vidaActualizada);
+        // Create a timeline for smooth animation
+        Timeline task = new Timeline(
+                new KeyFrame(
+                        Duration.ZERO,
+                        new KeyValue(barra_vida.progressProperty(), barra_vida.getProgress())
+                ),
+                new KeyFrame(
+                        Duration.seconds(3),
+                        new KeyValue(barra_vida.progressProperty(), vidaActualizada)
+                )
+        );
+        task.playFromStart();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

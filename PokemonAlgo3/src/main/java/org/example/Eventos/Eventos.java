@@ -25,7 +25,7 @@ public class Eventos implements EventoManejable {
         }
         return eventos;
     }
-    public boolean ejecutarEvento(){
+    public boolean ejecutarEvento() throws InterruptedException {
         if(problema == null){
             if (comando != null){
                 comando.ejecutar();

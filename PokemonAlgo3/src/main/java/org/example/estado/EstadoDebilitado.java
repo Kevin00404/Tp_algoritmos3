@@ -25,6 +25,10 @@ public class EstadoDebilitado extends Estado{
     public Comando permitirAplicarComando(Comando comando) {
         return new ComandoMensaje("Este pokemon esta debilitado");
     }
+
+    public Estado copiar(){
+        return new EstadoDebilitado();
+    }
     @Override
     public Estado aceptarEstado(Estado estado) {
         if(this.proximoEstado != null){

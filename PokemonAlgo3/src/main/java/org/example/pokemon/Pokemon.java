@@ -140,4 +140,7 @@ public class Pokemon {
     public Estado getEstado() {
         return estado;
     }
+
+
+
 }

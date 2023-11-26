@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class JugadaAtaque extends Jugada {
     Scanner scanner;
+    private int habilidadAUsar;
+
     public JugadaAtaque(Entrenador jugador, Entrenador oponente) {
         super(jugador, oponente);
         this.scanner = new Scanner(System.in);
@@ -14,14 +16,13 @@ public class JugadaAtaque extends Jugada {
 
     @Override
     public boolean jugar() {
-        jugador.mostrarHabilidadesDePokemon();
-        int habilidadElegida = scanner.nextInt();
-        if(habilidadValorValida(habilidadElegida)){
-            jugador.atacar(oponente, habilidadElegida);
-            return true;
-        }
-        Log.getLog().log("Esa habilidad no existe, tiene que ser un numero de estos (1 - 2 - 3 - 4)");
-        return false;
+        //jugador.mostrarHabilidadesDePokemon();
+        //int habilidadElegida = scanner.nextInt();
+        jugador.atacar(oponente, this.habilidadAUsar);
+        try { Thread.sleep(500); } catch(InterruptedException e) { throw new RuntimeException(e); }
+        return true;
+        /*Log.getLog().log("Esa habilidad no existe, tiene que ser un numero de estos (1 - 2 - 3 - 4)");
+        return false;*/
     }
 
     private boolean habilidadValorValida(Integer num){
@@ -29,4 +30,7 @@ public class JugadaAtaque extends Jugada {
     }
 
 
+    public void setHabilidad(int i) {
+        this.habilidadAUsar = i;
+    }
 }
