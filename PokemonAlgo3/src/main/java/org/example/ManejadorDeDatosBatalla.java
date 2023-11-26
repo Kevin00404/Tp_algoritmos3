@@ -2,6 +2,7 @@ package org.example;
 
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import org.example.Clima.ManejoDeClima;
 import org.example.Estadisticas.Estadisticas;
@@ -33,6 +34,14 @@ public class ManejadorDeDatosBatalla {
         jugador_contrario_num = 2;
     }
 
+    public Double getVidaPokemon(Integer nroEntrenador){
+        return this.juego.getEntrenador(nroEntrenador).getPokemonActual().getEstadisticas().getVida();
+    }
+
+    public Double getMaxVidaPokemon(Integer nroEntrenador){
+        return this.juego.getEntrenador(nroEntrenador).getPokemonActual().getEstadisticas().getMaxVida();
+    }
+
     public void ordenarData(Juego juego) {
         this.juego = juego;
         entrenador_actual = this.juego.getEntrenador(jugador_actual_num);
@@ -57,18 +66,6 @@ public class ManejadorDeDatosBatalla {
 
     public String getNombrePokemonContrario() {
         return pokemon_entrenador_contrario.getNombre();
-    }
-
-    public void cambiarClima(ImageView imagen){
-        ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador_actual,entrenador_contrario);
-        /*if (ManejoDeClima.getClima() == "Despejado"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Granizo"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Huracan"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Lluvia"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Niebla"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Soleado"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Tormenta de Arena"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }
-        if (ManejoDeClima.getClima() == "Tormenta de rayos"){  imagen.setImage(new Image("/../../resources/org.example/Imgs/ClimaDespejado.png"));  }*/
     }
 
     public Double getVidaPokemonAtacante() {
@@ -99,8 +96,8 @@ public class ManejadorDeDatosBatalla {
         return entrenador_actual;
     }
 
-    public void cambiarJugadores() {
-        if (jugador_actual_num == 1 && jugador_contrario_num == 2) {
+    public void cambiarJugadores(ProgressBar barraAtacante, ProgressBar barraOponente){
+        if (jugador_actual_num == 1 && jugador_contrario_num == 2){
             jugador_actual_num = 2;
             jugador_contrario_num = 1;
         } else {
