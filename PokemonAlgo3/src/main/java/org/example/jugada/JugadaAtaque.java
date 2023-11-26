@@ -19,7 +19,6 @@ public class JugadaAtaque extends Jugada {
         //jugador.mostrarHabilidadesDePokemon();
         //int habilidadElegida = scanner.nextInt();
         jugador.atacar(oponente, this.habilidadAUsar);
-        try { Thread.sleep(500); } catch(InterruptedException e) { throw new RuntimeException(e); }
         return true;
         /*Log.getLog().log("Esa habilidad no existe, tiene que ser un numero de estos (1 - 2 - 3 - 4)");
         return false;*/

@@ -5,4 +5,5 @@ module PokemonAlgo3 {
     requires javafx.media;
     requires javafx.fxml;
     requires json.simple;
+    requires java.datatransfer;
 }

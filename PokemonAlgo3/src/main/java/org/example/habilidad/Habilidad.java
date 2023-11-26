@@ -3,6 +3,7 @@ package org.example.habilidad;
 import org.example.Eventos.Eventos;
 import org.example.Elemento.Element;
 import org.example.Estadisticas.Estadisticas;
+import org.example.Log.Log;
 import org.example.comando.Comando;
 import org.example.comando.ComandoMensaje;
 import org.example.pokemon.Pokemon;
@@ -16,6 +17,10 @@ public abstract class Habilidad {
         this.nombre = nombre;
         this.cantidadDisponible = cantidadDisponible;
         this.tipoDeHabilidad = tipoDeHabilidad;
+    }
+
+    public void avisarDeUso(){
+        Log.getLog().log("Se ha utilizado la habilidad " + this.nombre);
     }
     public void atacar(Pokemon pokemon, Element element, Eventos eventos_a_realizar){}
 
