@@ -45,7 +45,6 @@ public class Juego {
     }
 
     public void batalla() throws InterruptedException {
-        Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
             turnoJugador(entrenador1, entrenador2);
@@ -57,7 +56,6 @@ public class Juego {
             }
             // Verificar si entrenador2 sigue vivo
             if (entrenador2.murio()) {
-                Log.getLog().log("entrenador " + entrenador2.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
@@ -71,13 +69,11 @@ public class Juego {
             }
             // Verificar si entrenador1 sigue vivo
             if (entrenador1.murio()) {
-                Log.getLog().log("entrenador "+ entrenador1.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
         }
 
-        System.out.println("¡Fin del juego!");
     }
 
     public void turnoJugador(Entrenador jugador, Entrenador oponente) throws InterruptedException {
@@ -143,7 +139,6 @@ public class Juego {
         return entrenador_actual.getPokemonActual().getEstadisticas().getVida();
     }
     public String getNombrePokemonAtacante(){
-        System.out.println("entro");
         System.out.println(entrenador_actual.getPokemonActual().getNombre());
         return entrenador1.getPokemonActual().getNombre();
     }
@@ -210,7 +205,6 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
-        System.out.println("Se creo el entrenador 1 en Juego!");
         return entrenador;
     }
 
@@ -244,7 +238,6 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
-        System.out.println("Se creo el entrenador 2 en Juego!");
         return entrenador;
     }
 

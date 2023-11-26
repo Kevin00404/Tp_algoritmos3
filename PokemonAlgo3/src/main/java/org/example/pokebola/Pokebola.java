@@ -17,7 +17,7 @@ public class Pokebola {
     //Agrega pokemon a pokebola. Si ya tiene la cantidad maxima de pokemones admitidos imprime error.
     public void agregarPokemon(Pokemon pokemon) {
         if (dicc.size() >= this.cantidadPokemones) {
-            Log.getLog().log("Error:Pokebola ya contiene " + this.cantidadPokemones + " pokemones.");
+            //Log.getLog().log("Error:Pokebola ya contiene " + this.cantidadPokemones + " pokemones.");
             return;
         }
         dicc.put(pokemon.getNombre(), pokemon);
@@ -29,7 +29,6 @@ public class Pokebola {
 
     public ArrayList<String> mostrarPokemones(){
         // Solicitar al usuario que ingrese un nombre de las opciones.
-        Log.getLog().log("Pokemones disponibles: \n");
 
         ArrayList<String> lista = new ArrayList<>();
         Set<String> claves = dicc.keySet();
@@ -40,10 +39,8 @@ public class Pokebola {
         while (iterator.hasNext()) {
             String clave = iterator.next();
             Pokemon pokemon = dicc.get(clave);
-            Log.getLog().log("Nombre: " + clave + " |Vida: " + String.format("%.2f", pokemon.vida()));
             lista.add(clave);
         }
-        Log.getLog().log("Cancelar");
         return lista;
     }
     public Pokemon obtenerPokemon(String pokemonSeleccionado){

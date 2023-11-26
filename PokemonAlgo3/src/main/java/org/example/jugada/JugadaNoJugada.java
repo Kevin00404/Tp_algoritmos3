@@ -9,7 +9,6 @@ public class JugadaNoJugada extends Jugada{
     }
     @Override
     public boolean jugar() {
-        Log.getLog().log("Opción no válida, vuelva a seleccionar");
         return false;
     }
 }

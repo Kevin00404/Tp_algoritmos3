@@ -109,15 +109,6 @@ public class Pokemon {
         return mostrarEstado;
     }
 
-    public void mostrarHabilidades() {
-        Log.getLog().log("Elige una habilidad:");
-        Log.getLog().log("1. " + getPrimeraHabilidad() + "usos disponibles: " + this.habilidades.get(1).getCantidadDisponible());
-        Log.getLog().log("2. " + getSegundaHabilidad() + "usos disponibles: " + this.habilidades.get(2).getCantidadDisponible());
-        Log.getLog().log("3. " + getTerceraHabilidad() + "usos disponibles: " + this.habilidades.get(3).getCantidadDisponible());
-        Log.getLog().log("4. " + getCuartaHabilidad() + "usos disponibles: " + this.habilidades.get(4).getCantidadDisponible());
-        Log.getLog().log("5. volver atras");
-    }
-
     public Estadisticas getEstadisticas() {
         return this.estadisticas;
     }
