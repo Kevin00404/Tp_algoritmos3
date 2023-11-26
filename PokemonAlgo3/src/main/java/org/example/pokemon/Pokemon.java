@@ -70,6 +70,7 @@ public class Pokemon {
 
     public void aplicarPasivos(){
         if (!estadisticas.sigueVivo()){
+            Log.getLog().log("El pokemon " + this.getNombre() + "ha muerto");
             this.estado = new EstadoDebilitado();
         } else {
             this.estado = this.estado.condicionarConSiguienteEstadoPasivo(estadisticas);
