@@ -75,6 +75,7 @@ public class BatallaJugadorUnoController_ {
     public ManejadorDeDatosBatalla manejador;
 
     public HashMap<String, ProgressBar> barras_vida_pokemones;
+    private Scene escenaDeBatalla;
 
 
     public void setPrimaryStage(Stage stage) {
@@ -190,6 +191,7 @@ public class BatallaJugadorUnoController_ {
 
         MochilaController mochilaController = fxmlLoader.getController();
         mochilaController.setPrimaryStage(this.stage);
+        mochilaController.setScene(this.escenaDeBatalla);
         mochilaController.setManejador(this.manejador);
         mochilaController.inicializarDataMochila(manejador.getEntrenador_actual());
 
@@ -204,6 +206,11 @@ public class BatallaJugadorUnoController_ {
     public void guardarEscenaBatalla(Stage stage,Scene escena) {
         this.escenaBatalla=stage;
         this.escenaBatallaParametro=escenaBatallaParametro;
+    }
+
+
+    public void setScene(Scene scene) {
+        this.escenaDeBatalla = scene;
     }
 
     @FXML

@@ -94,6 +94,9 @@ public class ManejadorDeDatosBatalla {
         ordenarData(this.juego);
     }
 
+    public Estadisticas getEstadisticasPokemonActual() {
+        return estadisticas_pokemon_actual;
+
     public void cargarHabilidades(Button h1, Button h2, Button h3, Button h4) {
         h1.setText(pokemon_entrenador_actual.getPrimeraHabilidad());
         h2.setText(pokemon_entrenador_actual.getSegundaHabilidad());
@@ -176,8 +179,8 @@ public class ManejadorDeDatosBatalla {
             zzzContrario.setVisible(false);
         }
     }
-
     public void ejecutarPasivos() {
         entrenador_contrario.efectosPasivos();
+
     }
 }
