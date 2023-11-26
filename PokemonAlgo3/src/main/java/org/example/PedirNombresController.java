@@ -29,6 +29,7 @@ public class PedirNombresController {
     public void clickBoton() throws IOException {
         String nombre_ingresado = nombre_jugador_1.getText();
         this.juego.setEntrenador1(juego.crearEntrenador1(nombre_ingresado));
+        nombre_jugador_1.clear();
         pregunta_nombre_label.setText("Por favor, seleccione el nombre del entrenador (Jugador 2): ");
         boton_de_envio.setOnAction(e -> {
             try {

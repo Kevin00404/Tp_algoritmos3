@@ -60,4 +60,9 @@ public class EstadoDormido extends Estado{
     public Estado aceptarEstado(Estado estado) {
         return estado.curarEstado(this);
     }
+
+    @Override
+    public boolean existeEstadoDormido(){
+        return true;
+    }
 }

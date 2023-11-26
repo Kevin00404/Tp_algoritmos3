@@ -65,9 +65,12 @@ public abstract class Estado {
         return this.nombre;
     }
     public void agregarEstado(Estado proximoEstado){
+        System.out.println("Concateno estado");
         if (this.proximoEstado == null){
+            System.out.println("Llegue al ultimo estado y concateno el estado: " + proximoEstado.getNombre());
             this.proximoEstado = proximoEstado;
         } else {
+            System.out.printf("Busco en siguiente, el estado " + this.getNombre() + "Tiene proximo estado");
             this.proximoEstado.agregarEstado(proximoEstado);
         }
     }
@@ -90,5 +93,36 @@ public abstract class Estado {
         if (!(obj instanceof Estado)) return false;
         Estado otro = (Estado) obj;
         return this.nombre.equals (otro.nombre);
+    }
+
+    public boolean existeEstadoParalizado(){
+        System.out.println("El estado " + this.getNombre() + " tiene proximo estado?");
+        if (proximoEstado != null){
+            System.out.println("Si, " + this.proximoEstado.getNombre() + " es el proximo estado");
+            return this.proximoEstado.existeEstadoParalizado();
+        }
+        System.out.println("No, no hay proximo estado y devuelvo false");
+        return false;
+    }
+    public boolean existeEstadoDormido(){
+        System.out.println("El estado " + this.getNombre() + " tiene proximo estado?");
+        if (this.proximoEstado != null){
+            System.out.println("Si, " + this.proximoEstado.getNombre() + " es el proximo estado");
+            return this.proximoEstado.existeEstadoDormido();
+        }
+        System.out.println("No, no hay proximo estado y devuelvo false");
+        return false;
+    }
+    public boolean existeEstadoConfuso(){
+        if (proximoEstado != null){
+            return this.proximoEstado.existeEstadoConfuso();
+        }
+        return false;
+    }
+    public boolean existeEstadoEnvenenado(){
+        if (proximoEstado != null){
+            return this.proximoEstado.existeEstadoEnvenenado();
+        }
+        return false;
     }
 }

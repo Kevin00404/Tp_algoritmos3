@@ -29,4 +29,9 @@ public class EstadoEnvenenado extends Estado {
     public Estado aceptarEstado(Estado estado) {
         return estado.curarEstado(this);
     }
+
+    @Override
+    public boolean existeEstadoEnvenenado(){
+        return true;
+    }
 }

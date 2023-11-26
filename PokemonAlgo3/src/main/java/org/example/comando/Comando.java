@@ -4,7 +4,7 @@ public abstract class Comando implements ComandoManejable {
     ComandoManejable anteriorComando = null;
 
     @Override
-    public void ejecutar() {
+    public void ejecutar() throws InterruptedException {
         if (this.anteriorComando != null){
             this.anteriorComando.ejecutar();
         }

@@ -58,4 +58,11 @@ public class EstadoConfuso extends Estado {
         Comando comandoConfundir = confundir(estadisticas);
         return comandoConfundir;
     }
+
+    @Override
+    public boolean existeEstadoConfuso(){
+        return true;
+    }
+
+
 }

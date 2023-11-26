@@ -48,7 +48,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="22.0" />
                     </font>
                 </Text>
-                <ImageView fitHeight="57.0" fitWidth="200.0" layoutX="211.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="72.0" fitWidth="228.0" layoutX="183.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Imgs/Datos_jugador_a_atacar.png" />
                     </image>
@@ -98,7 +98,7 @@
                               <Insets left="3.0" />
                            </GridPane.margin>
                         </Button>
-                            <Button fx:id="atacar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="143.0" text="Atacar" textAlignment="CENTER" onAction="#elegirHabilidad">
+                            <Button fx:id="atacar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#elegirHabilidad" prefHeight="40.0" prefWidth="143.0" text="Atacar" textAlignment="CENTER">
                            <GridPane.margin>
                               <Insets left="4.0" top="5.0" />
                            </GridPane.margin>
@@ -123,6 +123,70 @@
                   </GridPane>
                </children>
             </AnchorPane>
+            <GridPane layoutX="262.0" layoutY="216.0" prefHeight="36.0" prefWidth="41.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="zzzAtacante" fitHeight="61.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoDormido.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="paralizadoAtacante" fitHeight="82.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoParalizado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="venenoAtacante" fitHeight="77.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoEnvenenado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="confusoAtacante" fitHeight="81.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@Imgs/EstadoConfuso.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <GridPane layoutX="189.0" layoutY="32.0" prefHeight="32.0" prefWidth="44.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="15.66668701171875" minHeight="0.333343505859375" prefHeight="15.66668701171875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.666656494140625" minHeight="10.0" prefHeight="20.33331298828125" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="zzzContrario" fitHeight="82.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoDormido.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="venenoContrario" fitHeight="90.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoEnvenenado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="paralizadoContrario" fitHeight="71.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@Imgs/EstadoParalizado.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="confusoContrario" fitHeight="16.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@Imgs/EstadoConfuso.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
             </children>
         </AnchorPane>
     </children>

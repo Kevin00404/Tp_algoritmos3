@@ -21,7 +21,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Juego {
-    public void iniciar_Juego(){
+    public void iniciar_Juego() throws InterruptedException {
         this.inicializar();
         this.batalla();
     }
@@ -46,7 +46,7 @@ public class Juego {
         }
     }*/
 
-    public void batalla() {
+    public void batalla() throws InterruptedException {
         Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
@@ -82,14 +82,14 @@ public class Juego {
         System.out.println("¡Fin del juego!");
     }
 
-    public void     turnoJugador(Entrenador jugador, Entrenador oponente) {
+    public void turnoJugador(Entrenador jugador, Entrenador oponente) throws InterruptedException {
         jugador.actualizarPokemonActual();
         //jugador.pokemonSiguePeleando();
         boolean pasarTurno = false;
         JugadaFactory jugadaFactory = new JugadaFactory(jugador, oponente);
         while(!pasarTurno){
             Jugada jugada = jugadaFactory.inicializarJugada();
-            pasarTurno = jugada.jugar();
+            //pasarTurno = jugada.jugar();
             Eventos.getEventos().ejecutarEvento();
         }
         entrenador_actual=oponente;
