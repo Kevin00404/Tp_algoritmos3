@@ -28,6 +28,10 @@ public class EstadoConfuso extends Estado {
         return this;
     }
 
+    public Estado copiar(){
+        return new EstadoConfuso();
+    }
+
     private Comando confundir(Estadisticas estadisticas){
         Comando danioConfuso = new DanioConfusoComando(estadisticas);
         Comando mensaje = new ComandoMensaje("esta confuso");

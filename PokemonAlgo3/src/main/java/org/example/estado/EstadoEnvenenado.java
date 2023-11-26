@@ -26,6 +26,10 @@ public class EstadoEnvenenado extends Estado {
         nuevoEstado.agregarEstado(proximoEstado);
         return nuevoEstado;
     }
+
+    public Estado copiar(){
+        return new EstadoEnvenenado();
+    }
     public Estado aceptarEstado(Estado estado) {
         return estado.curarEstado(this);
     }

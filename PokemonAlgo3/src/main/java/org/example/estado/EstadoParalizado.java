@@ -37,4 +37,8 @@ public class EstadoParalizado extends Estado{
     public boolean existeEstadoParalizado(){
         return true;
     }
+
+    public Estado copiar(){
+        return new EstadoParalizado();
+    }
 }

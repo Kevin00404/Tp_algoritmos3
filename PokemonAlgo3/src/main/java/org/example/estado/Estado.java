@@ -16,15 +16,6 @@ public abstract class Estado {
         return this;
     }
 
-    public Estado concatenarEstado(Estado estado){
-        if (proximoEstado != null){
-            this.proximoEstado.concatenarEstado(estado);
-            return this;
-        }
-        this.proximoEstado = estado;
-        return this;
-    }
-
     public Comando mostrarEstado(){
         return new ComandoMensaje("Estado Actual: " + nombre);
     }
@@ -67,7 +58,6 @@ public abstract class Estado {
     public void agregarEstado(Estado proximoEstado){
         System.out.println("Concateno estado");
         if (this.proximoEstado == null){
-            System.out.println("Llegue al ultimo estado y concateno el estado: " + proximoEstado.getNombre());
             this.proximoEstado = proximoEstado;
         } else {
             System.out.printf("Busco en siguiente, el estado " + this.getNombre() + "Tiene proximo estado");
@@ -94,6 +84,8 @@ public abstract class Estado {
         Estado otro = (Estado) obj;
         return this.nombre.equals (otro.nombre);
     }
+
+    public abstract Estado copiar();
 
     public boolean existeEstadoParalizado(){
         System.out.println("El estado " + this.getNombre() + " tiene proximo estado?");

@@ -8,4 +8,8 @@ public class EstadoNormal extends Estado{
     public Estado aceptarEstado(Estado estado) {
         return estado.curarEstado(this);
     }
+
+    public Estado copiar(){
+        return new EstadoNormal();
+    }
 }
