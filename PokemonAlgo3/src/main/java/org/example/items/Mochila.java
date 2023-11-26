@@ -15,13 +15,13 @@ public class Mochila {
         System.out.println("0 - volver atras");
     }
     public void agregarObjeto(Items item){ mochila.add(item); }
-    public boolean usarItem(Pokemon pokemon , int itemSeleccionado){
+    public boolean usarItem(Pokemon pokemon , int itemSeleccionado) throws InterruptedException {
         System.out.println(mochila.get(itemSeleccionado-1).getNombre());
         boolean itemSeUso = mochila.get((itemSeleccionado-1)).usarItem(pokemon);
-        gastarUsosDeItem(itemSeleccionado);
+        seQuedoSinUsos(itemSeleccionado);
         return itemSeUso;
     }
-    protected void gastarUsosDeItem(int item){
+    protected void seQuedoSinUsos(int item){
         if (!mochila.get(item-1).quedanDisponibles()){
             mochila.remove((item-1));
         }

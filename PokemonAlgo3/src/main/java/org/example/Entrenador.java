@@ -64,7 +64,7 @@ public class Entrenador {
         return pokebola.pokemonesDebilitados() < pokebola.cantidadPokemones();
     }
 
-    public boolean usarItemEnMochila(int objetoElegido, String pokemonElegido) {
+    public boolean usarItemEnMochila(int objetoElegido, String pokemonElegido) throws InterruptedException {
         return mochila.usarItem(pokebola.obtenerPokemon(pokemonElegido), objetoElegido);
     }
 

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -89,6 +90,10 @@ public class BatallaJugadorUnoController_ {
     public Button habilidad_tres_boton;
     @FXML
     public Button habilidad_cuatro_boton;
+    @FXML
+    public VBox main;
+    @FXML
+    public ImageView pkmnAtacante;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -107,7 +112,9 @@ public class BatallaJugadorUnoController_ {
         manejador.ordenarData(juego);
     }
 
+
     public void inicializarDatosdeBatalla() throws IOException {
+        animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         recargarDatos();
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
@@ -214,9 +221,6 @@ public class BatallaJugadorUnoController_ {
         this.stage.setTitle("Pidiendo Pokemon");
         this.stage.show();
 
-
-
-
     }
 
     //boton mochila
@@ -228,6 +232,14 @@ public class BatallaJugadorUnoController_ {
         }catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    @FXML
+    public void animacionFadeIn(){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), main);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
 
     public void activarEscenaMostrarMochila() throws IOException {
@@ -313,6 +325,7 @@ public class BatallaJugadorUnoController_ {
 
     public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadUno();
+        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
@@ -320,6 +333,7 @@ public class BatallaJugadorUnoController_ {
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadDos();
+        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
@@ -327,6 +341,7 @@ public class BatallaJugadorUnoController_ {
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadTres();
+        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
@@ -334,6 +349,7 @@ public class BatallaJugadorUnoController_ {
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadCuatro();
+        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
@@ -356,6 +372,21 @@ public class BatallaJugadorUnoController_ {
         );
         task.playFromStart();
 
+    }
+
+    public void animacionAtaque(){
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnAtacante);
+
+        // Mover 100 píxeles en la dirección X
+        transition.setToX(100);
+
+        // Manejar el evento de finalización para volver a la posición inicial
+        transition.setOnFinished(event -> {
+            pkmnAtacante.setTranslateX(0);  // Restaurar a la posición inicial
+        });
+
+        // Iniciar la transición
+        transition.play();
     }
 
 }

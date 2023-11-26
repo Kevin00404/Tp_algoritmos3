@@ -15,7 +15,7 @@ public class Pocion extends ItemDeCuracion {
     }
 
     @Override
-    public boolean usarItem(Pokemon pokemon) {
+    public boolean usarItem(Pokemon pokemon) throws InterruptedException {
         if (this.disponibles == 0){
             return false;
         }
@@ -25,6 +25,7 @@ public class Pocion extends ItemDeCuracion {
         comandoMensaje.concatComands(comando);
         Eventos.getEventos().agregarComando(comandoMensaje);
         this.disponibles -= 1;
+        Eventos.getEventos().ejecutarEvento();
         return true;
     }
 

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BatallaJugadorUnoController_">
+<VBox fx:id="main" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BatallaJugadorUnoController_">
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
@@ -73,7 +73,7 @@
                         <Image url="@Imgs/1_Hxptm5gIRc3HyYXzw5nfpw.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="pkmnAtacante" fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Imgs/cham.jpg" />
                     </image>

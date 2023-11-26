@@ -12,5 +12,5 @@ public abstract class Jugada implements JugadaI{
         this.oponente = oponente;
     }
 
-    public abstract boolean jugar();
+    public abstract boolean jugar() throws InterruptedException;
 }

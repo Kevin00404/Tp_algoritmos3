@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.example.items.Items;
 
 import java.io.IOException;
@@ -35,13 +39,17 @@ public class MochilaController {
     public Label descripcionItem;
 
     @FXML
-    public GridPane confirmarUso;
-
-    @FXML
     public Button confirmarNo;
 
     @FXML
     public Button confirmarSi;
+
+    @FXML
+    public AnchorPane main;
+    @FXML
+    public Label confirmarUsoLabel;
+    @FXML
+    public Button salir;
 
     public MultipleSelectionModel listViewOriginal;
     private Scene escenaBatalla;
@@ -55,11 +63,27 @@ public class MochilaController {
     }
 
     public void inicializarDataMochila(Entrenador entrenadorActual) {
+        animacionFadeIn();
         List<String> nombresItem = new ArrayList<>();
         for (Items item : entrenadorActual.getMochila().getItems() ) {
             nombresItem.add(item.getNombre());
         }
         setListaItems(nombresItem, entrenadorActual.getMochila().getItems());
+    }
+
+    @FXML
+    public void animacionFadeIn(){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), main);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+
+    public void animacionFadeIn(Scene batalla){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), batalla.getRoot());
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
 
     private void setListaItems(List<String> items, List<Items> mochila) {
@@ -83,12 +107,23 @@ public class MochilaController {
     private void setDescripcion(List<Items> mochila) {
         listaItems.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null){
-                String descripcion = encontrarItemEnMochila(mochila, (String) newValue);
+                String descripcion = encontrarItemEnMochila(mochila, newValue.toString());
                 descripcionItem.setText(descripcion);
             } else {
                 descripcionItem.setText("");
             }
         });
+    }
+
+    @FXML
+    public void volverABatalla(){
+
+        animacionFadeIn(escenaBatalla);
+
+        this.stage.setScene(escenaBatalla);
+        this.stage.setTitle("batalla");
+        this.stage.show();
+
     }
 
     private String encontrarItemEnMochila(List<Items> mochila, String itemSeleccionado) {
@@ -103,28 +138,39 @@ public class MochilaController {
     @FXML
     public void confirmarUso(){
         listaItems.setOnMouseClicked(event -> {
+            ocultarSalir();
             itemSeleccionado = listaItems.getSelectionModel().getSelectedIndex();
             listaItems.getSelectionModel().clearSelection();
             listaItems.setSelectionModel(null);
-            confirmarUso.setVisible(true);
+            mostrarElementosDeConfirmacion();
         });
     }
 
-    private Items obtenerItem(List<Items> mochila, String itemSeleccionado) {
-        for (Items item : mochila ) {
-            if (itemSeleccionado.contains(item.getNombre())){
-                return item;
-            }
-        }
-        return null;
+    public void mostrarElementosDeConfirmacion(){
+        confirmarUsoLabel.setVisible(true);
+        confirmarNo.setVisible(true);
+        confirmarSi.setVisible(true);
+    }
+    public void ocultarSalir(){
+        salir.setVisible(false);
+    }
+
+    public void mostrarSalir(){
+        salir.setVisible(true);
     }
 
     @FXML
     public void ocultarConfirmacion(){
-        confirmarUso.setVisible(false);
+        ocultarElementosConfirmacion();
         listaItems.setSelectionModel(listViewOriginal);
         listaItems.getSelectionModel().select(itemSeleccionado);
+        mostrarSalir();
+    }
 
+    public void ocultarElementosConfirmacion(){
+        confirmarUsoLabel.setVisible(false);
+        confirmarSi.setVisible(false);
+        confirmarNo.setVisible(false);
     }
 
     @FXML
