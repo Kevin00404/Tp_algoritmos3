@@ -12,6 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.example.Clima.ManejoDeClima;
+import org.example.Clima.TormentaDeArena;
+import org.example.Clima.TormentaDeRayo;
 import org.example.Log.Log;
 
 import java.io.IOException;
@@ -36,6 +39,27 @@ public class BatallaJugadorUnoController_ {
     public ImageView paralizadoAtacante;
     @FXML
     public ImageView venenoAtacante;
+
+    @FXML
+    public ImageView clima;
+    @FXML
+    public ImageView Despejado;
+    @FXML
+    public ImageView Granizo;
+
+    @FXML
+    public ImageView Huracan;
+    @FXML
+    public ImageView Lluvia;
+    @FXML
+    public ImageView Niebla;
+
+    @FXML
+    public ImageView Soleado;
+    @FXML
+    public ImageView TormentaDeArena;
+    @FXML
+    public ImageView TormentaDeRayo;
     private Stage stage;
     @FXML
     public Text info_juego;
@@ -91,24 +115,14 @@ public class BatallaJugadorUnoController_ {
         manejador.ordenarData(juego);
     }
 
-    public void inicializarDatosdeBatalla() {
+    public void inicializarDatosdeBatalla() throws IOException {
         Log.getLog().setFuente(info_juego);
         guardarPosicionesDeBarras();
         recargarDatos();
     }
-
-    private void guardarPosicionesDeBarras(){
-
-        posicionXBarraAtacante = barra_vida_actual.getLayoutX();
-
-        posicionYBarraAtacante = barra_vida_actual.getLayoutY();
-
-        posicionXBarraOponente = barra_vida_no_actual.getLayoutX();
-
-        posicionYBarraOponente = barra_vida_no_actual.getLayoutY();
-    }
-
+ 
     public void recargarDatos(){
+
         manejador.ejecutarPasivos();
         if (barra_vida_actual.getLayoutX() >= 303.0){
             barra_vida_actual.setLayoutX(237.0);
@@ -134,6 +148,23 @@ public class BatallaJugadorUnoController_ {
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
         info_juego.setText(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
+        manejador.cambiarClima(Despejado, Huracan, Soleado, Niebla, Lluvia, TormentaDeArena, TormentaDeRayo, Granizo);
+        chequearPokemonesMuertos();
+    }
+
+    private void chequearPokemonesMuertos() throws IOException {
+        String nombre_entrenador_muerto = manejador.analizarMuertos();
+        if(nombre_entrenador_muerto != null){
+            ejecutarEscenaGanador(nombre_entrenador_muerto);
+        }
+        if(manejador.pokemon_entrenador_actual_murio()){
+            System.out.println("Pokemon Actual murio");
+            activarEscenaCambiarPokemon();
+        }
+    }
+
+    private void ejecutarEscenaGanador(String nombre) {
+
     }
     private void setDatosOponente(){
         setearVida(barra_vida_no_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
@@ -303,7 +334,7 @@ public class BatallaJugadorUnoController_ {
         rendirse.setVisible(false);
     }
 
-    public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException {
+    public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadUno();
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
@@ -311,7 +342,7 @@ public class BatallaJugadorUnoController_ {
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
-    public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException {
+    public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadDos();
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
@@ -319,7 +350,7 @@ public class BatallaJugadorUnoController_ {
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
-    public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException {
+    public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadTres();
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
@@ -327,7 +358,7 @@ public class BatallaJugadorUnoController_ {
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
-    public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException {
+    public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
         manejador.ejecutarHabilidadCuatro();
         deshabilitarBotonesDeHabilidad();
         Log.getLog().log("Que desea hacer?");
@@ -335,16 +366,6 @@ public class BatallaJugadorUnoController_ {
         manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual);
         recargarDatos();
     }
-
-    /*private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
-        Duration duration = Duration.seconds(2); // Duración de la animación en segundos
-        KeyValue keyValue = new KeyValue(barra_vida_actual.progressProperty(), vidaActualizada);
-        KeyFrame keyFrame = new KeyFrame(duration, keyValue);
-
-        Timeline timeline = new Timeline(keyFrame);
-        timeline.play();
-        //barra_vida.setProgress(vidaActualizada);
-    }*/
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
         System.out.println("Progreso de Barra de vida: " + barra_vida.getProgress());

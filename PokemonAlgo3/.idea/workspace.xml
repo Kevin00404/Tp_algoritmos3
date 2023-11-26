@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8f3fbf0e-eeef-416d-9257-f4890a29e1d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculadoraDanio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clima/ManejoDeClima.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clima/ManejoDeClima.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Estadisticas/Estadisticas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ManejadorDeDatosBatalla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ManejadorDeDatosBatalla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoConfuso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoConfuso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDebilitado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoDormido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoEnvenenado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/estado/EstadoParalizado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/batalla_uno.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/batalla_uno.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "escenaAtacar",
+    "git-widget-placeholder": "refactor__gigante__Naza",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -67,10 +69,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Users\Nazareno\Documents\Projects\TP-para-entrega-final\Tp_algoritmos3\PokemonAlgo3\src\main\resources\org\example\Imgs" />
+      <recent name="F:\Users\Nazareno\Documents\Projects\TP-para-entrega-final\Tp_algoritmos3\PokemonAlgo3\src\main\java\org\example" />
       <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\resources\org\example" />
       <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\resources" />
       <recent name="F:\Users\Nazareno\Documents\Projects\Tp_Algoritmos_newest\Tp_algoritmos3\PokemonAlgo3\src\main\java\org\example" />
-      <recent name="C:\Users\whyan\OneDrive\Desktop\nuevotp2\Tp_algoritmos3\PokemonAlgo3\src\test\java" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="unitarios" />
@@ -228,15 +231,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/estado/Estado.java</url>
-          <line>30</line>
-          <properties class="org.example.estado.Estado" method="condicionarConSiguienteEstado">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

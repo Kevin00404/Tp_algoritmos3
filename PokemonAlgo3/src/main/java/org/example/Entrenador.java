@@ -52,6 +52,7 @@ public class Entrenador {
         }
     }
 
+
     public void atacar(Entrenador entrenador, Integer habilidad){
         pokemonActual.aplicar(entrenador.getPokemonActual(), habilidad);
     }

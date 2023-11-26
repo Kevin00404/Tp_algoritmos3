@@ -41,9 +41,9 @@ public class CalculadoraDanio {
         Double critico = this.critico();
         Double random = randomNum();
         Double danioHipotetico = (((2*estadisticasPropias.getNivel()*critico*this.poder*(estadisticasPropias.getAtaque()/estadisticasEnemigas.getDefensa())/5)+2)/50) * estadisticasPropias.bufeoReaccionElemento(this.elementoDeAtaque) * estadisticasEnemigas.debufeoReaccionElemento(estadisticasPropias.getElemento()) * random;
-        System.out.println(danioHipotetico);
+        System.out.println("Danio hipotetico: " + danioHipotetico);
         Double danioReal = ManejoDeClima.getTerreno().ventajaDelTerreno(danioHipotetico, estadisticasPropias);
-        System.out.println(danioReal);
+        System.out.println("Danio real: " + danioReal);
         return danioReal;
     }
 }

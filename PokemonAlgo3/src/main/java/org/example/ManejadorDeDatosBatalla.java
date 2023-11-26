@@ -1,13 +1,17 @@
 package org.example;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import org.example.Clima.ManejoDeClima;
 import org.example.Estadisticas.Estadisticas;
 import org.example.Eventos.Eventos;
 import org.example.jugada.JugadaAtaque;
 import org.example.pokemon.Pokemon;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -25,7 +29,7 @@ public class ManejadorDeDatosBatalla {
     Estadisticas estadisticas_pokemon_contrario;
 
 
-    public ManejadorDeDatosBatalla(){
+    public ManejadorDeDatosBatalla() {
         jugador_actual_num = 1;
         jugador_contrario_num = 2;
     }
@@ -120,18 +124,21 @@ public class ManejadorDeDatosBatalla {
         jugada.jugar();
         Eventos.getEventos().ejecutarEvento();
     }
+
     public void ejecutarHabilidadDos() throws InterruptedException {
         JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
         jugada.setHabilidad(2);
         jugada.jugar();
         Eventos.getEventos().ejecutarEvento();
     }
+
     public void ejecutarHabilidadTres() throws InterruptedException {
         JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
         jugada.setHabilidad(3);
         jugada.jugar();
         Eventos.getEventos().ejecutarEvento();
     }
+
     public void ejecutarHabilidadCuatro() throws InterruptedException {
         JugadaAtaque jugada = new JugadaAtaque(entrenador_actual, entrenador_contrario);
         jugada.setHabilidad(4);
@@ -148,49 +155,97 @@ public class ManejadorDeDatosBatalla {
     }
 
     public void setearEstados(ImageView paralizadoAtacante, ImageView venenoAtacante, ImageView zzzAtacante, ImageView confusoAtacante, ImageView paralizadoContrario, ImageView venenoContrario, ImageView zzzContrario, ImageView confusoContrario) {
-        if(pokemon_entrenador_actual.getEstado().existeEstadoParalizado()){
+        if (pokemon_entrenador_actual.getEstado().existeEstadoParalizado()) {
             paralizadoAtacante.setVisible(true);
         } else {
             paralizadoAtacante.setVisible(false);
         }
-        if(pokemon_entrenador_actual.getEstado().existeEstadoDormido()){
+        if (pokemon_entrenador_actual.getEstado().existeEstadoDormido()) {
             zzzAtacante.setVisible(true);
         } else {
             zzzAtacante.setVisible(false);
         }
-        if(pokemon_entrenador_actual.getEstado().existeEstadoConfuso()){
+        if (pokemon_entrenador_actual.getEstado().existeEstadoConfuso()) {
             confusoAtacante.setVisible(true);
         } else {
             confusoAtacante.setVisible(false);
         }
-        if(pokemon_entrenador_actual.getEstado().existeEstadoEnvenenado()){
+        if (pokemon_entrenador_actual.getEstado().existeEstadoEnvenenado()) {
             venenoAtacante.setVisible(true);
         } else {
             venenoAtacante.setVisible(false);
         }
-        if(pokemon_entrenador_contrario.getEstado().existeEstadoEnvenenado()){
+        if (pokemon_entrenador_contrario.getEstado().existeEstadoEnvenenado()) {
             venenoContrario.setVisible(true);
         } else {
             venenoContrario.setVisible(false);
         }
-        if(pokemon_entrenador_contrario.getEstado().existeEstadoParalizado()){
+        if (pokemon_entrenador_contrario.getEstado().existeEstadoParalizado()) {
             paralizadoContrario.setVisible(true);
         } else {
             paralizadoContrario.setVisible(false);
         }
-        if(pokemon_entrenador_contrario.getEstado().existeEstadoConfuso()){
+        if (pokemon_entrenador_contrario.getEstado().existeEstadoConfuso()) {
             confusoContrario.setVisible(true);
         } else {
             confusoContrario.setVisible(false);
         }
-        if(pokemon_entrenador_contrario.getEstado().existeEstadoDormido()){
+        if (pokemon_entrenador_contrario.getEstado().existeEstadoDormido()) {
             zzzContrario.setVisible(true);
         } else {
             zzzContrario.setVisible(false);
         }
     }
+
     public void ejecutarPasivos() {
         entrenador_contrario.efectosPasivos();
+    }
+
+    public String analizarMuertos() {
+        if(entrenador_actual.murio()){
+            return entrenador_contrario.getNombre();
+        }
+        if(entrenador_contrario.murio()){
+            return entrenador_actual.getNombre();
+        }
+        return null;
+    }
+
+    public boolean pokemon_entrenador_actual_murio() {
+        return estadisticas_pokemon_actual.getVida() <= 0;
+    }
+
+    public void matarPokemonActual() {
+        this.estadisticas_pokemon_actual.setVida(-1);
+    }
+
+    public void matarPokemonContrario() {
+        this.estadisticas_pokemon_contrario.setVida(-1);
+    }
+
+    public void cambiarClima(ImageView despejado, ImageView huracan, ImageView soleado, ImageView niebla, ImageView lluvia, ImageView tormentaDeArena, ImageView tormentaDeRayo, ImageView granizo) {
+        ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador_actual,entrenador_contrario);
+        desaparecerTodos(despejado, huracan, soleado, niebla, lluvia, tormentaDeArena, tormentaDeRayo, granizo);
+        if (ManejoDeClima.getClima() == "Despejado"){  despejado.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Granizo"){  granizo.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Huracan"){  huracan.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Lluvia"){  lluvia.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Niebla"){  niebla.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Soleado"){  soleado.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Tormenta de Arena"){  tormentaDeArena.setVisible(true);  }
+        if (ManejoDeClima.getClima() == "Tormenta de rayos"){  tormentaDeRayo.setVisible(true);  }
+
+    }
+
+    private void desaparecerTodos(ImageView despejado, ImageView huracan, ImageView soleado, ImageView niebla, ImageView lluvia, ImageView tormentaDeArena, ImageView tormentaDeRayo, ImageView granizo) {
+        despejado.setVisible(false);
+        huracan.setVisible(false);
+        soleado.setVisible(false);
+        niebla.setVisible(false);
+        tormentaDeArena.setVisible(false);
+        tormentaDeRayo.setVisible(false);
+        lluvia.setVisible(false);
+        granizo.setVisible(false);
 
     }
 }

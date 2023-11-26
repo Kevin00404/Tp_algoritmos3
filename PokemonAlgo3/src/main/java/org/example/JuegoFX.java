@@ -81,7 +81,6 @@ public class JuegoFX extends Application {
     public void initialize() {
         String nombre_entrenador_uno = entrenadorController.getEntrenador1Nombre();
         ArrayList<String> listaPokemones = entrenadorController.getListaPokemonesActualesEntrenadorUno();
-        System.out.println("Seteo el label de presentar pokemones");
         presentar_pokemones.setText(nombre_entrenador_uno + ", por favor ingrese el pokemon con el que quiere empezar");
         b_pok_1.setText(listaPokemones.get(0));
         b_pok_2.setText(listaPokemones.get(1));

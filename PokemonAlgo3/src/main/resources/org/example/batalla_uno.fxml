@@ -28,6 +28,46 @@
                         <Image url="@Imgs/campo.jpg" />
                     </image>
                 </ImageView>
+            <ImageView fx:id="Despejado" fitHeight="119.0" fitWidth="120.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaDespejado.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Granizo" fitHeight="130.0" fitWidth="120.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaGranizo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Huracan" fitHeight="130.0" fitWidth="120.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/climaHuracan.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Lluvia" fitHeight="130.0" fitWidth="120.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaLluvia.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Niebla" fitHeight="130.0" fitWidth="120.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaNiebla.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Soleado" fitHeight="120.0" fitWidth="129.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaSoleado.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="TormentaDeArena" fitHeight="130.0" fitWidth="120.0" layoutX="26.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaTormentaDeArena.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="TormentaDeRayo" fitHeight="130.0" fitWidth="120.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Imgs/ClimaTormentaDeRayo.png" />
+               </image>
+            </ImageView>
                 <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="434.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Imgs/1_Hxptm5gIRc3HyYXzw5nfpw.png" />
