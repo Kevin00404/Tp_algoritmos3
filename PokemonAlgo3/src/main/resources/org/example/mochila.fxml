@@ -11,16 +11,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MochilaController">
    <children>
-      <ListView fx:id="listaItems" layoutX="200.0" layoutY="-1.0" prefHeight="314.0" prefWidth="400.0" />
+      <ListView fx:id="listaItems" layoutX="200.0" layoutY="-1.0" onMouseClicked="#confirmarUso" prefHeight="314.0" prefWidth="400.0" />
       <AnchorPane layoutY="313.0" prefHeight="75.0" prefWidth="600.0">
          <children>
             <ImageView fx:id="imagenItem" fitHeight="88.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="descripcionItem" layoutX="154.0" prefHeight="88.0" prefWidth="446.0" text="descripcion" />
-            <GridPane layoutX="395.0" layoutY="17.0" prefHeight="54.0" prefWidth="184.0" visible="false">
+            <GridPane fx:id="confirmarUso" alignment="CENTER" layoutX="395.0" layoutY="17.0" prefHeight="54.0" prefWidth="184.0" visible="false">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="72.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="118.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="77.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="47.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="98.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="42.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -28,9 +28,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="no" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button fx:id="confirmarNo" mnemonicParsing="false" onMouseClicked="#ocultarConfirmacion" prefHeight="25.0" prefWidth="86.0" text="no" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="usar este item?" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="si" GridPane.rowIndex="2" />
+                  <Button fx:id="confirmarSi" mnemonicParsing="false" onMouseClicked="#elegirPokemonItem" prefHeight="25.0" prefWidth="59.0" text="si" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>

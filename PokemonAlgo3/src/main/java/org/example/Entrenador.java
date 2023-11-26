@@ -134,4 +134,8 @@ public class Entrenador {
     public Mochila getMochila() {
         return mochila;
     }
+
+    public Pokebola getPokemones() {
+        return pokebola;
+    }
 }

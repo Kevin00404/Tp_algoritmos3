@@ -83,4 +83,9 @@ public class Pokebola {
     public boolean murieronTodos(){
         return (pokemonesDebilitados() == cantidadPokemones);
     }
+
+    public List<Pokemon> getPokemones(){
+        List<Pokemon> pokemones = new ArrayList<>(dicc.values());
+        return pokemones;
+    }
 }

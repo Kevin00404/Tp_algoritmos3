@@ -89,4 +89,8 @@ public class ManejadorDeDatosBatalla {
         }
         ordenarData(this.juego);
     }
+
+    public Estadisticas getEstadisticasPokemonActual() {
+        return estadisticas_pokemon_actual;
+    }
 }

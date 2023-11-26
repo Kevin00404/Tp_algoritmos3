@@ -20,12 +20,6 @@ public class MainFX extends Application {
     @FXML
     public TextField nombre_jugador_1;
 
-    @FXML
-    public Label pregunta_nombre_label;
-    @FXML
-    public Button boton_de_envio;
-
-    private static Stage stage;
 
     public static void main(String[] args) {
         launch();
