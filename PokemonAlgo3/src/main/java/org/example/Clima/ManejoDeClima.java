@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class ManejoDeClima {
 
-    private Integer MAX_DURACION = 5;
+    private Integer MAX_DURACION = 1;
     private static ManejoDeClima terreno;
-    private Climas clima;
+    private static Climas clima;
 
     private Integer duracion;
 
@@ -76,7 +76,7 @@ public class ManejoDeClima {
         return new Despejado();
     }
 
-    public String getClima() {
+    public static String getClima() {
         return clima.getNombre();
     }
 

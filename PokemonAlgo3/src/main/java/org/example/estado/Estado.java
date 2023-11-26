@@ -56,11 +56,9 @@ public abstract class Estado {
         return this.nombre;
     }
     public void agregarEstado(Estado proximoEstado){
-        System.out.println("Concateno estado");
         if (this.proximoEstado == null){
             this.proximoEstado = proximoEstado;
         } else {
-            System.out.printf("Busco en siguiente, el estado " + this.getNombre() + "Tiene proximo estado");
             this.proximoEstado.agregarEstado(proximoEstado);
         }
     }
@@ -88,21 +86,15 @@ public abstract class Estado {
     public abstract Estado copiar();
 
     public boolean existeEstadoParalizado(){
-        System.out.println("El estado " + this.getNombre() + " tiene proximo estado?");
         if (proximoEstado != null){
-            System.out.println("Si, " + this.proximoEstado.getNombre() + " es el proximo estado");
             return this.proximoEstado.existeEstadoParalizado();
         }
-        System.out.println("No, no hay proximo estado y devuelvo false");
         return false;
     }
     public boolean existeEstadoDormido(){
-        System.out.println("El estado " + this.getNombre() + " tiene proximo estado?");
         if (this.proximoEstado != null){
-            System.out.println("Si, " + this.proximoEstado.getNombre() + " es el proximo estado");
             return this.proximoEstado.existeEstadoDormido();
         }
-        System.out.println("No, no hay proximo estado y devuelvo false");
         return false;
     }
     public boolean existeEstadoConfuso(){
