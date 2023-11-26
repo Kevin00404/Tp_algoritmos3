@@ -1,5 +1,6 @@
 package org.example.habilidad;
 
+import org.example.Log.Log;
 import org.example.comando.Comando;
 import org.example.comando.HacerDanioComando;
 import org.example.CalculadoraDanio;
@@ -21,6 +22,7 @@ public class HabilidadAtaque extends Habilidad{
     public Comando armarComando(Pokemon pokemon, Estadisticas estadisticas){
         this.consumirUso();
         CalculadoraDanio calcDanio = armarDanio(pokemon, estadisticas);
+        this.avisarDeUso();
         return new HacerDanioComando(pokemon, calcDanio);
     }
 

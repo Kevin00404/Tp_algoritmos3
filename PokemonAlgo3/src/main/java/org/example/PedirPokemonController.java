@@ -80,7 +80,6 @@ public class PedirPokemonController {
     public void clickBotonCuarto() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
-            System.out.println("Pokemon que se va a ingresar: " + b_pok_4.getText());
             juego.cambiarPokemonEntrenadorUno(b_pok_4.getText());
             inicializarDataSegundoJugador();
         } else {

@@ -22,6 +22,7 @@ public class HabilidadModificacionTerreno extends Habilidad{
         Comando comandoMensaje = new ComandoMensaje("se ha elegido la habilidad: " + this.nombre );
         Comando comandoJugada = new CambiarTerrenoComando(pokemon, this.asignarClima);
         comandoMensaje.concatComands(comandoJugada);
+        this.avisarDeUso();
         return comandoMensaje;
     }
 
