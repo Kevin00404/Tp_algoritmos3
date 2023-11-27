@@ -32,14 +32,17 @@ public class ManejadorDeDatosBatalla {
 
     Estadisticas estadisticas_pokemon_contrario;
 
+    ProgressBar barraEntrenadorActual;
+    ProgressBar barraEntrenadorOponente;
 
-    public ManejadorDeDatosBatalla() {
+
+    public ManejadorDeDatosBatalla(ProgressBar barraActual, ProgressBar barraNoActual ) {
         jugador_actual_num = 2;
         jugador_contrario_num = 1;
+        barraEntrenadorActual = barraActual;
+        barraEntrenadorOponente = barraNoActual;
     }
     public void cmabiarPOkemonDeJugadorActual(String nombre){
-        System.out.println("entro a cambiarpokeomn");
-        System.out.println("nuevo nombre," + nombre);
         entrenador_actual.cambiarPokemonActual(nombre);
     }
 
@@ -109,7 +112,7 @@ public class ManejadorDeDatosBatalla {
         return entrenador_actual;
     }
 
-    public void cambiarJugadores(ProgressBar barraAtacante, ProgressBar barraOponente, Text jugadorActual, Text jugadorContrario){
+    public void cambiarJugadores(Text jugadorActual, Text jugadorContrario){
         if (jugador_actual_num == 1 && jugador_contrario_num == 2){
             jugador_actual_num = 2;
             jugador_contrario_num = 1;
@@ -117,8 +120,12 @@ public class ManejadorDeDatosBatalla {
             jugador_actual_num = 1;
             jugador_contrario_num = 2;
         }
-        cambiarBarrasDeLugares(barraAtacante, barraOponente);
+        cambiarBarrasDeLugares();
         cambiarLabelsDeLugar(jugadorActual, jugadorContrario);
+        ordenarData(this.juego);
+    }
+
+    public void noCambiarJugadores(Text jugadorActual, Text jugadorContrario){
         ordenarData(this.juego);
     }
 
@@ -127,20 +134,20 @@ public class ManejadorDeDatosBatalla {
         jugadorContrario.setText(this.entrenador_actual.getNombre());
     }
 
-    private void cambiarBarrasDeLugares(ProgressBar barraAtacante, ProgressBar barraOponente) {
-        if (barraAtacante.getLayoutX() >= 303.0){
-            barraAtacante.setLayoutX(237.0);
-            barraAtacante.setLayoutY(37.0);
+    private void cambiarBarrasDeLugares() {
+        if (barraEntrenadorActual.getLayoutX() >= 303.0){
+            barraEntrenadorActual.setLayoutX(237.0);
+            barraEntrenadorActual.setLayoutY(37.0);
         } else {
-            barraAtacante.setLayoutX(304.0);
-            barraAtacante.setLayoutY(214.0);
+            barraEntrenadorActual.setLayoutX(304.0);
+            barraEntrenadorActual.setLayoutY(214.0);
         }
-        if (barraOponente.getLayoutX() <= 238.0){
-            barraOponente.setLayoutX(304.0);
-            barraOponente.setLayoutY(214.0);
+        if (barraEntrenadorOponente.getLayoutX() <= 238.0){
+            barraEntrenadorOponente.setLayoutX(304.0);
+            barraEntrenadorOponente.setLayoutY(214.0);
         } else {
-            barraOponente.setLayoutX(237.0);
-            barraOponente.setLayoutY(37.0);
+            barraEntrenadorOponente.setLayoutX(237.0);
+            barraEntrenadorOponente.setLayoutY(37.0);
         }
     }
 
@@ -247,6 +254,7 @@ public class ManejadorDeDatosBatalla {
         if(entrenador_contrario.murio()){
             return entrenador_actual.getNombre();
         }
+        System.out.println("llegue al null de todas maneras");
         return null;
     }
 

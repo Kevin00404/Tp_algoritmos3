@@ -120,6 +120,7 @@ public class ElegirPokemonController implements Initializable {
     @FXML
     public AnchorPane main;
     private Scene escenaBatalla;
+    private Boolean derrotadoEnPelea;
 
     public void setPrimaryStage(Stage stage) {
         this.stage = stage;
@@ -167,25 +168,88 @@ public class ElegirPokemonController implements Initializable {
 
         seleccionarPkmn2.setOnAction(event ->{
             pokemonSeleccionadoNombre = pkmn2Nombre.getText();
+            derrotadoEnPelea = false;
             disableOtherButtons(seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn5,seleccionarPkmn6);
         });
         seleccionarPkmn3.setOnAction(event ->{
             pokemonSeleccionadoNombre = pkmn3Nombre.getText();
+            derrotadoEnPelea = false;
             disableOtherButtons(seleccionarPkmn2,seleccionarPkmn4,seleccionarPkmn5,seleccionarPkmn6);
         });
         seleccionarPkmn4.setOnAction(event ->{
             pokemonSeleccionadoNombre = pkmn4Nombre.getText();
+            derrotadoEnPelea = false;
             disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn5,seleccionarPkmn6);
         });
         seleccionarPkmn5.setOnAction(event ->{
             pokemonSeleccionadoNombre = pkmn5Nombre.getText();
+            derrotadoEnPelea = false;
             disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn6);
         });
         seleccionarPkmn6.setOnAction(event ->{
             pokemonSeleccionadoNombre = pkmn6Nombre.getText();
+            derrotadoEnPelea = false;
             disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn5);
         });
     }
+
+    public void inicializarDataPokemones(Boolean fuePorPelea) {
+        setDatosPkmnActual();
+        Integer i= 2;
+        for (Pokemon pokemon: manejador.getEntrenador_actual().getPokemones().getPokemones() ) {
+            if ( !pokemon.getNombre().equals(manejador.getEntrenador_actual().getPokemonActual().getNombre())){
+                switch (i){
+                    case 2:
+                        setDatosPkmn2(pokemon);
+                        i++;
+                        break;
+                    case 3:
+                        setDatosPkmn3(pokemon);
+                        i++;
+                        break;
+                    case 4:
+                        setDatosPkmn4(pokemon);
+                        i++;
+                        break;
+                    case 5:
+                        setDatosPkmn5(pokemon);
+                        i++;
+                        break;
+                    case 6:
+                        setDatosPkmn6(pokemon);
+                        i++;
+                        break;
+                }
+            }
+        }
+
+        seleccionarPkmn2.setOnAction(event ->{
+            pokemonSeleccionadoNombre = pkmn2Nombre.getText();
+            derrotadoEnPelea = fuePorPelea;
+            disableOtherButtons(seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn5,seleccionarPkmn6);
+        });
+        seleccionarPkmn3.setOnAction(event ->{
+            pokemonSeleccionadoNombre = pkmn3Nombre.getText();
+            derrotadoEnPelea = fuePorPelea;
+            disableOtherButtons(seleccionarPkmn2,seleccionarPkmn4,seleccionarPkmn5,seleccionarPkmn6);
+        });
+        seleccionarPkmn4.setOnAction(event ->{
+            pokemonSeleccionadoNombre = pkmn4Nombre.getText();
+            derrotadoEnPelea = fuePorPelea;
+            disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn5,seleccionarPkmn6);
+        });
+        seleccionarPkmn5.setOnAction(event ->{
+            pokemonSeleccionadoNombre = pkmn5Nombre.getText();
+            derrotadoEnPelea = fuePorPelea;
+            disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn6);
+        });
+        seleccionarPkmn6.setOnAction(event ->{
+            pokemonSeleccionadoNombre = pkmn6Nombre.getText();
+            derrotadoEnPelea = fuePorPelea;
+            disableOtherButtons( seleccionarPkmn2,seleccionarPkmn3,seleccionarPkmn4,seleccionarPkmn5);
+        });
+    }
+
 
     public void setDatosPkmnActual(){
         pkmnActualNombre.setText(manejador.getEntrenador_actual().getPokemonActual().getNombre());
@@ -301,23 +365,62 @@ public class ElegirPokemonController implements Initializable {
     }
 
     @FXML
-    public void clickSalir_volverABatalla() throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
-        Parent root = fxmlloader.load();
-        BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
-        batallaUno.setPrimaryStage(this.stage);
-        batallaUno.setManejador(manejador);
-        batallaUno.inicializarDatosdeBatalla();
+    public void volverSinCambiar(){
 
-        Scene scene = new Scene(root);
-        this.stage.setScene(scene);
-        batallaUno.setScene(scene);
+        animacionFadeIn(escenaBatalla);
 
-        batallaUno.guardarEscenaBatalla(this.stage,scene);
-
-        this.stage.setTitle("Batalla");
+        this.stage.setScene(escenaBatalla);
+        this.stage.setTitle("batalla");
         this.stage.show();
+
     }
 
+    @FXML
+    public void clickSalir_volverABatalla() throws IOException {
+        if (derrotadoEnPelea){
+
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
+            Parent root = fxmlloader.load();
+            BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
+            batallaUno.setPrimaryStage(this.stage);
+            batallaUno.setManejador(manejador);
+            batallaUno.inicializarDatosdeBatallaSinCambiarTurno();
+
+            Scene scene = new Scene(root);
+            this.stage.setScene(scene);
+            batallaUno.setScene(scene);
+
+            batallaUno.guardarEscenaBatalla(this.stage,scene);
+
+            this.stage.setTitle("Batalla");
+            this.stage.show();
+
+        } else {
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
+            Parent root = fxmlloader.load();
+            BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
+            batallaUno.setPrimaryStage(this.stage);
+            batallaUno.setManejador(manejador);
+            batallaUno.inicializarDatosdeBatalla();
+
+            Scene scene = new Scene(root);
+            this.stage.setScene(scene);
+            batallaUno.setScene(scene);
+
+            batallaUno.guardarEscenaBatalla(this.stage,scene);
+
+            this.stage.setTitle("Batalla");
+            this.stage.show();
+        }
+    }
+
+    //animacion
+
+    public void animacionFadeIn(Scene batalla){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), batalla.getRoot());
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
 }
 

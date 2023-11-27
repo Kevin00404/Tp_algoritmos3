@@ -41,6 +41,7 @@ public class Entrenador {
     }
 
     public boolean murio(){
+        System.out.println( this.nombre + "murio: " + pokebola.murieronTodos() );
         return pokebola.murieronTodos();
     }
 

@@ -119,10 +119,25 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void setJuego(Juego juego) {
-        this.manejador = new ManejadorDeDatosBatalla();
+        this.manejador = new ManejadorDeDatosBatalla(barra_vida_actual, barra_vida_no_actual);
         manejador.ordenarData(juego);
     }
+    public void inicializarDatosdeBatallaSinCambiarTurno() throws IOException {
+        animacionFadeIn();
+        Log.getLog().setFuente(info_juego);
+        setearDatosSinCambiarTurno();
+        nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
+        nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
+    }
 
+    public void setearDatosSinCambiarTurno() throws IOException {
+        System.out.println("SETEO DATOS SIN CAMBIAR TURNO");
+        System.out.println(nombre_jugador_actual.getText() + " " + nombre_jugador_no_actual.getText());
+        manejador.noCambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
+        manejador.ejecutarPasivos();
+        setDatosAtacante();
+        setDatosOponente();
+    }
 
     public void inicializarDatosdeBatalla() throws IOException {
         animacionFadeIn();
@@ -134,7 +149,7 @@ public class BatallaJugadorUnoController_ {
  
     public void recargarDatos() throws IOException {
         System.out.println("CAMBIO DE LUGAR LOS JUGADORES");
-        manejador.cambiarJugadores(barra_vida_actual,barra_vida_no_actual,nombre_jugador_actual,nombre_jugador_no_actual);
+        manejador.cambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatosAtacante();
         setDatosOponente();
@@ -152,16 +167,28 @@ public class BatallaJugadorUnoController_ {
 
     private void chequearPokemonesMuertos() throws IOException {
         String nombre_entrenador_muerto = manejador.analizarMuertos();
+        System.out.println(nombre_entrenador_muerto);
         if(nombre_entrenador_muerto != null){
             ejecutarEscenaGanador(nombre_entrenador_muerto);
-        }
-        if(manejador.pokemon_entrenador_actual_murio()){
+        } else if(manejador.pokemon_entrenador_actual_murio()){
             System.out.println("Pokemon Actual murio");
-            activarEscenaCambiarPokemon();
+            activarEscenaCambiarPokemon(true);
         }
     }
 
-    private void ejecutarEscenaGanador(String nombre) {
+    private void ejecutarEscenaGanador(String nombre) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pantallaDeVictoria.fxml"));
+        Parent root  = fxmlLoader.load();
+
+        PantallaDeVictoriaController victoria = fxmlLoader.getController();
+        victoria.setPantallaVictoria(nombre);
+
+        Scene scene = new Scene(root);
+
+        this.stage.setScene(scene);
+        this.stage.setTitle("victoria");
+        this.stage.show();
 
     }
     private void setDatosOponente(){
@@ -186,6 +213,24 @@ public class BatallaJugadorUnoController_ {
             throw new RuntimeException(ex);
         }
     }
+
+    public void activarEscenaCambiarPokemon(Boolean fuePorPelea) throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("escenaElegirPoke.fxml"));
+        Parent root = fxmlloader.load();
+
+        ElegirPokemonController elegirPokemones = fxmlloader.getController();
+        elegirPokemones.setPrimaryStage(this.stage);
+        elegirPokemones.setManejador(this.manejador);
+        elegirPokemones.setScene(this.escenaDeBatalla);
+        elegirPokemones.inicializarDataPokemones(fuePorPelea);
+
+        Scene scene = new Scene(root);
+
+        this.stage.setScene(scene);
+        this.stage.setTitle("Cambiar Pokemon");
+        this.stage.show();
+    }
+
     public void activarEscenaCambiarPokemon() throws IOException{
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("escenaElegirPoke.fxml"));
         Parent root = fxmlloader.load();
