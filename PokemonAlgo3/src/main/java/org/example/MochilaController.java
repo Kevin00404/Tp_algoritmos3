@@ -123,7 +123,6 @@ public class MochilaController {
         this.stage.setScene(escenaBatalla);
         this.stage.setTitle("batalla");
         this.stage.show();
-
     }
 
     private String encontrarItemEnMochila(List<Items> mochila, String itemSeleccionado) {

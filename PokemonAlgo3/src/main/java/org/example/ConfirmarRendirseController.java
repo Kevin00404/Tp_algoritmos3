@@ -2,13 +2,20 @@ package org.example;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class ConfirmarRendirseController {
     private Stage stage;
+    private Scene escenaBatalla;
+    private ManejadorDeDatosBatalla manejador;
+    private Juego juego;
     @FXML
     public Text nombre_jugador_actual;
     @FXML
@@ -20,9 +27,6 @@ public class ConfirmarRendirseController {
     @FXML
     public Text cant_vida;
 
-    public Stage escenaBatalla;
-    public Scene escenaBatallaParametro;
-    private ManejadorDeDatosBatalla manejador;
 
     @FXML
     public void clickBotonSi(ActionEvent actionEvent) {
@@ -30,10 +34,23 @@ public class ConfirmarRendirseController {
 
     @FXML
     public void clickBotonNo(ActionEvent actionEvent) {
-        escenaBatalla.setScene(escenaBatallaParametro);
-        escenaBatalla.setTitle("as");
-        escenaBatalla.show();
+        volverABatalla();
     }
+
+//Uso antes de show esenqa rendirse
+    public void setPrimaryStage(Stage stage) {
+        this.stage = stage;
+    }
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+    public void guardarEscenaBatalla(Scene escenaBatallaParametro) {
+        this.escenaBatalla=escenaBatallaParametro;
+    }
+    public void setManejador(ManejadorDeDatosBatalla manejador) {
+        this.manejador = manejador;
+    }
+
 
 
     public void inicializarDataEscenaConfirmarRedirse(Text jugador_Actual, Text jugador_no_Actual,ProgressBar barra_vida_actual,ProgressBar barra_vida_no_actual,Text cant_vida){
@@ -49,18 +66,20 @@ public class ConfirmarRendirseController {
 
 
 
-    public void setPrimaryStage(Stage stage) {
-        this.stage = stage;
+
+
+
+
+
+    @FXML
+    public void volverABatalla(){
+
+        this.stage.setScene(escenaBatalla);
+        this.stage.setTitle("batalla");
+        this.stage.show();
+
     }
 
-
-
-    public void guardarEscenaBatalla(Stage escenaBatalla, Scene escenaBatallaParametro) {
-        this.escenaBatalla=escenaBatalla;
-        this.escenaBatallaParametro=escenaBatallaParametro;
-    }
-
-    public void setManejador(ManejadorDeDatosBatalla manejador) {
-        this.manejador = manejador;
-    }
 }
+
+

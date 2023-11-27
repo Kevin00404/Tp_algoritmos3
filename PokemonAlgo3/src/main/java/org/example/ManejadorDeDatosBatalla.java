@@ -32,8 +32,13 @@ public class ManejadorDeDatosBatalla {
 
 
     public ManejadorDeDatosBatalla() {
-        jugador_actual_num = 1;
-        jugador_contrario_num = 2;
+        jugador_actual_num = 2;
+        jugador_contrario_num = 1;
+    }
+    public void cmabiarPOkemonDeJugadorActual(String nombre){
+        System.out.println("entro a cambiarpokeomn");
+        System.out.println("nuevo nombre," + nombre);
+        entrenador_actual.cambiarPokemonActual(nombre);
     }
 
     public Double getVidaPokemon(Integer nroEntrenador){
@@ -52,6 +57,10 @@ public class ManejadorDeDatosBatalla {
         pokemon_entrenador_contrario = entrenador_contrario.getPokemonActual();
         estadisticas_pokemon_actual = pokemon_entrenador_actual.getEstadisticas();
         estadisticas_pokemon_contrario = pokemon_entrenador_contrario.getEstadisticas();
+    }
+
+    public void ordenarData_(){
+        ordenarData(juego);
     }
 
     public HashMap<String, Double> getVidaMaximaJugadorActual() {

@@ -122,6 +122,7 @@ public class BatallaJugadorUnoController_ {
     }
  
     public void recargarDatos() throws IOException {
+        manejador.cambiarJugadores(barra_vida_actual,barra_vida_no_actual,nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatosAtacante();
         setDatosOponente();
@@ -166,7 +167,6 @@ public class BatallaJugadorUnoController_ {
     //Manejo de Botones:
     @FXML
     public void clickCambiarPokemon() throws IOException {
-        System.out.println("entro");
         try {
             activarEscenaCambiarPokemon();
         } catch (IOException ex) {
@@ -174,21 +174,23 @@ public class BatallaJugadorUnoController_ {
         }
     }
     public void activarEscenaCambiarPokemon() throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirPokemon.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("escenaElegirPoke.fxml"));
         Parent root = fxmlloader.load();
-
 
         ElegirPokemonController elegirPokemones = fxmlloader.getController();
         elegirPokemones.setPrimaryStage(this.stage);
         elegirPokemones.setManejador(this.manejador);
-        ArrayList<String> lista_pokemones=manejador.getPokemonesPokebolaJugadorActual();
-        elegirPokemones.inicializarDataPokemones(barras_vida_pokemones,lista_pokemones);
-
+        elegirPokemones.setScene(this.escenaDeBatalla);
+        elegirPokemones.inicializarDataPokemones();
 
         Scene scene = new Scene(root);
+
         this.stage.setScene(scene);
-        this.stage.setTitle("Batalla");
+        this.stage.setTitle("Cambiar Pokemon");
         this.stage.show();
+    }
+    public void setManejador(ManejadorDeDatosBatalla manejador){
+        this.manejador=manejador;
     }
 
     @FXML
@@ -200,28 +202,34 @@ public class BatallaJugadorUnoController_ {
         }
     }
 
-    public void activarEscenaRendirse_()throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("confirmacionRendirse.fxml"));
-        //Aqui se guardan los atributos
 
-        Parent root = fxmlloader.load();
 
-        ConfirmarRendirseController confirmar_rendirse = fxmlloader.getController();
+    public void activarEscenaRendirse_() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("confirmacionRendirse.fxml"));
+        Parent root  = fxmlLoader.load();
+
+        ConfirmarRendirseController confirmar_rendirse = fxmlLoader.getController();
         confirmar_rendirse.setPrimaryStage(this.stage);
+        confirmar_rendirse.guardarEscenaBatalla(this.escenaDeBatalla);
         confirmar_rendirse.setManejador(this.manejador);
-        confirmar_rendirse.inicializarDataEscenaConfirmarRedirse(nombre_jugador_actual,nombre_jugador_no_actual,barra_vida_actual,barra_vida_no_actual,cant_vida);  //Carga los datos de imagenes y nombres correctos
 
         Scene scene = new Scene(root);
 
         this.stage.setScene(scene);
-
-
-        confirmar_rendirse.guardarEscenaBatalla(escenaBatalla,escenaBatallaParametro);
-
-        this.stage.setTitle("Pidiendo Pokemon");
+        this.stage.setTitle("Pantalla Rendirse");
         this.stage.show();
-
     }
+
+
+
+
+
+
+
+
+
+
+
 
     //boton mochila
 
