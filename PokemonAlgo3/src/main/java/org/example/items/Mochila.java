@@ -10,9 +10,7 @@ public class Mochila {
     List<Items> mochila = new ArrayList<>();
     public void mostrarItems() {
         for (int i = 0; i < mochila.size(); i++) {
-            Log.getLog().log((i+1) + "-" + mochila.get(i).getNombre() + "\t disponibles: " + mochila.get(i).getDisponibles());
         }
-        System.out.println("0 - volver atras");
     }
     public void agregarObjeto(Items item){ mochila.add(item); }
     public boolean usarItem(Pokemon pokemon , int itemSeleccionado) throws InterruptedException {

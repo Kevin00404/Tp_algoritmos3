@@ -52,7 +52,6 @@ public class HabilidadesFactory implements HabilidadesFactoryI{
 
     public void agregarHabilidad(Habilidad habilidad, Integer num){
         if (num < 1 || num > 4){
-            Log.getLog().log("El pokemon no tiene mas de 4 habilidades");
             return;
         }
         habilidades.put(num, habilidad);

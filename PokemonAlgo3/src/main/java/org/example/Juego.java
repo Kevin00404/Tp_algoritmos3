@@ -26,28 +26,25 @@ public class Juego {
         this.batalla();
     }
 
-    /*public void iniciarJuegoConJSON(String path) throws IOException {
+    public Juego iniciarJuegoConJSON(String path) throws IOException {
         LeerArchivoJson json = new LeerArchivoJson();
         JSONArray partida = json.obtenerArrayJSON(path);
         for (int i = 0; i < partida.size(); i++){
             JSONObject entrenador = (JSONObject) partida.get(i);
             crearEntrenador((String) entrenador.get("nombre"), (Long) entrenador.get("pokemons"), i, (JSONObject) entrenador.get("items"));
         }
-        this.batalla();
+        return this;
     }
 
     private void crearEntrenador(String nombre, Long pokemons, int nro, JSONObject items) {
         if (nro == 0) {
             this.entrenador1 = crearEntrenador1(nombre, pokemons.intValue(), items);
-            entrenador1.cambiarPokemonActual();
         } else {
             this.entrenador2 = crearEntrenador2(nombre, pokemons.intValue(), items);
-            entrenador2.cambiarPokemonActual();
         }
-    }*/
+    }
 
     public void batalla() throws InterruptedException {
-        Log.getLog().log("¡Comienza la batalla de Pokémon!");
         while (entrenador1.tienePokemonDisponible() && entrenador2.tienePokemonDisponible()) {
             // Turno de entrenador1
             turnoJugador(entrenador1, entrenador2);
@@ -59,7 +56,6 @@ public class Juego {
             }
             // Verificar si entrenador2 sigue vivo
             if (entrenador2.murio()) {
-                Log.getLog().log("entrenador " + entrenador2.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
@@ -73,13 +69,11 @@ public class Juego {
             }
             // Verificar si entrenador1 sigue vivo
             if (entrenador1.murio()) {
-                Log.getLog().log("entrenador "+ entrenador1.getNombre() + " ha perdido.");
                 break;
             }
             ManejoDeClima.getTerreno().aplicarDanioTerreno(entrenador1,entrenador2);
         }
 
-        System.out.println("¡Fin del juego!");
     }
 
     public void turnoJugador(Entrenador jugador, Entrenador oponente) throws InterruptedException {
@@ -145,7 +139,6 @@ public class Juego {
         return entrenador_actual.getPokemonActual().getEstadisticas().getVida();
     }
     public String getNombrePokemonAtacante(){
-        System.out.println("entro");
         System.out.println(entrenador_actual.getPokemonActual().getNombre());
         return entrenador1.getPokemonActual().getNombre();
     }
@@ -212,12 +205,11 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Flygon").setElemento(new Dragon()).setHistoria("Nacio en el cielo(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Swellow").setElemento(new Volador()).setHistoria("Pollito de fuego").crearPokemon());
-        System.out.println("Se creo el entrenador 1 en Juego!");
         return entrenador;
     }
 
   //integracion con JSON
-    /*public Entrenador crearEntrenador1(String nombre, Integer cantidadPokemones, JSONObject items){
+    public Entrenador crearEntrenador1(String nombre, Integer cantidadPokemones, JSONObject items){
         Mochila mochilaEntrenador = inicializarItemsConJSON(items);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
@@ -227,7 +219,7 @@ public class Juego {
             pokemonBuilder = new PokemonBuilder();
         }
         return entrenador;
-    }*/
+    }
 
     /*public Entrenador crearEntrenador2(){*/
     public Entrenador crearEntrenador2(String nombre){
@@ -246,11 +238,10 @@ public class Juego {
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Ludicolo").setElemento(new Planta()).setHistoria("Nacio en el bosque(?").crearPokemon());
         pokemonBuilder = new PokemonBuilder();
         entrenador.capturarPokemon(pokemonBuilder.setNombre("Cacnea").setElemento(new Volador()).setHistoria("Nacio en el bosque").crearPokemon());
-        System.out.println("Se creo el entrenador 2 en Juego!");
         return entrenador;
     }
 
-    /*public Entrenador crearEntrenador2(String nombre, Integer cantidadPokemones, JSONObject items){
+    public Entrenador crearEntrenador2(String nombre, Integer cantidadPokemones, JSONObject items){
         Mochila mochilaEntrenador = inicializarItemsConJSON(items);
         PokemonBuilder pokemonBuilder = new PokemonBuilder();
         Entrenador entrenador = new Entrenador(new Pokebola(cantidadPokemones) , mochilaEntrenador , nombre);
@@ -261,16 +252,6 @@ public class Juego {
         }
         return entrenador;
     }
-
-    public void inicializar(){
-        PokemonBuilder pokemonBuilder = new PokemonBuilder();
-
-        this.entrenador1 = crearEntrenador1();
-        entrenador1.cambiarPokemonActual();
-
-        this.entrenador2 = crearEntrenador2();
-        entrenador2.cambiarPokemonActual();
-    }/*
 
 
 //verificar si se usa sino borrar

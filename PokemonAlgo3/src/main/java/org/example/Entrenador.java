@@ -36,7 +36,6 @@ public class Entrenador {
     }
 
     public void cambiarPokemonActual(String pokemon){
-        Log.getLog().log(this.nombre + " elegi tu pokemon: ");
         this.pokemonActual = pokebola.cambiarPokemon(pokemon);
         System.out.println(this.pokemonActual.getNombre());
     }
@@ -95,9 +94,6 @@ public class Entrenador {
         pokebola.agregarPokemon(pokemon);
     }
 
-    public void mostrarHabilidadesDePokemon() {
-        this.pokemonActual.mostrarHabilidades();
-    }
 
     public void efectosPasivos() {
         Comando efectosPasivos = new EfectosPasivosComando(pokemonActual);

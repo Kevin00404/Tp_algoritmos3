@@ -8,14 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.example.Clima.ManejoDeClima;
-import org.example.Clima.TormentaDeArena;
-import org.example.Clima.TormentaDeRayo;
 import org.example.Log.Log;
 
 import java.io.IOException;
@@ -94,6 +93,15 @@ public class BatallaJugadorUnoController_ {
     public VBox main;
     @FXML
     public ImageView pkmnAtacante;
+    @FXML
+    public Label labelRendirse;
+    @FXML
+    public Button siRendirse;
+    @FXML
+    public Button noRendirse;
+    @FXML
+    public GridPane opciones;
+
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -133,8 +141,8 @@ public class BatallaJugadorUnoController_ {
         setearVida(barra_vida_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
-        Log.getLog().log(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
         manejador.cambiarClima(Despejado, Huracan, Soleado, Niebla, Lluvia, TormentaDeArena, TormentaDeRayo, Granizo);
+        Log.getLog().log(nombre_jugador_actual.getText() + ", ¿qué deseas hacer?");
         chequearPokemonesMuertos();
     }
 
@@ -165,6 +173,7 @@ public class BatallaJugadorUnoController_ {
 
 
     //Manejo de Botones:
+    //boton cambiar poke
     @FXML
     public void clickCambiarPokemon() throws IOException {
         try {
@@ -193,43 +202,54 @@ public class BatallaJugadorUnoController_ {
         this.manejador=manejador;
     }
 
+    //boton rendirse
     @FXML
-    public void activarEscenaRendirse() throws IOException {
-        try {
-            activarEscenaRendirse_();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+    public void activarRendirse(){
+        desactivarOpciones();
+        mostrarRendirse();
     }
 
+    public void desactivarOpciones(){
+        opciones.setVisible(false);
+    }
 
+    public void mostrarRendirse(){
+        labelRendirse.setVisible(true);
+        siRendirse.setVisible(true);
+        noRendirse.setVisible(true);
+    }
 
-    public void activarEscenaRendirse_() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("confirmacionRendirse.fxml"));
+    @FXML
+    public void seRindio() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pantallaDeVictoria.fxml"));
         Parent root  = fxmlLoader.load();
 
-        ConfirmarRendirseController confirmar_rendirse = fxmlLoader.getController();
-        confirmar_rendirse.setPrimaryStage(this.stage);
-        confirmar_rendirse.guardarEscenaBatalla(this.escenaDeBatalla);
-        confirmar_rendirse.setManejador(this.manejador);
+        PantallaDeVictoriaController victoria = fxmlLoader.getController();
+        victoria.setPantallaVictoria(manejador.getEntrenadorContrarioNombre());
 
         Scene scene = new Scene(root);
 
         this.stage.setScene(scene);
-        this.stage.setTitle("Pantalla Rendirse");
+        this.stage.setTitle("victoria");
         this.stage.show();
+
     }
 
+    @FXML
+    public void noSeRindio(){
+        ocultarRendirse();
+        mostrarOpciones();
+    }
 
+    public void mostrarOpciones(){
+        opciones.setVisible(true);
+    }
 
-
-
-
-
-
-
-
-
+    public void ocultarRendirse(){
+        labelRendirse.setVisible(false);
+        siRendirse.setVisible(false);
+        noRendirse.setVisible(false);
+    }
 
     //boton mochila
 

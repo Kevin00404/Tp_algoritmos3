@@ -17,6 +17,20 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ManejadorDeDatosBatalla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ManejadorDeDatosBatalla.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MochilaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MochilaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/elegirPokemon.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entrenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Log/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadAtaque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstadistica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionEstado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionTerreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadModificacionTerreno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/habilidad/HabilidadesFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/items/Mochila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/items/Mochila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaNoJugada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jugada/JugadaNoJugada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokebola/Pokebola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pokemon/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,17 +76,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kev__fxdos&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "refactor__gigante__Naza",
+    "node.js.selected.package.tslint": "(autodetect)"
+
   }
 }</component>
   <component name="RecentsManager">
@@ -229,10 +237,14 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Log/Log.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="12" />
+          <line>33</line>
+          <properties class="org.example.Log.Log" method="log">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
