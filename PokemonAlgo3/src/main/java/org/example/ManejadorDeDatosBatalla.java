@@ -19,6 +19,8 @@ import java.util.HashMap;
 
 public class ManejadorDeDatosBatalla {
 
+    //TODO que esto guarde las barras
+
     Entrenador entrenador_actual;
     Entrenador entrenador_contrario;
     Juego juego;

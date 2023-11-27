@@ -50,6 +50,8 @@ public class MochilaController {
     public Label confirmarUsoLabel;
     @FXML
     public Button salir;
+    @FXML
+    public ImageView fondoConfirmacion;
 
     public MultipleSelectionModel listViewOriginal;
     private Scene escenaBatalla;
@@ -146,6 +148,7 @@ public class MochilaController {
     }
 
     public void mostrarElementosDeConfirmacion(){
+        fondoConfirmacion.setVisible(true);
         confirmarUsoLabel.setVisible(true);
         confirmarNo.setVisible(true);
         confirmarSi.setVisible(true);
@@ -167,6 +170,7 @@ public class MochilaController {
     }
 
     public void ocultarElementosConfirmacion(){
+        fondoConfirmacion.setVisible(false);
         confirmarUsoLabel.setVisible(false);
         confirmarSi.setVisible(false);
         confirmarNo.setVisible(false);

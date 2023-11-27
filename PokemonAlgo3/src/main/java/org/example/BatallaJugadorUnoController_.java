@@ -12,11 +12,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.Log.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -130,6 +133,7 @@ public class BatallaJugadorUnoController_ {
     }
  
     public void recargarDatos() throws IOException {
+        System.out.println("CAMBIO DE LUGAR LOS JUGADORES");
         manejador.cambiarJugadores(barra_vida_actual,barra_vida_no_actual,nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatosAtacante();
@@ -138,7 +142,7 @@ public class BatallaJugadorUnoController_ {
 
     private void setDatosAtacante() throws IOException {
         manejo_barra_vida_turno();
-        setearVida(barra_vida_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
+        setearVida(barra_vida_actual, manejador.getVidaPokemon(2)/manejador.getMaxVidaPokemon(2));
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
         manejador.cambiarClima(Despejado, Huracan, Soleado, Niebla, Lluvia, TormentaDeArena, TormentaDeRayo, Granizo);
@@ -161,7 +165,7 @@ public class BatallaJugadorUnoController_ {
 
     }
     private void setDatosOponente(){
-        setearVida(barra_vida_no_actual, manejador.getVidaPokemon(2)/manejador.getMaxVidaPokemon(2));
+        setearVida(barra_vida_no_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
     }
 
     private void manejo_barra_vida_turno(){
@@ -356,7 +360,7 @@ public class BatallaJugadorUnoController_ {
         animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         recargarDatos();
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
@@ -364,7 +368,7 @@ public class BatallaJugadorUnoController_ {
         animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         recargarDatos();
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
@@ -372,7 +376,7 @@ public class BatallaJugadorUnoController_ {
         animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         recargarDatos();
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
@@ -380,7 +384,7 @@ public class BatallaJugadorUnoController_ {
         animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
-        manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         recargarDatos();
     }
 
@@ -416,5 +420,4 @@ public class BatallaJugadorUnoController_ {
         // Iniciar la transición
         transition.play();
     }
-
 }

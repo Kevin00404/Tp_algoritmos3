@@ -65,11 +65,13 @@ public class MainFX extends Application {
         json.setPrimaryStage(primeStage);
         json.setJuego(juego);
 
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
+        //TODO sacar si queres que te ocupe toda la pantalla
+        //Screen screen = Screen.getPrimary();
+        //Rectangle2D bounds = screen.getVisualBounds();
 
-        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+        //Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
 
+        Scene scene = new Scene(root);
 
 
         primeStage.setScene(scene);

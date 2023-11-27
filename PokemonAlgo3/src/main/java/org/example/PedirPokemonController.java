@@ -1,13 +1,17 @@
 package org.example;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -33,7 +37,7 @@ public class PedirPokemonController {
 
     public void inicializarDataSegundoJugador(){
         ArrayList<String> listaPokemones = juego.getPokemonesPokebolaDos();
-        presentar_pokemones.setText(this.juego.getEntrenadorDosNombre() + ", por favor ingrese el pokemon con el que quiere empezar");
+        presentar_pokemones.setText(this.juego.getEntrenadorDosNombre() + ", por favor seleccione su pokemon inicial");
         b_pok_1.setText(listaPokemones.get(0));
         b_pok_2.setText(listaPokemones.get(1));
         b_pok_3.setText(listaPokemones.get(2));
@@ -131,12 +135,12 @@ public class PedirPokemonController {
     public void inicializarDataPrimerJugador() {
         clickContador = 0;
         ArrayList<String> listaPokemones = juego.getPokemonesPokebolaUno();
-        System.out.println("Seteo el label de presentar pokemones");
-        presentar_pokemones.setText(this.juego.getEntrenadorUnoNombre() + ", por favor ingrese el pokemon con el que quiere empezar");
+        presentar_pokemones.setText(this.juego.getEntrenadorUnoNombre() + ", por favor seleccione su pokemon inicial");
         b_pok_1.setText(listaPokemones.get(0));
         b_pok_2.setText(listaPokemones.get(1));
         b_pok_3.setText(listaPokemones.get(2));
         b_pok_4.setText(listaPokemones.get(3));
         b_pok_5.setText(listaPokemones.get(4));
     }
+
 }

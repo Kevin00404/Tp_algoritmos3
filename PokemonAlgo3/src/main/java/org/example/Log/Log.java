@@ -57,19 +57,20 @@ public class Log {
                 );
                 timeline.play();
             }*/
-            if (timeline != null && timeline.getStatus() == Timeline.Status.RUNNING) {
-                // Another message is already in progress, wait until it finishes
-                timeline.setOnFinished(null); // Remove previous onFinished event
-                timeline.playFromStart();
-            } else {
-                // Start a new timeline for the current message
-                fuente.setText(mensaje);
-                timeline = new Timeline(
-                        new KeyFrame(Duration.seconds(0), event -> {}),
-                        new KeyFrame(Duration.seconds(1.6), event -> timeline = null)
-                );
-                timeline.play();
-            }
+        if (timeline != null && timeline.getStatus() == Timeline.Status.RUNNING) {
+            // Another message is already in progress, wait until it finishes
+            timeline.setOnFinished(null); // Remove previous onFinished event
+            timeline.playFromStart();
+        } else {
+            // Start a new timeline for the current message
+            fuente.setText(mensaje);
+            timeline = new Timeline(
+                    new KeyFrame(Duration.seconds(0), event -> {
+                    }),
+                    new KeyFrame(Duration.seconds(1.6), event -> timeline = null)
+            );
+            timeline.play();
+        }
     }
 
     private void displayNextMessage() {
@@ -80,9 +81,11 @@ public class Log {
 
             // Start a new timeline for the current message
             timeline = new Timeline(
-                    new KeyFrame(Duration.seconds(0), event -> {}),
+                    new KeyFrame(Duration.seconds(0), event -> {
+                    }),
                     new KeyFrame(Duration.seconds(1.0), event -> displayNextMessage())
             );
             timeline.play();
         }
     }
+}

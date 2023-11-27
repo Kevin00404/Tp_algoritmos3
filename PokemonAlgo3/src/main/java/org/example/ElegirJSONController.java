@@ -1,15 +1,19 @@
 package org.example;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.example.JSON.LeerArchivoJson;
 
+import java.io.File;
 import java.io.IOException;
 
 public class ElegirJSONController {
@@ -72,4 +76,42 @@ public class ElegirJSONController {
     public void setJuego(Juego juego) {
         this.juego = juego;
     }
+
+    //audio
+
+    /*@FXML
+    public void reproducirAudio() {
+        Media media = new Media(new File("audio/Track 1.wav").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        mediaPlayer.setOnEndOfMedia(() -> {
+            // Esto se ejecuta cuando el audio llega al final
+            System.out.println("paro la musica");
+            mediaPlayer.stop();
+        });
+
+        mediaPlayer.play();
+    }
+
+    @FXML
+    public void reproducir() {
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                Media media = new Media(new File("audio/Track 1.wav").toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+                mediaPlayer.setOnEndOfMedia(() -> {
+                    // Esto se ejecuta cuando el audio llega al final
+                    System.out.println("paro la musica");
+                    mediaPlayer.stop();
+                });
+
+                mediaPlayer.play();
+                return null;
+            }
+        };
+
+        new Thread(task).start();
+    }*/
 }

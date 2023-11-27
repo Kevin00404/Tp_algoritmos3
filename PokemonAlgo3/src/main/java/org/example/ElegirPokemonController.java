@@ -47,36 +47,6 @@ public class ElegirPokemonController implements Initializable {
     public List<String> pokemonesDisponibles;
     private ManejadorDeDatosBatalla manejador;
 
-
-
-    public void inicializarDataPokemones(HashMap<String, ProgressBar> barras_vida_pokemones, ArrayList<String> pokemones) {
-        this.barras_vida_pokemones = barras_vida_pokemones;
-        this.pokemones = pokemones;
-        setearBotonesNombres_Barras_nivelVida();
-    }
-
-    public void setearBotonesNombres_Barras_nivelVida() {
-        String nombre_actual = manejador.getNombrePokemonAtacante();
-
-        List<String> resultadoFiltrado = pokemones.stream()
-                .filter(s -> !s.contains(nombre_actual))
-                .collect(Collectors.toList());
-        System.out.println(resultadoFiltrado);
-
-        this.nombre1.setText(resultadoFiltrado.get(0));
-        this.nombre2.setText(resultadoFiltrado.get(1));
-        this.nombre3.setText(resultadoFiltrado.get(2));
-        this.nombre4.setText(resultadoFiltrado.get(3));
-        this.nombre5.setText(resultadoFiltrado.get(4));
-
-        //actualizo lista solo los pokemones disponibles
-        this.pokemonesDisponibles = resultadoFiltrado;
-    }
-
-
-
-/////////////////////william
-
     private List<Button> botonesDeshabilitados = new ArrayList<>();
 
     @FXML
