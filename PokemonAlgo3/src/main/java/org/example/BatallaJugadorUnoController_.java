@@ -130,6 +130,7 @@ public class BatallaJugadorUnoController_ {
     }
  
     public void recargarDatos() throws IOException {
+        manejador.cambiarJugadores(barra_vida_actual,barra_vida_no_actual,nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatosAtacante();
         setDatosOponente();
@@ -172,9 +173,9 @@ public class BatallaJugadorUnoController_ {
 
 
     //Manejo de Botones:
+    //boton cambiar poke
     @FXML
     public void clickCambiarPokemon() throws IOException {
-        System.out.println("entro");
         try {
             activarEscenaCambiarPokemon();
         } catch (IOException ex) {
@@ -182,21 +183,23 @@ public class BatallaJugadorUnoController_ {
         }
     }
     public void activarEscenaCambiarPokemon() throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirPokemon.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("escenaElegirPoke.fxml"));
         Parent root = fxmlloader.load();
-
 
         ElegirPokemonController elegirPokemones = fxmlloader.getController();
         elegirPokemones.setPrimaryStage(this.stage);
         elegirPokemones.setManejador(this.manejador);
-        ArrayList<String> lista_pokemones=manejador.getPokemonesPokebolaJugadorActual();
-        elegirPokemones.inicializarDataPokemones(barras_vida_pokemones,lista_pokemones);
-
+        elegirPokemones.setScene(this.escenaDeBatalla);
+        elegirPokemones.inicializarDataPokemones();
 
         Scene scene = new Scene(root);
+
         this.stage.setScene(scene);
-        this.stage.setTitle("Batalla");
+        this.stage.setTitle("Cambiar Pokemon");
         this.stage.show();
+    }
+    public void setManejador(ManejadorDeDatosBatalla manejador){
+        this.manejador=manejador;
     }
 
     //boton rendirse

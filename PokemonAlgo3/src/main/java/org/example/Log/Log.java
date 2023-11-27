@@ -86,4 +86,3 @@ public class Log {
             timeline.play();
         }
     }
-}
