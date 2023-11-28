@@ -360,7 +360,7 @@ public class ElegirPokemonController implements Initializable {
 
     public void clickSi(MouseEvent mouseEvent) throws IOException {
         this.manejador.cmabiarPOkemonDeJugadorActual(pokemonSeleccionadoNombre);
-
+        System.out.println("derrotado en pelea: " + derrotadoEnPelea);
         clickSalir_volverABatalla();
     }
 
@@ -378,6 +378,8 @@ public class ElegirPokemonController implements Initializable {
     @FXML
     public void clickSalir_volverABatalla() throws IOException {
         if (derrotadoEnPelea){
+            System.out.println("derrotado en pelea: " + derrotadoEnPelea);
+            System.out.println("vuelvo a batalla sin perder turno");
 
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
             Parent root = fxmlloader.load();
@@ -396,6 +398,8 @@ public class ElegirPokemonController implements Initializable {
             this.stage.show();
 
         } else {
+            System.out.println("derrotado en pelea: " + derrotadoEnPelea);
+            System.out.println("vuelvo a batalla perdiendo turno");
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
             Parent root = fxmlloader.load();
             BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();

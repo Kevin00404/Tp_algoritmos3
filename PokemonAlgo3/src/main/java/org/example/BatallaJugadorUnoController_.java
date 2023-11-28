@@ -12,16 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.Log.Log;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -126,6 +122,8 @@ public class BatallaJugadorUnoController_ {
         animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         setearDatosSinCambiarTurno();
+        System.out.println(manejador.getEntrenadorActualNombre().toUpperCase());
+        System.out.println(manejador.getEntrenadorContrarioNombre().toUpperCase());
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
     }
@@ -135,29 +133,34 @@ public class BatallaJugadorUnoController_ {
         System.out.println(nombre_jugador_actual.getText() + " " + nombre_jugador_no_actual.getText());
         manejador.noCambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
-        setDatosAtacante();
-        setDatosOponente();
+        setDatos();
     }
 
     public void inicializarDatosdeBatalla() throws IOException {
         animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         recargarDatos();
+        System.out.println(manejador.getEntrenadorActualNombre().toUpperCase());
+        System.out.println(manejador.getEntrenadorContrarioNombre().toUpperCase());
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
     }
  
     public void recargarDatos() throws IOException {
+        System.out.println("nombres antes del cambio <- actual no actual ->");
+        System.out.println(nombre_jugador_actual.getText() + " " + nombre_jugador_no_actual.getText());
         System.out.println("CAMBIO DE LUGAR LOS JUGADORES");
+        System.out.println("DATOS BARRA ACTUAL ANTES DE ENTRAR A CAMBIAR JUGADORES " + manejador.barraEntrenadorActual.getLayoutX() + " " + manejador.barraEntrenadorActual.getLayoutY());
+        System.out.println("DATOS BARRA OPONENTE ANTES DE ENTRAR A CAMBIAR JUGADORES " + manejador.barraEntrenadorOponente.getLayoutX() + " " + manejador.barraEntrenadorOponente.getLayoutY());
         manejador.cambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
-        setDatosAtacante();
-        setDatosOponente();
+        setDatos();
     }
 
-    private void setDatosAtacante() throws IOException {
+    private void setDatos() throws IOException {
         manejo_barra_vida_turno();
-        setearVida(barra_vida_actual, manejador.getVidaPokemon(2)/manejador.getMaxVidaPokemon(2));
+        setearVida(barra_vida_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
+        setearVida(barra_vida_no_actual, manejador.getVidaPokemon(2)/manejador.getMaxVidaPokemon(2));
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         manejador.setearEstados(paralizadoAtacante, venenoAtacante, zzzAtacante, confusoAtacante, paralizadoContrario, venenoContrario, zzzContrario, confusoContrario);
         manejador.cambiarClima(Despejado, Huracan, Soleado, Niebla, Lluvia, TormentaDeArena, TormentaDeRayo, Granizo);
@@ -190,9 +193,6 @@ public class BatallaJugadorUnoController_ {
         this.stage.setTitle("victoria");
         this.stage.show();
 
-    }
-    private void setDatosOponente(){
-        setearVida(barra_vida_no_actual, manejador.getVidaPokemon(1)/manejador.getMaxVidaPokemon(1));
     }
 
     private void manejo_barra_vida_turno(){
@@ -434,8 +434,16 @@ public class BatallaJugadorUnoController_ {
     }
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
+        System.out.println("ESTOY SETEANDO LA BARRA: " + barra_vida.getId());
+        System.out.println("POSICION DE LA BARRA : " + barra_vida.getLayoutX() + " " + barra_vida.getLayoutY());
         System.out.println("Progreso de Barra de vida: " + barra_vida.getProgress());
         System.out.println("Se va a setear a: " + vidaActualizada);
+        if(barra_vida.getLayoutX() >= 303.0){
+
+            vidaActualizada = manejador.getVidaPokemonAtacante() / manejador.getMaxVidaPokemonAtacante();
+        } else {
+            vidaActualizada = manejador.getVidaPokemonContrario() / manejador.getMaxVidaPokemonContrario();
+        }
         // Create a timeline for smooth animation
         Timeline task = new Timeline(
                 new KeyFrame(

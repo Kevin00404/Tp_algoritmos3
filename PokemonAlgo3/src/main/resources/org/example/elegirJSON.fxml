@@ -2,17 +2,29 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ElegirJSONController">
    <children>
-      <Button fx:id="usarJSON" layoutX="196.0" layoutY="200.0" mnemonicParsing="false" onAction="#iniciarPartida" prefHeight="116.0" prefWidth="209.0" text="iniciar partida">
+      <ImageView fitHeight="411.0" fitWidth="664.0" layoutX="-32.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imgs/800px-World_Coronation_Series_logo_anime.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="usarJSON" layoutX="196.0" layoutY="244.0" mnemonicParsing="false" onAction="#iniciarPartida" prefHeight="116.0" prefWidth="209.0" style="-fx-background-radius: 60; -fx-background-color: #625795;" text="iniciar partida" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="3.0" layoutY="104.0" prefHeight="67.0" prefWidth="594.0" text="simulador de peleas pokemon">
+      <ImageView fitHeight="150.0" fitWidth="600.0" layoutX="16.0" layoutY="35.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imgs/texto.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="19.0" layoutY="77.0" prefHeight="67.0" prefWidth="594.0" text="simulador de peleas pokemon" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

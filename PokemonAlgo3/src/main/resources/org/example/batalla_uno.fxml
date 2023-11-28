@@ -70,12 +70,12 @@
             </ImageView>
                 <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="434.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Imgs/1_Hxptm5gIRc3HyYXzw5nfpw.png" />
+                        <Image url="@Imgs/Charmander_XY.gif" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="pkmnAtacante" fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Imgs/cham.jpg" />
+                        <Image url="@Imgs/Charmander_espalda_G6.gif" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="124.0" fitWidth="654.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">

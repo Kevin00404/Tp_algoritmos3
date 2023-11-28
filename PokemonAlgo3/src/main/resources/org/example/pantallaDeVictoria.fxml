@@ -2,21 +2,32 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PantallaDeVictoriaController">
    <children>
-      <ImageView fx:id="fondo" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="labelVictoria" alignment="CENTER" layoutY="22.0" prefHeight="103.0" prefWidth="600.0" text="mensaje de victoria">
+      <ImageView fx:id="fondo" fitHeight="411.0" fitWidth="664.0" layoutX="-32.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imgs/800px-World_Coronation_Series_logo_anime.png" />
+         </image></ImageView>
+      <ImageView fitHeight="103.0" fitWidth="600.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imgs/texto.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelVictoria" alignment="CENTER" layoutX="16.0" layoutY="14.0" prefHeight="103.0" prefWidth="600.0" text="mensaje de victoria" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagenDefault" fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="salirDelJuego" layoutX="349.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#salir" prefHeight="84.0" prefWidth="166.0" text="Salir">
+      <ImageView fx:id="imagenDefault" fitHeight="248.0" fitWidth="253.0" layoutX="47.0" layoutY="124.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imgs/2275c1b42ddf9d6.png" />
+         </image></ImageView>
+      <Button fx:id="salirDelJuego" layoutX="377.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#salir" prefHeight="84.0" prefWidth="166.0" style="-fx-background-radius: 50; -fx-background-color: #625795;" text="Salir" textFill="WHITE">
          <font>
             <Font size="34.0" />
          </font>

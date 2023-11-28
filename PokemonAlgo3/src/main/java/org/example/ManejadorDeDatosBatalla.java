@@ -19,8 +19,6 @@ import java.util.HashMap;
 
 public class ManejadorDeDatosBatalla {
 
-    //TODO que esto guarde las barras
-
     Entrenador entrenador_actual;
     Entrenador entrenador_contrario;
     Juego juego;
@@ -132,22 +130,30 @@ public class ManejadorDeDatosBatalla {
     private void cambiarLabelsDeLugar(Text jugadorActual, Text jugadorContrario) {
         jugadorActual.setText(this.entrenador_contrario.getNombre());
         jugadorContrario.setText(this.entrenador_actual.getNombre());
+        System.out.println("nombres despues del cambio <- actual no actual ->");
+        System.out.println(jugadorActual.getText() + " " + jugadorContrario.getText());
     }
 
     private void cambiarBarrasDeLugares() {
+        Double xActual = barraEntrenadorActual.getLayoutX();
+        Double xOponente = barraEntrenadorOponente.getLayoutX();
         if (barraEntrenadorActual.getLayoutX() >= 303.0){
             barraEntrenadorActual.setLayoutX(237.0);
             barraEntrenadorActual.setLayoutY(37.0);
+            System.out.println("datos barra actual despues del cambio: " + barraEntrenadorActual.getLayoutX() + " " + barraEntrenadorActual.getLayoutY());
         } else {
             barraEntrenadorActual.setLayoutX(304.0);
             barraEntrenadorActual.setLayoutY(214.0);
+            System.out.println("datos barra actual despues del cambio: " + barraEntrenadorActual.getLayoutX() + " " + barraEntrenadorActual.getLayoutY());
         }
         if (barraEntrenadorOponente.getLayoutX() <= 238.0){
             barraEntrenadorOponente.setLayoutX(304.0);
             barraEntrenadorOponente.setLayoutY(214.0);
+            System.out.println("datos barra oponente despues del cambio: " + barraEntrenadorOponente.getLayoutX() + " " + barraEntrenadorOponente.getLayoutY());
         } else {
             barraEntrenadorOponente.setLayoutX(237.0);
             barraEntrenadorOponente.setLayoutY(37.0);
+            System.out.println("datos barra oponente despues del cambio: " + barraEntrenadorOponente.getLayoutX() + " " + barraEntrenadorOponente.getLayoutY());
         }
     }
 
@@ -254,7 +260,6 @@ public class ManejadorDeDatosBatalla {
         if(entrenador_contrario.murio()){
             return entrenador_actual.getNombre();
         }
-        System.out.println("llegue al null de todas maneras");
         return null;
     }
 
