@@ -98,22 +98,6 @@ public class Juego {
 
     }
 
-//////////////
-    //todo metodos anteriores que ya no se usan:
-
-
-//    public String preguntarNombre(Integer numero) {
-//        String nombre = " ";
-//        System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-//        nombre = scanner.next();
-//        while (!nombreValido(nombre)){
-//            System.out.println("nombre no valido");
-//            System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-//            nombre = scanner.next();
-//        }
-//        return nombre;
-//    }
-
     public Boolean nombreValido(String nombre){
         if (nombre == ""){
             return false;
@@ -170,16 +154,6 @@ public class Juego {
     }
 
 
-///Nuevo Juego:
-    ////
-//    /
-//    /
-//    /
-//    /
-//    /
-//    /
-//    /
-    ///
     Entrenador entrenador1;
     Entrenador entrenador2;
     private Entrenador entrenador_actual;
@@ -252,32 +226,6 @@ public class Juego {
         }
         return entrenador;
     }
-
-
-//verificar si se usa sino borrar
-  
-    /*public String preguntarNombre(Integer numero) {
-        String nombre = " ";
-        System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-        nombre = scanner.next();
-        while (!nombreValido(nombre)){
-            System.out.println("nombre no valido");
-            System.out.println("jugador "+ numero + " ingresa tu nombre: ");
-            nombre = scanner.next();
-        }
-        return nombre;
-    }
-
-    public Boolean nombreValido(String nombre){
-        if (nombre == ""){
-            return false;
-        } else if (nombre == " "){
-            return false;
-        } else if ( nombre.length() >50){
-            return false;
-        }
-        return true;
-    }*/
 
 
     /* INICIALIZACION DE ITEMS */

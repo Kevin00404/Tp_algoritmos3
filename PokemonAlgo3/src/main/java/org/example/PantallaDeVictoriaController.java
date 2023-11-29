@@ -18,26 +18,49 @@ public class PantallaDeVictoriaController {
     @FXML
     public Label labelVictoria;
     @FXML
+    public Label labelvictoria2;
+    @FXML
     public ImageView imagenDefault;
     @FXML
     public ImageView fondo;
     @FXML
-    public MediaView videoCreditos;
+    public MediaView mediaView;
+
+    public File file;
+    public Media media;
+    public MediaPlayer mediaplayer;
+
 
     private Juego juego;
+
+
+    public void inicilaizar(){
+        file = new File ("video/videoCreditos.mp4");
+        media = new Media(file.toURI().toString());
+        mediaplayer=new MediaPlayer(media);
+        mediaView.setMediaPlayer(mediaplayer);
+
+        mediaplayer.play();
+
+
+    }
+
 
 
 
     public void setPantallaVictoria(String entrenadorContrarioNombre) {
         Soundtrack.getSonido().reproducirVictoria();
         labelVictoria.setText("Felicidades " + entrenadorContrarioNombre + " ha ganado la batalla");
+        labelvictoria2.setText("Felicidades " + entrenadorContrarioNombre + " ha ganado la batalla");
         LeerArchivoJson json = new LeerArchivoJson();
         json.crearInforme(this.juego, entrenadorContrarioNombre);
 
-        Media video = new Media(new File("video/videoCreditos.mp4").toURI().toString());
-        MediaPlayer videoCreditos = new MediaPlayer(video);
-        this.videoCreditos = new MediaView(videoCreditos);
-        videoCreditos.setAutoPlay(true);
+//        Media video = new Media(new File("video/videoCreditos.mp4").toURI().toString());
+//        MediaPlayer videoCreditos = new MediaPlayer(video);
+//        this.mediaView = new MediaView(videoCreditos);
+//        videoCreditos.setAutoPlay(true);
+
+        inicilaizar();
 
     }
 
