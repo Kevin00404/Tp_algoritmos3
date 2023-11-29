@@ -13,6 +13,7 @@ public class EstadoConfuso extends Estado {
         turnosConfuso = 0;
     }
 
+
     @Override
     public Estado pasivo(Estadisticas estadisticas, String nombre) {
         turnosConfuso++;

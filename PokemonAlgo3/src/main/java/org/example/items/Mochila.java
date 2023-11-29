@@ -12,6 +12,10 @@ public class Mochila {
         for (int i = 0; i < mochila.size(); i++) {
         }
     }
+    public Items getItem(Integer item){
+        return mochila.get(item);
+    }
+
     public void agregarObjeto(Items item){ mochila.add(item); }
     public boolean usarItem(Pokemon pokemon , int itemSeleccionado) throws InterruptedException {
         System.out.println(mochila.get(itemSeleccionado-1).getNombre());
