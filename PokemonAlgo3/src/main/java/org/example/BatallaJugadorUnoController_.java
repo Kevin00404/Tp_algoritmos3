@@ -641,6 +641,38 @@ public class BatallaJugadorUnoController_ {
 
             return "imagenes/frente/Seel_XY.gif";
 
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/frente/Flygon_XY.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/frente/Swellow_XY.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/frente/Hariyama_XY.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/frente/Swampert_XY.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/frente/Claydol_XY.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/frente/Exploud_XY.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/frente/Ludicolo_XY.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/frente/Cacnea_XY.gif";
+
         } else {
 
             return "imagenes/frente/Grimer_XY.gif";
@@ -728,6 +760,38 @@ public class BatallaJugadorUnoController_ {
         } else if (nombrePokemon.equals("Seel")) {
 
             return "imagenes/espalda/Seel_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/espalda/Flygon_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/espalda/Swellow_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/espalda/Hariyama_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/espalda/Swampert_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/espalda/Claydol_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/espalda/Exploud_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/espalda/Ludicolo_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/espalda/Cacnea_espalda_G6.gif";
 
         } else {
 

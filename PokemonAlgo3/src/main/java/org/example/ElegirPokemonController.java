@@ -524,6 +524,38 @@ public class ElegirPokemonController implements Initializable {
 
             return "imagenes/iconos/Seel_icon.gif";
 
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/iconos/Flygon_icon.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/iconos/Swellow_icon.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/iconos/Hariyama_icon.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/iconos/Swampert_icon.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/iconos/Claydol_icon.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/iconos/Exploud_icon.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/iconos/Ludicolo_icon.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/iconos/Cacnea_icon.gif";
+
         } else {
 
             return "imagenes/iconos/Grimer_icon.gif";

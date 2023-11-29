@@ -254,9 +254,9 @@ public class SeleccionarPokemonParaItemController {
 
     }
     public void setDatosPkmn6(Pokemon pkmn){
-        /*String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
-        iconoPkmn6.setImage(icono);*/
+        iconoPkmn6.setImage(icono);
         pkmn6Nombre.setText(pkmn.getNombre());
         lvlPkmn6.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -445,6 +445,38 @@ public class SeleccionarPokemonParaItemController {
         } else if (nombrePokemon.equals("Seel")) {
 
             return "imagenes/iconos/Seel_icon.gif";
+
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/iconos/Flygon_icon.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/iconos/Swellow_icon.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/iconos/Hariyama_icon.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/iconos/Swampert_icon.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/iconos/Claydol_icon.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/iconos/Exploud_icon.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/iconos/Ludicolo_icon.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/iconos/Cacnea_icon.gif";
 
         } else {
 

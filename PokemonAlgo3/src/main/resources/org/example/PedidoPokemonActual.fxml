@@ -25,13 +25,18 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="181.0" layoutY="102.0" prefHeight="285.0" prefWidth="238.0" style="-fx-background-radius: 10;">
+      <VBox layoutX="54.0" layoutY="147.0" prefHeight="186.0" prefWidth="238.0" style="-fx-background-radius: 10;">
          <children>
             <Button fx:id="b_pok_1" mnemonicParsing="false" onAction="#clickBotonPrimero" prefHeight="57.0" prefWidth="238.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
             <Button fx:id="b_pok_2" mnemonicParsing="false" onAction="#clickBotonSegundo" prefHeight="57.0" prefWidth="241.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
             <Button fx:id="b_pok_3" mnemonicParsing="false" onAction="#clickBotonTercero" prefHeight="57.0" prefWidth="241.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
+         </children>
+      </VBox>
+      <VBox layoutX="309.0" layoutY="147.0" prefHeight="186.0" prefWidth="238.0">
+         <children>
             <Button fx:id="b_pok_4" mnemonicParsing="false" onAction="#clickBotonCuarto" prefHeight="57.0" prefWidth="238.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
             <Button fx:id="b_pok_5" mnemonicParsing="false" onAction="#clickBotonQuinto" prefHeight="57.0" prefWidth="243.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
+            <Button fx:id="b_pok_6" layoutX="10.0" layoutY="67.0" mnemonicParsing="false" onAction="#clickBotonSexto" prefHeight="57.0" prefWidth="243.0" style="-fx-background-color: #625795; -fx-background-radius: 10;" text="Button" textFill="WHITE" />
          </children>
       </VBox>
    </children>

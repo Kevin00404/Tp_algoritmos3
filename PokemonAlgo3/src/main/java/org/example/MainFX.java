@@ -40,17 +40,11 @@ public class MainFX extends Application {
 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirJSON.fxml"));
         Parent root = fxmlloader.load();
-
-        //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
+        
         ElegirJSONController json = fxmlloader.getController();
         json.setPrimaryStage(primeStage);
         json.setJuego(juego);
 
-        //TODO sacar si queres que te ocupe toda la pantalla
-        //Screen screen = Screen.getPrimary();
-        //Rectangle2D bounds = screen.getVisualBounds();
-
-        //Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
 
         Scene scene = new Scene(root);
 
