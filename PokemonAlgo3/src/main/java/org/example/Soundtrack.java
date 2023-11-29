@@ -16,7 +16,7 @@ public class Soundtrack {
     Soundtrack(){
 
         fondo = new MediaPlayer(MusicaDeFondo());
-        fondo.setVolume(0.4);
+        fondo.setVolume(0.2);
         golpe = new MediaPlayer(sonidoGolpe());
         click = new MediaPlayer(sonidoClick());
     }
@@ -39,10 +39,12 @@ public class Soundtrack {
         Media victoria = new Media(new File("audio/Victory Screen.wav").toURI().toString());
         fondo = new MediaPlayer(victoria);
 
-        fondo.setOnEndOfMedia(() -> {
-            System.out.println("paro la musica");
+        /*fondo.setOnEndOfMedia(() -> {
+
             fondo.stop();
-        });
+        });*/
+
+        fondo.setCycleCount(fondo.INDEFINITE);
 
         fondo.setVolume(0.4);
         fondo.play();
@@ -93,11 +95,12 @@ public class Soundtrack {
 
         fondo = new MediaPlayer(musicaDeBatalla);
 
-        fondo.setOnEndOfMedia(() -> {
-            // Esto se ejecuta cuando el audio llega al final
-            System.out.println("paro la musica");
+        /*fondo.setOnEndOfMedia(() -> {
+
             fondo.stop();
-        });
+        });*/
+
+        fondo.setCycleCount(fondo.INDEFINITE);
 
         fondo.setVolume(0.4);
         fondo.play();

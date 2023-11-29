@@ -9,10 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -114,6 +116,14 @@ public class BatallaJugadorUnoController_ {
     public ImageView imagenSonidoOff;
     @FXML
     public Button desactivarMusica;
+    @FXML
+    public Polygon marcadorAtacar;
+    @FXML
+    public Polygon marcadorPokemon;
+    @FXML
+    public Polygon marcadorMochila;
+    @FXML
+    public Polygon marcadorRendirse;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -214,6 +224,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickCambiarPokemon() throws IOException {
         try {
+            mostrarMarcadorPokemon();
             Soundtrack.getSonido().reproducirClick();
             activarEscenaCambiarPokemon();
         } catch (IOException ex) {
@@ -261,6 +272,7 @@ public class BatallaJugadorUnoController_ {
     //boton rendirse
     @FXML
     public void activarRendirse(){
+        mostrarMarcadorRendirse();
         Soundtrack.getSonido().reproducirClick();
         desactivarOpciones();
         mostrarRendirse();
@@ -316,6 +328,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickMostrarMochila() throws IOException{
         try{
+            mostrarMarcadorMochila();
             Soundtrack.getSonido().reproducirClick();
             activarEscenaMostrarMochila();
         }catch (IOException ex) {
@@ -363,10 +376,41 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void elegirHabilidad(ActionEvent actionEvent) {
         Soundtrack.getSonido().reproducirClick();
+        mostrarMarcadorAtacar();
         inhabilitarBotonesIniciales();
         manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
         habilitarBotonesDeHabilidad();
         Log.getLog().log("Que habilidad queres usar?");
+    }
+
+    //manejo de marcadores
+
+    public void mostrarMarcadorAtacar(){
+        marcadorAtacar.setVisible(true);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorMochila(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(true);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorPokemon(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(true);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorRendirse(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(true);
     }
 
     private void habilitarBotonesDeHabilidad() {
@@ -414,6 +458,7 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorAtacar();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadUno();
         deshabilitarBotonesDeHabilidad();
@@ -421,8 +466,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorPokemon();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadDos();
         deshabilitarBotonesDeHabilidad();
@@ -430,8 +477,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorMochila();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadTres();
         deshabilitarBotonesDeHabilidad();
@@ -439,8 +488,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorRendirse();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadCuatro();
         deshabilitarBotonesDeHabilidad();
@@ -448,13 +499,16 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
+
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
 
         if(barra_vida.getLayoutX() >= 303.0){
 
             vidaActualizada = manejador.getVidaPokemonAtacante() / manejador.getMaxVidaPokemonAtacante();
+            setProgressBarColor(barra_vida, vidaActualizada);
             String rutaFrente = encontrarRutaEspaldaPkmn(manejador.getNombrePokemonAtacante());
             Image frente = new Image(new File(rutaFrente).toURI().toString());
             pkmnEspalda.setImage(frente);
@@ -462,6 +516,7 @@ public class BatallaJugadorUnoController_ {
 
         } else {
             vidaActualizada = manejador.getVidaPokemonContrario() / manejador.getMaxVidaPokemonContrario();
+            setProgressBarColor(barra_vida, vidaActualizada);
             String rutaEspalda = encontrarRutaFrentePkmn(manejador.getNombrePokemonContrario());
             Image espalda = new Image(new File(rutaEspalda).toURI().toString());
             pkmnFrente.setImage(espalda);
@@ -482,25 +537,23 @@ public class BatallaJugadorUnoController_ {
     }
 
 
+    // animacion de ataque
+
     public void animacionAtaque() throws IOException, InterruptedException {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnEspalda);
 
-        // Mover 100 píxeles en la dirección X
         transition.setToX(100);
 
-        // Manejar el evento de finalización para volver a la posición inicial
         transition.setOnFinished(event -> {
             Soundtrack.getSonido().reproducirGolpe();
-            pkmnEspalda.setTranslateX(0);  // Restaurar a la posición inicial
+            pkmnEspalda.setTranslateX(0);
         });
 
-        // Iniciar la transición
         transition.play();
 
-        // Crear una línea de tiempo con un solo keyframe que se ejecuta después de 10 segundos
+
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-            // Aquí puedes agregar el código que deseas ejecutar después de la espera
-            // Por ejemplo, puedes llamar a una función o realizar otras operaciones.
+
             try {
                 recargarDatos();
             } catch (IOException e) {
@@ -508,7 +561,6 @@ public class BatallaJugadorUnoController_ {
             }
         }));
 
-        // Iniciar la línea de tiempo
         timeline.play();
     }
 
@@ -641,6 +693,38 @@ public class BatallaJugadorUnoController_ {
 
             return "imagenes/frente/Seel_XY.gif";
 
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/frente/Flygon_XY.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/frente/Swellow_XY.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/frente/Hariyama_XY.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/frente/Swampert_XY.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/frente/Claydol_XY.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/frente/Exploud_XY.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/frente/Ludicolo_XY.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/frente/Cacnea_XY.gif";
+
         } else {
 
             return "imagenes/frente/Grimer_XY.gif";
@@ -729,10 +813,53 @@ public class BatallaJugadorUnoController_ {
 
             return "imagenes/espalda/Seel_espalda_G6.gif";
 
+        } else if (nombrePokemon.equals("Flygon")) {
+
+            return "imagenes/espalda/Flygon_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Swellow")) {
+
+            return "imagenes/espalda/Swellow_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Hariyama")) {
+
+            return "imagenes/espalda/Hariyama_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Swampert")) {
+
+            return "imagenes/espalda/Swampert_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Claydol")) {
+
+            return "imagenes/espalda/Claydol_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Exploud")) {
+
+            return "imagenes/espalda/Exploud_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Ludicolo")) {
+
+            return "imagenes/espalda/Ludicolo_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Cacnea")) {
+
+            return "imagenes/espalda/Cacnea_espalda_G6.gif";
+
         } else {
 
             return "imagenes/espalda/Grimer_espalda_G6.gif";
 
+        }
+    }
+
+    //progress bar con colores
+    private void setProgressBarColor(ProgressBar progressBar, Double progress) {
+        if (progress >= 0.51) {
+            progressBar.setStyle("-fx-accent: green;");
+        } else if (progress >= 0.21) {
+            progressBar.setStyle("-fx-accent: yellow;");
+        } else {
+            progressBar.setStyle("-fx-accent: red;");
         }
     }
 

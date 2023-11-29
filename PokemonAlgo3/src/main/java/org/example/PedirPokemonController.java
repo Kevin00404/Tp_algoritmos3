@@ -31,6 +31,8 @@ public class PedirPokemonController {
     public Button b_pok_4;
     @FXML
     public Button b_pok_5;
+    @FXML
+    public Button b_pok_6;
 
     public Integer clickContador;
 
@@ -43,6 +45,7 @@ public class PedirPokemonController {
         b_pok_3.setText(listaPokemones.get(2));
         b_pok_4.setText(listaPokemones.get(3));
         b_pok_5.setText(listaPokemones.get(4));
+        b_pok_6.setText(listaPokemones.get(5));
 
     }
     @FXML
@@ -113,6 +116,20 @@ public class PedirPokemonController {
         }
     }
 
+    @FXML
+    public void clickBotonSexto() throws IOException {
+        clickContador+=1;
+        if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
+            juego.cambiarPokemonEntrenadorUno(b_pok_6.getText());
+            inicializarDataSegundoJugador();
+        } else {
+            Soundtrack.getSonido().reproducirClick();
+            juego.cambiarPokemonEntrenadorDos(b_pok_6.getText());
+            cambiarEscenaBatalla();
+        }
+    }
+
 
     private void cambiarEscenaBatalla() throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
@@ -152,6 +169,7 @@ public class PedirPokemonController {
         b_pok_3.setText(listaPokemones.get(2));
         b_pok_4.setText(listaPokemones.get(3));
         b_pok_5.setText(listaPokemones.get(4));
+        b_pok_6.setText(listaPokemones.get(5));
     }
 
 }

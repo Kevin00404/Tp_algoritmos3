@@ -199,9 +199,41 @@ public class LeerArchivoJson {
 
             return 20;
 
-        } else {
+        } else if (nombre.equals("Grimer")) {
 
             return 21;
+
+        } else if (nombre.equals("Flygon")) {
+
+            return 22;
+
+        } else if (nombre.equals("Swellow")) {
+
+            return 23;
+
+        } else if (nombre.equals("Hariyama")) {
+
+            return 24;
+
+        } else if (nombre.equals("Swampert")) {
+
+            return 25;
+
+        } else if (nombre.equals("Claydol")) {
+
+            return 26;
+
+        } else if (nombre.equals("Exploud")) {
+
+            return 27;
+
+        } else if (nombre.equals("Ludicolo")) {
+
+            return 28;
+
+        } else {
+
+            return 29;
 
         }
     }
@@ -221,7 +253,7 @@ public class LeerArchivoJson {
     private String obteterIdItem(String nombre) {
         if (nombre.equals("Pocion")){
             return "7";
-        } else if (nombre.equals("Hiper Poción")){
+        } else if (nombre.equals("Hiper pocion")){
             return "1";
         } else if (nombre.equals("Defensa x")){
             return "2";
@@ -235,6 +267,10 @@ public class LeerArchivoJson {
             return "6";
         } else if (nombre.equals("AntiParalizar")){
             return "8";
+        } else if (nombre.equals("Super pocion")){
+            return "10";
+        } else if (nombre.equals("Max revivir")){
+            return "11";
         } else {
             return "9";
         }

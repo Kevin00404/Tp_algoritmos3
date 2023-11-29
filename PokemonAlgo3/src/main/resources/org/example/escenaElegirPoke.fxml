@@ -37,7 +37,7 @@
                </image></ImageView>
                 <ProgressBar fx:id="barraPkmn2" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
                 <Label fx:id="lvlPkmn2" layoutX="55.0" layoutY="25.0" text="lvl" />
-                <Label fx:id="vidaPkmn2" layoutX="281.0" layoutY="30.0" text="vida" />
+                <Label fx:id="vidaPkmn2" layoutX="264.0" layoutY="30.0" text="vida" />
                 <Button fx:id="seleccionarPkmn2" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#mostrarConfirmacion" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
             </children>
         </AnchorPane>
@@ -49,7 +49,7 @@
                   <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
                 <ProgressBar fx:id="barraPkmn3" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
-                <Label fx:id="vidaPkmn3" layoutX="282.0" layoutY="31.0" text="vida" />
+                <Label fx:id="vidaPkmn3" layoutX="264.0" layoutY="31.0" text="vida" />
                 <Label fx:id="lvlPkmn3" layoutX="56.0" layoutY="22.0" text="lvl" />
                 <Button fx:id="seleccionarPkmn3" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#mostrarConfirmacion" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
             </children>
@@ -62,7 +62,7 @@
                   <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
                 <ProgressBar fx:id="barraPkmn4" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
-                <Label fx:id="vidaPkmn4" layoutX="285.0" layoutY="33.0" text="vida" />
+                <Label fx:id="vidaPkmn4" layoutX="264.0" layoutY="33.0" text="vida" />
                 <Label fx:id="lvlPkmn4" layoutX="53.0" layoutY="21.0" text="lvl" />
                 <Button fx:id="seleccionarPkmn4" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#mostrarConfirmacion" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
             </children>
@@ -75,7 +75,7 @@
                   <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
                 <ProgressBar fx:id="barraPkmn5" layoutX="152.0" layoutY="25.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
-                <Label fx:id="vidaPkmn5" layoutX="282.0" layoutY="36.0" text="vida" />
+                <Label fx:id="vidaPkmn5" layoutX="264.0" layoutY="36.0" text="vida" />
                 <Label fx:id="lvlPkmn5" layoutX="52.0" layoutY="20.0" text="lvl" />
                 <Button fx:id="seleccionarPkmn5" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#mostrarConfirmacion" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
             </children>
@@ -88,7 +88,7 @@
                   <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
                 <ProgressBar fx:id="barraPkmn6" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
-                <Label fx:id="vidaPkmn6" layoutX="282.0" layoutY="30.0" text="vida" />
+                <Label fx:id="vidaPkmn6" layoutX="264.0" layoutY="30.0" text="vida" />
                 <Label fx:id="lvlPkmn6" layoutX="56.0" layoutY="24.0" text="lvl" />
                 <Button fx:id="seleccionarPkmn6" mnemonicParsing="false" onMouseClicked="#mostrarConfirmacion" prefHeight="53.0" prefWidth="318.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
             </children>
