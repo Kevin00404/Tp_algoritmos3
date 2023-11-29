@@ -482,25 +482,23 @@ public class BatallaJugadorUnoController_ {
     }
 
 
+    // animacion de ataque
+
     public void animacionAtaque() throws IOException, InterruptedException {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnEspalda);
 
-        // Mover 100 píxeles en la dirección X
         transition.setToX(100);
 
-        // Manejar el evento de finalización para volver a la posición inicial
         transition.setOnFinished(event -> {
             Soundtrack.getSonido().reproducirGolpe();
-            pkmnEspalda.setTranslateX(0);  // Restaurar a la posición inicial
+            pkmnEspalda.setTranslateX(0);
         });
 
-        // Iniciar la transición
         transition.play();
 
-        // Crear una línea de tiempo con un solo keyframe que se ejecuta después de 10 segundos
+
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-            // Aquí puedes agregar el código que deseas ejecutar después de la espera
-            // Por ejemplo, puedes llamar a una función o realizar otras operaciones.
+
             try {
                 recargarDatos();
             } catch (IOException e) {
@@ -508,7 +506,6 @@ public class BatallaJugadorUnoController_ {
             }
         }));
 
-        // Iniciar la línea de tiempo
         timeline.play();
     }
 

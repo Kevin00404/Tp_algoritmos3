@@ -10,9 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainFX extends Application {
@@ -35,12 +37,14 @@ public class MainFX extends Application {
 
     public void inicializar( Stage primeStage) throws IOException {
 
+        primeStage.getIcons().add(new Image(new File("imagenes/icono.png").toURI().toString()));
+
         Juego juego = new Juego();
         juego = juego.iniciarJuegoConJSON("Partida.json");
 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirJSON.fxml"));
         Parent root = fxmlloader.load();
-        
+
         ElegirJSONController json = fxmlloader.getController();
         json.setPrimaryStage(primeStage);
         json.setJuego(juego);

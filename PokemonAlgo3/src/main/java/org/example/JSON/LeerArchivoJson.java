@@ -199,9 +199,41 @@ public class LeerArchivoJson {
 
             return 20;
 
-        } else {
+        } else if (nombre.equals("Grimer")) {
 
             return 21;
+
+        } else if (nombre.equals("Flygon")) {
+
+            return 22;
+
+        } else if (nombre.equals("Swellow")) {
+
+            return 23;
+
+        } else if (nombre.equals("Hariyama")) {
+
+            return 24;
+
+        } else if (nombre.equals("Swampert")) {
+
+            return 25;
+
+        } else if (nombre.equals("Claydol")) {
+
+            return 26;
+
+        } else if (nombre.equals("Exploud")) {
+
+            return 27;
+
+        } else if (nombre.equals("Ludicolo")) {
+
+            return 28;
+
+        } else {
+
+            return 29;
 
         }
     }

@@ -4,9 +4,9 @@
     "id": 1,
     "nivel": 5,
     "tipo": "planta",
-    "historia": "Esta es una historia",
+    "historia": "Bulbasaur es fácil verle echándose una siesta al sol. La semilla que tiene en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol.",
     "vidaMaxima": 100,
-    "velocidad": 20,
+    "velocidad": 15,
     "defensa": 3,
     "ataque": 10,
     "habilidades": [56, 76, 2, 5]
@@ -16,7 +16,7 @@
     "id": 2,
     "nivel": 6,
     "tipo": "fuego",
-    "historia": "Esta es una historia",
+    "historia": "La llama que tiene en la punta de la cola arde según sus sentimientos. Llamea levemente cuando está alegre y arde vigorosamente cuando está enfadado.",
     "vidaMaxima": 85,
     "velocidad": 15,
     "defensa": 5,
@@ -28,9 +28,9 @@
     "id": 3,
     "nivel": 5,
     "tipo": "agua",
-    "historia": "Esta es una historia",
+    "historia": "El caparazón de Squirtle no sólo lo protege; su forma redondeada y sus hendiduras reducen su resistencia al agua y le permiten nadar más rápido.",
     "vidaMaxima": 90,
-    "velocidad": 18,
+    "velocidad": 15,
     "defensa": 6,
     "ataque": 12,
     "habilidades": [20, 45, 7, 56]
@@ -42,7 +42,7 @@
     "tipo": "electrico",
     "historia": "Este Pokémon es conocido por su cola con forma de rayo.",
     "vidaMaxima": 75,
-    "velocidad": 25,
+    "velocidad": 15,
     "defensa": 4,
     "ataque": 18,
     "habilidades": [71, 42, 11, 7]
@@ -66,7 +66,7 @@
     "tipo": "roca",
     "historia": "Geodude es un Pokémon de tipo roca que se encuentra comúnmente en cuevas y montañas.",
     "vidaMaxima": 95,
-    "velocidad": 12,
+    "velocidad": 15,
     "defensa": 8,
     "ataque": 14,
     "habilidades": [60, 33, 15, 2]
@@ -78,7 +78,7 @@
     "tipo": "normal",
     "historia": "Eevee es conocido por su habilidad para evolucionar en múltiples formas.",
     "vidaMaxima": 85,
-    "velocidad": 20,
+    "velocidad": 15,
     "defensa": 6,
     "ataque": 16,
     "habilidades": [44, 72, 8, 3]
@@ -90,7 +90,7 @@
     "tipo": "fuego",
     "historia": "Vulpix tiene una cola de fuego que arde con intensidad cuando está feliz.",
     "vidaMaxima": 80,
-    "velocidad": 22,
+    "velocidad": 15,
     "defensa": 5,
     "ataque": 14,
     "habilidades": [29, 50, 8, 5]
@@ -102,7 +102,7 @@
     "tipo": "volador",
     "historia": "Spearow es un Pokémon pájaro que vuela a gran velocidad en busca de presas.",
     "vidaMaxima": 70,
-    "velocidad": 28,
+    "velocidad": 15,
     "defensa": 3,
     "ataque": 16,
     "habilidades": [42, 65, 19, 6]
@@ -114,7 +114,7 @@
     "tipo": "tierra",
     "historia": "Sandshrew se enrolla en una bola para protegerse de los depredadores.",
     "vidaMaxima": 85,
-    "velocidad": 18,
+    "velocidad": 15,
     "defensa": 8,
     "ataque": 15,
     "habilidades": [33, 60, 12, 7]
@@ -126,7 +126,7 @@
     "tipo": "planta",
     "historia": "Oddish emite un aroma dulce y relajante mientras absorbe la luz solar.",
     "vidaMaxima": 75,
-    "velocidad": 16,
+    "velocidad": 15,
     "defensa": 5,
     "ataque": 12,
     "habilidades": [18, 46, 7, 30]
@@ -138,7 +138,7 @@
     "tipo": "agua",
     "historia": "Psyduck sufre dolores de cabeza intensos que desatan poderes psíquicos.",
     "vidaMaxima": 80,
-    "velocidad": 20,
+    "velocidad": 15,
     "defensa": 6,
     "ataque": 14,
     "habilidades": [29, 55, 9, 1]
@@ -150,7 +150,7 @@
     "tipo": "lucha",
     "historia": "Mankey se enfurece fácilmente y ataca con furia a cualquier cosa que lo provoque.",
     "vidaMaxima": 70,
-    "velocidad": 22,
+    "velocidad": 15,
     "defensa": 4,
     "ataque": 16,
     "habilidades": [48, 63, 11, 9]
@@ -162,7 +162,7 @@
     "tipo": "fuego",
     "historia": "Growlithe es un compañero leal que protege a su entrenador con valentía.",
     "vidaMaxima": 85,
-    "velocidad": 18,
+    "velocidad": 15,
     "defensa": 7,
     "ataque": 17,
     "habilidades": [39, 52, 21, 11]
@@ -174,7 +174,7 @@
     "tipo": "agua",
     "historia": "Poliwag nada elegantemente con su vientre hinchado, atrapando la atención de los curiosos.",
     "vidaMaxima": 75,
-    "velocidad": 20,
+    "velocidad": 15,
     "defensa": 5,
     "ataque": 13,
     "habilidades": [27, 41, 64, 12]
@@ -186,7 +186,7 @@
     "tipo": "psíquico",
     "historia": "Abra es capaz de leer mentes, pero suelen dormirse antes de poder hacerlo.",
     "vidaMaxima": 75,
-    "velocidad": 20,
+    "velocidad": 15,
     "defensa": 4,
     "ataque": 10,
     "habilidades": [9, 37, 5, 13]
@@ -210,7 +210,7 @@
     "tipo": "agua",
     "historia": "Tentacool flota en el océano y atrapa a los desprevenidos con sus tentáculos venenosos.",
     "vidaMaxima": 70,
-    "velocidad": 25,
+    "velocidad": 15,
     "defensa": 6,
     "ataque": 14,
     "habilidades": [31, 58, 23, 15]
@@ -222,7 +222,7 @@
     "tipo": "normal",
     "historia": "Doduo corre a gran velocidad y puede esquivar obstáculos con facilidad gracias a sus dos cabezas.",
     "vidaMaxima": 80,
-    "velocidad": 28,
+    "velocidad": 15,
     "defensa": 5,
     "ataque": 16,
     "habilidades": [44, 67, 12, 16]
@@ -234,7 +234,7 @@
     "tipo": "agua",
     "historia": "Seel disfruta de las aguas frías y nada con gracia en lagos y océanos.",
     "vidaMaxima": 75,
-    "velocidad": 18,
+    "velocidad": 15,
     "defensa": 6,
     "ataque": 13,
     "habilidades": [22, 49, 75, 17]
@@ -250,5 +250,101 @@
     "defensa": 8,
     "ataque": 15,
     "habilidades": [36, 61, 19, 18]
+  },
+  {
+    "nombre": "Flygon",
+    "id": 22,
+    "nivel": 6,
+    "tipo": "dragon",
+    "historia": "El aleteo de sus alas es muy melódico. Para evitar que el enemigo lo descubra, levanta con las alas una nube de arena del desierto, tras la cual se oculta.",
+    "vidaMaxima": 100,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 20,
+    "habilidades": [26, 8, 34, 59]
+  },
+  {
+    "nombre": "Swellow",
+    "id": 23,
+    "nivel": 6,
+    "tipo": "volador",
+    "historia": "Swellow se lanza al agua para atrapar a su presa y no se le escapa ni una. Suele ir volando en busca de tierras de clima cálido.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [15, 34, 18, 51]
+  },
+  {
+    "nombre": "Hariyama",
+    "id": 24,
+    "nivel": 6,
+    "tipo": "lucha",
+    "historia": "Tiene la costumbre de desafiar a otros sin medir la fuerza del adversario. Alguna vez se ha montado sobre las vías del tren y parado trenes a base de puñetazos.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [16, 18, 3, 8]
+  },
+  {
+    "nombre": "Swampert",
+    "id": 25,
+    "nivel": 6,
+    "tipo": "agua",
+    "historia": "Si detecta que se acerca una tormenta, protege su nido apilando cantos rodados para protegerlo del fuerte oleaje. Nada tan rápido como una moto acuática.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [12, 72, 27, 17]
+  },
+  {
+    "nombre": "Claydol",
+    "id": 26,
+    "nivel": 6,
+    "tipo": "psiquico",
+    "historia": "Claydol duerme mientras levita. Tiene los brazos separados del cuerpo y los mantiene flotando gracias a sus poderes psicoquinéticos.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [72, 54, 5, 33]
+  },
+  {
+    "nombre": "Exploud",
+    "id": 27,
+    "nivel": 6,
+    "tipo": "normal",
+    "historia": "Tiene órganos que generan sonido por todo el cuerpo. Se comunica con otros ajustando el tono y el volumen de los gritos que emite.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [4, 40, 42, 27]
+  },
+  {
+    "nombre": "Ludicolo",
+    "id": 28,
+    "nivel": 6,
+    "tipo": "agua",
+    "historia": "Cuando oye música festiva, las células se le revolucionan y comienza a bailar con mucho ritmo. No se acobarda ni delante del enemigo más fuerte.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [56, 71, 20, 55]
+  },
+  {
+    "nombre": "Cacnea",
+    "id": 29,
+    "nivel": 6,
+    "tipo": "planta",
+    "historia": "Cacnea vive en desiertos donde nunca llueve. Para luchar, balancea los brazos, muy gruesos y cubiertos de pinchos. Una vez al año, le brota una flor amarilla.",
+    "vidaMaxima": 85,
+    "velocidad": 15,
+    "defensa": 8,
+    "ataque": 15,
+    "habilidades": [7, 32, 36, 78]
   }
 ]
