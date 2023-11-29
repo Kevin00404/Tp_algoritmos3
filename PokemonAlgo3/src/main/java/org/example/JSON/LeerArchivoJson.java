@@ -253,7 +253,7 @@ public class LeerArchivoJson {
     private String obteterIdItem(String nombre) {
         if (nombre.equals("Pocion")){
             return "7";
-        } else if (nombre.equals("Hiper Poción")){
+        } else if (nombre.equals("Hiper pocion")){
             return "1";
         } else if (nombre.equals("Defensa x")){
             return "2";
@@ -267,6 +267,10 @@ public class LeerArchivoJson {
             return "6";
         } else if (nombre.equals("AntiParalizar")){
             return "8";
+        } else if (nombre.equals("Super pocion")){
+            return "10";
+        } else if (nombre.equals("Max revivir")){
+            return "11";
         } else {
             return "9";
         }

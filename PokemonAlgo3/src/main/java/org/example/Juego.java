@@ -282,17 +282,17 @@ public class Juego {
 
     /* INICIALIZACION DE ITEMS */
     public Mochila inicializarItems(){
-        CuraTotal curaTotal = new CuraTotal("cura total" , 1);
-        PocionDespertarDormido despertar = new PocionDespertarDormido("despertar" , 1);
-        PocionAntiVeneno antiVeneno = new PocionAntiVeneno("antiveneno" , 1);
+        CuraTotal curaTotal = new CuraTotal("Cura Total" , 1);
+        PocionDespertarDormido despertar = new PocionDespertarDormido("Despertar" , 1);
+        PocionAntiVeneno antiVeneno = new PocionAntiVeneno("Antidoto" , 1);
         PocionCurarParalisis curarParalisis = new PocionCurarParalisis("antiparalisis" , 1);
-        Pocion pocionBasica = new Pocion(20.0 ,"pocion basica" , 1);
-        Pocion megaPocion = new Pocion(50.0 , "mega pocion" , 1);
-        Pocion hiperPocion = new Pocion(100.0 , "hiper pocion" , 1);
-        Revivir revivir = new Revivir(20.0 , "revivir" , 1);
-        Revivir maxRevivir = new Revivir(100.0 , "max revivir" , 1);
-        PocionDeAtaque ataqueX = new PocionDeAtaque("ataque x", 10.0 , 1);
-        PocionDeDefensa defensaX = new PocionDeDefensa("defensa x" , 10.0 , 1);
+        Pocion pocionBasica = new Pocion(20.0 ,"Pocion" , 1);
+        Pocion megaPocion = new Pocion(50.0 , "Super pocion" , 1);
+        Pocion hiperPocion = new Pocion(100.0 , "Hiper pocion" , 1);
+        Revivir revivir = new Revivir(20.0 , "Revivir" , 1);
+        Revivir maxRevivir = new Revivir(100.0 , "Max revivir" , 1);
+        PocionDeAtaque ataqueX = new PocionDeAtaque("Ataque X", 10.0 , 1);
+        PocionDeDefensa defensaX = new PocionDeDefensa("Defensa X" , 10.0 , 1);
         Mochila mochilaEntrenador = new Mochila();
         mochilaEntrenador.agregarObjeto(pocionBasica);
         mochilaEntrenador.agregarObjeto(megaPocion);
@@ -350,7 +350,7 @@ public class Juego {
 
             return new PocionDespertarDormido((String) item.get("nombre"), disponibles);
 
-        } else if ( ((String)item.get("nombre")).equals("Pocion") || ((String)item.get("nombre")).equals("Hiper Poción") ) {
+        } else if ( ((String)item.get("nombre")).equals("Pocion") || ((String)item.get("nombre")).equals("Hiper pocion") || ((String)item.get("nombre")).equals("Super pocion") ) {
 
             return new Pocion( ( (Long) item.get("valor") ).doubleValue(), (String) item.get("nombre"), disponibles);
 

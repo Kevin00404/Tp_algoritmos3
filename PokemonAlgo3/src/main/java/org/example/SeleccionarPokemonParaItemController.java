@@ -194,6 +194,7 @@ public class SeleccionarPokemonParaItemController {
          String vidaMaxFormateada = String.format("%.2f", vidaMax);
          vidaPkmnActual.setText( vidaFormateada+ "/" + vidaMaxFormateada);
          barraPkmnActual.setProgress(vidaActual/vidaMax);
+         setProgressBarColor(barraPkmnActual, vidaActual/vidaMax);
          String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, manejador.getEntrenador_actual().getPokemonActual().getNombre());
          Image icono = new Image(new File(rutaIcono).toURI().toString());
          iconoPkmnActual.setImage(icono);
@@ -208,6 +209,7 @@ public class SeleccionarPokemonParaItemController {
         String vidaMaxFormateada = String.format("%.2f", vidaMax);
         vidaPkmn2.setText( vidaFormateada+ "/" + vidaMaxFormateada);
         barraPkmn2.setProgress(vidaActual/vidaMax);
+        setProgressBarColor(barraPkmn2, vidaActual/vidaMax);
         String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
         iconoPkmn2.setImage(icono);
@@ -223,6 +225,7 @@ public class SeleccionarPokemonParaItemController {
         String vidaMaxFormateada = String.format("%.2f", vidaMax);
         vidaPkmn3.setText( vidaFormateada+ "/" + vidaMaxFormateada);
         barraPkmn3.setProgress(vidaActual/vidaMax);
+        setProgressBarColor(barraPkmn3, vidaActual/vidaMax);
         String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
         iconoPkmn3.setImage(icono);
@@ -238,6 +241,7 @@ public class SeleccionarPokemonParaItemController {
         String vidaMaxFormateada = String.format("%.2f", vidaMax);
         vidaPkmn4.setText( vidaFormateada+ "/" + vidaMaxFormateada);
         barraPkmn4.setProgress(vidaActual/vidaMax);
+        setProgressBarColor(barraPkmn4, vidaActual/vidaMax);
         String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
         iconoPkmn4.setImage(icono);
@@ -253,6 +257,7 @@ public class SeleccionarPokemonParaItemController {
         String vidaMaxFormateada = String.format("%.2f", vidaMax);
         vidaPkmn5.setText( vidaFormateada+ "/" + vidaMaxFormateada);
         barraPkmn5.setProgress(vidaActual/vidaMax);
+        setProgressBarColor(barraPkmn5, vidaActual/vidaMax);
         String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
         iconoPkmn5.setImage(icono);
@@ -268,6 +273,7 @@ public class SeleccionarPokemonParaItemController {
         String vidaMaxFormateada = String.format("%.2f", vidaMax);
         vidaPkmn6.setText( vidaFormateada+ "/" + vidaMaxFormateada);
         barraPkmn6.setProgress(vidaActual/vidaMax);
+        setProgressBarColor(barraPkmn6, vidaActual/vidaMax);
         String rutaIcono = mostrarIconoDependiendoDeVida(vidaActual, pkmn.getNombre());
         Image icono = new Image(new File(rutaIcono).toURI().toString());
         iconoPkmn6.setImage(icono);
@@ -626,6 +632,17 @@ public class SeleccionarPokemonParaItemController {
 
             return "imagenes/iconos estaticos/Grimer_icon.png";
 
+        }
+    }
+
+    //progress bar con colores
+    private void setProgressBarColor(ProgressBar progressBar, Double progress) {
+        if (progress >= 0.51) {
+            progressBar.setStyle("-fx-accent: green;");
+        } else if (progress >= 0.21) {
+            progressBar.setStyle("-fx-accent: yellow;");
+        } else {
+            progressBar.setStyle("-fx-accent: red;");
         }
     }
 }

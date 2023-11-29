@@ -9,10 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -114,6 +116,14 @@ public class BatallaJugadorUnoController_ {
     public ImageView imagenSonidoOff;
     @FXML
     public Button desactivarMusica;
+    @FXML
+    public Polygon marcadorAtacar;
+    @FXML
+    public Polygon marcadorPokemon;
+    @FXML
+    public Polygon marcadorMochila;
+    @FXML
+    public Polygon marcadorRendirse;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -214,6 +224,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickCambiarPokemon() throws IOException {
         try {
+            mostrarMarcadorPokemon();
             Soundtrack.getSonido().reproducirClick();
             activarEscenaCambiarPokemon();
         } catch (IOException ex) {
@@ -261,6 +272,7 @@ public class BatallaJugadorUnoController_ {
     //boton rendirse
     @FXML
     public void activarRendirse(){
+        mostrarMarcadorRendirse();
         Soundtrack.getSonido().reproducirClick();
         desactivarOpciones();
         mostrarRendirse();
@@ -316,6 +328,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickMostrarMochila() throws IOException{
         try{
+            mostrarMarcadorMochila();
             Soundtrack.getSonido().reproducirClick();
             activarEscenaMostrarMochila();
         }catch (IOException ex) {
@@ -363,10 +376,41 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void elegirHabilidad(ActionEvent actionEvent) {
         Soundtrack.getSonido().reproducirClick();
+        mostrarMarcadorAtacar();
         inhabilitarBotonesIniciales();
         manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
         habilitarBotonesDeHabilidad();
         Log.getLog().log("Que habilidad queres usar?");
+    }
+
+    //manejo de marcadores
+
+    public void mostrarMarcadorAtacar(){
+        marcadorAtacar.setVisible(true);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorMochila(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(true);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorPokemon(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(true);
+        marcadorRendirse.setVisible(false);
+    }
+
+    public void mostrarMarcadorRendirse(){
+        marcadorAtacar.setVisible(false);
+        marcadorMochila.setVisible(false);
+        marcadorPokemon.setVisible(false);
+        marcadorRendirse.setVisible(true);
     }
 
     private void habilitarBotonesDeHabilidad() {
@@ -414,6 +458,7 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorAtacar();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadUno();
         deshabilitarBotonesDeHabilidad();
@@ -421,8 +466,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorPokemon();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadDos();
         deshabilitarBotonesDeHabilidad();
@@ -430,8 +477,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorMochila();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadTres();
         deshabilitarBotonesDeHabilidad();
@@ -439,8 +488,10 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
+        mostrarMarcadorRendirse();
         Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadCuatro();
         deshabilitarBotonesDeHabilidad();
@@ -448,13 +499,16 @@ public class BatallaJugadorUnoController_ {
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
         //recargarDatos();
         animacionAtaque();
+        mostrarMarcadorAtacar();
     }
+
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
 
         if(barra_vida.getLayoutX() >= 303.0){
 
             vidaActualizada = manejador.getVidaPokemonAtacante() / manejador.getMaxVidaPokemonAtacante();
+            setProgressBarColor(barra_vida, vidaActualizada);
             String rutaFrente = encontrarRutaEspaldaPkmn(manejador.getNombrePokemonAtacante());
             Image frente = new Image(new File(rutaFrente).toURI().toString());
             pkmnEspalda.setImage(frente);
@@ -462,6 +516,7 @@ public class BatallaJugadorUnoController_ {
 
         } else {
             vidaActualizada = manejador.getVidaPokemonContrario() / manejador.getMaxVidaPokemonContrario();
+            setProgressBarColor(barra_vida, vidaActualizada);
             String rutaEspalda = encontrarRutaFrentePkmn(manejador.getNombrePokemonContrario());
             Image espalda = new Image(new File(rutaEspalda).toURI().toString());
             pkmnFrente.setImage(espalda);
@@ -794,6 +849,17 @@ public class BatallaJugadorUnoController_ {
 
             return "imagenes/espalda/Grimer_espalda_G6.gif";
 
+        }
+    }
+
+    //progress bar con colores
+    private void setProgressBarColor(ProgressBar progressBar, Double progress) {
+        if (progress >= 0.51) {
+            progressBar.setStyle("-fx-accent: green;");
+        } else if (progress >= 0.21) {
+            progressBar.setStyle("-fx-accent: yellow;");
+        } else {
+            progressBar.setStyle("-fx-accent: red;");
         }
     }
 

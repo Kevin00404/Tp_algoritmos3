@@ -1,11 +1,11 @@
 [
   {
-    "nombre": "Hiper Poción",
+    "nombre": "Hiper pocion",
     "id": 1,
     "valor": 100
   },
   {
-    "nombre": "Defensa x",
+    "nombre": "Defensa X",
     "id": 2,
     "valor": 20
   },
@@ -43,5 +43,15 @@
     "nombre": "Antidoto",
     "id": 9,
     "valor": 0
+  },
+  {
+    "nombre": "Super pocion",
+    "id": 10,
+    "valor": 50
+  },
+  {
+    "nombre": "Max revivir",
+    "id": 11,
+    "valor": 100
   }
 ]

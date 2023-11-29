@@ -37,7 +37,7 @@
                         <Image url="@Imgs/opciones.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="salir" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#volverABatalla" prefHeight="48.0" prefWidth="95.0" text="Salir">
+                  <Button fx:id="salir" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#volverABatalla" prefHeight="48.0" prefWidth="95.0" style="-fx-background-color: #625795; -fx-background-radius: 20;" text="Salir" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
