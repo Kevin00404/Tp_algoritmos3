@@ -103,7 +103,7 @@
                <image>
                   <Image url="@Imgs/texto.png" />
                </image></ImageView>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="4.0" prefHeight="61.0" prefWidth="421.0" text="Elegir un Pokemon" textFill="WHITE">
+            <Label fx:id="mensajeUsuario" contentDisplay="CENTER" layoutX="16.0" layoutY="4.0" prefHeight="61.0" prefWidth="421.0" text="Elegir un Pokemon" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>

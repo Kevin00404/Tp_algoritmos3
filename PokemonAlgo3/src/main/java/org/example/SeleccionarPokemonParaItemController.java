@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SeleccionarPokemonParaItemController {
     private Stage stage;
@@ -109,6 +110,8 @@ public class SeleccionarPokemonParaItemController {
     public ImageView iconoPkmn5;
     @FXML
     public ImageView iconoPkmn6;
+    @FXML
+    public Label mensajeUsuario;
     private Scene escenaBatalla;
 
     public void setPrimaryStage(Stage stage) {
@@ -287,35 +290,90 @@ public class SeleccionarPokemonParaItemController {
 
     @FXML
     public void usarItem() throws IOException, InterruptedException {
+        Boolean seUsoItem=false;
         Pokemon poke = encontrarPoke(pokemonQueUsaItem);
-        if (itemAUsar==7){
-            if (poke.getEstadisticas().getVida()<=0){
-                System.out.println("mandar mensaje no se puede usar item");
-                return;
+
+        String nombreItem= manejador.getEntrenador_actual().getMochila().getItem(itemAUsar).getNombre();
+        //Controlador de Restricciones:
+        if (nombreItem.equals("Max revivir") || nombreItem.equals("Revivir")) {
+            if (poke.getEstadisticas().getVida() > 0) {
+                mensajeUsuario.setText("Item sólo para pokemon muerto.");
+            } else {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            }
+        }
+
+        if (nombreItem.equals("Ataque X") || nombreItem.equals("Defensa X")) {
+            if (poke.getNombre()!= manejador.getEntrenador_actual().getPokemon().getNombre()) {
+                mensajeUsuario.setText("Item sólo para pokemon en batalla.");
+            } else {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            }
+        }
+
+        if (nombreItem.equals("Cura Total")) {
+            if (poke.getEstadisticas().getVida() <= 0) {
+                mensajeUsuario.setText("Item sólo para pokemon vivo.");
+            } else {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            }
+        }
+
+        if (nombreItem.equals("Hiper pocion")|| nombreItem.equals("Pocion") || nombreItem.equals("Super pocion")){
+            if (poke.getEstadisticas().getVida() > 0 && poke.getEstadisticas().getVida() < 100)  {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            } else {
+                mensajeUsuario.setText("Sólo en pokemon vivo y sin 100% vida.");
+            }
+        }
+
+        if (nombreItem.equals("Antidoto")){
+            if (poke.getEstadisticas().getVida() > 0 && poke.getEstado().getNombre()=="Envenenado")  {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            } else {
+                mensajeUsuario.setText("Item sólo para pokemon envenenado.");
+            }
+        }
+
+        if (nombreItem.equals("AntiParalizar")){
+            if (poke.getEstadisticas().getVida() > 0 && poke.getEstado().getNombre()=="Paralizado")  {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            } else {
+                mensajeUsuario.setText("Item sólo para pokemon paralizado.");
+            }
+        }
+        if (nombreItem.equals("Despertar")){
+            if (poke.getEstadisticas().getVida() > 0 && poke.getEstado().getNombre()=="Dormido")  {
+                seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar + 1);
+            } else {
+                mensajeUsuario.setText("Item sólo para pokemon dormido.");
             }
         }
 
 
-        System.out.println("111111111111111111111111111111111");
-
-        System.out.println(itemAUsar);
-        System.out.println(poke.getNombre());
-        System.out.println(poke.getEstadisticas().getVida());
-        System.out.println("11111111111111111111111166111111111");
 
 
-        Boolean seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar+1);
+
 
         if (seUsoItem){
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
+            Parent root = fxmlloader.load();
+            BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
+            batallaUno.setPrimaryStage(this.stage);
+            batallaUno.setManejador(manejador);
+            batallaUno.inicializarDatosdeBatalla();
 
-            animacionFadeIn(escenaBatalla);
+            Scene scene = new Scene(root);
+            this.stage.setScene(scene);
+            batallaUno.setScene(scene);
 
-            this.stage.setScene(escenaBatalla);
-            this.stage.setTitle("batalla");
+            batallaUno.guardarEscenaBatalla(this.stage,scene);
+
+            this.stage.setTitle("Batalla");
             this.stage.show();
 
         } else {
-
+            noSeleccionar();
         }
 
     }

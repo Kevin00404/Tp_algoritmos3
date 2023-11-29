@@ -460,7 +460,6 @@ public class ElegirPokemonController implements Initializable {
     @FXML
     public void clickSalir_volverABatalla() throws IOException {
         if (derrotadoEnPelea){
-
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
             Parent root = fxmlloader.load();
             BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
