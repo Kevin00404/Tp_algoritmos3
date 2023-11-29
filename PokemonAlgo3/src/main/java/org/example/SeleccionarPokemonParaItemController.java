@@ -378,13 +378,6 @@ public class SeleccionarPokemonParaItemController {
 
     }
 
-    @FXML
-    public void animacionFadeIn(Scene escena){
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), escena.getRoot());
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-    }
 
     private Pokemon encontrarPoke(String pokemonQueUsaItem) {
 
