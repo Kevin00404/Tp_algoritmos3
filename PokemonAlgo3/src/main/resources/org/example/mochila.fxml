@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #40B0A0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MochilaController">
@@ -23,7 +24,7 @@
                </font></Label>
             <AnchorPane layoutX="12.0" layoutY="15.0" prefHeight="63.0" prefWidth="62.0" style="-fx-background-color: white; -fx-background-radius: 5;">
                <children>
-                  <ImageView fx:id="imagenItem" fitHeight="66.0" fitWidth="67.0" layoutX="2.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagenItem" fitHeight="36.0" fitWidth="33.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Imgs/Bag_Potion_Sprite.png" />
                      </image>
@@ -42,13 +43,21 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="confirmarNo" layoutX="68.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#ocultarConfirmacion" prefHeight="25.0" prefWidth="50.0" text="no" visible="false" />
-                  <Button fx:id="confirmarSi" layoutX="13.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#elegirPokemonItem" prefHeight="25.0" prefWidth="50.0" text="si" visible="false" />
-                  <Label fx:id="confirmarUsoLabel" alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="95.0" text="usar este item?" visible="false">
+                  <Button fx:id="confirmarNo" layoutX="68.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#ocultarConfirmacion" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" text="no" visible="false">
                      <font>
                         <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="confirmarSi" layoutX="13.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#elegirPokemonItem" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" text="si" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Label fx:id="confirmarUsoLabel" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="21.0" prefWidth="108.0" text="usar este item?" visible="false">
+                     <font>
+                        <Font size="15.0" />
                      </font>
                   </Label>
+                  <Polygon fx:id="marcadorSi" layoutX="-44.0" layoutY="12.0" points="58.0, 35.0, 58.0, 49.0, 74.0, 42.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Polygon fx:id="marcadorNo" layoutX="2.0" layoutY="12.0" points="58.0, 35.0, 58.0, 49.0, 74.0, 42.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
                </children>
             </AnchorPane>
          </children>

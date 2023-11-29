@@ -494,6 +494,7 @@ public class ElegirPokemonController implements Initializable {
 
             this.stage.setTitle("Batalla");
             this.stage.show();
+
         }
     }
 

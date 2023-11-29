@@ -27,7 +27,9 @@ public class ElegirJSONController {
     @FXML
     public void noSeUsaJSON() throws IOException {
 
-         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
+        Soundtrack.getSonido().reproducirClick();
+
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
         Parent root = fxmlloader.load();
 
         //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
@@ -49,6 +51,9 @@ public class ElegirJSONController {
 
     @FXML
     public void iniciarPartida() throws IOException {
+
+        Soundtrack.getSonido().reproducirClick();
+
         Juego juego = new Juego();
         juego = juego.iniciarJuegoConJSON("Partida.json");
 

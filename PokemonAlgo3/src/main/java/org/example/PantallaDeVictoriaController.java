@@ -32,6 +32,9 @@ public class PantallaDeVictoriaController {
     }
     @FXML
     public void salir(){
+
+        Soundtrack.getSonido().reproducirClick();
+
         System.exit(0);
     }
 }

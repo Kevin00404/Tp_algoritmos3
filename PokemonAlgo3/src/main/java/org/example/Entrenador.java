@@ -20,6 +20,7 @@ public class Entrenador {
     Pokemon pokemonActual;
     Mochila mochila;
     String nombre;
+
     public Entrenador(Pokebola pokebola , Mochila mochila , String nombre) {
         this.pokebola = pokebola;
         this.pokemonActual = null;
@@ -63,17 +64,6 @@ public class Entrenador {
         return pokebola.pokemonesDebilitados() < pokebola.cantidadPokemones();
     }
 
-    public boolean usarItemEnMochila(int objetoElegido, String pokemonElegido) throws InterruptedException {
-        return mochila.usarItem(pokebola.obtenerPokemon(pokemonElegido), objetoElegido);
-    }
-
-    public void verMochila() {
-        mochila.mostrarItems();
-    }
-
-    public void verEquipo() {
-        pokebola.mostrarPokemones();
-    }
 
     public String getNroEntrenador() {
         return nombre;
@@ -101,13 +91,6 @@ public class Entrenador {
         Eventos.getEventos().agregarComando(efectosPasivos);
     }
 
-
-    /*public void pokemonSiguePeleando() {
-        if (pokemonActual.estaDebilitado()){
-            Log.getLog().log(pokemonActual.getNombre() + " fue debilitado ");
-            cambiarPokemonActual();
-        }
-    }*/
   
     public ArrayList<String> listaPokemones() {
         return pokebola.mostrarPokemones();

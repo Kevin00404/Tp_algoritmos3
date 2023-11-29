@@ -11,25 +11,18 @@ import org.example.pokemon.Pokemon;
 public abstract class Habilidad {
     String nombre;
     Integer cantidadDisponible;
+    Integer catidadMax;
     String tipoDeHabilidad;
 
     protected Habilidad(String nombre, Integer cantidadDisponible, String tipoDeHabilidad) {
         this.nombre = nombre;
         this.cantidadDisponible = cantidadDisponible;
+        this.catidadMax = cantidadDisponible;
         this.tipoDeHabilidad = tipoDeHabilidad;
     }
 
-    public void avisarDeUso(){
-        Log.getLog().log("Se ha utilizado la habilidad " + this.nombre);
-    }
-    public void atacar(Pokemon pokemon, Element element, Eventos eventos_a_realizar){}
-
     public String getNombre() {
         return nombre;
-    }
-
-    public Pokemon getObjetivo(Pokemon pokemon1 , Pokemon pokemon2) {
-        return pokemon2;
     }
 
     public boolean sePuedeUsar() {
@@ -45,6 +38,14 @@ public abstract class Habilidad {
 
     public Integer getCantidadDisponible() {
         return cantidadDisponible;
+    }
+
+    public Integer getCatidadMax(){
+        return catidadMax;
+    }
+
+    public String getTipoDeHabilidad() {
+        return tipoDeHabilidad;
     }
 
     public abstract Comando armarComando(Pokemon pokemon, Estadisticas estadisticas);

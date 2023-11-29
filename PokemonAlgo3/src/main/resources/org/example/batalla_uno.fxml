@@ -11,13 +11,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox fx:id="main" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BatallaJugadorUnoController_">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="667.0" VBox.vgrow="ALWAYS">
             <children>
                 <ImageView fx:id="clima" fitHeight="368.0" fitWidth="664.0" layoutX="1.0" layoutY="-90.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -102,14 +103,14 @@
                </font></Text>
                 <ProgressBar fx:id="barra_vida_actual" layoutX="304.0" layoutY="214.0" prefHeight="18.0" prefWidth="162.0" progress="1.0" style="-fx-border-color: none; -fx-background-radius: 10;" />
                 <ProgressBar fx:id="barra_vida_no_actual" layoutX="237.0" layoutY="37.0" prefHeight="18.0" prefWidth="162.0" progress="1.0" style="-fx-border-color: none; -fx-background-radius: 10;" />
-            <AnchorPane layoutX="331.0" layoutY="276.0" prefHeight="113.0" prefWidth="314.0">
+            <AnchorPane layoutX="331.0" layoutY="276.0" prefHeight="124.0" prefWidth="323.0">
                <children>
-                      <ImageView fitHeight="134.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="124.0" fitWidth="323.0" pickOnBounds="true">
                           <image>
                               <Image url="@Imgs/opciones.png" />
                           </image>
                       </ImageView>
-                  <Button fx:id="siRendirse" layoutX="33.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#seRindio" prefHeight="40.0" prefWidth="91.0" text="Si" visible="false">
+                  <Button fx:id="siRendirse" layoutX="33.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#seRindio" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Si" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -156,41 +157,33 @@
                               <Font size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="habilidad_uno_boton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#activarHabilidadUno" prefHeight="45.0" prefWidth="144.0" style="-fx-background-color: transparent;" text="Habilidad1" textAlignment="CENTER" visible="false">
-                           <GridPane.margin>
-                              <Insets left="3.0" top="3.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="habilidad_dos_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadDos" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="Habilidad2" visible="false" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets top="5.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="habilidad_tres_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadTres" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="Habilidad3" visible="false" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="3.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="habilidad_cuatro_boton" disable="true" mnemonicParsing="false" onAction="#activarHabilidadCuatro" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="Habilidad4" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Button>
                         <Polygon fx:id="marcadorAtacar" points="29.0, -13.0, 29.0, 11.0, 45.0, -1.0" stroke="BLACK" strokeType="INSIDE" />
                         <Polygon fx:id="marcadorPokemon" layoutX="-19.0" layoutY="38.0" points="29.0, -13.0, 29.0, 11.0, 45.0, -1.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" />
                         <Polygon fx:id="marcadorMochila" layoutX="130.0" layoutY="38.0" points="29.0, -13.0, 29.0, 11.0, 45.0, -1.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.rowIndex="1" />
                         <Polygon fx:id="marcadorRendirse" layoutX="-19.0" layoutY="90.0" points="29.0, -13.0, 29.0, 11.0, 45.0, -1.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelTextoDisponibles" alignment="CENTER" prefHeight="44.0" prefWidth="147.0" text="Disponibles" visible="false">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelTextoTipo" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="149.0" text="Tipo" visible="false" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelDisponibles" alignment="CENTER" prefHeight="47.0" prefWidth="148.0" text="1/1" visible="false" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tipoHabilidad" alignment="CENTER" prefHeight="42.0" prefWidth="149.0" text="elemento" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
-                  <Button fx:id="noRendirse" layoutX="195.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#noSeRindio" prefHeight="40.0" prefWidth="91.0" text="No" visible="false">
+                  <Button fx:id="noRendirse" layoutX="195.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#noSeRindio" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="No" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -200,6 +193,8 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
+                  <Polygon fx:id="marcadorSi" layoutX="6.0" layoutY="46.0" points="33.0, 45.0, 51.0, 38.0, 33.0, 26.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Polygon fx:id="marcadorNo" layoutX="162.0" layoutY="47.0" points="33.0, 45.0, 51.0, 38.0, 33.0, 26.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
                </children>
             </AnchorPane>
             <GridPane layoutX="262.0" layoutY="216.0" prefHeight="36.0" prefWidth="41.0">
@@ -280,6 +275,39 @@
                   </ImageView>
                   <Button fx:id="activarMusica" mnemonicParsing="false" onMouseClicked="#volverAReproducirMusica" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false" />
                   <Button fx:id="desactivarMusica" mnemonicParsing="false" onMouseClicked="#pausarMusica" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: transparent;" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="contenedorHabilidades" layoutX="6.0" layoutY="274.0" prefHeight="126.0" prefWidth="332.0" visible="false">
+               <children>
+                  <ImageView fitHeight="125.0" fitWidth="334.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@Imgs/opciones.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="habilidad_uno_boton" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="2.0" layoutY="19.0" mnemonicParsing="false" onAction="#activarHabilidadUno" prefHeight="45.0" prefWidth="144.0" style="-fx-background-color: transparent;" text="Habilidad1" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="habilidad_dos_boton" disable="true" layoutX="166.0" layoutY="19.0" mnemonicParsing="false" onAction="#activarHabilidadDos" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="Habilidad2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="habilidad_tres_boton" disable="true" layoutX="1.0" layoutY="67.0" mnemonicParsing="false" onAction="#activarHabilidadTres" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="Habilidad3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="habilidad_cuatro_boton" disable="true" layoutX="166.0" layoutY="67.0" mnemonicParsing="false" onAction="#activarHabilidadCuatro" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="Habilidad4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Line fx:id="marcadorHabilidad1" endX="11.0" layoutX="118.0" layoutY="63.0" startX="-100.0" visible="false" />
+                  <Line fx:id="marcadorHabilidad2" endX="11.0" layoutX="282.0" layoutY="63.0" startX="-100.0" visible="false" />
+                  <Line fx:id="marcadorHabilidad3" endX="11.0" layoutX="118.0" layoutY="112.0" startX="-100.0" visible="false" />
+                  <Line fx:id="marcadorHabilidad4" endX="11.0" layoutX="282.0" layoutY="112.0" startX="-100.0" visible="false" />
                </children>
             </AnchorPane>
             </children>

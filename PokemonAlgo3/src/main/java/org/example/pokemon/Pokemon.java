@@ -53,6 +53,30 @@ public class Pokemon {
         return habilidades.get(4).getNombre();
     }
 
+    public Habilidad getHabilidadUno(){
+
+        return habilidades.get(1);
+
+    }
+
+    public Habilidad getHabilidadDos(){
+
+        return habilidades.get(2);
+
+    }
+
+    public Habilidad getHabilidadTres(){
+
+        return habilidades.get(3);
+
+    }
+
+    public Habilidad getHabilidadCuatro(){
+
+        return habilidades.get(4);
+
+    }
+
     public void modificarEstado(Estado estado){
         this.estado.agregarEstado(estado);
     }
