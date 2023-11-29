@@ -5,33 +5,43 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PedirNombresController">
-    <children>
-        <Label fx:id="pregunta_nombre_label" layoutX="59.0" layoutY="42.0" prefHeight="157.0" prefWidth="482.0" text="Por favor, seleccione el nombre del entrenador (Jugador 1): " textAlignment="JUSTIFY" wrapText="true">
-            <font>
-                <Font name="Copperplate Gothic Light" size="24.0" />
-            </font>
-        </Label>
-        <TextField fx:id="nombre_jugador_1" layoutX="102.0" layoutY="187.0" prefHeight="43.0" prefWidth="399.0" promptText="Ingresa el nombre del jugador">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </TextField>
-        <Button fx:id="boton_de_envio" layoutX="188.0" layoutY="250.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="224.0" text="OK" onAction="#clickBoton">
-            <font>
-                <Font name="Copperplate Gothic Light" size="18.0" />
-            </font>
-        </Button>
-    </children>
-    <cursor>
-        <Cursor fx:constant="CROSSHAIR" />
-    </cursor>
-    <effect>
-        <ColorAdjust />
-    </effect>
+   <children>
+      <ImageView fitHeight="449.0" fitWidth="663.0" layoutX="-16.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imgs/elegirnombre.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="513.0" layoutX="14.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imgs/texto.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="pregunta_nombre_label" layoutX="38.0" layoutY="248.0" prefHeight="95.0" prefWidth="412.0" text="Por favor, seleccione el nombre del entrenador (Jugador 1): " textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Comic Sans MS Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombre_jugador_1" layoutX="23.0" layoutY="342.0" prefHeight="52.0" prefWidth="314.0" promptText="Ingresa el nombre del jugador" style="-fx-background-color: gold;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="boton_de_envio" layoutX="378.0" layoutY="346.0" mnemonicParsing="false" onAction="#clickBoton" prefHeight="43.0" prefWidth="126.0" text="OK">
+         <font>
+            <Font name="Copperplate Gothic Light" size="18.0" />
+         </font>
+      </Button>
+   </children>
+   <cursor>
+      <Cursor fx:constant="CROSSHAIR" />
+   </cursor>
+   <effect>
+      <ColorAdjust />
+   </effect>
 </AnchorPane>
-

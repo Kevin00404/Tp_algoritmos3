@@ -40,6 +40,7 @@ public class MainFX extends Application {
         primeStage.getIcons().add(new Image(new File("imagenes/icono.png").toURI().toString()));
 
         Juego juego = new Juego();
+
         juego = juego.iniciarJuegoConJSON("Partida.json");
 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirJSON.fxml"));
@@ -59,4 +60,5 @@ public class MainFX extends Application {
         Soundtrack.getSonido().reproducirTitulo();
 
     }
+
 }
