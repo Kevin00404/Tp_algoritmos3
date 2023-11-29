@@ -24,27 +24,28 @@ public class ElegirJSONController {
     private Stage stage;
     private  Juego juego;
 
-    /*@FXML
+    @FXML
     public void noSeUsaJSON() throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
+
+         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
         Parent root = fxmlloader.load();
 
         //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
         PedirNombresController pedirNombres = fxmlloader.getController();
-        pedirNombres.setPrimaryStage(primeStage);
+        pedirNombres.setPrimaryStage(this.stage);
         pedirNombres.setJuego(new Juego());
 
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
 
-        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root);
 
 
 
-        primeStage.setScene(scene);
-        primeStage.setTitle("Pidiendo Nombre");
-        primeStage.show();
-    }*/
+        this.stage.setScene(scene);
+        this.stage.setTitle("Pidiendo Nombre");
+        this.stage.show();
+
+
+    }
 
     @FXML
     public void iniciarPartida() throws IOException {

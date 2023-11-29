@@ -30,25 +30,6 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primeStage) throws IOException {
         inicializar(primeStage);
-        /*FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
-        Parent root = fxmlloader.load();
-
-        //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
-        PedirNombresController pedirNombres = fxmlloader.getController();
-        pedirNombres.setPrimaryStage(primeStage);
-        pedirNombres.setJuego(new Juego());
-
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-
-        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
-
-
-
-        primeStage.setScene(scene);
-        primeStage.setTitle("Pidiendo Nombre");
-        primeStage.show();*/
-
 
     }
 
