@@ -18,64 +18,59 @@
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
-                <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
                 <ImageView fx:id="clima" fitHeight="368.0" fitWidth="664.0" layoutX="1.0" layoutY="-90.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Imgs/campo.jpg" />
                     </image>
                 </ImageView>
-            <ImageView fx:id="Despejado" fitHeight="119.0" fitWidth="120.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Despejado" fitHeight="78.0" fitWidth="78.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaDespejado.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Granizo" fitHeight="130.0" fitWidth="120.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Granizo" fitHeight="78.0" fitWidth="78.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaGranizo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Huracan" fitHeight="130.0" fitWidth="120.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Huracan" fitHeight="78.0" fitWidth="78.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/climaHuracan.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Lluvia" fitHeight="130.0" fitWidth="120.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Lluvia" fitHeight="78.0" fitWidth="78.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaLluvia.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Niebla" fitHeight="130.0" fitWidth="120.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Niebla" fitHeight="78.0" fitWidth="78.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaNiebla.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Soleado" fitHeight="120.0" fitWidth="129.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="Soleado" fitHeight="78.0" fitWidth="78.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaSoleado.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="TormentaDeArena" fitHeight="130.0" fitWidth="120.0" layoutX="26.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="TormentaDeArena" fitHeight="78.0" fitWidth="78.0" layoutX="26.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaTormentaDeArena.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="TormentaDeRayo" fitHeight="130.0" fitWidth="120.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="TormentaDeRayo" fitHeight="78.0" fitWidth="78.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Imgs/ClimaTormentaDeRayo.png" />
                </image>
             </ImageView>
-                <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="434.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Imgs/Charmander_XY.gif" />
-                    </image>
+                <ImageView fx:id="pkmnFrente" fitHeight="124.0" fitWidth="119.0" layoutX="434.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imgs/frente/Charmander_XY.gif" />
+               </image>
                 </ImageView>
-                <ImageView fx:id="pkmnAtacante" fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="pkmnEspalda" fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Imgs/Charmander_espalda_G6.gif" />
+                        <Image url="@Imgs/espalda/Charmander_espalda_G6.gif" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="124.0" fitWidth="654.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
@@ -242,6 +237,22 @@
                   </ImageView>
                </children>
             </GridPane>
+            <AnchorPane layoutX="583.0" layoutY="15.0" prefHeight="55.0" prefWidth="55.0">
+               <children>
+                  <ImageView fx:id="imagenSonidoOn" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@Imgs/sonidoOn.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imagenSonidoOff" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imgs/soidoOff.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="activarMusica" mnemonicParsing="false" onMouseClicked="#volverAReproducirMusica" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false" />
+                  <Button fx:id="desactivarMusica" mnemonicParsing="false" onMouseClicked="#pausarMusica" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: transparent;" />
+               </children>
+            </AnchorPane>
             </children>
         </AnchorPane>
     </children>

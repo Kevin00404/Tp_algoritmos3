@@ -139,7 +139,7 @@ public class Juego {
         return entrenador_actual.getPokemonActual().getEstadisticas().getVida();
     }
     public String getNombrePokemonAtacante(){
-        System.out.println(entrenador_actual.getPokemonActual().getNombre());
+
         return entrenador1.getPokemonActual().getNombre();
     }
     public String getNombrePokemon_a_Atacar(){
@@ -397,5 +397,13 @@ public class Juego {
         } else {
             return this.entrenador2;
         }
+    }
+
+    public Entrenador getEntrenadorUno() {
+        return entrenador1;
+    }
+
+    public Entrenador getEntrenadorDos(){
+        return entrenador2;
     }
 }

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.Log.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -100,7 +102,18 @@ public class BatallaJugadorUnoController_ {
     public Button noRendirse;
     @FXML
     public GridPane opciones;
-
+    @FXML
+    public ImageView pkmnFrente;
+    @FXML
+    public ImageView pkmnEspalda;
+    @FXML
+    public ImageView imagenSonidoOn;
+    @FXML
+    public Button activarMusica;
+    @FXML
+    public ImageView imagenSonidoOff;
+    @FXML
+    public Button desactivarMusica;
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -122,15 +135,13 @@ public class BatallaJugadorUnoController_ {
         animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         setearDatosSinCambiarTurno();
-        System.out.println(manejador.getEntrenadorActualNombre().toUpperCase());
-        System.out.println(manejador.getEntrenadorContrarioNombre().toUpperCase());
+
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
     }
 
     public void setearDatosSinCambiarTurno() throws IOException {
-        System.out.println("SETEO DATOS SIN CAMBIAR TURNO");
-        System.out.println(nombre_jugador_actual.getText() + " " + nombre_jugador_no_actual.getText());
+
         manejador.noCambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatos();
@@ -140,18 +151,13 @@ public class BatallaJugadorUnoController_ {
         animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         recargarDatos();
-        System.out.println(manejador.getEntrenadorActualNombre().toUpperCase());
-        System.out.println(manejador.getEntrenadorContrarioNombre().toUpperCase());
+
         nombre_jugador_actual.setText(manejador.getEntrenadorActualNombre());
         nombre_jugador_no_actual.setText(manejador.getEntrenadorContrarioNombre());
     }
  
     public void recargarDatos() throws IOException {
-        System.out.println("nombres antes del cambio <- actual no actual ->");
-        System.out.println(nombre_jugador_actual.getText() + " " + nombre_jugador_no_actual.getText());
-        System.out.println("CAMBIO DE LUGAR LOS JUGADORES");
-        System.out.println("DATOS BARRA ACTUAL ANTES DE ENTRAR A CAMBIAR JUGADORES " + manejador.barraEntrenadorActual.getLayoutX() + " " + manejador.barraEntrenadorActual.getLayoutY());
-        System.out.println("DATOS BARRA OPONENTE ANTES DE ENTRAR A CAMBIAR JUGADORES " + manejador.barraEntrenadorOponente.getLayoutX() + " " + manejador.barraEntrenadorOponente.getLayoutY());
+
         manejador.cambiarJugadores(nombre_jugador_actual,nombre_jugador_no_actual);
         manejador.ejecutarPasivos();
         setDatos();
@@ -170,11 +176,11 @@ public class BatallaJugadorUnoController_ {
 
     private void chequearPokemonesMuertos() throws IOException {
         String nombre_entrenador_muerto = manejador.analizarMuertos();
-        System.out.println(nombre_entrenador_muerto);
+
         if(nombre_entrenador_muerto != null){
             ejecutarEscenaGanador(nombre_entrenador_muerto);
         } else if(manejador.pokemon_entrenador_actual_murio()){
-            System.out.println("Pokemon Actual murio");
+
             activarEscenaCambiarPokemon(true);
         }
     }
@@ -208,6 +214,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickCambiarPokemon() throws IOException {
         try {
+            Soundtrack.getSonido().reproducirClick();
             activarEscenaCambiarPokemon();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
@@ -254,6 +261,7 @@ public class BatallaJugadorUnoController_ {
     //boton rendirse
     @FXML
     public void activarRendirse(){
+        Soundtrack.getSonido().reproducirClick();
         desactivarOpciones();
         mostrarRendirse();
     }
@@ -270,10 +278,12 @@ public class BatallaJugadorUnoController_ {
 
     @FXML
     public void seRindio() throws IOException {
+        Soundtrack.getSonido().reproducirClick();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pantallaDeVictoria.fxml"));
         Parent root  = fxmlLoader.load();
 
         PantallaDeVictoriaController victoria = fxmlLoader.getController();
+        victoria.setJuego(manejador);
         victoria.setPantallaVictoria(manejador.getEntrenadorContrarioNombre());
 
         Scene scene = new Scene(root);
@@ -286,6 +296,7 @@ public class BatallaJugadorUnoController_ {
 
     @FXML
     public void noSeRindio(){
+        Soundtrack.getSonido().reproducirClick();
         ocultarRendirse();
         mostrarOpciones();
     }
@@ -305,6 +316,7 @@ public class BatallaJugadorUnoController_ {
     @FXML
     public void clickMostrarMochila() throws IOException{
         try{
+            Soundtrack.getSonido().reproducirClick();
             activarEscenaMostrarMochila();
         }catch (IOException ex) {
             throw new RuntimeException(ex);
@@ -350,6 +362,7 @@ public class BatallaJugadorUnoController_ {
     //boton atacar
     @FXML
     public void elegirHabilidad(ActionEvent actionEvent) {
+        Soundtrack.getSonido().reproducirClick();
         inhabilitarBotonesIniciales();
         manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
         habilitarBotonesDeHabilidad();
@@ -401,48 +414,57 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
+        Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadUno();
-        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        recargarDatos();
+        //recargarDatos();
+        animacionAtaque();
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
+        Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadDos();
-        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        recargarDatos();
+        //recargarDatos();
+        animacionAtaque();
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
+        Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadTres();
-        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        recargarDatos();
+        //recargarDatos();
+        animacionAtaque();
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
+        Soundtrack.getSonido().reproducirClick();
         manejador.ejecutarHabilidadCuatro();
-        animacionAtaque();
         deshabilitarBotonesDeHabilidad();
         habilitarBotonesIniciales();
         //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        recargarDatos();
+        //recargarDatos();
+        animacionAtaque();
     }
 
     private void setearVida(ProgressBar barra_vida, double vidaActualizada) {
-        System.out.println("ESTOY SETEANDO LA BARRA: " + barra_vida.getId());
-        System.out.println("POSICION DE LA BARRA : " + barra_vida.getLayoutX() + " " + barra_vida.getLayoutY());
-        System.out.println("Progreso de Barra de vida: " + barra_vida.getProgress());
-        System.out.println("Se va a setear a: " + vidaActualizada);
+
         if(barra_vida.getLayoutX() >= 303.0){
 
             vidaActualizada = manejador.getVidaPokemonAtacante() / manejador.getMaxVidaPokemonAtacante();
+            String rutaFrente = encontrarRutaEspaldaPkmn(manejador.getNombrePokemonAtacante());
+            Image frente = new Image(new File(rutaFrente).toURI().toString());
+            pkmnEspalda.setImage(frente);
+
+
         } else {
             vidaActualizada = manejador.getVidaPokemonContrario() / manejador.getMaxVidaPokemonContrario();
+            String rutaEspalda = encontrarRutaFrentePkmn(manejador.getNombrePokemonContrario());
+            Image espalda = new Image(new File(rutaEspalda).toURI().toString());
+            pkmnFrente.setImage(espalda);
         }
         // Create a timeline for smooth animation
         Timeline task = new Timeline(
@@ -459,18 +481,259 @@ public class BatallaJugadorUnoController_ {
 
     }
 
-    public void animacionAtaque(){
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnAtacante);
+
+    public void animacionAtaque() throws IOException, InterruptedException {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnEspalda);
 
         // Mover 100 píxeles en la dirección X
         transition.setToX(100);
 
         // Manejar el evento de finalización para volver a la posición inicial
         transition.setOnFinished(event -> {
-            pkmnAtacante.setTranslateX(0);  // Restaurar a la posición inicial
+            Soundtrack.getSonido().reproducirGolpe();
+            pkmnEspalda.setTranslateX(0);  // Restaurar a la posición inicial
         });
 
         // Iniciar la transición
         transition.play();
+
+        // Crear una línea de tiempo con un solo keyframe que se ejecuta después de 10 segundos
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+            // Aquí puedes agregar el código que deseas ejecutar después de la espera
+            // Por ejemplo, puedes llamar a una función o realizar otras operaciones.
+            try {
+                recargarDatos();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }));
+
+        // Iniciar la línea de tiempo
+        timeline.play();
     }
+
+    //audio
+
+    @FXML
+    public void volverAReproducirMusica(){
+
+        Soundtrack.getSonido().resumirAudio();
+        ocultarResumirMusica();
+        mostrarPausarMusica();
+
+    }
+
+    private void mostrarPausarMusica(){
+
+        desactivarMusica.setVisible(true);
+        imagenSonidoOff.setVisible(true);
+
+    }
+
+    private void mostrarResumirMusica(){
+
+        activarMusica.setVisible(true);
+        imagenSonidoOn.setVisible(true);
+
+    }
+
+    private void ocultarResumirMusica(){
+        activarMusica.setVisible(false);
+        imagenSonidoOn.setVisible(false);
+
+    }
+
+    @FXML
+    public void pausarMusica(){
+
+        Soundtrack.getSonido().pausarAudio();
+        ocultarPausarMusica();
+        mostrarResumirMusica();
+
+    }
+
+    private void ocultarPausarMusica(){
+        desactivarMusica.setVisible(false);
+        imagenSonidoOff.setVisible(false);
+    }
+
+
+    //busqueda de rutas
+
+    public String encontrarRutaFrentePkmn(String nombrePokemon){
+        if (nombrePokemon.equals("Bulbasaur")){
+
+            return "imagenes/frente/Bulbasaur_XY.gif";
+
+        } else if (nombrePokemon.equals("Charmander")) {
+
+            return "imagenes/frente/Charmander_XY.gif";
+
+        } else if (nombrePokemon.equals("Squirtle")) {
+
+            return "imagenes/frente/Squirtle_XY.gif";
+
+        } else if (nombrePokemon.equals("Pikachu")) {
+
+            return "imagenes/frente/Pikachu_XY.gif";
+
+        } else if (nombrePokemon.equals("Jigglypuff")) {
+
+            return "imagenes/frente/Jigglypuff_XY.gif";
+
+        } else if (nombrePokemon.equals("Geodude")) {
+
+            return "imagenes/frente/Geodude_XY.gif";
+
+        } else if (nombrePokemon.equals("Eevee")) {
+
+            return "imagenes/frente/Eevee_XY.gif";
+
+        } else if (nombrePokemon.equals("Vulpix")) {
+
+            return "imagenes/frente/Vulpix_XY.gif";
+
+        } else if (nombrePokemon.equals("Spearow")) {
+
+            return "imagenes/frente/Spearow_XY.gif";
+
+        } else if (nombrePokemon.equals("Sandshrew")) {
+
+            return "imagenes/frente/Sandshrew_XY.gif";
+
+        } else if (nombrePokemon.equals("Oddish")) {
+
+            return "imagenes/frente/Oddish_XY.gif";
+
+        } else if (nombrePokemon.equals("Psyduck")) {
+
+            return "imagenes/frente/Psyduck_XY.gif";
+
+        } else if (nombrePokemon.equals("Mankey")) {
+
+            return "imagenes/frente/Mankey_XY.gif";
+
+        } else if (nombrePokemon.equals("Growlithe")) {
+
+            return "imagenes/frente/Growlithe_XY.gif";
+
+        } else if (nombrePokemon.equals("Poliwag")) {
+
+            return "imagenes/frente/Poliwag_XY.gif";
+
+        } else if (nombrePokemon.equals("Abra")) {
+
+            return "imagenes/frente/Abra_XY.gif";
+
+        } else if (nombrePokemon.equals("Machop")) {
+
+            return "imagenes/frente/Machop_XY.gif";
+
+        } else if (nombrePokemon.equals("Tentacool")) {
+
+            return "imagenes/frente/Tentacool_XY.gif";
+
+        } else if (nombrePokemon.equals("Doduo")) {
+
+            return "imagenes/frente/Doduo_XY.gif";
+
+        } else if (nombrePokemon.equals("Seel")) {
+
+            return "imagenes/frente/Seel_XY.gif";
+
+        } else {
+
+            return "imagenes/frente/Grimer_XY.gif";
+
+        }
+    }
+
+    public String encontrarRutaEspaldaPkmn(String nombrePokemon){
+        if (nombrePokemon.equals("Bulbasaur")){
+
+            return "imagenes/espalda/Bulbasaur_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Charmander")) {
+
+            return "imagenes/espalda/Charmander_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Squirtle")) {
+
+            return "imagenes/espalda/Squirtle_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Pikachu")) {
+
+            return "imagenes/espalda/Pikachu_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Jigglypuff")) {
+
+            return "imagenes/espalda/Jigglypuff_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Geodude")) {
+
+            return "imagenes/espalda/Geodude_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Eevee")) {
+
+            return "imagenes/espalda/Eevee_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Vulpix")) {
+
+            return "imagenes/espalda/Vulpix_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Spearow")) {
+
+            return "imagenes/espalda/Spearow_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Sandshrew")) {
+
+            return "imagenes/espalda/Sandshrew_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Oddish")) {
+
+            return "imagenes/espalda/Oddish_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Psyduck")) {
+
+            return "imagenes/espalda/Psyduck_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Mankey")) {
+
+            return "imagenes/espalda/Mankey_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Growlithe")) {
+
+            return "imagenes/espalda/Growlithe_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Poliwag")) {
+
+            return "imagenes/espalda/Poliwag_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Abra")) {
+
+            return "imagenes/espalda/Abra_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Machop")) {
+
+            return "imagenes/espalda/Machop_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Tentacool")) {
+
+            return "imagenes/espalda/Tentacool_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Doduo")) {
+
+            return "imagenes/espalda/Doduo_espalda_G6.gif";
+
+        } else if (nombrePokemon.equals("Seel")) {
+
+            return "imagenes/espalda/Seel_espalda_G6.gif";
+
+        } else {
+
+            return "imagenes/espalda/Grimer_espalda_G6.gif";
+
+        }
+    }
+
 }

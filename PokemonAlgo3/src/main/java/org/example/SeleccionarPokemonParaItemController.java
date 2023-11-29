@@ -8,12 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.example.items.Items;
 import org.example.pokemon.Pokemon;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +97,18 @@ public class SeleccionarPokemonParaItemController {
     public Button seleccionarPkmn6;
     @FXML
     public AnchorPane main;
+    @FXML
+    public ImageView iconoPkmnActual;
+    @FXML
+    public ImageView iconoPkmn2;
+    @FXML
+    public ImageView iconoPkmn3;
+    @FXML
+    public ImageView iconoPkmn4;
+    @FXML
+    public ImageView iconoPkmn5;
+    @FXML
+    public ImageView iconoPkmn6;
     private Scene escenaBatalla;
 
     public void setPrimaryStage(Stage stage) {
@@ -171,6 +185,9 @@ public class SeleccionarPokemonParaItemController {
         fadeIn.play();
     }
      public void setDatosPkmnActual(){
+         String rutaIcono = encontrarRutaIconoPkmn(manejador.getEntrenador_actual().getPokemonActual().getNombre());
+         Image icono = new Image(new File(rutaIcono).toURI().toString());
+         iconoPkmnActual.setImage(icono);
          pkmnActualNombre.setText(manejador.getEntrenador_actual().getPokemonActual().getNombre());
          lvlpkmnActual.setText("Nv" + manejador.getEntrenador_actual().getPokemonActual().getEstadisticas().getNivel());
          Double vidaActual = manejador.getEstadisticasPokemonActual().getVida();
@@ -181,6 +198,9 @@ public class SeleccionarPokemonParaItemController {
          barraPkmnActual.setProgress(vidaActual/vidaMax);
      }
     public void setDatosPkmn2(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn2.setImage(icono);
         pkmn2Nombre.setText(pkmn.getNombre());
         lvlPkmn2.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -192,6 +212,9 @@ public class SeleccionarPokemonParaItemController {
 
     }
     public void setDatosPkmn3(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn3.setImage(icono);
         pkmn3Nombre.setText(pkmn.getNombre());
         lvlPkmn3.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -203,6 +226,9 @@ public class SeleccionarPokemonParaItemController {
 
     }
     public void setDatosPkmn4(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn4.setImage(icono);
         pkmn4Nombre.setText(pkmn.getNombre());
         lvlPkmn4.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -214,6 +240,9 @@ public class SeleccionarPokemonParaItemController {
 
     }
     public void setDatosPkmn5(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn5.setImage(icono);
         pkmn5Nombre.setText(pkmn.getNombre());
         lvlPkmn5.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -225,6 +254,9 @@ public class SeleccionarPokemonParaItemController {
 
     }
     public void setDatosPkmn6(Pokemon pkmn){
+        /*String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn6.setImage(icono);*/
         pkmn6Nombre.setText(pkmn.getNombre());
         lvlPkmn6.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -274,14 +306,14 @@ public class SeleccionarPokemonParaItemController {
 
 
     private Pokemon encontrarPoke(String pokemonQueUsaItem) {
-        System.out.println(pokemonQueUsaItem);
+
         for (Pokemon poke: manejador.getEntrenador_actual().getPokemones().getPokemones()) {
-            System.out.println(poke.getNombre());
+
             if (poke.getNombre().equals(pokemonQueUsaItem)){
-                System.out.println("entro");
+
                 return poke;
             }
-            System.out.println("no entro");
+
         }
         return null;
     }
@@ -331,5 +363,93 @@ public class SeleccionarPokemonParaItemController {
 
     public void setScene(Scene escenaBatalla) {
         this.escenaBatalla = escenaBatalla;
+    }
+
+    public String encontrarRutaIconoPkmn(String nombrePokemon){
+        if (nombrePokemon.equals("Bulbasaur")){
+
+            return "imagenes/iconos/Bulbasaur_icon.gif";
+
+        } else if (nombrePokemon.equals("Charmander")) {
+
+            return "imagenes/iconos/Charmander_icon.gif";
+
+        } else if (nombrePokemon.equals("Squirtle")) {
+
+            return "imagenes/iconos/Squirtle_icon.gif";
+
+        } else if (nombrePokemon.equals("Pikachu")) {
+
+            return "imagenes/iconos/Pikachu_icon.gif";
+
+        } else if (nombrePokemon.equals("Jigglypuff")) {
+
+            return "imagenes/iconos/Jigglypuff_icon.gif";
+
+        } else if (nombrePokemon.equals("Geodude")) {
+
+            return "imagenes/iconos/Geodude_icon.gif";
+
+        } else if (nombrePokemon.equals("Eevee")) {
+
+            return "imagenes/iconos/Eevee_icon.gif";
+
+        } else if (nombrePokemon.equals("Vulpix")) {
+
+            return "imagenes/iconos/Vulpix_icon.gif";
+
+        } else if (nombrePokemon.equals("Spearow")) {
+
+            return "imagenes/iconos/Spearow_icon.gif";
+
+        } else if (nombrePokemon.equals("Sandshrew")) {
+
+            return "imagenes/iconos/Sandshrew_icon.gif";
+
+        } else if (nombrePokemon.equals("Oddish")) {
+
+            return "imagenes/iconos/Oddish_icon.gif";
+
+        } else if (nombrePokemon.equals("Psyduck")) {
+
+            return "imagenes/iconos/Psyduck_icon.gif";
+
+        } else if (nombrePokemon.equals("Mankey")) {
+
+            return "imagenes/iconos/Mankey_icon.gif";
+
+        } else if (nombrePokemon.equals("Growlithe")) {
+
+            return "imagenes/iconos/Growlithe_icon.gif";
+
+        } else if (nombrePokemon.equals("Poliwag")) {
+
+            return "imagenes/iconos/Poliwag_icon.gif";
+
+        } else if (nombrePokemon.equals("Abra")) {
+
+            return "imagenes/iconos/Abra_icon.gif";
+
+        } else if (nombrePokemon.equals("Machop")) {
+
+            return "imagenes/iconos/Machop_icon.gif";
+
+        } else if (nombrePokemon.equals("Tentacool")) {
+
+            return "imagenes/iconos/Tentacool_icon.gif";
+
+        } else if (nombrePokemon.equals("Doduo")) {
+
+            return "imagenes/iconos/Doduo_icon.gif";
+
+        } else if (nombrePokemon.equals("Seel")) {
+
+            return "imagenes/iconos/Seel_icon.gif";
+
+        } else {
+
+            return "imagenes/iconos/Grimer_icon.gif";
+
+        }
     }
 }

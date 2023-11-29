@@ -19,9 +19,9 @@
          <children>
             <Label fx:id="pkmnActualNombre" layoutX="88.0" layoutY="23.0" text="pokemon actual" />
             <ProgressBar fx:id="barraPkmnActual" layoutX="26.0" layoutY="100.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
-            <ImageView fitHeight="69.0" fitWidth="80.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmnActual" fitHeight="69.0" fitWidth="80.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <Label fx:id="lvlpkmnActual" layoutX="105.0" layoutY="47.0" text="lvl" />
             <Label fx:id="vidaPkmnActual" layoutX="131.0" layoutY="111.0" text="vida" />
@@ -31,9 +31,9 @@
       <AnchorPane layoutX="235.0" layoutY="15.0" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: #5294DB; -fx-background-radius: 5;">
          <children>
             <Label fx:id="pkmn2Nombre" alignment="CENTER" layoutX="55.0" layoutY="-1.0" prefHeight="31.0" prefWidth="69.0" text="pokemon 2" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmn2" fitHeight="52.0" fitWidth="56.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <ProgressBar fx:id="barraPkmn2" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
             <Label fx:id="lvlPkmn2" layoutX="55.0" layoutY="25.0" text="lvl" />
@@ -44,9 +44,9 @@
       <AnchorPane layoutX="235.0" layoutY="73.0" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: #5294DB; -fx-background-radius: 5;">
          <children>
             <Label fx:id="pkmn3Nombre" alignment="CENTER" layoutX="56.0" layoutY="-1.0" prefHeight="31.0" prefWidth="69.0" text="pokemon 3" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmn3" fitHeight="52.0" fitWidth="56.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <ProgressBar fx:id="barraPkmn3" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
             <Label fx:id="vidaPkmn3" layoutX="282.0" layoutY="31.0" text="vida" />
@@ -57,9 +57,9 @@
       <AnchorPane layoutX="235.0" layoutY="130.0" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: #5294DB; -fx-background-radius: 5;">
          <children>
             <Label fx:id="pkmn4Nombre" alignment="CENTER" layoutX="56.0" layoutY="-1.0" prefHeight="31.0" prefWidth="69.0" text="pokemon 4" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmn4" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <ProgressBar fx:id="barraPkmn4" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
             <Label fx:id="vidaPkmn4" layoutX="285.0" layoutY="33.0" text="vida" />
@@ -70,9 +70,9 @@
       <AnchorPane layoutX="235.0" layoutY="187.0" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: #5294DB; -fx-background-radius: 5;">
          <children>
             <Label fx:id="pkmn5Nombre" alignment="CENTER" layoutX="56.0" layoutY="-1.0" prefHeight="31.0" prefWidth="69.0" text="pokemon 5" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmn5" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <ProgressBar fx:id="barraPkmn5" layoutX="152.0" layoutY="25.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
             <Label fx:id="vidaPkmn5" layoutX="282.0" layoutY="36.0" text="vida" />
@@ -83,9 +83,9 @@
       <AnchorPane layoutX="235.0" layoutY="244.0" prefHeight="52.0" prefWidth="318.0" style="-fx-background-color: #5294DB; -fx-background-radius: 5;">
          <children>
             <Label fx:id="pkmn6Nombre" alignment="CENTER" layoutX="56.0" layoutY="-1.0" prefHeight="31.0" prefWidth="69.0" text="pokemon 6" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconoPkmn6" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Imgs/Charmander_icon_1.gif" />
+                  <Image url="@Imgs/iconos/Charmander_icon.gif" />
                </image></ImageView>
             <ProgressBar fx:id="barraPkmn6" layoutX="152.0" layoutY="21.0" prefHeight="11.0" prefWidth="152.0" progress="0.0" />
             <Label fx:id="vidaPkmn6" layoutX="282.0" layoutY="30.0" text="vida" />

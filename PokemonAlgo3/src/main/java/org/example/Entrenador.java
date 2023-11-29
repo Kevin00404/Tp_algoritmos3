@@ -37,11 +37,11 @@ public class Entrenador {
 
     public void cambiarPokemonActual(String pokemon){
         this.pokemonActual = pokebola.cambiarPokemon(pokemon);
-        System.out.println(this.pokemonActual.getNombre());
+
     }
 
     public boolean murio(){
-        System.out.println( this.nombre + "murio: " + pokebola.murieronTodos() );
+
         return pokebola.murieronTodos();
     }
 

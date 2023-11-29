@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 public class ItemTest {
     @Test
-    public void pocionEsUsadaCorrectamente(){
+    public void pocionEsUsadaCorrectamente() throws InterruptedException {
         Pocion pocion = new Pocion(10.0, "pocion", 1);
         Pokemon pokemon = mock(Pokemon.class);
         Boolean sePudoUsar = pocion.usarItem(pokemon);

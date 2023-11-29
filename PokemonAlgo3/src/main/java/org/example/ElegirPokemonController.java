@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -18,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.pokemon.Pokemon;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,23 +31,6 @@ import java.util.stream.Collectors;
 
 public class ElegirPokemonController implements Initializable {
     private Stage stage;
-    private String nombnrePokemonActual;
-
-    public ListView<String> lista_pokemones;
-    public HashMap<String, ProgressBar> barras_vida_pokemones;
-
-    ArrayList<String> pokemones;
-    @FXML
-    public Label nombre1;
-    @FXML
-    public Label nombre2;
-    @FXML
-    public Label nombre3;
-    @FXML
-    public Label nombre4;
-    @FXML
-    public Label nombre5;
-    public List<String> pokemonesDisponibles;
     private ManejadorDeDatosBatalla manejador;
 
     private List<Button> botonesDeshabilitados = new ArrayList<>();
@@ -119,6 +105,20 @@ public class ElegirPokemonController implements Initializable {
     public Button seleccionarPkmn6;
     @FXML
     public AnchorPane main;
+    @FXML
+    public ImageView iconoPkmnActual;
+    @FXML
+    public ImageView iconoPkmn2;
+    @FXML
+    public ImageView iconoPkmn3;
+    @FXML
+    public ImageView iconoPkmn4;
+    @FXML
+    public ImageView iconoPkmn5;
+    @FXML
+    public ImageView iconoPkmn6;
+
+
     private Scene escenaBatalla;
     private Boolean derrotadoEnPelea;
 
@@ -252,6 +252,9 @@ public class ElegirPokemonController implements Initializable {
 
 
     public void setDatosPkmnActual(){
+        String rutaIcono = encontrarRutaIconoPkmn(manejador.getEntrenador_actual().getPokemonActual().getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmnActual.setImage(icono);
         pkmnActualNombre.setText(manejador.getEntrenador_actual().getPokemonActual().getNombre());
         lvlpkmnActual.setText("Nv" + manejador.getEntrenador_actual().getPokemonActual().getEstadisticas().getNivel());
         Double vidaActual = manejador.getEstadisticasPokemonActual().getVida();
@@ -262,6 +265,9 @@ public class ElegirPokemonController implements Initializable {
         barraPkmnActual.setProgress(vidaActual/vidaMax);
     }
     public void setDatosPkmn2(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn2.setImage(icono);
         pkmn2Nombre.setText(pkmn.getNombre());
         lvlPkmn2.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -273,6 +279,9 @@ public class ElegirPokemonController implements Initializable {
 
     }
     public void setDatosPkmn3(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn3.setImage(icono);
         pkmn3Nombre.setText(pkmn.getNombre());
         lvlPkmn3.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -284,6 +293,9 @@ public class ElegirPokemonController implements Initializable {
 
     }
     public void setDatosPkmn4(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn4.setImage(icono);
         pkmn4Nombre.setText(pkmn.getNombre());
         lvlPkmn4.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -295,6 +307,9 @@ public class ElegirPokemonController implements Initializable {
 
     }
     public void setDatosPkmn5(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn5.setImage(icono);
         pkmn5Nombre.setText(pkmn.getNombre());
         lvlPkmn5.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -306,6 +321,9 @@ public class ElegirPokemonController implements Initializable {
 
     }
     public void setDatosPkmn6(Pokemon pkmn){
+        String rutaIcono = encontrarRutaIconoPkmn(pkmn.getNombre());
+        Image icono = new Image(new File(rutaIcono).toURI().toString());
+        iconoPkmn6.setImage(icono);
         pkmn6Nombre.setText(pkmn.getNombre());
         lvlPkmn6.setText("Nv" + pkmn.getEstadisticas().getNivel());
         Double vidaActual = pkmn.getEstadisticas().getVida();
@@ -360,7 +378,7 @@ public class ElegirPokemonController implements Initializable {
 
     public void clickSi(MouseEvent mouseEvent) throws IOException {
         this.manejador.cmabiarPOkemonDeJugadorActual(pokemonSeleccionadoNombre);
-        System.out.println("derrotado en pelea: " + derrotadoEnPelea);
+
         clickSalir_volverABatalla();
     }
 
@@ -378,8 +396,6 @@ public class ElegirPokemonController implements Initializable {
     @FXML
     public void clickSalir_volverABatalla() throws IOException {
         if (derrotadoEnPelea){
-            System.out.println("derrotado en pelea: " + derrotadoEnPelea);
-            System.out.println("vuelvo a batalla sin perder turno");
 
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
             Parent root = fxmlloader.load();
@@ -398,8 +414,7 @@ public class ElegirPokemonController implements Initializable {
             this.stage.show();
 
         } else {
-            System.out.println("derrotado en pelea: " + derrotadoEnPelea);
-            System.out.println("vuelvo a batalla perdiendo turno");
+
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("batalla_uno.fxml"));
             Parent root = fxmlloader.load();
             BatallaJugadorUnoController_ batallaUno = fxmlloader.getController();
@@ -426,5 +441,95 @@ public class ElegirPokemonController implements Initializable {
         fadeIn.setToValue(1.0);
         fadeIn.play();
     }
+
+    //encontrar ruta
+    public String encontrarRutaIconoPkmn(String nombrePokemon){
+        if (nombrePokemon.equals("Bulbasaur")){
+
+            return "imagenes/iconos/Bulbasaur_icon.gif";
+
+        } else if (nombrePokemon.equals("Charmander")) {
+
+            return "imagenes/iconos/Charmander_icon.gif";
+
+        } else if (nombrePokemon.equals("Squirtle")) {
+
+            return "imagenes/iconos/Squirtle_icon.gif";
+
+        } else if (nombrePokemon.equals("Pikachu")) {
+
+            return "imagenes/iconos/Pikachu_icon.gif";
+
+        } else if (nombrePokemon.equals("Jigglypuff")) {
+
+            return "imagenes/iconos/Jigglypuff_icon.gif";
+
+        } else if (nombrePokemon.equals("Geodude")) {
+
+            return "imagenes/iconos/Geodude_icon.gif";
+
+        } else if (nombrePokemon.equals("Eevee")) {
+
+            return "imagenes/iconos/Eevee_icon.gif";
+
+        } else if (nombrePokemon.equals("Vulpix")) {
+
+            return "imagenes/iconos/Vulpix_icon.gif";
+
+        } else if (nombrePokemon.equals("Spearow")) {
+
+            return "imagenes/iconos/Spearow_icon.gif";
+
+        } else if (nombrePokemon.equals("Sandshrew")) {
+
+            return "imagenes/iconos/Sandshrew_icon.gif";
+
+        } else if (nombrePokemon.equals("Oddish")) {
+
+            return "imagenes/iconos/Oddish_icon.gif";
+
+        } else if (nombrePokemon.equals("Psyduck")) {
+
+            return "imagenes/iconos/Psyduck_icon.gif";
+
+        } else if (nombrePokemon.equals("Mankey")) {
+
+            return "imagenes/iconos/Mankey_icon.gif";
+
+        } else if (nombrePokemon.equals("Growlithe")) {
+
+            return "imagenes/iconos/Growlithe_icon.gif";
+
+        } else if (nombrePokemon.equals("Poliwag")) {
+
+            return "imagenes/iconos/Poliwag_icon.gif";
+
+        } else if (nombrePokemon.equals("Abra")) {
+
+            return "imagenes/iconos/Abra_icon.gif";
+
+        } else if (nombrePokemon.equals("Machop")) {
+
+            return "imagenes/iconos/Machop_icon.gif";
+
+        } else if (nombrePokemon.equals("Tentacool")) {
+
+            return "imagenes/iconos/Tentacool_icon.gif";
+
+        } else if (nombrePokemon.equals("Doduo")) {
+
+            return "imagenes/iconos/Doduo_icon.gif";
+
+        } else if (nombrePokemon.equals("Seel")) {
+
+            return "imagenes/iconos/Seel_icon.gif";
+
+        } else {
+
+            return "imagenes/iconos/Grimer_icon.gif";
+
+        }
+    }
+
 }
 

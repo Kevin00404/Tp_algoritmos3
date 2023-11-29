@@ -77,6 +77,7 @@ public class MainFX extends Application {
         primeStage.setScene(scene);
         primeStage.setTitle("Pidiendo Nombre");
         primeStage.show();
+        Soundtrack.getSonido().reproducirTitulo();
 
     }
 }

@@ -49,9 +49,11 @@ public class PedirPokemonController {
     public void clickBotonPrimero() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorUno(b_pok_1.getText());
             inicializarDataSegundoJugador();
         } else {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorDos(b_pok_1.getText());
             cambiarEscenaBatalla();
         }
@@ -60,9 +62,11 @@ public class PedirPokemonController {
     public void clickBotonSegundo() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorUno(b_pok_2.getText());
             inicializarDataSegundoJugador();
         } else {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorDos(b_pok_2.getText());
             cambiarEscenaBatalla();
         }
@@ -71,9 +75,11 @@ public class PedirPokemonController {
     public void clickBotonTercero() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorUno(b_pok_3.getText());
             inicializarDataSegundoJugador();
         } else {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorDos(b_pok_3.getText());
             cambiarEscenaBatalla();
         }
@@ -84,9 +90,11 @@ public class PedirPokemonController {
     public void clickBotonCuarto() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorUno(b_pok_4.getText());
             inicializarDataSegundoJugador();
         } else {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorDos(b_pok_4.getText());
             cambiarEscenaBatalla();
         }
@@ -95,9 +103,11 @@ public class PedirPokemonController {
     public void clickBotonQuinto() throws IOException {
         clickContador+=1;
         if(clickContador < 2) {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorUno(b_pok_5.getText());
             inicializarDataSegundoJugador();
         } else {
+            Soundtrack.getSonido().reproducirClick();
             juego.cambiarPokemonEntrenadorDos(b_pok_5.getText());
             cambiarEscenaBatalla();
         }
@@ -122,6 +132,7 @@ public class PedirPokemonController {
 
         this.stage.setTitle("Batalla");
         this.stage.show();
+        Soundtrack.getSonido().reproducirAudioBatalla();
     }
 
     public void setPrimaryStage(Stage stage) {

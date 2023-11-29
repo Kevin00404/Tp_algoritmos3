@@ -19,9 +19,9 @@ public class ConfirmacionCambiarPokemonController {
 
     @FXML
     public void clickSiSeguro(){
-        System.out.println(222);
+
             manejador.cambiaPokemon(this.nombreNuevoPokemonActual);
-            System.out.println(manejador.getNombrePokemonAtacante());
+
     }
     @FXML
     public void clickNoSeguro(){

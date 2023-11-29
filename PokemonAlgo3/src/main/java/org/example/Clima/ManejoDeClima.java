@@ -14,8 +14,8 @@ public class ManejoDeClima {
     private Integer duracion;
 
     private ManejoDeClima(){
-        //clima = setClima();
-        clima = setClimaEspecifico();
+        clima = setClima();
+        //clima = setClimaEspecifico();
         duracion = MAX_DURACION;
     }
 
@@ -25,8 +25,8 @@ public class ManejoDeClima {
 
     public void verificarFinalDeClima(){
         if ( duracion == 0 ){
-            //clima = setClima();
-            clima = setClimaEspecifico();
+            clima = setClima();
+            //clima = setClimaEspecifico();
             duracion = MAX_DURACION;
         }
     }
@@ -90,6 +90,6 @@ public class ManejoDeClima {
     }
 
     private static Climas setClimaEspecifico(){
-        return new Despejado();
+        return new TormentaDeArena();
     }
 }

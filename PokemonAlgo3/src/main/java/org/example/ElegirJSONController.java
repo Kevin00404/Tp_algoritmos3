@@ -77,41 +77,4 @@ public class ElegirJSONController {
         this.juego = juego;
     }
 
-    //audio
-
-    /*@FXML
-    public void reproducirAudio() {
-        Media media = new Media(new File("audio/Track 1.wav").toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-        mediaPlayer.setOnEndOfMedia(() -> {
-            // Esto se ejecuta cuando el audio llega al final
-            System.out.println("paro la musica");
-            mediaPlayer.stop();
-        });
-
-        mediaPlayer.play();
-    }
-
-    @FXML
-    public void reproducir() {
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-                Media media = new Media(new File("audio/Track 1.wav").toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-                mediaPlayer.setOnEndOfMedia(() -> {
-                    // Esto se ejecuta cuando el audio llega al final
-                    System.out.println("paro la musica");
-                    mediaPlayer.stop();
-                });
-
-                mediaPlayer.play();
-                return null;
-            }
-        };
-
-        new Thread(task).start();
-    }*/
 }
