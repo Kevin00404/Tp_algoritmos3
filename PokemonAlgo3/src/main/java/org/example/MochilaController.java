@@ -9,14 +9,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.items.Items;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,10 @@ public class MochilaController {
     public Button salir;
     @FXML
     public ImageView fondoConfirmacion;
+    @FXML
+    public Polygon marcadorSi;
+    @FXML
+    public Polygon marcadorNo;
 
     public MultipleSelectionModel listViewOriginal;
     private Scene escenaBatalla;
@@ -109,7 +116,10 @@ public class MochilaController {
     private void setDescripcion(List<Items> mochila) {
         listaItems.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null){
+                Soundtrack.getSonido().reproducirClick();
                 String descripcion = encontrarItemEnMochila(mochila, newValue.toString());
+                Image imagenDescripcion = new Image(new File(encontrarImagen(newValue.toString())).toURI().toString());
+                imagenItem.setImage(imagenDescripcion);
                 descripcionItem.setText(descripcion);
             } else {
                 descripcionItem.setText("");
@@ -119,6 +129,8 @@ public class MochilaController {
 
     @FXML
     public void volverABatalla(){
+
+        Soundtrack.getSonido().reproducirClick();
 
         animacionFadeIn(escenaBatalla);
 
@@ -139,6 +151,7 @@ public class MochilaController {
     @FXML
     public void confirmarUso(){
         listaItems.setOnMouseClicked(event -> {
+            Soundtrack.getSonido().reproducirClick();
             ocultarSalir();
             itemSeleccionado = listaItems.getSelectionModel().getSelectedIndex();
             listaItems.getSelectionModel().clearSelection();
@@ -152,6 +165,7 @@ public class MochilaController {
         confirmarUsoLabel.setVisible(true);
         confirmarNo.setVisible(true);
         confirmarSi.setVisible(true);
+        marcadorSi.setVisible(true);
     }
     public void ocultarSalir(){
         salir.setVisible(false);
@@ -174,6 +188,7 @@ public class MochilaController {
         confirmarUsoLabel.setVisible(false);
         confirmarSi.setVisible(false);
         confirmarNo.setVisible(false);
+        marcadorSi.setVisible(false);
     }
 
     @FXML
@@ -197,4 +212,57 @@ public class MochilaController {
     public void setScene(Scene escenaBatalla) {
         this.escenaBatalla = escenaBatalla;
     }
+
+    // encontrar imagen de descripcion
+
+    private String encontrarImagen(String item){
+
+        if (item.contains("Hiper pocion")){
+
+            return "imagenes/items/Hiperpocion.png";
+
+        } else if (item.contains("Defensa X")) {
+
+            return "imagenes/items/Defensa_X.png";
+
+        } else if (item.contains("Cura Total")) {
+
+            return "imagenes/items/Cura_total.png";
+
+        } else if (item.contains("Revivir")) {
+
+            return "imagenes/items/Revivir.png";
+
+        } else if (item.contains("Ataque X")) {
+
+            return "imagenes/items/Ataque_X.png";
+
+        } else if (item.contains("Despertar")) {
+
+            return "imagenes/items/Despertar.png";
+
+        } else if (item.contains("Pocion")) {
+
+            return "imagenes/items/Pocion.png";
+
+        } else if (item.contains("AntiParalizar")) {
+
+            return "imagenes/items/Antiparalizador.png";
+
+        } else if (item.contains("Antidoto")) {
+
+            return "imagenes/items/Antidoto.png";
+
+        } else if (item.contains("Super pocion")) {
+
+            return "imagenes/items/Superpocion.png";
+
+        } else {
+
+            return "imagenes/items/Revivir_max.png";
+
+        }
+
+    }
+
 }

@@ -27,12 +27,18 @@ public class PedirNombresController {
 
     @FXML
     public void clickBoton() throws IOException {
+
+        Soundtrack.getSonido().reproducirClick();
+
         String nombre_ingresado = nombre_jugador_1.getText();
         this.juego.setEntrenador1(juego.crearEntrenador1(nombre_ingresado));
         nombre_jugador_1.clear();
         pregunta_nombre_label.setText("Por favor, seleccione el nombre del entrenador (Jugador 2): ");
         boton_de_envio.setOnAction(e -> {
             try {
+
+                Soundtrack.getSonido().reproducirClick();
+
                 activarEscenaPedirPokemon();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);

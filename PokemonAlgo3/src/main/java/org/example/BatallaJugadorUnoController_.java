@@ -12,13 +12,16 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.Log.Log;
+import org.example.habilidad.Habilidad;
 
 import java.io.File;
 import java.io.IOException;
@@ -124,6 +127,29 @@ public class BatallaJugadorUnoController_ {
     public Polygon marcadorMochila;
     @FXML
     public Polygon marcadorRendirse;
+    @FXML
+    public AnchorPane contenedorHabilidades;
+    @FXML
+    public Label tipoHabilidad;
+    @FXML
+    public Label labelDisponibles;
+    @FXML
+    public Label labelTextoDisponibles;
+    @FXML
+    public Label labelTextoTipo;
+    @FXML
+    public Line marcadorHabilidad1;
+    @FXML
+    public Line marcadorHabilidad2;
+    @FXML
+    public Line marcadorHabilidad3;
+    @FXML
+    public Line marcadorHabilidad4;
+    @FXML
+    public Polygon marcadorSi;
+    @FXML
+    public Polygon marcadorNo;
+
 
     public Stage escenaBatalla;
     public Scene escenaBatallaParametro;
@@ -131,6 +157,10 @@ public class BatallaJugadorUnoController_ {
 
     public HashMap<String, ProgressBar> barras_vida_pokemones;
     private Scene escenaDeBatalla;
+    private Integer contadorClicks1;
+    private Integer contadorClicks2;
+    private Integer contadorClicks3;
+    private Integer contadorClicks4;
 
 
     public void setPrimaryStage(Stage stage) {
@@ -158,6 +188,8 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void inicializarDatosdeBatalla() throws IOException {
+
+        contadoresACero();
         animacionFadeIn();
         Log.getLog().setFuente(info_juego);
         recargarDatos();
@@ -223,12 +255,23 @@ public class BatallaJugadorUnoController_ {
     //boton cambiar poke
     @FXML
     public void clickCambiarPokemon() throws IOException {
-        try {
-            mostrarMarcadorPokemon();
+        if (contadorClicks4 < 1){
+
             Soundtrack.getSonido().reproducirClick();
-            activarEscenaCambiarPokemon();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            ocultarMarcadoresPrincipales();
+            marcadorPokemon.setVisible(true);
+            contadoresACero();
+            contadorClicks4++;
+
+        } else {
+
+            try {
+                Soundtrack.getSonido().reproducirClick();
+                activarEscenaCambiarPokemon();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
         }
     }
 
@@ -250,6 +293,9 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarEscenaCambiarPokemon() throws IOException{
+
+        contadoresACero();
+
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("escenaElegirPoke.fxml"));
         Parent root = fxmlloader.load();
 
@@ -272,10 +318,22 @@ public class BatallaJugadorUnoController_ {
     //boton rendirse
     @FXML
     public void activarRendirse(){
-        mostrarMarcadorRendirse();
-        Soundtrack.getSonido().reproducirClick();
-        desactivarOpciones();
-        mostrarRendirse();
+        if (contadorClicks3 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            ocultarMarcadoresPrincipales();
+            marcadorRendirse.setVisible(true);
+            contadoresACero();
+            contadorClicks3++;
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            desactivarOpciones();
+            mostrarRendirse();
+            contadoresACero();
+
+        }
     }
 
     public void desactivarOpciones(){
@@ -290,27 +348,57 @@ public class BatallaJugadorUnoController_ {
 
     @FXML
     public void seRindio() throws IOException {
-        Soundtrack.getSonido().reproducirClick();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pantallaDeVictoria.fxml"));
-        Parent root  = fxmlLoader.load();
 
-        PantallaDeVictoriaController victoria = fxmlLoader.getController();
-        victoria.setJuego(manejador);
-        victoria.setPantallaVictoria(manejador.getEntrenadorContrarioNombre());
+        if (contadorClicks1 < 1){
 
-        Scene scene = new Scene(root);
+            Soundtrack.getSonido().reproducirClick();
+            marcadorNo.setVisible(false);
+            marcadorSi.setVisible(true);
+            contadoresACero();
+            contadorClicks1++;
 
-        this.stage.setScene(scene);
-        this.stage.setTitle("victoria");
-        this.stage.show();
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pantallaDeVictoria.fxml"));
+            Parent root  = fxmlLoader.load();
+
+            PantallaDeVictoriaController victoria = fxmlLoader.getController();
+            victoria.setJuego(manejador);
+            victoria.setPantallaVictoria(manejador.getEntrenadorContrarioNombre());
+
+            Scene scene = new Scene(root);
+
+            this.stage.setScene(scene);
+            this.stage.setTitle("victoria");
+            this.stage.show();
+
+        }
 
     }
 
     @FXML
     public void noSeRindio(){
-        Soundtrack.getSonido().reproducirClick();
-        ocultarRendirse();
-        mostrarOpciones();
+
+        if (contadorClicks2 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            marcadorSi.setVisible(false);
+            marcadorNo.setVisible(true);
+            contadoresACero();
+            contadorClicks2++;
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            ocultarRendirse();
+            marcadorNo.setVisible(false);
+            contadoresACero();
+            mostrarOpciones();
+
+        }
+
+
     }
 
     public void mostrarOpciones(){
@@ -327,12 +415,23 @@ public class BatallaJugadorUnoController_ {
 
     @FXML
     public void clickMostrarMochila() throws IOException{
-        try{
-            mostrarMarcadorMochila();
-            Soundtrack.getSonido().reproducirClick();
-            activarEscenaMostrarMochila();
-        }catch (IOException ex) {
-            throw new RuntimeException(ex);
+        if (contadorClicks2 < 1){
+
+            ocultarMarcadoresPrincipales();
+            marcadorMochila.setVisible(true);
+            contadoresACero();
+            contadorClicks2++;
+
+
+        } else {
+
+            try{
+                Soundtrack.getSonido().reproducirClick();
+                activarEscenaMostrarMochila();
+            }catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
         }
     }
 
@@ -345,6 +444,9 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarEscenaMostrarMochila() throws IOException {
+
+        contadoresACero();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mochila.fxml"));
         Parent root  = fxmlLoader.load();
 
@@ -375,53 +477,65 @@ public class BatallaJugadorUnoController_ {
     //boton atacar
     @FXML
     public void elegirHabilidad(ActionEvent actionEvent) {
-        Soundtrack.getSonido().reproducirClick();
-        mostrarMarcadorAtacar();
-        inhabilitarBotonesIniciales();
-        manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
-        habilitarBotonesDeHabilidad();
-        Log.getLog().log("Que habilidad queres usar?");
+        if (contadorClicks1 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            ocultarMarcadoresPrincipales();
+            marcadorAtacar.setVisible(true);
+            contadoresACero();
+            contadorClicks1++;
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            inhabilitarBotonesIniciales();
+            manejador.cargarHabilidades(habilidad_uno_boton, habilidad_dos_boton, habilidad_tres_boton, habilidad_cuatro_boton);
+            habilitarBotonesDeHabilidad();
+            contadoresACero();
+            ocultarMarcadoresPrincipales();
+        }
     }
+
+    private void habilitarDescripcionHabilidad(){
+        labelTextoDisponibles.setVisible(true);
+        labelTextoTipo.setVisible(true);
+        labelDisponibles.setVisible(true);
+        tipoHabilidad.setVisible(true);
+    }
+
+    private void deshabilitarDescripcionHabilidad(){
+
+        labelTextoDisponibles.setVisible(false);
+        labelTextoTipo.setVisible(false);
+        labelDisponibles.setVisible(false);
+        tipoHabilidad.setVisible(false);
+
+    }
+
+
 
     //manejo de marcadores
 
-    public void mostrarMarcadorAtacar(){
-        marcadorAtacar.setVisible(true);
-        marcadorMochila.setVisible(false);
-        marcadorPokemon.setVisible(false);
-        marcadorRendirse.setVisible(false);
-    }
+    public void ocultarMarcadoresPrincipales(){
 
-    public void mostrarMarcadorMochila(){
-        marcadorAtacar.setVisible(false);
-        marcadorMochila.setVisible(true);
-        marcadorPokemon.setVisible(false);
-        marcadorRendirse.setVisible(false);
-    }
-
-    public void mostrarMarcadorPokemon(){
-        marcadorAtacar.setVisible(false);
-        marcadorMochila.setVisible(false);
-        marcadorPokemon.setVisible(true);
-        marcadorRendirse.setVisible(false);
-    }
-
-    public void mostrarMarcadorRendirse(){
         marcadorAtacar.setVisible(false);
         marcadorMochila.setVisible(false);
         marcadorPokemon.setVisible(false);
-        marcadorRendirse.setVisible(true);
+        marcadorRendirse.setVisible(false);
+
     }
 
     private void habilitarBotonesDeHabilidad() {
+
         habilidad_uno_boton.setDisable(false);
         habilidad_dos_boton.setDisable(false);
         habilidad_tres_boton.setDisable(false);
         habilidad_cuatro_boton.setDisable(false);
-        habilidad_uno_boton.setVisible(true);
+        /*habilidad_uno_boton.setVisible(true);
         habilidad_dos_boton.setVisible(true);
         habilidad_tres_boton.setVisible(true);
-        habilidad_cuatro_boton.setVisible(true);
+        habilidad_cuatro_boton.setVisible(true);*/
+        contenedorHabilidades.setVisible(true);
     }
 
     private void deshabilitarBotonesDeHabilidad(){
@@ -429,10 +543,7 @@ public class BatallaJugadorUnoController_ {
         habilidad_dos_boton.setDisable(true);
         habilidad_tres_boton.setDisable(true);
         habilidad_cuatro_boton.setDisable(true);
-        habilidad_uno_boton.setVisible(false);
-        habilidad_dos_boton.setVisible(false);
-        habilidad_tres_boton.setVisible(false);
-        habilidad_cuatro_boton.setVisible(false);
+        contenedorHabilidades.setVisible(false);
     }
 
     public void habilitarBotonesIniciales(){
@@ -458,48 +569,137 @@ public class BatallaJugadorUnoController_ {
     }
 
     public void activarHabilidadUno(ActionEvent actionEvent) throws InterruptedException, IOException {
-        mostrarMarcadorAtacar();
-        Soundtrack.getSonido().reproducirClick();
-        manejador.ejecutarHabilidadUno();
-        deshabilitarBotonesDeHabilidad();
-        habilitarBotonesIniciales();
-        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        //recargarDatos();
-        animacionAtaque();
-        mostrarMarcadorAtacar();
+        if(contadorClicks1 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            habilitarDescripcionHabilidad();
+            setInfoHabilidad(manejador.getEntrenador_actual().getPokemonActual().getHabilidadUno());
+            contadoresACero();
+            contadorClicks1++;
+            ocultarLineas();
+            marcadorHabilidad1.setVisible(true);
+
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            manejador.ejecutarHabilidadUno();
+            deshabilitarBotonesDeHabilidad();
+            deshabilitarDescripcionHabilidad();
+            habilitarBotonesIniciales();
+            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+            //recargarDatos();
+            animacionAtaque();
+            contadoresACero();
+            ocultarLineas();
+        }
+
     }
     public void activarHabilidadDos(ActionEvent actionEvent) throws InterruptedException, IOException {
-        mostrarMarcadorPokemon();
-        Soundtrack.getSonido().reproducirClick();
-        manejador.ejecutarHabilidadDos();
-        deshabilitarBotonesDeHabilidad();
-        habilitarBotonesIniciales();
-        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        //recargarDatos();
-        animacionAtaque();
-        mostrarMarcadorAtacar();
+        if (contadorClicks2 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            habilitarDescripcionHabilidad();
+            setInfoHabilidad(manejador.getEntrenador_actual().getPokemonActual().getHabilidadDos());
+            contadoresACero();
+            contadorClicks2++;
+            ocultarLineas();
+            marcadorHabilidad2.setVisible(true);
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            manejador.ejecutarHabilidadDos();
+            deshabilitarBotonesDeHabilidad();
+            deshabilitarDescripcionHabilidad();
+            habilitarBotonesIniciales();
+            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+            //recargarDatos();
+            animacionAtaque();
+            contadoresACero();
+            ocultarLineas();
+
+        }
     }
     public void activarHabilidadTres(ActionEvent actionEvent) throws InterruptedException, IOException {
-        mostrarMarcadorMochila();
-        Soundtrack.getSonido().reproducirClick();
-        manejador.ejecutarHabilidadTres();
-        deshabilitarBotonesDeHabilidad();
-        habilitarBotonesIniciales();
-        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        //recargarDatos();
-        animacionAtaque();
-        mostrarMarcadorAtacar();
+        if (contadorClicks3 < 1){
+
+            Soundtrack.getSonido().reproducirClick();
+            habilitarDescripcionHabilidad();
+            setInfoHabilidad(manejador.getEntrenador_actual().getPokemonActual().getHabilidadTres());
+            contadoresACero();
+            contadorClicks3++;
+            ocultarLineas();
+            marcadorHabilidad3.setVisible(true);
+
+        } else {
+
+
+            Soundtrack.getSonido().reproducirClick();
+            manejador.ejecutarHabilidadTres();
+            deshabilitarBotonesDeHabilidad();
+            deshabilitarDescripcionHabilidad();
+            habilitarBotonesIniciales();
+            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+            //recargarDatos();
+            animacionAtaque();
+            contadoresACero();
+            ocultarLineas();
+        }
     }
     public void activarHabilidadCuatro(ActionEvent actionEvent) throws InterruptedException, IOException {
-        mostrarMarcadorRendirse();
-        Soundtrack.getSonido().reproducirClick();
-        manejador.ejecutarHabilidadCuatro();
-        deshabilitarBotonesDeHabilidad();
-        habilitarBotonesIniciales();
-        //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-        //recargarDatos();
-        animacionAtaque();
-        mostrarMarcadorAtacar();
+
+        if (contadorClicks4 < 1) {
+
+            Soundtrack.getSonido().reproducirClick();
+            habilitarDescripcionHabilidad();
+            setInfoHabilidad(manejador.getEntrenador_actual().getPokemonActual().getHabilidadCuatro());
+            contadoresACero();
+            contadorClicks4++;
+            ocultarLineas();
+            marcadorHabilidad4.setVisible(true);
+
+        } else {
+
+            Soundtrack.getSonido().reproducirClick();
+            manejador.ejecutarHabilidadCuatro();
+            deshabilitarBotonesDeHabilidad();
+            deshabilitarDescripcionHabilidad();
+            habilitarBotonesIniciales();
+            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
+            //recargarDatos();
+            animacionAtaque();
+            contadoresACero();
+            ocultarLineas();
+
+        }
+
+    }
+
+    private void contadoresACero(){
+
+        contadorClicks1 = 0;
+        contadorClicks2 = 0;
+        contadorClicks3 = 0;
+        contadorClicks4 = 0;
+    }
+
+    private void ocultarLineas(){
+
+        marcadorHabilidad1.setVisible(false);
+        marcadorHabilidad2.setVisible(false);
+        marcadorHabilidad3.setVisible(false);
+        marcadorHabilidad4.setVisible(false);
+
+    }
+
+    private void setInfoHabilidad(Habilidad habilidad){
+        String cantidadMax = habilidad.getCatidadMax().toString();
+        String cantidad = habilidad.getCantidadDisponible().toString();
+        String tipo = habilidad.getTipoDeHabilidad();
+        labelDisponibles.setText(cantidad + " / " + cantidadMax);
+        tipoHabilidad.setText(tipo);
+
     }
 
 

@@ -285,7 +285,7 @@ public class Juego {
         CuraTotal curaTotal = new CuraTotal("Cura Total" , 1);
         PocionDespertarDormido despertar = new PocionDespertarDormido("Despertar" , 1);
         PocionAntiVeneno antiVeneno = new PocionAntiVeneno("Antidoto" , 1);
-        PocionCurarParalisis curarParalisis = new PocionCurarParalisis("antiparalisis" , 1);
+        PocionCurarParalisis curarParalisis = new PocionCurarParalisis("AntiParalizar" , 1);
         Pocion pocionBasica = new Pocion(20.0 ,"Pocion" , 1);
         Pocion megaPocion = new Pocion(50.0 , "Super pocion" , 1);
         Pocion hiperPocion = new Pocion(100.0 , "Hiper pocion" , 1);
