@@ -276,6 +276,22 @@ public class SeleccionarPokemonParaItemController {
     @FXML
     public void usarItem() throws IOException, InterruptedException {
         Pokemon poke = encontrarPoke(pokemonQueUsaItem);
+        if (itemAUsar==7){
+            if (poke.getEstadisticas().getVida()<=0){
+                System.out.println("mandar mensaje no se puede usar item");
+                return;
+            }
+        }
+
+
+        System.out.println("111111111111111111111111111111111");
+
+        System.out.println(itemAUsar);
+        System.out.println(poke.getNombre());
+        System.out.println(poke.getEstadisticas().getVida());
+        System.out.println("11111111111111111111111166111111111");
+
+
         Boolean seUsoItem = manejador.getEntrenador_actual().getMochila().usarItem(poke, itemAUsar+1);
 
         if (seUsoItem){
@@ -288,10 +304,7 @@ public class SeleccionarPokemonParaItemController {
 
         } else {
 
-
-
         }
-
 
     }
 
@@ -302,8 +315,6 @@ public class SeleccionarPokemonParaItemController {
         fadeIn.setToValue(1.0);
         fadeIn.play();
     }
-
-
 
     private Pokemon encontrarPoke(String pokemonQueUsaItem) {
 

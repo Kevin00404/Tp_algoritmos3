@@ -36,6 +36,7 @@ public class MainFX extends Application {
     public void inicializar( Stage primeStage) throws IOException {
 
         Juego juego = new Juego();
+
         juego = juego.iniciarJuegoConJSON("Partida.json");
 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("elegirJSON.fxml"));
@@ -61,4 +62,5 @@ public class MainFX extends Application {
         Soundtrack.getSonido().reproducirTitulo();
 
     }
+
 }
