@@ -88,7 +88,6 @@ public class PedirPokemonController {
         }
     }
 
-
     @FXML
     public void clickBotonCuarto() throws IOException {
         clickContador+=1;

@@ -747,7 +747,6 @@ public class ElegirPokemonController implements Initializable {
         }
     }
 
-    //progress bar con colores
     private void setProgressBarColor(ProgressBar progressBar, Double progress) {
         if (progress >= 0.51) {
             progressBar.setStyle("-fx-accent: green;");

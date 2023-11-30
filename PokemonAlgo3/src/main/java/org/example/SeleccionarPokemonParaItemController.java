@@ -400,11 +400,10 @@ public class SeleccionarPokemonParaItemController {
     }
 
     private void disableOtherButtons(Button enabledButton, Button... otherButtons) {
-        // Desactivar el botón clickeado
         enabledButton.setDisable(true);
         botonesDeshabilitados.add(enabledButton);
 
-        // Desactivar otros botones
+
         for (Button button : otherButtons) {
             button.setDisable(true);
             botonesDeshabilitados.add(button);
@@ -446,8 +445,6 @@ public class SeleccionarPokemonParaItemController {
         if (vida > 0.0){
 
             rutaIcono = encontrarRutaIconoPkmn(nombrePkmn);
-
-
         } else {
 
             rutaIcono = encontrarRutaIconoPkmnEstatico(nombrePkmn);

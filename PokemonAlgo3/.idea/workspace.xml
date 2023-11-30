@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc23b24-9ffd-4ab5-876f-724bf7677126" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/Imgs/vid.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Informe.json" beforeDir="false" afterPath="$PROJECT_DIR$/Informe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SceneBuilder/app/.package" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BatallaJugadorUnoController_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ConfirmacionCambiarPokemonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ConfirmarRendirseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElegirJSONController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElegirJSONController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElegirPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElegirPokemonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EntrenadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EntrenadorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JSON/LeerArchivoJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JSON/LeerArchivoJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JuegoFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MochilaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MochilaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PantallaDeVictoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PantallaDeVictoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pantallaDeVictoria.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/pantallaDeVictoria.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PedirPokemonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SeleccionarPokemonParaItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SeleccionarPokemonParaItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Soundtrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Soundtrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/Imgs/vid.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/confirmacionCambiarPokemon.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/confirmacionRendirse.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/confirmacionRendirseEstasSeguro.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/confirmarCambiarPokemon.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

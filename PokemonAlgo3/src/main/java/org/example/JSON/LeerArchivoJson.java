@@ -37,8 +37,6 @@ public class LeerArchivoJson {
     }
 
     public void crearInforme(Juego juego, String ganadorDeBatalla){
-
-        // Crear un objeto JSON principal
         JSONArray informe = new JSONArray();
 
         Entrenador entrenadorGanador = juego.getEntrenadorUno();
@@ -52,40 +50,32 @@ public class LeerArchivoJson {
             entrenadorPerdedor = juego.getEntrenadorUno();
         }
 
-        // Crear el primer objeto
         JSONObject ganador = new JSONObject();
         ganador.put("nombre", ganadorDeBatalla);
         ganador.put("ganador", true);
 
-        // Crear el objeto 'items' para ganador
         JSONObject itemsGanador = new JSONObject();
         itemsGanador = ponerItemsEnJson(itemsGanador, entrenadorGanador);
         ganador.put("items", itemsGanador);
 
-        // Crear el array 'pokemons' para ganador
         JSONArray pokemonsGanador = new JSONArray();
         pokemonsGanador = ponerPokemonesEnObjeto(pokemonsGanador, entrenadorGanador);
         ganador.put("pokemons", pokemonsGanador);
 
-        // Agregar el objeto del ganador al array principal
         informe.add(ganador);
 
-        // Crear el segundo objeto
         JSONObject perdedor = new JSONObject();
         perdedor.put("nombre", entrenadorPerdedor.getNombre());
         perdedor.put("ganador", false);
 
-        // Crear el objeto 'items' para perdedor
         JSONObject itemsPerdedor = new JSONObject();
         itemsPerdedor = ponerItemsEnJson(itemsPerdedor, entrenadorPerdedor);
         perdedor.put("items", itemsPerdedor);
 
-        // Crear el array 'pokemons' para perdedor
         JSONArray pokemonsPerdedor = new JSONArray();
         pokemonsPerdedor = ponerPokemonesEnObjeto(pokemonsPerdedor, entrenadorPerdedor);
         perdedor.put("pokemons", pokemonsPerdedor);
 
-        // Agregar el objeto del perdedor al array principal
         informe.add(perdedor);
 
         // Escribir el array JSON en un archivo
@@ -110,8 +100,6 @@ public class LeerArchivoJson {
             pokemonsGanador.add(pokeAAgregar);
 
         }
-
-        //TODO pokemonAAgregar.put("estado", "unEstado o dos");
 
 
         return pokemonsGanador;

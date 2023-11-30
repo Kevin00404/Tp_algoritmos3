@@ -23,9 +23,12 @@ public class PantallaDeVictoriaController {
     public ImageView imagenDefault;
     @FXML
     public ImageView fondo;
+
+
+
+
     @FXML
     public MediaView mediaView;
-
     public File file;
     public Media media;
     public MediaPlayer mediaplayer;
@@ -42,7 +45,6 @@ public class PantallaDeVictoriaController {
 
         mediaplayer.play();
 
-
     }
 
 
@@ -54,12 +56,6 @@ public class PantallaDeVictoriaController {
         labelvictoria2.setText("Felicidades " + entrenadorContrarioNombre + " ha ganado la batalla");
         LeerArchivoJson json = new LeerArchivoJson();
         json.crearInforme(this.juego, entrenadorContrarioNombre);
-
-//        Media video = new Media(new File("video/videoCreditos.mp4").toURI().toString());
-//        MediaPlayer videoCreditos = new MediaPlayer(video);
-//        this.mediaView = new MediaView(videoCreditos);
-//        videoCreditos.setAutoPlay(true);
-
         inicilaizar();
 
     }

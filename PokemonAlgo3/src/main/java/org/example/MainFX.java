@@ -50,10 +50,7 @@ public class MainFX extends Application {
         json.setPrimaryStage(primeStage);
         json.setJuego(juego);
 
-
         Scene scene = new Scene(root);
-
-
         primeStage.setScene(scene);
         primeStage.setTitle("Pidiendo Nombre");
         primeStage.show();

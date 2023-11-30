@@ -39,11 +39,6 @@ public class Soundtrack {
         Media victoria = new Media(new File("audio/Victory Screen.wav").toURI().toString());
         fondo = new MediaPlayer(victoria);
 
-        /*fondo.setOnEndOfMedia(() -> {
-
-            fondo.stop();
-        });*/
-
         fondo.setCycleCount(fondo.INDEFINITE);
 
         fondo.setVolume(0.4);
@@ -94,11 +89,6 @@ public class Soundtrack {
         Media musicaDeBatalla = new Media(new File(elegirCancion()).toURI().toString());
 
         fondo = new MediaPlayer(musicaDeBatalla);
-
-        /*fondo.setOnEndOfMedia(() -> {
-
-            fondo.stop();
-        });*/
 
         fondo.setCycleCount(fondo.INDEFINITE);
 

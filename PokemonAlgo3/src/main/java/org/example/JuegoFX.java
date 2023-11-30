@@ -50,33 +50,6 @@ public class JuegoFX extends Application {
         this.juego = juego;
     }
 
-    public void guardarEntrenadorUno(String nombreIngresado) {
-        Entrenador entrenador_uno = juego.crearEntrenador1(nombreIngresado);
-        entrenadorController.setEntrenadorUno(entrenador_uno);
-    }
-
-    public void guardarEntrenadorDos(String nombreIngresado) {
-        Entrenador entrenador_dos = juego.crearEntrenador2(nombreIngresado);
-        entrenadorController.setEntrenadorDos(entrenador_dos);
-    }
-
-    public void crearEscenaPedidoPokemonActual(Stage primaryStage) throws IOException {
-        stage = primaryStage;
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
-
-        double screenWidth = stage.getWidth();
-        double screenHeight = stage.getHeight();
-
-        double widthPercentage = 1.0;
-        double heightPercentage = 1.0;
-
-        double windowWidth = screenWidth * widthPercentage;
-        double windowHeight = screenHeight * heightPercentage;
-
-        scene = new Scene(fxmlloader.load(), windowWidth, windowHeight);
-
-    }
-
     @FXML
     public void initialize() {
         String nombre_entrenador_uno = entrenadorController.getEntrenador1Nombre();

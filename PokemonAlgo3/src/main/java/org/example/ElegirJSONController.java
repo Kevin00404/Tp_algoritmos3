@@ -32,14 +32,10 @@ public class ElegirJSONController {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("preguntar_primer_jugador_nombre.fxml"));
         Parent root = fxmlloader.load();
 
-        //PedirNombresController es una clase que maneja la logica(modelo) de esta escena
         PedirNombresController pedirNombres = fxmlloader.getController();
         pedirNombres.setPrimaryStage(this.stage);
         pedirNombres.setJuego(new Juego());
-
-
         Scene scene = new Scene(root);
-
 
 
         this.stage.setScene(scene);
@@ -57,9 +53,8 @@ public class ElegirJSONController {
         Juego juego = new Juego();
         juego = juego.iniciarJuegoConJSON("Partida.json");
 
-
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("PedidoPokemonActual.fxml"));
-        //Aqui se guardan los atributos
+
         Parent root = fxmlloader.load();
 
         PedirPokemonController pedirPokemon = fxmlloader.getController();
@@ -72,7 +67,6 @@ public class ElegirJSONController {
         this.stage.setScene(scene);
         this.stage.setTitle("Pidiendo Pokemon");
         this.stage.show();
-
     }
 
     public void setPrimaryStage(Stage primeStage) {

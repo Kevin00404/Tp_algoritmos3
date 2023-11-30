@@ -149,7 +149,10 @@ public class MochilaController {
     }
 
     @FXML
-    public void confirmarUso(){
+    public void confirmarUso() {
+
+        try {
+
         listaItems.setOnMouseClicked(event -> {
             Soundtrack.getSonido().reproducirClick();
             ocultarSalir();
@@ -158,7 +161,11 @@ public class MochilaController {
             listaItems.setSelectionModel(null);
             mostrarElementosDeConfirmacion();
         });
+        } catch (NullPointerException e){
+
+        }
     }
+
 
     public void mostrarElementosDeConfirmacion(){
         fondoConfirmacion.setVisible(true);

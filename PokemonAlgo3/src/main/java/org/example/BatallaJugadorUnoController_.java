@@ -249,10 +249,6 @@ public class BatallaJugadorUnoController_ {
         cant_vida.setText(String.format("%.0f", vida_actual)+"/"+String.format("%.0f", vida_max));
     }
 
-
-
-    //Manejo de Botones:
-    //boton cambiar poke
     @FXML
     public void clickCambiarPokemon() throws IOException {
         if (contadorClicks4 < 1){
@@ -514,8 +510,6 @@ public class BatallaJugadorUnoController_ {
 
 
 
-    //manejo de marcadores
-
     public void ocultarMarcadoresPrincipales(){
 
         marcadorAtacar.setVisible(false);
@@ -640,8 +634,6 @@ public class BatallaJugadorUnoController_ {
             deshabilitarBotonesDeHabilidad();
             deshabilitarDescripcionHabilidad();
             habilitarBotonesIniciales();
-            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-            //recargarDatos();
             animacionAtaque();
             contadoresACero();
             ocultarLineas();
@@ -666,8 +658,6 @@ public class BatallaJugadorUnoController_ {
             deshabilitarBotonesDeHabilidad();
             deshabilitarDescripcionHabilidad();
             habilitarBotonesIniciales();
-            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-            //recargarDatos();
             animacionAtaque();
             contadoresACero();
             ocultarLineas();
@@ -721,7 +711,6 @@ public class BatallaJugadorUnoController_ {
             Image espalda = new Image(new File(rutaEspalda).toURI().toString());
             pkmnFrente.setImage(espalda);
         }
-        // Create a timeline for smooth animation
         Timeline task = new Timeline(
                 new KeyFrame(
                         Duration.ZERO,
@@ -733,11 +722,7 @@ public class BatallaJugadorUnoController_ {
                 )
         );
         task.playFromStart();
-
     }
-
-
-    // animacion de ataque
 
     public void animacionAtaque() throws IOException, InterruptedException {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pkmnEspalda);
@@ -809,8 +794,6 @@ public class BatallaJugadorUnoController_ {
         imagenSonidoOff.setVisible(false);
     }
 
-
-    //busqueda de rutas
 
     public String encontrarRutaFrentePkmn(String nombrePokemon){
         if (nombrePokemon.equals("Bulbasaur")){
@@ -1051,7 +1034,6 @@ public class BatallaJugadorUnoController_ {
 
         }
     }
-
     //progress bar con colores
     private void setProgressBarColor(ProgressBar progressBar, Double progress) {
         if (progress >= 0.51) {
@@ -1062,5 +1044,4 @@ public class BatallaJugadorUnoController_ {
             progressBar.setStyle("-fx-accent: red;");
         }
     }
-
 }
