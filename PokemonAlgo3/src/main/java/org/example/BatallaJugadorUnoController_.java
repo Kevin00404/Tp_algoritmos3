@@ -525,10 +525,6 @@ public class BatallaJugadorUnoController_ {
         habilidad_dos_boton.setDisable(false);
         habilidad_tres_boton.setDisable(false);
         habilidad_cuatro_boton.setDisable(false);
-        /*habilidad_uno_boton.setVisible(true);
-        habilidad_dos_boton.setVisible(true);
-        habilidad_tres_boton.setVisible(true);
-        habilidad_cuatro_boton.setVisible(true);*/
         contenedorHabilidades.setVisible(true);
     }
 
@@ -581,8 +577,6 @@ public class BatallaJugadorUnoController_ {
             deshabilitarBotonesDeHabilidad();
             deshabilitarDescripcionHabilidad();
             habilitarBotonesIniciales();
-            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-            //recargarDatos();
             animacionAtaque();
             contadoresACero();
             ocultarLineas();
@@ -607,8 +601,6 @@ public class BatallaJugadorUnoController_ {
             deshabilitarBotonesDeHabilidad();
             deshabilitarDescripcionHabilidad();
             habilitarBotonesIniciales();
-            //manejador.cambiarJugadores(barra_vida_actual, barra_vida_no_actual, nombre_jugador_actual, nombre_jugador_no_actual);
-            //recargarDatos();
             animacionAtaque();
             contadoresACero();
             ocultarLineas();

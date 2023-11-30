@@ -22,7 +22,6 @@ public class climasTest {
         Estadisticas estadisticas=estadisticasPkmn.crearEstadisticas();
 
         double resultado = granizo.ventajaDeClima(danioHipotetico, estadisticas);
-        System.out.println(resultado);
 
         assertEquals(100.0, resultado, 0.001);
     }
@@ -38,7 +37,6 @@ public class climasTest {
         Estadisticas estadisticas=estadisticasPkmn.crearEstadisticas();
 
         double resultado = clima.ventajaDeClima(danioHipotetico, estadisticas);
-        System.out.println(resultado);
 
         assertEquals(100.0, resultado, 0.001);
     }
@@ -53,8 +51,6 @@ public class climasTest {
         Estadisticas estadisticas=estadisticasPkmn.crearEstadisticas();
 
         double resultado = clima.ventajaDeClima(danioHipotetico, estadisticas);
-        System.out.println(resultado);
-
         assertEquals(100.0, resultado, 0.001);
     }
     @Test
@@ -68,7 +64,6 @@ public class climasTest {
         Estadisticas estadisticas=estadisticasPkmn.crearEstadisticas();
 
         double resultado = clima.ventajaDeClima(danioHipotetico, estadisticas);
-        System.out.println(resultado);
 
         assertEquals(100.0, resultado, 0.001);
     }

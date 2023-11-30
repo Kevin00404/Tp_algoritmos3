@@ -12,10 +12,8 @@ public class EstadoParalizado extends Estado{
     @Override
     public Comando condicionarComando(Comando comando, Estadisticas estadisticas){
         if (Math.random() < 0.5) {
-            System.out.println("El Pokémon está PARALIZADO y no pudo realizar la habilidad.");
             return new ComandoMensaje("El Pokémon está PARALIZADO y no pudo realizar la habilidad.");
         } else {
-            System.out.printf("El Pokémon esta Paralizado pero puedo lanzar la habilidad.");
             Comando nuevoComando = new ComandoMensaje("El Pokémon esta Paralizado pero puedo lanzar la habilidad.");
             nuevoComando.concatComands(comando);
             return nuevoComando;

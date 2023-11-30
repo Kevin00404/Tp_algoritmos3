@@ -18,7 +18,6 @@ public class Mochila {
 
     public void agregarObjeto(Items item){ mochila.add(item); }
     public boolean usarItem(Pokemon pokemon , int itemSeleccionado) throws InterruptedException {
-        System.out.println(mochila.get(itemSeleccionado-1).getNombre());
         boolean itemSeUso = mochila.get((itemSeleccionado-1)).usarItem(pokemon);
         seQuedoSinUsos(itemSeleccionado);
         return itemSeUso;

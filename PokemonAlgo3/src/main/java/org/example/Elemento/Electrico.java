@@ -7,7 +7,6 @@ public class Electrico extends Element {
     @Override
     public Double bonus_mismo_tipo(Element element)
     {
-        System.out.println("Elemento de ataque: " + this.get_tipo() + "     Elemento de pokemon: " + element.get_tipo());
         if (this.nombre_tipo == element.get_tipo()){
             return MATCH_TIPO_ATAQUE_Y_POKEMON;
         }

@@ -83,7 +83,6 @@ public class Pokemon {
 
     public boolean aplicar(Pokemon pokemon /*pokemon a atacar*/, Integer habilidad_a_usar){
         Habilidad habilidad = this.habilidades.get(habilidad_a_usar);
-        System.out.println(this.habilidades.get(habilidad_a_usar).getNombre());
         Comando comandoJugada = habilidad.armarComando(pokemon, this.estadisticas);
 
         comandoJugada = this.estado.condicionarConSiguienteEstado(comandoJugada, this.estadisticas);

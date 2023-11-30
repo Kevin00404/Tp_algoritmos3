@@ -17,10 +17,6 @@ public class EntrenadorController extends Application {
     @Override
     public void start(Stage primaryStage) {
     }
-    public void setEntrenadorUno(Entrenador entrenador) {
-        if(entrenador != null){System.out.println("Entrenador uno fue guardado");}
-        entrenador_uno = entrenador;
-    }
     public void setEntrenadorDos(Entrenador entrenador) {
         this.entrenador_dos = entrenador;
     }

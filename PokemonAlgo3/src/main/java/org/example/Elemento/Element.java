@@ -10,7 +10,6 @@ public abstract class Element {
         return this.nombre_tipo;
     }
     public Double bonus_mismo_tipo(Element element) {
-        System.out.println("Elemento de ataque: " + this.get_tipo() + "     Elemento de pokemon: " + element.get_tipo());
         if (this.nombre_tipo == element.get_tipo()){
             return MATCH_TIPO_ATAQUE_Y_POKEMON;
         }
@@ -33,7 +32,6 @@ public abstract class Element {
     public abstract Double multiplicador_danio_tipo(Volador volador);
 
     public Double multiplicador_danio_tipo(Element element) {
-        System.out.println("ERROR, Madre efectua calculo que deberia efectuar hijo");
         return 0.0;
     }
 
