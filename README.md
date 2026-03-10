@@ -80,7 +80,7 @@ PokemonAlgo3/
 
 ## 🚀 Cómo Ejecutar el Juego
 
-### Prerequisitos
+### Prerrequisitos
 - Java JDK 17 o superior
 - Maven (opcional, si deseas construir desde línea de comandos)
 - IDE con soporte para Maven (IntelliJ IDEA, Eclipse, NetBeans)
